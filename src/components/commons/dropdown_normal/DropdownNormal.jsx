@@ -17,6 +17,7 @@ export function DropdownNoneBorder({ title = "Select", options = [] }) {
   };
 
   const selectOption = (option) => {
+    setSelectedOption(option);
     setIsOpen(false);
   };
 
@@ -75,6 +76,7 @@ export function DropdownBorder({ title = "Select", options = [] }) {
   };
 
   const selectOption = (option) => {
+    setSelectedOption(option);
     setIsOpen(false);
   };
 
