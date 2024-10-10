@@ -1,7 +1,9 @@
 import React from "react";
+import "./styles/reset.css";
+import Test from "./Test";
 
 function App() {
-  return <div className="App">123</div>;
+  return <Test />;
 }
 
 export default App;
