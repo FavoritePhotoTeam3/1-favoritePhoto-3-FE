@@ -13,6 +13,17 @@
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.buttonText {
+  display: inline;
+}
+.buttonIcon {
+  display: none;
+  width: 35px;
+  height: 35px;
 }
 .arrowIcon {
   width: 24px;
@@ -34,6 +45,9 @@
   position: absolute;
   top: 42px;
   left: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -44,4 +58,20 @@
 }
 
 @media (max-width: 743px) {
+  .normalButton {
+    border: 1px solid #ffffff;
+    width: 35px;
+    height: 35px;
+  }
+  .buttonText {
+    display: none;
+  }
+  .buttonIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrowIcon {
+    display: none;
+  }
 }
