@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Test.module.css";
 
-import TextArea from "../components/commons/TextArea";
-import SearchBar from "../components/commons/SearchBar";
+import TextArea from "../../components/commons/text_area/TextArea";
+import SearchBar from "../../components/commons/search_bar/SearchBar";
 
 export default function Test() {
   return (

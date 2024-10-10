@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
+import icSearch from "./assets/ic_search.png";
 
-//리소스
-const icSearch = "/images/ic_search.png";
 
 export default function SearchBar(props) {
   return (
@@ -15,7 +14,7 @@ export default function SearchBar(props) {
           onKeyDown={props.onKeyDown}
           placeholder="검색"
         />
-        <img src={icSearch} alt="검색" />
+        <img src={icSearch} alt="검색" onclick={props.onClick}/>
       </div>
   );
 }
