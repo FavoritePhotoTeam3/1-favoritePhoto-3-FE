@@ -2,7 +2,8 @@ import React from "react";
 import {
   DropdownNoneBorder,
   DropdownBorder,
-} from "./components/DropdownNormal";
+} from "./components/commons/DropdownNormal";
+import { DropdownInput } from "./components/commons/DropdownInput";
 import "./Test.css";
 
 const DEFAULT_SELECT_OPTION = "등급";
@@ -18,7 +19,7 @@ const DEFAULT_ORDER_OPTIONS = [
 function Test() {
   return (
     <div className="test">
-      <div className="testContainer">
+      <div className="testContainer1">
         <DropdownNoneBorder
           title={DEFAULT_SELECT_OPTION}
           options={DEFAULT_SELECT_OPTIONS}
@@ -26,6 +27,13 @@ function Test() {
         <DropdownBorder
           title={DEFAULT_ORDER_OPTION}
           options={DEFAULT_ORDER_OPTIONS}
+        />
+      </div>
+      <div className="testContainer2">
+        <DropdownInput
+          label={DEFAULT_SELECT_OPTION}
+          placeholder={`${DEFAULT_SELECT_OPTION}을 선택해주세요.`}
+          options={DEFAULT_SELECT_OPTIONS}
         />
       </div>
     </div>

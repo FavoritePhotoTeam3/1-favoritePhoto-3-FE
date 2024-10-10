@@ -36,6 +36,7 @@
 .dropdownMenu {
   color: #ffffff;
   border: 1px solid #ffffff;
+  border-radius: 2px;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
@@ -46,6 +47,7 @@
   position: absolute;
   top: 54px;
   left: 0;
+  z-index: 1000;
   &:hover {
     cursor: pointer;
   }
@@ -61,6 +63,7 @@
   align-items: center;
   padding: 13px 20px;
   border: 1px solid #ffffff;
+  border-radius: 2px;
   width: 180px;
   height: 50px;
   background-color: #0f0f0f;
@@ -102,6 +105,7 @@
 @media (max-width: 743px) {
   .dropdownNormal .normalButton {
     border: 1px solid #ffffff;
+    border-radius: 2px;
     width: 35px;
     height: 35px;
   }

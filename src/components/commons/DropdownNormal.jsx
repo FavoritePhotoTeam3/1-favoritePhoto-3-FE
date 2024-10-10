@@ -1,10 +1,10 @@
 // 테두리 없는 dropdown: DropdownNoneBorder
 // 테두리 있는 dropdown: DropdownBorder
 import React, { useEffect, useRef, useState } from "react";
-import styles from "../styles/DropdownNormal.module.css";
+import styles from "./DropdownNormal.module.css";
 
-import downArrow from "../images/icon_arrowdown.svg";
-import filterIcon from "../images/icon_filter.svg";
+import downArrow from "../../images/icon_arrowdown.svg";
+import filterIcon from "../../images/icon_filter.svg";
 
 export function DropdownNoneBorder({ title = "Select", options = [] }) {
   const [isOpen, setIsOpen] = useState(false);
