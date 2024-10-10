@@ -3,8 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./DropdownNormal.module.css";
 
-import downArrow from "../../images/icon_arrowdown.svg";
-import filterIcon from "../../images/icon_filter.svg";
+import downArrow from "./assets/icon_arrowdown.svg";
+import filterIcon from "./assets/icon_filter.svg";
 
 export function DropdownNoneBorder({ title = "Select", options = [] }) {
   const [isOpen, setIsOpen] = useState(false);

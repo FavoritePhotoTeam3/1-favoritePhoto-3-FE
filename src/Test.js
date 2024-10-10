@@ -2,8 +2,8 @@ import React from "react";
 import {
   DropdownNoneBorder,
   DropdownBorder,
-} from "./components/commons/DropdownNormal";
-import { DropdownInput } from "./components/commons/DropdownInput";
+} from "./components/commons/dropdown_normal/DropdownNormal";
+import { DropdownInput } from "./components/commons/dropdown_input/DropdownInput";
 import "./Test.css";
 
 const DEFAULT_SELECT_OPTION = "등급";

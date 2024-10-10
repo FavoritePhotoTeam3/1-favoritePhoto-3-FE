@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./DropdownInput.module.css";
 
-import downArrow from "../../images/icon_arrowdown.svg";
+import downArrow from "./assets/icon_arrowdown.svg";
 
 export function DropdownInput({ label, placeholder, options = [] }) {
   const [isOpen, setIsOpen] = useState(false);
