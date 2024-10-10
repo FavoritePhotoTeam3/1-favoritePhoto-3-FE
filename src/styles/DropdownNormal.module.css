@@ -39,39 +39,95 @@
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 15px;
   font-size: 16px;
   font-weight: 700;
   position: absolute;
-  top: 42px;
+  top: 54px;
   left: 0;
   &:hover {
     cursor: pointer;
   }
 }
 
+.borderedDropdown {
+  display: flex;
+  position: relative;
+}
+.borderedButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 20px;
+  border: 1px solid #ffffff;
+  width: 180px;
+  height: 50px;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.dropdownMenu.bordered {
+  width: 180px;
+}
+
 @media (max-width: 1199px) {
-  .normalButton {
+  .dropdownNormal .normalButton {
     width: 58px;
     height: 22px;
+  }
+  .dropdownNormal .buttonText {
+    font-size: 14px;
+  }
+  .dropdownMenu {
+    font-size: 14px;
+  }
+
+  .borderedButton {
+    width: 140px;
+    height: 45px;
+  }
+  .dropdownMenu.bordered {
+    width: 140px;
+  }
+  .borderedDropdown .buttonText {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 743px) {
-  .normalButton {
+  .dropdownNormal .normalButton {
     border: 1px solid #ffffff;
     width: 35px;
     height: 35px;
   }
-  .buttonText {
+  .dropdownNormal .buttonText {
     display: none;
   }
-  .buttonIcon {
+  .dropdownNormal .buttonIcon {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .arrowIcon {
+  .dropdownNormal .arrowIcon {
     display: none;
+  }
+  .dropdownMenu {
+    font-size: 12px;
+  }
+
+  .borderedButton {
+    width: 130px;
+    height: 35px;
+  }
+  .dropdownMenu.bordered {
+    width: 130px;
+  }
+  .borderedDropdown .buttonText {
+    font-size: 12px;
   }
 }

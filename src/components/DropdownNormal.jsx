@@ -1,10 +1,12 @@
+// 테두리 없는 dropdown: DropdownNoneBorder
+// 테두리 있는 dropdown: DropdownBorder
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/DropdownNormal.module.css";
 
 import downArrow from "../images/icon_arrowdown.svg";
 import filterIcon from "../images/icon_filter.svg";
 
-export function DropdownNormal({ title = "Select", options = [] }) {
+export function DropdownNoneBorder({ title = "Select", options = [] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);
 
@@ -51,6 +53,56 @@ export function DropdownNormal({ title = "Select", options = [] }) {
       </button>
       {isOpen && (
         <ul className={styles.dropdownMenu}>
+          {options.map((option, index) => (
+            <li key={index} onClick={() => selectOption(option)}>
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export function DropdownBorder({ title = "Select", options = [] }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(title);
+
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const selectOption = (option) => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className={styles.borderedDropdown} ref={dropdownRef}>
+      <button className={styles.borderedButton} onClick={toggleDropdown}>
+        <span className={styles.buttonText}>{selectedOption}</span>
+        <img
+          src={downArrow}
+          alt="Dropdown Icon"
+          className={`${styles.arrowIcon} ${isOpen ? styles.menuOpen : ""}`}
+        />
+      </button>
+      {isOpen && (
+        <ul className={`${styles.dropdownMenu} ${styles.bordered}`}>
           {options.map((option, index) => (
             <li key={index} onClick={() => selectOption(option)}>
               {option}
