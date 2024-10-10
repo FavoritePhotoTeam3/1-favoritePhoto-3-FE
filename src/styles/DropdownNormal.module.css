@@ -1,0 +1,47 @@
+.dropdownNormal {
+  display: flex;
+  position: relative;
+}
+.normalButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  width: 64px;
+  height: 24px;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+.menuOpen {
+  transform: rotate(180deg);
+}
+.dropdownMenu {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  top: 42px;
+  left: 0;
+}
+
+@media (max-width: 1199px) {
+  .normalButton {
+    width: 58px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 743px) {
+}

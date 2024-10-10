@@ -1,32 +1,37 @@
 import React, { useState } from "react";
 import styles from "../styles/DropdownNormal.module.css";
 
-const DEFAULT_SELECT_OPTION = "등급";
+import downArrow from "../images/icon_arrowdown.svg";
 
-export function DropdownGrade() {
+export function DropdownNormal({ title = "Select", options = [] }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(DEFAULT_SELECT_OPTION);
+  const [selectedOption, setSelectedOption] = useState(title);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectOption = (option) => {
-    setSelectedOption(option);
     setIsOpen(false);
   };
 
   return (
     <div className={styles.dropdownNormal}>
       <button className={styles.normalButton} onClick={toggleDropdown}>
-        {selectedOption} {isOpen ? "▲" : "▼"}
+        {selectedOption}
+        <img
+          src={downArrow}
+          alt="Dropdown Icon"
+          className={`${styles.arrowIcon} ${isOpen ? styles.menuOpen : ""}`}
+        />
       </button>
       {isOpen && (
         <ul className={styles.dropdownMenu}>
-          <li onClick={() => selectOption("COMMON")}>COMMON</li>
-          <li onClick={() => selectOption("RARE")}>RARE</li>
-          <li onClick={() => selectOption("SUPER RARE")}>SUPER RARE</li>
-          <li onClick={() => selectOption("LEGENDARY")}>LEGENDARY</li>
+          {options.map((option, index) => (
+            <li key={index} onClick={() => selectOption(option)}>
+              {option}
+            </li>
+          ))}
         </ul>
       )}
     </div>
