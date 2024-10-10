@@ -1,7 +1,18 @@
 import React from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import "./styles/reset.css";
+
+import Test from "./pages/Test";
 
 function App() {
-  return <div className="App">123</div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<Test />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
