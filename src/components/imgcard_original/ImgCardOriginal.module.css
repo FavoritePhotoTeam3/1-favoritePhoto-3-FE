@@ -6,9 +6,26 @@
   flex-direction: column;
   padding: 40px;
 }
+.imgCardWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.soldOut {
+  opacity: 0.4;
+}
 .cardImage {
   width: 100%;
   height: auto;
+}
+.soldOutImage {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 .cardContent {
   margin-top: 25px;
