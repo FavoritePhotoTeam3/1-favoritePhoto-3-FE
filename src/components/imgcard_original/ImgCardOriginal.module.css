@@ -30,21 +30,19 @@
   align-items: center;
   padding-bottom: 20px;
   border-bottom: 1px solid #5a5a5a;
+  font-size: 16px;
 }
 .cardGrade {
-  font-size: 16px;
   font-weight: 300;
   padding-right: 10px;
 }
 .cardGenre {
-  font-size: 16px;
   font-weight: 400;
   color: #a4a4a4;
   padding-left: 10px;
   border-left: 1px solid #5a5a5a;
 }
 .cardNickname {
-  font-size: 16px;
   font-weight: 400;
   color: #a4a4a4;
   text-decoration: underline;
@@ -104,4 +102,35 @@
   height: 18px;
   margin-left: 50%;
   transform: translate(-50%, 0);
+}
+@media (max-width: 1199px) {
+  .imgCard {
+    padding: 20px;
+  }
+  .cardContent {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 743px) {
+  .imgCard {
+    padding: 10px;
+  }
+  .cardContent {
+    margin-bottom: 0;
+  }
+  .cardTitle {
+    font-size: 14px;
+  }
+  .cardSubtitle {
+    font-size: 13px;
+  }
+  .priceName,
+  .price,
+  .countsName,
+  .counts {
+    font-size: 10px;
+  }
+  .logoImage {
+    display: none;
+  }
 }
