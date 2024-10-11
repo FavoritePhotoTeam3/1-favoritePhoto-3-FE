@@ -5,6 +5,9 @@ import {
 } from "../../components/commons/dropdown_normal/DropdownNormal";
 import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
 import "./Test.css";
+import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
+
+import defaultImg from "./assets/image1.svg";
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
@@ -30,40 +33,23 @@ const testCardData = {
 function Test() {
   return (
     <div className="test">
-      <DropdownInput
-        label={DEFAULT_SELECT_OPTION}
-        placeholder={`${DEFAULT_SELECT_OPTION}을 선택해주세요`}
-        options={DEFAULT_SELECT_OPTIONS}
-        desktopWidth="400px"
-        tabletWidth="300px"
-        mobileWidth="200px"
-        desktopHeight="70px"
-        tabletHeight="60px"
-        mobileHeight="50px"
-      />
-      <br></br>
-      {/* DropdownNoneBorder 컴포넌트 */}
-      <DropdownNoneBorder
-        title={DEFAULT_SELECT_OPTION}
-        options={DEFAULT_SELECT_OPTIONS}
-        desktopWidth="64px"
-        tabletWidth="58px"
-        desktopHeight="24px"
-        tabletHeight="22px"
-      />
-      <br></br>
-      {/* DropdownBorder 컴포넌트 */}
-      <DropdownBorder
-        title={DEFAULT_ORDER_OPTION}
-        options={DEFAULT_ORDER_OPTIONS}
-        desktopWidth="400px"
-        tabletWidth="300px"
-        mobileWidth="250px"
-        desktopHeight="50px"
-        tabletHeight="45px"
-        mobileHeight="35px"
-      />
-      <div className="testContainer1"></div>
+      <div className="testContainer1">
+        <DropdownNoneBorder
+          title={DEFAULT_SELECT_OPTION}
+          options={DEFAULT_SELECT_OPTIONS}
+        />
+        <DropdownBorder
+          title={DEFAULT_ORDER_OPTION}
+          options={DEFAULT_ORDER_OPTIONS}
+        />
+      </div>
+      <div className="testContainer2">
+        <DropdownInput
+          label={DEFAULT_SELECT_OPTION}
+          placeholder={`${DEFAULT_SELECT_OPTION}을 선택해주세요.`}
+          options={DEFAULT_SELECT_OPTIONS}
+        />
+      </div>
     </div>
   );
 }

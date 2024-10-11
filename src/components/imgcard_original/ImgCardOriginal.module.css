@@ -1,0 +1,107 @@
+.imgCard {
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.cardImage {
+  width: 100%;
+  height: auto;
+}
+.cardContent {
+  margin-top: 25px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.cardSubtitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #5a5a5a;
+}
+.cardGrade {
+  font-size: 16px;
+  font-weight: 300;
+  padding-right: 10px;
+}
+.cardGenre {
+  font-size: 16px;
+  font-weight: 400;
+  color: #a4a4a4;
+  padding-left: 10px;
+  border-left: 1px solid #5a5a5a;
+}
+.cardNickname {
+  font-size: 16px;
+  font-weight: 400;
+  color: #a4a4a4;
+  text-decoration: underline;
+  margin-left: auto;
+}
+.common {
+  color: #efff04;
+}
+.rare {
+  color: #29c9f9;
+}
+.superRare {
+  color: #a77eff;
+}
+.legendary {
+  color: #ff2a6a;
+}
+.cardPrice {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+.priceName {
+  font-size: 16px;
+  font-weight: 300;
+  color: #a4a4a4;
+}
+.price {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+.cardCounts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.countsName {
+  font-size: 16px;
+  font-weight: 300;
+  color: #a4a4a4;
+}
+.counts {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a4a4a4;
+  letter-spacing: 4px;
+}
+.remainingCounts {
+  color: #ffffff;
+}
+.logoImage {
+  width: 100px;
+  height: 18px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
