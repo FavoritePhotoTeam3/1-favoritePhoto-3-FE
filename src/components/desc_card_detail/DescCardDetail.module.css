@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section {
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section:first-child {
+  padding-top: 0px;
+}
+
+.section:not(:last-child) {
+  border-bottom: 1px solid #5A5A5A;
+}
+
+.boxPerRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantityBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
+
+.gapSmall {
+  gap: 10px;
+}
+
+.gapLarge {
+  gap: 20px;
+}
+
+.gradeGenre {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px 15px;
+}
+
+.priceQuantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.space {
+  height: 50px;
+}
+
+/* inputPoint css*/
+
+.inputContainer {
+  max-width: 245px;
+  height: 50px;
+  padding: 0px 20px;
+  background-color: #161616;
+  border: 1px solid #DDDDDD;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pointInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: #DDDDDD;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.inputContainer:hover {
+  background-color: #0F0F0F;
+}
