@@ -1,6 +1,7 @@
 import styles from "./ImgCardOriginal.module.css";
 
 import logoImage from "./assets/logo.svg";
+import soldOutImage from "./assets/soldout.svg";
 
 const ImgCardOriginal = ({
   title,
@@ -28,9 +29,24 @@ const ImgCardOriginal = ({
     }
   };
 
+  const isSoldOut = counts >= maxCounts;
+
   return (
     <div className={styles.imgCard}>
-      <img src={imageUrl} alt="card image" className={styles.cardImage} />
+      <div className={styles.imgCardWrapper}>
+        <img
+          src={imageUrl}
+          alt="card image"
+          className={`${styles.cardImage} ${isSoldOut ? styles.soldOut : ""}`}
+        />
+        {isSoldOut && (
+          <img
+            src={soldOutImage}
+            alt="sold out"
+            className={styles.soldOutImage}
+          />
+        )}
+      </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>
         <div className={styles.cardSubtitle}>

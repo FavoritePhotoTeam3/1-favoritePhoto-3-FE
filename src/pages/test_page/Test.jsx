@@ -24,7 +24,7 @@ const testCardData = {
   genre: "평점",
   nickname: "미쓰쏘",
   price: 4,
-  counts: 2,
+  counts: 5,
   maxCounts: 5,
   imageUrl: defaultImg,
 };
