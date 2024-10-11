@@ -1,0 +1,36 @@
+.container {
+  width: 176px;
+  height: 50px;
+  padding: 11px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  background-color: #161616;
+}
+
+.btn{
+  width: 24px;
+  height: 24px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.quantity {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.container:hover {
+  background-color: #0f0f0f;
+}
