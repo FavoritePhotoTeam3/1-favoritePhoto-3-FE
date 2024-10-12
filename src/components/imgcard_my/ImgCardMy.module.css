@@ -108,11 +108,8 @@
 .counts {
   font-size: 18px;
   font-weight: 400;
-  color: #a4a4a4;
-  letter-spacing: 4px;
-}
-.remainingCounts {
   color: #ffffff;
+  letter-spacing: 4px;
 }
 .logoImage {
   width: 100px;

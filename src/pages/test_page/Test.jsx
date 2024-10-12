@@ -6,6 +6,7 @@ import {
 import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
 import "./Test.css";
 import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
+import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
 
 import defaultImg from "./assets/image1.svg";
 
@@ -19,12 +20,12 @@ const DEFAULT_ORDER_OPTIONS = [
   "낮은 가격순",
 ];
 const testCardData = {
-  title: "우리집 앞마당",
-  grade: "COMMON",
-  genre: "평점",
-  nickname: "미쓰쏘",
+  title: "How Far I'll Go",
+  grade: "SUPER RARE",
+  genre: "풍경",
+  nickname: "랍스타",
   price: 4,
-  counts: 5,
+  counts: 1,
   maxCounts: 5,
   imageUrl: defaultImg,
 };
@@ -33,10 +34,10 @@ function Test() {
   return (
     <div className="test">
       <div className="testContainer1">
-        <ImgCardOriginal {...testCardData} />
-        <ImgCardOriginal {...testCardData} />
-        <ImgCardOriginal {...testCardData} />
-        <ImgCardOriginal {...testCardData} />
+        <ImgCardMy {...testCardData} />
+        <ImgCardMy {...testCardData} />
+        <ImgCardMy {...testCardData} />
+        <ImgCardMy {...testCardData} />
       </div>
       <div className="testContainer2">
         {/* <DropdownInput
