@@ -6,6 +6,7 @@ import {
 import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
 import "./Test.css";
 import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
+import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
 
 import defaultImg from "./assets/image1.svg";
 
