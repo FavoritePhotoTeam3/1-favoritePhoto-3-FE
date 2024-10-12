@@ -10,7 +10,6 @@ const ImgCardMy = ({
   nickname,
   price,
   counts,
-  maxCounts,
   imageUrl,
 }) => {
   // 등급에 따라 글자의 컬러를 정하는 함수
