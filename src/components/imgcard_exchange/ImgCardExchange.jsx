@@ -1,14 +1,12 @@
-import styles from "./ImgCardMy.module.css";
+import styles from "./ImgCardExchange.module.css";
 
-import logoImage from "./assets/logo.svg";
-
-const ImgCardMy = ({
+const ImgCardExchange = ({
   title,
   grade,
   genre,
   nickname,
   price,
-  counts,
+  description,
   imageUrl,
 }) => {
   // 등급에 따라 글자의 컬러를 정하는 함수
@@ -39,20 +37,17 @@ const ImgCardMy = ({
             {grade}
           </span>
           <span className={styles.cardGenre}>{genre}</span>
+          <div className={styles.cardPrice}>
+            <span className={styles.price}>{price}P</span>
+            <span className={styles.priceDesc}>에 구매</span>
+          </div>
           <span className={styles.cardNickname}>{nickname}</span>
         </div>
-        <div className={styles.cardPrice}>
-          <span className={styles.priceName}>가격</span>
-          <span className={styles.price}>{price}P</span>
-        </div>
-        <div className={styles.cardCounts}>
-          <span className={styles.countsName}>수량</span>
-          <span className={styles.counts}>{counts}</span>
-        </div>
+        <p className={styles.cardDescription}>{description}</p>
       </div>
-      <img src={logoImage} alt="logo icon" className={styles.logoImage} />
+      <div className={styles.buttonWrapper}>버튼 버튼</div>
     </div>
   );
 };
 
-export default ImgCardMy;
+export default ImgCardExchange;

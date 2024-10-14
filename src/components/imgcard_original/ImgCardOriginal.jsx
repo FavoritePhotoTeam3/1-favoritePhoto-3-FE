@@ -36,7 +36,7 @@ const ImgCardOriginal = ({
       <div className={styles.imgCardWrapper}>
         <img
           src={imageUrl}
-          alt="card image"
+          alt="card photo"
           className={`${styles.cardImage} ${isSoldOut ? styles.soldOut : ""}`}
         />
         {isSoldOut && (
@@ -68,7 +68,7 @@ const ImgCardOriginal = ({
           </div>
         </div>
       </div>
-      <img src={logoImage} alt="logo image" className={styles.logoImage} />
+      <img src={logoImage} alt="logo icon" className={styles.logoImage} />
     </div>
   );
 };
