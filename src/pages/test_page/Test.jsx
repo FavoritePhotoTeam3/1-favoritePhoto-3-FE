@@ -7,6 +7,7 @@ import { DropdownInput } from "../../components/commons/dropdown_input/DropdownI
 import "./Test.css";
 import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
 import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
+import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 
 import defaultImg from "./assets/image1.svg";
 
@@ -25,6 +26,8 @@ const testCardData = {
   genre: "풍경",
   nickname: "랍스타",
   price: 4,
+  description:
+    "스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다! 스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!",
   counts: 1,
   maxCounts: 5,
   imageUrl: defaultImg,
@@ -34,10 +37,10 @@ function Test() {
   return (
     <div className="test">
       <div className="testContainer1">
-        <ImgCardMy {...testCardData} />
-        <ImgCardMy {...testCardData} />
-        <ImgCardMy {...testCardData} />
-        <ImgCardMy {...testCardData} />
+        <ImgCardExchange {...testCardData} />
+        <ImgCardExchange {...testCardData} />
+        <ImgCardExchange {...testCardData} />
+        <ImgCardExchange {...testCardData} />
       </div>
       <div className="testContainer2">
         {/* <DropdownInput
