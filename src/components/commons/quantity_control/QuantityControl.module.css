@@ -34,3 +34,14 @@
 .container:hover {
   background-color: #0f0f0f;
 }
+
+@media (max-width: 744px) {
+  .container {
+    width: 144px;
+  }
+
+  .quantity {
+    font-size: 1.125rem;
+  }
+  
+}
