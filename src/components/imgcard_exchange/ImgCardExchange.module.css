@@ -96,6 +96,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
 @media (max-width: 1199px) {
   .imgCard {
     padding: 20px;
@@ -110,7 +115,7 @@
   }
   .cardContent {
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
   .cardTitle {
     font-size: 14px;
@@ -120,8 +125,11 @@
   }
   .priceName,
   .price,
-  .countsName,
-  .counts {
+  .priceDesc,
+  .cardNickname {
     font-size: 10px;
+  }
+  .buttonWrapper {
+    gap: 5px;
   }
 }
