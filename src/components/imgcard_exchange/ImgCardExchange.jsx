@@ -1,4 +1,7 @@
 import styles from "./ImgCardExchange.module.css";
+import { PrimaryBtn } from "../commons/btn/primaryBtn";
+import { SecondaryBtn } from "../commons/btn/secondary";
+import { useEffect, useState } from "react";
 
 const ImgCardExchange = ({
   title,
@@ -9,7 +12,19 @@ const ImgCardExchange = ({
   description,
   imageUrl,
 }) => {
-  // 등급에 따라 글자의 컬러를 정하는 함수
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 743);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const gradeColor = (grade) => {
     switch (grade) {
       case "COMMON":
@@ -45,7 +60,18 @@ const ImgCardExchange = ({
         </div>
         <p className={styles.cardDescription}>{description}</p>
       </div>
-      <div className={styles.buttonWrapper}>버튼 버튼</div>
+      <div className={styles.buttonWrapper}>
+        <SecondaryBtn
+          text={isMobile ? "거절" : "거절하기"}
+          width={"100%"}
+          height={isMobile ? "40px" : "60px"}
+        />
+        <PrimaryBtn
+          text={isMobile ? "승인" : "승인하기"}
+          width={"100%"}
+          height={isMobile ? "40px" : "60px"}
+        />
+      </div>
     </div>
   );
 };
