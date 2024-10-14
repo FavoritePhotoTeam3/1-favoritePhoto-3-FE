@@ -8,7 +8,6 @@ const Test = () => {
   return (
     <>
       <Nav />
-      <MyPageNav />
       <ImgCardForSale grade="common" />;
       <ImgCardForSaleSoldOut grade="common" />
     </>

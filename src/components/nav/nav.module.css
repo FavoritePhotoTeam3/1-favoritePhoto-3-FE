@@ -42,6 +42,8 @@
     box-sizing: border-box;
     padding-top: 2px;
     padding-bottom: 2px;
+
+    position: relative;
   }
   .nav_item_point {
     font-size: 0.875rem;
@@ -131,6 +133,8 @@
     box-sizing: border-box;
     padding-top: 2px;
     padding-bottom: 2px;
+
+    position: relative;
   }
   .nav_item_point {
     font-size: 0.875rem;
