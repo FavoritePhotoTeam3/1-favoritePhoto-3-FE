@@ -124,9 +124,9 @@
     gap: 5px;
   }
   .card_grade {
-    width: auto;
-    height: 14px;
-    max-width: 57px;
+    font-size: 0.625rem;
+    font-weight: 300;
+    line-height: 14.48px;
   }
   .card_verLine {
     width: 3px;
@@ -304,8 +304,9 @@
     gap: 10px;
   }
   .card_grade {
-    width: auto;
-    height: 23px;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 23.17px;
   }
   .card_verLine {
     width: 5px;
@@ -481,8 +482,9 @@
     height: 100%;
   }
   .card_grade {
-    width: auto;
-    height: 23px;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 23.17px;
   }
   .card_verLine {
     width: 5px;
