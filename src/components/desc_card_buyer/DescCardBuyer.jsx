@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import style from "./DescCardBuyer.module.css";
-import font from "../../styles/DescCardFont.module.css";
+import font from "../../styles/fonts.module.css";
 
 //컴포넌트
 import QuantityControl from "../commons/quantity_control/QuantityControl.jsx";
-import { PrimaryBtn } from "../commons/btn/primaryBtn.jsx"
+import PrimaryBtnAnother from "../commons/btn/PrimaryBtnAnother.jsx";
 
 // props 정리 *이름 준수
 // selllingData = 판매 Photo 데이터 묶음
+// quantity = 버튼으로 조절하는 수량 조절 값 > 상위 컴포넌트에서 state 관리 및 전달 필요
 // 현재 버튼 온클릭 핸들링 없음 > 버튼 컴포넌트 내 미구현
 
 export default function DescCardBuyer(props) {
@@ -31,13 +32,17 @@ export default function DescCardBuyer(props) {
       <section className={style.section}>
         <div className={style.boxPerRow}>
           <div className={style.gradeGenre}>
-            <p className={`${font.large} ${getColor(props.sellingData.grade)}`}>
+            <p
+              className={`${font.header} ${getColor(props.sellingData.grade)}`}
+            >
               {props.sellingData.grade.toUpperCase()}
             </p>
-            <p className={`${font.large} ${font.darkGray}`}>|</p>
-            <p className={`${font.large} ${font.gray}`}>{props.sellingData.genre}</p>
+            <p className={`${font.header} ${font.darkGray}`}>|</p>
+            <p className={`${font.header} ${font.gray}`}>
+              {props.sellingData.genre}
+            </p>
           </div>
-          <p className={`${font.largeUnderline} ${font.white}`}>
+          <p className={`${font.header} ${font.white} ${font.underline}`}>
             {props.sellingData.nickname}
           </p>
         </div>
@@ -45,22 +50,20 @@ export default function DescCardBuyer(props) {
 
       <section className={style.section}>
         <div className={style.boxPerRow}>
-          <p className={`${font.small} ${font.white}`}>
-            {props.sellingData.description}
-          </p>
+          <p className={font.whiteDesc}>{props.sellingData.description}</p>
         </div>
       </section>
 
       <section className={`${style.section} ${style.gapSmall}`}>
         <div className={style.boxPerRow}>
-          <label className={`${font.middle} ${font.gray}`}>가격</label>
-          <p className={`${font.large} ${font.white}`}>{`${props.sellingData.price} P`}</p>
+          <label className={font.grayLabel}>가격</label>
+          <p className={font.whiteValue}>{`${props.sellingData.price} P`}</p>
         </div>
         <div className={style.boxPerRow}>
-          <label className={`${font.middle} ${font.gray}`}>잔여</label>
-          <p className={`${font.large} ${font.white}`}>
+          <label className={font.grayLabel}>잔여</label>
+          <p className={font.whiteValue}>
             {props.sellingData.remainingCount}
-            <span className={`${font.largeThin} ${font.gray}`}>
+            <span className={font.grayValue}>
               {` / ${props.sellingData.totalCount}`}
             </span>
           </p>
@@ -69,7 +72,7 @@ export default function DescCardBuyer(props) {
 
       <section className={`${style.section} ${style.gapLarge}`}>
         <div className={style.boxPerRow}>
-          <label className={`${font.middle} ${font.white}`}>구매 수량</label>
+          <label className={font.whiteLabel}>구매 수량</label>
           <QuantityControl
             quantity={props.quantity}
             onMinusClick={props.onMinusClick}
@@ -77,22 +80,21 @@ export default function DescCardBuyer(props) {
           />
         </div>
         <div className={style.boxPerRow}>
-          <label className={`${font.middle} ${font.white}`}>총 가격</label>
+          <label className={font.whiteLabel}>총 가격</label>
           <div className={style.totalQuantity}>
             <div className={style.priceQuantity}>
-              <p className={`${font.large} ${font.white}`}>
+              <p className={font.whiteValue}>
                 {`${props.sellingData.price * props.quantity} P`}
               </p>
-              <p className={`${font.middle} ${font.gray}`}>
-                {`(${props.quantity}장)`}
-              </p>
+              <p className={font.grayLabel}>{`(${props.quantity}장)`}</p>
             </div>
           </div>
         </div>
-        <div className={style.space}/>
+        <div className={style.space} />
+        <div className={style.btnSize}>
+          <PrimaryBtnAnother text={"포토카드 구매하기"} font={"large"} />
+        </div>
       </section>
-
-      <PrimaryBtn text={"포토카드 구매하기"} width={"100%"} height={"80px"}/>
     </div>
   );
 }

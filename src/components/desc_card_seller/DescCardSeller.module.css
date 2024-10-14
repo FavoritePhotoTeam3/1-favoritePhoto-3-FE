@@ -69,6 +69,11 @@
   gap: 20px;
 }
 
+.btnSize {
+  width: 100%;
+  height: 80px;
+}
+
 .space {
   height: 50px;
 }

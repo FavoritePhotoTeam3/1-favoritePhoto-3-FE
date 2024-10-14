@@ -26,13 +26,31 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0px 20px
 }
 
 .quantityBox {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0px 20px;
+}
+
+.labelBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 41px 0px;
+}
+
+.controllerBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px 0px;
+  flex-basis: 246px;
 }
 
 .gapSmall {
@@ -61,10 +79,9 @@
   height: 50px;
 }
 
-/* inputPoint css*/
-
+/* 추후 별도 분리를 염두 > inputPoint css*/
 .inputContainer {
-  max-width: 245px;
+  width: 100%;
   height: 50px;
   padding: 0px 20px;
   background-color: #161616;
@@ -77,6 +94,7 @@
 
 .pointInput {
   width: 100%;
+  box-sizing: border-box;
   border: none;
   outline: none;
   background-color: inherit;
@@ -87,4 +105,32 @@
 
 .inputContainer:hover {
   background-color: #0F0F0F;
+}
+
+.spanP {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+
+@media (max-width: 744px) {
+  .pointInput {
+    font-size: 0.875rem;
+  }
+
+ .spanP {
+  font-size: 1.125rem;
+  }
+
+  .quantityBox {
+    gap: 0px 15px
+  }
+
+  .labelBox {
+    gap: 39.5px 0px
+  }
+  .controllerBox {
+    flex-basis: 202px;
+  }
 }

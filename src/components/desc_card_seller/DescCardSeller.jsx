@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./DescCardSeller.module.css";
-import font from "../../styles/DescCardFont.module.css";
+import font from "../../styles/fonts.module.css";
 import icRefresh from "./assets/ic_refresh.png";
 
 //컴포넌트
-import { PrimaryBtn } from "../commons/btn/primaryBtn.jsx";
-import { SecondaryBtn } from "../commons/btn/secondary.jsx";
+import PrimaryBtnAnother from "../commons/btn/PrimaryBtnAnother.jsx";
+import SecondaryAnother from "../commons/btn/SecondaryAnother.jsx";
 
 // props 정리 *이름 준수
 // selllingData = 판매 Photo 데이터 묶음
@@ -34,13 +34,19 @@ export default function DescCardSeller(props) {
         <section className={style.section}>
           <div className={style.boxPerRow}>
             <div className={style.gradeGenre}>
-              <p className={`${font.large} ${getColor(props.sellingData.grade)}`}>
+              <p
+                className={`${font.header} ${getColor(
+                  props.sellingData.grade
+                )}`}
+              >
                 {props.sellingData.grade.toUpperCase()}
               </p>
-              <p className={`${font.large} ${font.darkGray}`}>|</p>
-              <p className={`${font.large} ${font.gray}`}>{props.sellingData.genre}</p>
+              <p className={`${font.header} ${font.darkGray}`}>|</p>
+              <p className={`${font.header} ${font.gray}`}>
+                {props.sellingData.genre}
+              </p>
             </div>
-            <p className={`${font.largeUnderline} ${font.white}`}>
+            <p className={`${font.header} ${font.white} ${font.underline}`}>
               {props.sellingData.nickname}
             </p>
           </div>
@@ -48,24 +54,20 @@ export default function DescCardSeller(props) {
 
         <section className={style.section}>
           <div className={style.boxPerRow}>
-            <p className={`${font.small} ${font.white}`}>
-              {props.sellingData.description}
-            </p>
+            <p className={font.whiteDesc}>{props.sellingData.description}</p>
           </div>
         </section>
 
         <section className={`${style.section} ${style.gapSmall}`}>
           <div className={style.boxPerRow}>
-            <label className={`${font.middle} ${font.gray}`}>가격</label>
-            <p
-              className={`${font.large} ${font.white}`}
-            >{`${props.sellingData.price} P`}</p>
+            <label className={font.grayLabel}>가격</label>
+            <p className={font.whiteValue}>{`${props.sellingData.price} P`}</p>
           </div>
           <div className={style.boxPerRow}>
-            <label className={`${font.middle} ${font.gray}`}>잔여</label>
-            <p className={`${font.large} ${font.white}`}>
+            <label className={font.grayLabel}>잔여</label>
+            <p className={font.whiteValue}>
               {props.sellingData.remainingCount}
-              <span className={`${font.largeThin} ${font.gray}`}>
+              <span className={font.grayValue}>
                 {` / ${props.sellingData.totalCount}`}
               </span>
             </p>
@@ -76,33 +78,41 @@ export default function DescCardSeller(props) {
       <article>
         <header className={style.exchageHeader}>
           <img src={icRefresh} onClick={props.onClickRefresh} alt="새로고침" />
-          <p className={`${font.huge} ${font.white}`}>교환 희망 정보</p>
+          <p className={font.bigHeader}>교환 희망 정보</p>
         </header>
 
         <section className={style.section}>
           <div className={style.boxPerRow}>
             <div className={style.gradeGenre}>
-              <p className={`${font.large} ${getColor(props.exchangeData.grade)}`}>
+              <p
+                className={`${font.header} ${getColor(
+                  props.exchangeData.grade
+                )}`}
+              >
                 {props.exchangeData.grade.toUpperCase()}
               </p>
-              <p className={`${font.large} ${font.darkGray}`}>|</p>
-              <p className={`${font.large} ${font.gray}`}>{props.exchangeData.genre}</p>
+              <p className={`${font.header} ${font.darkGray}`}>|</p>
+              <p className={`${font.header} ${font.gray}`}>
+                {props.exchangeData.genre}
+              </p>
             </div>
           </div>
         </section>
 
         <section className={style.section}>
           <div className={style.boxPerRow}>
-            <p className={`${font.small} ${font.white}`}>
-              {props.exchangeData.description}
-            </p>
+            <p className={font.whiteDesc}>{props.exchangeData.description}</p>
           </div>
           <div className={style.space} />
         </section>
 
         <section className={style.btnBox}>
-          <PrimaryBtn text={"수정하기"} width={"100%"} height={"80px"} />
-          <SecondaryBtn text={"판매 내리기"} width={"100%"} height={"80px"} />
+          <div className={style.btnSize}>
+            <PrimaryBtnAnother text={"수정하기"} font={"large"} />
+          </div>
+          <div className={style.btnSize}>
+            <SecondaryAnother text={"판매 내리기"} font={"large"} />
+          </div>
         </section>
       </article>
     </div>
