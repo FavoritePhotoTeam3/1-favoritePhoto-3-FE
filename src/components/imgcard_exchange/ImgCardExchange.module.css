@@ -42,6 +42,7 @@
   padding-right: 10px;
 }
 .cardGenre {
+  text-align: start;
   font-weight: 400;
   color: #a4a4a4;
   padding-left: 10px;
@@ -107,6 +108,18 @@
   }
   .cardContent {
     margin-bottom: 30px;
+  }
+  .cardSubtitle {
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .cardGenre {
+    margin-right: auto;
+  }
+  .price {
+    padding-left: 0;
+    border-left: none;
   }
 }
 @media (max-width: 743px) {
