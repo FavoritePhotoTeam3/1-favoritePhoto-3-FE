@@ -1,0 +1,47 @@
+.input_textfield {
+  width: 100%;
+
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+
+  background-color: #0f0f0f;
+  color: #ffffff;
+
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+}
+
+.input_textfield.invalid {
+  border: 1px solid #ff483d;
+}
+.input_textfield::placeholder {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+  color: #dddddd;
+}
+
+.input_textfield:focus {
+  outline: 1px solid #dddddd;
+  border: 1px solid #dddddd;
+  background-color: #161616;
+}
+.input_textfield_title {
+  font-size: 1.125rem; /* 16 : 18 = 1 : 1.125*/
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 26.06px;
+}
+
+.input_textfield_valid {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+  color: #ff483d;
+}
