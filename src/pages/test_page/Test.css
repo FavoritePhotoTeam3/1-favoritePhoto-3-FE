@@ -6,11 +6,7 @@
 .testContainer1 {
   width: 100%;
   height: 500px;
-  height: 350px;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
