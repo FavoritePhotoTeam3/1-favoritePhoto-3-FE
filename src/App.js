@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./styles/reset.css";
-import Test from "./pages/test_page/Test";
 
 function App() {
   return (
