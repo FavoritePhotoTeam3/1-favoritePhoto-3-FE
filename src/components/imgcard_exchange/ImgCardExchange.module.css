@@ -74,6 +74,10 @@
   text-decoration: underline;
   margin-left: auto;
 }
+.cardDescription {
+  font-size: 16px;
+  font-weight: 400;
+}
 .common {
   color: #efff04;
 }
@@ -107,7 +111,7 @@
     padding: 20px;
   }
   .cardContent {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
   .cardSubtitle {
     flex-wrap: wrap;
@@ -135,12 +139,17 @@
   }
   .cardSubtitle {
     font-size: 13px;
+    padding-bottom: 10px;
   }
   .priceName,
   .price,
   .priceDesc,
-  .cardNickname {
+  .cardNickname,
+  .cardDescription {
     font-size: 10px;
+  }
+  .cardDescription {
+    margin-top: 10px;
   }
   .buttonWrapper {
     gap: 5px;
