@@ -41,6 +41,28 @@ function Test() {
         tabletHeight="60px"
         mobileHeight="50px"
       />
+      <br></br>
+      {/* DropdownNoneBorder 컴포넌트 */}
+      <DropdownNoneBorder
+        title={DEFAULT_SELECT_OPTION}
+        options={DEFAULT_SELECT_OPTIONS}
+        desktopWidth="64px"
+        tabletWidth="58px"
+        desktopHeight="24px"
+        tabletHeight="22px"
+      />
+      <br></br>
+      {/* DropdownBorder 컴포넌트 */}
+      <DropdownBorder
+        title={DEFAULT_ORDER_OPTION}
+        options={DEFAULT_ORDER_OPTIONS}
+        desktopWidth="400px"
+        tabletWidth="300px"
+        mobileWidth="250px"
+        desktopHeight="50px"
+        tabletHeight="45px"
+        mobileHeight="35px"
+      />
       <div className="testContainer1"></div>
     </div>
   );

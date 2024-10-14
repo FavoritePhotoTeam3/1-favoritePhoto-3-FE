@@ -6,7 +6,14 @@ import styles from "./DropdownNormal.module.css";
 import downArrow from "./assets/icon_arrowdown.svg";
 import filterIcon from "./assets/icon_filter.svg";
 
-export function DropdownNoneBorder({ title = "Select", options = [] }) {
+export function DropdownNoneBorder({
+  title = "Select",
+  options = [],
+  desktopWidth = "100%",
+  tabletWidth = "100%",
+  desktopHeight = "60px",
+  tabletHeight = "55px",
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);
 
@@ -36,8 +43,19 @@ export function DropdownNoneBorder({ title = "Select", options = [] }) {
     };
   }, []);
 
+  const customStyles = {
+    "--desktop-width": desktopWidth,
+    "--tablet-width": tabletWidth,
+    "--desktop-height": desktopHeight,
+    "--tablet-height": tabletHeight,
+  };
+
   return (
-    <div className={styles.dropdownNormal} ref={dropdownRef}>
+    <div
+      className={styles.dropdownNormal}
+      ref={dropdownRef}
+      style={customStyles}
+    >
       <button className={styles.normalButton} onClick={toggleDropdown}>
         {/* 텍스트 (데스크탑, 태블릿) */}
         <span className={styles.buttonText}>{selectedOption}</span>
@@ -65,7 +83,16 @@ export function DropdownNoneBorder({ title = "Select", options = [] }) {
   );
 }
 
-export function DropdownBorder({ title = "Select", options = [] }) {
+export function DropdownBorder({
+  title = "Select",
+  options = [],
+  desktopWidth = "100%",
+  tabletWidth = "100%",
+  mobileWidth = "100%",
+  desktopHeight = "50px",
+  tabletHeight = "45px",
+  mobileHeight = "35px",
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);
 
@@ -93,8 +120,21 @@ export function DropdownBorder({ title = "Select", options = [] }) {
     };
   }, []);
 
+  const customStyles = {
+    "--desktop-width": desktopWidth,
+    "--tablet-width": tabletWidth,
+    "--mobile-width": mobileWidth,
+    "--desktop-height": desktopHeight,
+    "--tablet-height": tabletHeight,
+    "--mobile-height": mobileHeight,
+  };
+
   return (
-    <div className={styles.borderedDropdown} ref={dropdownRef}>
+    <div
+      className={styles.borderedDropdown}
+      ref={dropdownRef}
+      style={customStyles}
+    >
       <button className={styles.borderedButton} onClick={toggleDropdown}>
         <span className={styles.buttonText}>{selectedOption}</span>
         <img
