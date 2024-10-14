@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+  width: 100%;
 }
 .dropdownLabel {
   color: #ffffff;
@@ -17,7 +18,7 @@
   padding: 16px 20px;
   border: 1px solid #ffffff;
   border-radius: 2px;
-  width: 520px;
+  width: var(--desktop-width); /* 데스크탑 사이즈*/
   height: 60px;
   background-color: #0f0f0f;
   color: #ffffff;
@@ -38,7 +39,7 @@
   transform: rotate(180deg);
 }
 .dropdownMenu {
-  width: 520px;
+  width: var(--desktop-width); /* 데스크탑 사이즈*/
   color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 2px;
@@ -63,21 +64,21 @@
     font-size: 16px;
   }
   .dropdownButton {
-    width: 440px;
+    width: var(--tablet-width); /* 태블릿 사이즈*/
     height: 55px;
   }
   .dropdownMenu {
-    width: 440px;
+    width: var(--tablet-width); /* 태블릿 사이즈*/
     top: 94px;
   }
 }
 
 @media (max-width: 743px) {
   .dropdownButton {
-    width: 345px;
+    width: var(--mobile-width); /* 태블릿 사이즈*/
   }
   .dropdownMenu {
-    width: 345px;
+    width: var(--mobile-width); /* 태블릿 사이즈*/
     font-size: 14px;
   }
   .selectedOption {

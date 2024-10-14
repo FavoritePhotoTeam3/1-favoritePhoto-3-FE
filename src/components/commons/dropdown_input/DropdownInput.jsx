@@ -3,7 +3,14 @@ import styles from "./DropdownInput.module.css";
 
 import downArrow from "./assets/icon_arrowdown.svg";
 
-export function DropdownInput({ label, placeholder, options = [] }) {
+export function DropdownInput({
+  label,
+  placeholder,
+  options = [],
+  desktopWidth,
+  tabletWidth,
+  mobileWidth,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(placeholder);
 
@@ -31,8 +38,18 @@ export function DropdownInput({ label, placeholder, options = [] }) {
     };
   }, []);
 
+  const customStyles = {
+    "--desktop-width": desktopWidth || "100%",
+    "--tablet-width": tabletWidth || "100%",
+    "--mobile-width": mobileWidth || "100%",
+  };
+
   return (
-    <div className={styles.dropdownContainer} ref={dropdownRef}>
+    <div
+      className={styles.dropdownContainer}
+      ref={dropdownRef}
+      style={customStyles}
+    >
       <label className={styles.dropdownLabel}>{label}</label>
 
       <button className={styles.dropdownButton} onClick={toggleDropdown}>
