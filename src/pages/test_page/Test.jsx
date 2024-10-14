@@ -10,6 +10,7 @@ import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 
 import defaultImg from "./assets/image1.svg";
+import { Title } from "../../components/commons/title/Title";
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
