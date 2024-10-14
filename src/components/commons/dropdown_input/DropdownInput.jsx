@@ -7,9 +7,12 @@ export function DropdownInput({
   label,
   placeholder,
   options = [],
-  desktopWidth,
-  tabletWidth,
-  mobileWidth,
+  desktopWidth = "100%",
+  tabletWidth = "100%",
+  mobileWidth = "100%",
+  desktopHeight = "60px",
+  tabletHeight = "55px",
+  mobileHeight = "55px",
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(placeholder);
@@ -39,9 +42,12 @@ export function DropdownInput({
   }, []);
 
   const customStyles = {
-    "--desktop-width": desktopWidth || "100%",
-    "--tablet-width": tabletWidth || "100%",
-    "--mobile-width": mobileWidth || "100%",
+    "--desktop-width": desktopWidth,
+    "--tablet-width": tabletWidth,
+    "--mobile-width": mobileWidth,
+    "--desktop-height": desktopHeight,
+    "--tablet-height": tabletHeight,
+    "--mobile-height": mobileHeight,
   };
 
   return (

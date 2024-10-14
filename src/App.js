@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/reset.css";
-import Test from "./pages/test_page_kjm/Test";
+import Test from "../src/pages/test_page/Test";
 
 function App() {
   return <Test />;
