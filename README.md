@@ -4,5 +4,5 @@
 
 # 중간 사이즈 적용을 위해 컴포넌트 사이즈를 조정 했습니다 : .nav_item_container
 
-- width: 241px <- 281px
-- gap: 20px <- 30px
+- width: 201px <- 281px
+- gap: 10px <- 30px

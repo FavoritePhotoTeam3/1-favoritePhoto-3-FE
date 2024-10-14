@@ -3,8 +3,10 @@ import logo from "./assets/logo.png";
 import notice from "./assets/notice.png";
 import menu from "./assets/menu.png";
 import verLine from "./assets/verLine.png";
+import arrow from "./assets/arrow.png";
+import myLogo from "./assets/myLogo.png";
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <div className={style.nav_Wrapper}>
       <div className={style.nav_Container}>
@@ -15,8 +17,6 @@ const Nav = () => {
     </div>
   );
 };
-
-export default Nav;
 
 const NavItem = ({ isLogin }) => {
   console.log(isLogin);
@@ -40,12 +40,13 @@ const NavItem = ({ isLogin }) => {
   }
 };
 
-const MyPageNav = () => {
+export const MyPageNav = () => {
   return (
-    <div className={style.nav_Wrapper}>
-      <img className={style.nav_item_menu} src={menu} alt="" />
-      <img className={style.nav_logo} src={logo} alt="" />
-      <NavItem isLogin={true} />
+    <div className={style.nav_myPage_Wrapper}>
+      <div className={style.nav_myPage_Container}>
+        <img className={style.nav_myPage_back} src={arrow} alt="" />
+        <img className={style.nav_myPage_logo} src={myLogo} alt="" />
+      </div>
     </div>
   );
 };
