@@ -10,6 +10,7 @@ import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 
 import defaultImg from "./assets/image1.svg";
+import { Title } from "../../components/commons/title/Title";
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
@@ -36,19 +37,8 @@ const testCardData = {
 function Test() {
   return (
     <div className="test">
-      <div className="testContainer1">
-        <ImgCardExchange {...testCardData} />
-        <ImgCardExchange {...testCardData} />
-        <ImgCardExchange {...testCardData} />
-        <ImgCardExchange {...testCardData} />
-      </div>
-      <div className="testContainer2">
-        {/* <DropdownInput
-          label={DEFAULT_SELECT_OPTION}
-          placeholder={`${DEFAULT_SELECT_OPTION}을 선택해주세요.`}
-          options={DEFAULT_SELECT_OPTIONS}
-        /> */}
-      </div>
+      <Title title={"포토카드 생성하기"} />
+      <div className="testContainer1"></div>
     </div>
   );
 }

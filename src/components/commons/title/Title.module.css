@@ -1,0 +1,14 @@
+.titleContainer {
+  width: 100%;
+  height: 83px;
+  border-bottom: 2px solid #eeeeee;
+}
+.title {
+  font-family: "BR B";
+  font-size: 62px;
+  font-weight: 400;
+  text-align: start;
+
+  background-color: inherit;
+  color: #ffffff;
+}
