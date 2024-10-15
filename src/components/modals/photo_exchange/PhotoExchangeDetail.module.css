@@ -1,0 +1,29 @@
+.logo {
+  color: #a4a4a4;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "BR B";
+  text-align: start;
+
+  margin-bottom: 40px;
+}
+.title {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.cardDetail {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.textareaWrapper {
+  height: 159px;
+}
+.buttonWrapper {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  height: 60px;
+}

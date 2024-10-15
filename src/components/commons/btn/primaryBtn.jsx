@@ -1,8 +1,8 @@
 import "./primaryBtn.css";
 
-export const PrimaryBtn = ({ text, width, height }) => {
+export const PrimaryBtn = ({ text, width, height, onClick }) => {
   return (
-    <div style={{ display: "flex", width, height }}>
+    <div style={{ display: "flex", width, height }} onClick={onClick}>
       <div className="primary_btn_container">
         <span className="primary_btn_text">{text}</span>
       </div>

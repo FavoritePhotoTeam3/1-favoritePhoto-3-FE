@@ -1,8 +1,8 @@
 import "./secondary.css";
 
-export const SecondaryBtn = ({ text, width, height }) => {
+export const SecondaryBtn = ({ text, width, height, onClick }) => {
   return (
-    <div style={{ display: "flex", width, height }}>
+    <div style={{ display: "flex", width, height }} onClick={onClick}>
       <div className="secondary_btn_container">
         <span className="secondary_btn_text">{text}</span>
       </div>

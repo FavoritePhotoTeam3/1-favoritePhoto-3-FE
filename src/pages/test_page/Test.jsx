@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DropdownNoneBorder,
   DropdownBorder,
 } from "../../components/commons/dropdown_normal/DropdownNormal";
 import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
 import "./Test.css";
+import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
+import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
+import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
+
+import defaultImg1 from "./assets/image1.svg";
+import defaultImg2 from "./assets/image2.svg";
+import { Title } from "../../components/commons/title/Title";
+import PhotoExchange from "../../components/modals/photo_exchange/PhotoExchange";
+import PhotoSelling from "../../components/modals/photo_selling/PhotoSelling";
+
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
@@ -15,54 +25,40 @@ const DEFAULT_ORDER_OPTIONS = [
   "높은 가격순",
   "낮은 가격순",
 ];
-const testCardData = {
-  title: "How Far I'll Go",
-  grade: "SUPER RARE",
-  genre: "풍경",
-  nickname: "랍스타",
-  price: 4,
-  description:
-    "스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다! 스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!",
-  counts: 1,
-  maxCounts: 5,
-};
+const imageCards = [
+  {
+    title: "스페인 여행",
+    grade: "RARE",
+    genre: "풍경",
+    nickname: "프로여행러",
+    price: 4,
+    counts: 2,
+    imageUrl: defaultImg1,
+  },
+  {
+    title: "우리집 앞마당",
+    grade: "COMMON",
+    genre: "풍경",
+    nickname: "미쓰쏘",
+    price: 5,
+    counts: 5,
+    imageUrl: defaultImg2,
+  },
+];
 
 function Test() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="test">
-      <DropdownInput
-        label={DEFAULT_SELECT_OPTION}
-        placeholder={`${DEFAULT_SELECT_OPTION}을 선택해주세요`}
-        options={DEFAULT_SELECT_OPTIONS}
-        desktopWidth="400px"
-        tabletWidth="300px"
-        mobileWidth="200px"
-        desktopHeight="70px"
-        tabletHeight="60px"
-        mobileHeight="50px"
-      />
-      <br></br>
-      {/* DropdownNoneBorder 컴포넌트 */}
-      <DropdownNoneBorder
-        title={DEFAULT_SELECT_OPTION}
-        options={DEFAULT_SELECT_OPTIONS}
-        desktopWidth="64px"
-        tabletWidth="58px"
-        desktopHeight="24px"
-        tabletHeight="22px"
-      />
-      <br></br>
-      {/* DropdownBorder 컴포넌트 */}
-      <DropdownBorder
-        title={DEFAULT_ORDER_OPTION}
-        options={DEFAULT_ORDER_OPTIONS}
-        desktopWidth="400px"
-        tabletWidth="300px"
-        mobileWidth="250px"
-        desktopHeight="50px"
-        tabletHeight="45px"
-        mobileHeight="35px"
-      />
+      {isModalOpen && (
+        <PhotoSelling onClose={closeModal} imageCards={imageCards} />
+      )}
+
       <div className="testContainer1"></div>
     </div>
   );
