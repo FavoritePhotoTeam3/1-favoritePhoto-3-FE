@@ -5,17 +5,15 @@ import icClose from "./assets/ic_close.png";
 
 import PrimaryBtnAnother from "../../commons/btn/PrimaryBtnAnother";
 
-export default function ExchangeCancleConfirm(props) {
+export default function SaleCancleConfirm(props) {
   return (
     <div className={style.container}>
       <img src={icClose} alt="닫기" className={style.closeIcon} />
-      <header className={style.header}>교환 제시 취소</header>
-      <p className={style.descMedium}>{`[${props.exchange.grade.toUpperCase()} | ${
-        props.exchange.name
-      }] 카드와의 교환을 취소하시겠습니까?`}</p>
+      <header className={style.header}>포토카드 판매 내리기</header>
+      <p className={style.descMedium}>{`정말로 판매를 중단하시겠습니까?`}</p>
       <div className={style.btnSize}>
         <PrimaryBtnAnother
-          text={"취소하기"}
+          text={"판매 내리기"}
           font={"medium"}
           onClick={props.onClickExchangeConfirm}
         />
