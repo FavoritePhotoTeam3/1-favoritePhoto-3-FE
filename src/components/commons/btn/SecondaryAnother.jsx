@@ -7,7 +7,7 @@ export default function secondaryAnother(props) {
     className={`${style.container} ${style[props.font]} ${
       props.disable ? style.disable : style.active
     }`}
-      onClick={props.onClickBtn}
+      onClick={props.onClick}
       disabled={props?.disable}
     >
       {props.text}
