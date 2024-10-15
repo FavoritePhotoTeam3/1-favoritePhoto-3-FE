@@ -1,0 +1,295 @@
+@media screen and (min-width: 745px) {
+  .nav_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 80px;
+
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    background-color: #0f0f0f;
+  }
+  .nav_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1479.94px;
+    height: 25.2px;
+
+    background-color: #0f0f0f;
+  }
+  .nav_item_menu {
+    display: none;
+  }
+
+  .nav_logo {
+    width: 138.94px;
+    height: 25.2px;
+  }
+
+  .nav_item_container {
+    display: flex;
+    width: 281px;
+    height: 24px;
+    gap: 30px;
+
+    box-sizing: border-box;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    position: relative;
+  }
+  .nav_item_point {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 20.27px;
+
+    color: #dddddd;
+  }
+  .nav_item_notice {
+    width: 24px;
+    height: 24px;
+  }
+  .nav_item_verLine {
+    width: 4px;
+    height: 20px;
+    color: #5a5a5a;
+  }
+
+  .nav_item_userName {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 18.43px;
+
+    color: #dddddd;
+  }
+  .nav_itme_logout {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 20.27px;
+
+    color: #5a5a5a;
+  }
+
+  .nav_item_text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 20.27px;
+
+    color: #dddddd;
+  }
+  .nav_item_container.notLogin {
+    justify-content: end;
+  }
+}
+@media screen and (max-width: 744px) and (min-width: 426px) {
+  .nav_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-color: #0f0f0f;
+  }
+  .nav_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 664px;
+    height: 24px;
+
+    background-color: #0f0f0f;
+  }
+
+  .nav_item_menu {
+    display: none;
+  }
+
+  .nav_logo {
+    width: 111px;
+    height: 20px;
+  }
+
+  .nav_item_container {
+    display: flex;
+    width: 241px; /* 코드잇 피그마 스케일 281px*/
+    height: 24px;
+    gap: 20px; /* 코드잇 피그마 스케일 30px*/
+
+    box-sizing: border-box;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    position: relative;
+  }
+  .nav_item_point {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 20.27px;
+
+    color: #dddddd;
+  }
+  .nav_item_notice {
+    width: 24px;
+    height: 24px;
+  }
+  .nav_item_verLine {
+    width: 4px;
+    height: 20px;
+    color: #5a5a5a;
+  }
+
+  .nav_item_userName {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 18.43px;
+
+    color: #dddddd;
+  }
+  .nav_itme_logout {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 20.27px;
+
+    color: #5a5a5a;
+  }
+
+  .nav_item_text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 20.27px;
+
+    color: #dddddd;
+  }
+  .nav_item_container.notLogin {
+    justify-content: end;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .nav_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-color: #0f0f0f;
+  }
+  .nav_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 374px;
+    height: 22px;
+
+    background-color: #0f0f0f;
+
+    box-sizing: border-box;
+  }
+  .nav_item_menu {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav_logo {
+    width: 83.37px;
+    height: 15.12px;
+  }
+
+  .nav_item_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+  }
+  .nav_item_point {
+    display: none;
+  }
+  .nav_item_notice {
+    width: 22px;
+    height: 22px;
+  }
+  .nav_item_verLine {
+    display: none;
+  }
+
+  .nav_item_userName {
+    display: none;
+  }
+  .nav_itme_logout {
+    display: none;
+  }
+
+  .nav_item_text {
+    display: none;
+  }
+  .nav_item_container.notLogin {
+    display: none;
+  }
+}
+.nav_myPage_Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background-color: #0f0f0f;
+}
+.nav_myPage_Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 335px;
+  height: 22px;
+
+  background-color: #0f0f0f;
+
+  box-sizing: border-box;
+
+  position: relative;
+}
+
+.nav_myPage_back {
+  width: 22px;
+  height: 22px;
+  top: 0;
+  left: 0;
+
+  position: absolute;
+}
+
+.nav_myPage_logo {
+  width: 83.37px;
+  height: 15.12px;
+}
