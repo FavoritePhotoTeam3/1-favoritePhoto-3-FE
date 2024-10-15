@@ -10,6 +10,7 @@ const ImgCardMy = ({
   price,
   counts,
   imageUrl,
+  onClick,
 }) => {
   // 등급에 따라 글자의 컬러를 정하는 함수
   const gradeColor = (grade) => {
@@ -28,7 +29,7 @@ const ImgCardMy = ({
   };
 
   return (
-    <div className={styles.imgCard}>
+    <div className={styles.imgCard} onClick={onClick}>
       <div className={styles.imgCardWrapper}>
         <img src={imageUrl} alt="card photo" className={styles.cardImage} />
       </div>
