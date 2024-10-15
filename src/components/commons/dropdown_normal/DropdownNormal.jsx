@@ -13,6 +13,7 @@ export function DropdownNoneBorder({
   tabletWidth = "100%",
   desktopHeight = "60px",
   tabletHeight = "55px",
+  onSelect,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);
@@ -26,6 +27,9 @@ export function DropdownNoneBorder({
   const selectOption = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    if (onSelect) {
+      onSelect(option);
+    }
   };
 
   // 드롭다운 외부 클릭 시 메뉴 닫기
@@ -92,6 +96,7 @@ export function DropdownBorder({
   desktopHeight = "50px",
   tabletHeight = "45px",
   mobileHeight = "35px",
+  onSelect,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);
@@ -105,6 +110,9 @@ export function DropdownBorder({
   const selectOption = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    if (onSelect) {
+      onSelect(option);
+    }
   };
 
   useEffect(() => {
