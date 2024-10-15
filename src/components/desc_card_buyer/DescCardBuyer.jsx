@@ -92,7 +92,7 @@ export default function DescCardBuyer(props) {
         </div>
         <div className={style.space} />
         <div className={style.btnSize}>
-          <PrimaryBtnAnother text={"포토카드 구매하기"} font={"large"} />
+          <PrimaryBtnAnother text={"포토카드 구매하기"} font={"large"} onClick={props.onClickPurchase}/>
         </div>
       </section>
     </div>

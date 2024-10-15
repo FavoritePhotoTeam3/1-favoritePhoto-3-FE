@@ -108,10 +108,10 @@ export default function DescCardSeller(props) {
 
         <section className={style.btnBox}>
           <div className={style.btnSize}>
-            <PrimaryBtnAnother text={"수정하기"} font={"large"} />
+            <PrimaryBtnAnother text={"수정하기"} font={"large"} onClick={props.onClickModify}/>
           </div>
           <div className={style.btnSize}>
-            <SecondaryAnother text={"판매 내리기"} font={"large"} />
+            <SecondaryAnother text={"판매 내리기"} font={"large"} onClick={props.onClickCloseSelling}/>
           </div>
         </section>
       </article>

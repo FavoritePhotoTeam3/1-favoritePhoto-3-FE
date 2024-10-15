@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import style from "./filter.module.css";
+import React, { useState } from "react";
+import style from "./FilterModal.module.css";
 import font from "../../../styles/fonts.module.css";
 
 import icRefresh from "./assets/ic_refresh.png";
@@ -14,7 +14,8 @@ export default function Filter(props) {
     { label: "매진 여부", key: "매진 여부" },
   ];
 
-  //임시 데이터 > 추후 로직? 수정필요
+  // 메모: 임시 데이터 > 추후 로직? 수정필요 > Count를 받아올 수 있도록
+  // 메모: Count를 프론트에서 Sum 계산할지? API로 받아올 수 있을지?
   const gradeList = [
     { label: "COMMON", color: "common", count: 10 },
     { label: "RARE", color: "rare", count: 300 },
@@ -33,6 +34,7 @@ export default function Filter(props) {
     { label: "판매 중", count: 1000 },
     { label: "판매 완료", count: 800 },
   ];
+    // 여기까지
 
   const [photoCount, setPhotoCount] = useState(0);
   const [activeMenu, setActiveMenu] = useState("등급");
