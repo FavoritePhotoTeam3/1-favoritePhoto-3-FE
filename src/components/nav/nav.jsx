@@ -5,7 +5,7 @@ import menu from "./assets/menu.png";
 import verLine from "./assets/verLine.png";
 import arrow from "./assets/arrow.png";
 import myLogo from "./assets/myLogo.png";
-import Profile from "../modals/profile/profile";
+import Notice from "../notice/notice";
 
 export const Nav = () => {
   return (
@@ -29,7 +29,7 @@ const NavItem = ({ isLogin }) => {
         <img className={style.nav_item_verLine} src={verLine} alt="" />
         <span className={style.nav_item_userName}>유디</span>
         <span className={style.nav_itme_logout}>로그아웃</span>
-        <Profile />
+        <Notice />
       </div>
     );
   } else {

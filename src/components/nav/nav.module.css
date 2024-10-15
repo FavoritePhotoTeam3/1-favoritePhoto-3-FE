@@ -88,7 +88,7 @@
     justify-content: end;
   }
 }
-@media screen and (max-width: 744px) and (min-width: 376px) {
+@media screen and (max-width: 744px) and (min-width: 426px) {
   .nav_Wrapper {
     display: flex;
     justify-content: center;
@@ -126,9 +126,9 @@
 
   .nav_item_container {
     display: flex;
-    width: 201px; /* 코드잇 피그마 스케일 281px*/
+    width: 241px; /* 코드잇 피그마 스케일 281px*/
     height: 24px;
-    gap: 10px; /* 코드잇 피그마 스케일 30px*/
+    gap: 20px; /* 코드잇 피그마 스케일 30px*/
 
     box-sizing: border-box;
     padding-top: 2px;
@@ -180,7 +180,7 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 425px) {
   .nav_Wrapper {
     display: flex;
     justify-content: center;

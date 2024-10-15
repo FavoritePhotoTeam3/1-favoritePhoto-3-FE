@@ -78,7 +78,7 @@
   }
 }
 
-@media screen and (max-width: 744px) and (min-width: 376px) {
+@media screen and (max-width: 744px) and (min-width: 426px) {
   .profile_Wrapper {
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
 
     position: absolute;
     top: 24px;
-    right: 60px;
+    right: 70px;
     z-index: 1;
   }
 
@@ -164,7 +164,7 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 425px) {
   .profile_Wrapper {
     display: flex;
     flex-direction: column;
