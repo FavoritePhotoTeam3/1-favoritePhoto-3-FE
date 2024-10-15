@@ -13,6 +13,7 @@ import defaultImg1 from "./assets/image1.svg";
 import defaultImg2 from "./assets/image2.svg";
 import { Title } from "../../components/commons/title/Title";
 import PhotoExchange from "../../components/modals/photo_exchange/PhotoExchange";
+import PhotoSelling from "../../components/modals/photo_selling/PhotoSelling";
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
@@ -54,7 +55,7 @@ function Test() {
   return (
     <div className="test">
       {isModalOpen && (
-        <PhotoExchange onClose={closeModal} imageCards={imageCards} />
+        <PhotoSelling onClose={closeModal} imageCards={imageCards} />
       )}
       <div className="testContainer1"></div>
     </div>
