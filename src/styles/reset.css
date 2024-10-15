@@ -17,6 +17,10 @@
   vertical-align: bottom;
 }
 
+body {
+  background-color: #0F0F0F;
+}
+
 a {
   text-decoration: none;
   color: inherit;
