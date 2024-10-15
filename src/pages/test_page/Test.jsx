@@ -15,6 +15,7 @@ import { Title } from "../../components/commons/title/Title";
 import PhotoExchange from "../../components/modals/photo_exchange/PhotoExchange";
 import PhotoSelling from "../../components/modals/photo_selling/PhotoSelling";
 
+
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
 const DEFAULT_ORDER_OPTION = "낮은 가격순";
@@ -57,6 +58,7 @@ function Test() {
       {isModalOpen && (
         <PhotoSelling onClose={closeModal} imageCards={imageCards} />
       )}
+
       <div className="testContainer1"></div>
     </div>
   );

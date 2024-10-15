@@ -9,6 +9,7 @@
 /coverage
 pages/test_page/
 
+
 # production
 /build
 
@@ -24,4 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #개인
-/temp
+/src/temp
