@@ -7,8 +7,8 @@
   justify-content: space-between;
   align-items: center;
   border: none;
-  width: 64px;
-  height: 24px;
+  width: var(--desktop-width);
+  height: var(--desktop-height);
   background-color: #0f0f0f;
   color: #ffffff;
   font-size: 16px;
@@ -64,8 +64,8 @@
   padding: 13px 20px;
   border: 1px solid #ffffff;
   border-radius: 2px;
-  width: 180px;
-  height: 50px;
+  width: var(--desktop-width);
+  height: var(--desktop-height);
   background-color: #0f0f0f;
   color: #ffffff;
   font-size: 16px;
@@ -75,13 +75,13 @@
   }
 }
 .dropdownMenu.bordered {
-  width: 180px;
+  width: var(--desktop-width);
 }
 
 @media (max-width: 1199px) {
   .dropdownNormal .normalButton {
-    width: 58px;
-    height: 22px;
+    width: var(--tablet-width);
+    height: var(--tablet-height);
   }
   .dropdownNormal .buttonText {
     font-size: 14px;
@@ -91,11 +91,11 @@
   }
 
   .borderedButton {
-    width: 140px;
-    height: 45px;
+    width: var(--tablet-width);
+    height: var(--tablet-height);
   }
   .dropdownMenu.bordered {
-    width: 140px;
+    width: var(--tablet-width);
   }
   .borderedDropdown .buttonText {
     font-size: 14px;
@@ -125,11 +125,11 @@
   }
 
   .borderedButton {
-    width: 130px;
-    height: 35px;
+    width: var(--mobile-width);
+    height: var(--mobile-height);
   }
   .dropdownMenu.bordered {
-    width: 130px;
+    width: var(--mobile-width);
   }
   .borderedDropdown .buttonText {
     font-size: 12px;
