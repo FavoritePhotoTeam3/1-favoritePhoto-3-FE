@@ -2,7 +2,8 @@ import {
   ImgCardForSale,
   ImgCardForSaleSoldOut,
 } from "./components/Img_card_for_sale/imgCardForSale";
-import { MyPageNav, Nav } from "./components/nav/nav";
+import RandomPoint from "./components/modals/randomPoint/randomPoint";
+import { Nav } from "./components/nav/nav";
 
 const Test = () => {
   return (
@@ -10,6 +11,7 @@ const Test = () => {
       <Nav />
       <ImgCardForSale grade="common" />;
       <ImgCardForSaleSoldOut grade="common" />
+      {/* <RandomPoint /> */}
     </>
   );
 };

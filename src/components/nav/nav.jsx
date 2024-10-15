@@ -5,7 +5,7 @@ import menu from "./assets/menu.png";
 import verLine from "./assets/verLine.png";
 import arrow from "./assets/arrow.png";
 import myLogo from "./assets/myLogo.png";
-import Notice from "../notice/notice";
+import Notice from "../modals/notice/notice";
 
 export const Nav = () => {
   return (

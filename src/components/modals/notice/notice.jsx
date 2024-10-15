@@ -1,6 +1,5 @@
 import style from "./notice.module.css";
 import arrow from "./assets/arrow.png";
-import myLogo from "./assets/myLogo.png";
 
 const Notice = () => {
   return (
