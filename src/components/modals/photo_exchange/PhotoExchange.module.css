@@ -47,9 +47,6 @@
   text-align: start;
 
   margin-bottom: 40px;
-  &:hover {
-    cursor: pointer;
-  }
 }
 .title {
   width: 100%;

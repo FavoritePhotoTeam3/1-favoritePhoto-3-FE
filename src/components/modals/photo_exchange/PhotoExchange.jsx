@@ -3,10 +3,11 @@ import SearchBar from "../../commons/search_bar/SearchBar";
 import { DropdownNoneBorder } from "../../commons/dropdown_normal/DropdownNormal";
 import styles from "./PhotoExchange.module.css";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
+import PhotoExchangeDetail from "./PhotoExchangeDetail";
 import { useState } from "react";
 
 const PhotoExchange = ({ onClose, imageCards }) => {
-  const [selectCard, setSelectCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
   const [search, setSearch] = useState("");
 
   const [selectGrade, setSelectGrade] = useState("등급");
@@ -16,11 +17,15 @@ const PhotoExchange = ({ onClose, imageCards }) => {
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
-    setSelectCard(card);
+    setSelectedCard(card);
   };
 
-  const goBack = () => {
-    setSelectCard(null);
+  const handleCancel = () => {
+    setSelectedCard(null);
+  };
+
+  const handleExchange = () => {
+    console.log("교환 동작 수행하기");
   };
 
   const handleSearchChange = (e) => {
@@ -46,8 +51,12 @@ const PhotoExchange = ({ onClose, imageCards }) => {
           &times;
         </button>
 
-        {selectCard ? (
-          <div>상세페이지</div>
+        {selectedCard ? (
+          <PhotoExchangeDetail
+            card={selectedCard}
+            onCancel={handleCancel}
+            onExchange={handleExchange}
+          />
         ) : (
           <div>
             <div className={styles.logo}>마이갤러리</div>
