@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DropdownNoneBorder,
   DropdownBorder,
@@ -9,8 +9,10 @@ import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal";
 import ImgCardMy from "../../components/imgcard_my/ImgCardMy";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 
-import defaultImg from "./assets/image1.svg";
+import defaultImg1 from "./assets/image1.svg";
+import defaultImg2 from "./assets/image2.svg";
 import { Title } from "../../components/commons/title/Title";
+import PhotoExchange from "../../components/modals/photo_exchange/PhotoExchange";
 
 const DEFAULT_SELECT_OPTION = "등급";
 const DEFAULT_SELECT_OPTIONS = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
@@ -21,23 +23,39 @@ const DEFAULT_ORDER_OPTIONS = [
   "높은 가격순",
   "낮은 가격순",
 ];
-const testCardData = {
-  title: "How Far I'll Go",
-  grade: "SUPER RARE",
-  genre: "풍경",
-  nickname: "랍스타",
-  price: 4,
-  description:
-    "스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다! 스페인 여행 사진도 좋은데.. 우리집 앞마당 포토카드와 교환하고 싶습니다!",
-  counts: 1,
-  maxCounts: 5,
-  imageUrl: defaultImg,
-};
+const imageCards = [
+  {
+    title: "스페인 여행",
+    grade: "RARE",
+    genre: "풍경",
+    nickname: "프로여행러",
+    price: 4,
+    counts: 2,
+    imageUrl: defaultImg1,
+  },
+  {
+    title: "우리집 앞마당",
+    grade: "COMMON",
+    genre: "풍경",
+    nickname: "미쓰쏘",
+    price: 5,
+    counts: 5,
+    imageUrl: defaultImg2,
+  },
+];
 
 function Test() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="test">
-      <Title title={"포토카드 생성하기"} />
+      {isModalOpen && (
+        <PhotoExchange onClose={closeModal} imageCards={imageCards} />
+      )}
       <div className="testContainer1"></div>
     </div>
   );
