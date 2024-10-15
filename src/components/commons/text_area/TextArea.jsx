@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import styles from "./TextArea.module.css";
 
+// Props 정리 *이름 준수
+// placeholder
+// onChange
+// value
+
 export default function TextArea(props) {
   const [isFocused, setIsFocused] = useState(false);
 

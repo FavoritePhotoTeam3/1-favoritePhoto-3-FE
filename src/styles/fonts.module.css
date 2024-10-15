@@ -1,0 +1,121 @@
+/* COlOR */
+.common {
+  color: #EFFF04;
+}
+
+.rare {
+  color: #29C9F9;
+}
+
+.superRare {
+  color: #A77EFF;
+}
+
+.legendary {
+  color: #FF2A6A;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.gray {
+  color: #A4A4A4;
+}
+
+.darkGray {
+  color: #5A5A5A;
+}
+
+/* Size */
+.bigHeader {
+  color: #FFFFFF;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.grayLabel {
+  color: #A4A4A4;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.whiteLabel {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.whiteValue {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.grayValue {
+  color: #5A5A5A;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.whiteDesc {
+  color: #FFFFFF;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.whiteSmallValue {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.graySmallValue {
+  color: #DDDDDD;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+
+@media (max-width: 744px) {
+  .bigHeader {
+    font-size: 1.375rem;
+  }
+
+  .header {
+    font-size: 1.125rem;
+  }
+
+  .grayLabel,
+  .whiteLabel {
+    font-size: 1.125rem;
+
+  }
+
+  .whiteValue,
+  .grayValue {
+    font-size: 1.25rem;
+  }
+
+  .whiteDesc {
+    font-size: 1rem;
+  }
+
+  .whiteSmallValue {
+    font-size: 1.125rem;
+    font-weight: 300;
+  }
+
+  .graySmallValue {
+    font-size: 0.75rem;
+  }
+}
