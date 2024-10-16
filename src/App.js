@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./styles/reset.css";
 
-import Test from "./temp/test_page/Test";
-
+import Test from "./test";
 
 function App() {
   return (
