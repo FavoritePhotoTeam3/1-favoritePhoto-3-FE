@@ -14,6 +14,7 @@ const PhotoSelling = ({ onClose, imageCards }) => {
   const [selectOrder, setSelectOrder] = useState("낮은 가격순");
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const orderOptions = ["최신 순", "오래된 순", "높은 가격순", "낮은 가격순"];
+  const genreOptions = ["풍경", "자연", "도시", "기계", "우주"];
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
@@ -25,7 +26,7 @@ const PhotoSelling = ({ onClose, imageCards }) => {
   };
 
   const handleSelling = () => {
-    console.log("교환 동작 수행하기");
+    console.log("판매 동작 수행하기");
   };
 
   const handleSearchChange = (e) => {
@@ -56,6 +57,8 @@ const PhotoSelling = ({ onClose, imageCards }) => {
             card={selectedCard}
             onCancel={handleCancel}
             onSelling={handleSelling}
+            gradeOptions={gradeOptions}
+            genreOptions={genreOptions}
           />
         ) : (
           <div>
