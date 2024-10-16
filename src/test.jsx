@@ -2,7 +2,6 @@ import {
   ImgCardForSale,
   ImgCardForSaleSoldOut,
 } from "./components/Img_card_for_sale/imgCardForSale";
-import RandomPoint from "./components/modals/randomPoint/randomPoint";
 import { Nav } from "./components/nav/nav";
 
 const Test = () => {
