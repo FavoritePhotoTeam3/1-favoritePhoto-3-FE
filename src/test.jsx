@@ -11,7 +11,8 @@ const Test = () => {
     <>
       <Nav />
       <ImgCardForSale grade="common" />;
-      <ImgCardMy />
+      <ImgCardMy grade="common" />
+      <
       {/* <RandomPoint /> */}
     </>
   );

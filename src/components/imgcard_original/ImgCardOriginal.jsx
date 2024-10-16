@@ -25,7 +25,7 @@ const ImgCardOriginal = ({
       case "legendary":
         return styles.legendary;
       default:
-        return "";
+        return styles.common;
     }
   };
 
