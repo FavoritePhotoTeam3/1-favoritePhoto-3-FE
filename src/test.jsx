@@ -1,3 +1,4 @@
+import { DropdownNoneBorder } from "./components/commons/dropdown_normal/DropdownNormal";
 import {
   ImgCardForSale,
   ImgCardForSaleSoldOut,
@@ -11,8 +12,7 @@ const Test = () => {
     <>
       <Nav />
       <ImgCardForSale grade="common" />;
-      <ImgCardMy grade="common" />
-      <
+      <DropdownNoneBorder />
       {/* <RandomPoint /> */}
     </>
   );
