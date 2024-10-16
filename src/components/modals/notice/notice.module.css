@@ -15,6 +15,9 @@
 
     background-color: pink;
   }
+  .notice_Wrapper.close {
+    display: none;
+  }
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -84,6 +87,9 @@
 
     background-color: pink;
   }
+  .notice_Wrapper.close {
+    display: none;
+  }
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -150,6 +156,9 @@
     z-index: 1;
 
     background-color: #0f0f0f;
+  }
+  .notice_Wrapper.close {
+    display: none;
   }
   .notice_item_Container {
     display: flex;

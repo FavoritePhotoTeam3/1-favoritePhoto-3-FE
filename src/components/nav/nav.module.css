@@ -55,6 +55,7 @@
   .nav_item_notice {
     width: 24px;
     height: 24px;
+    cursor: pointer;
   }
   .nav_item_verLine {
     width: 4px;
@@ -66,6 +67,8 @@
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 18.43px;
+
+    font-family: "BR B";
 
     color: #dddddd;
   }
@@ -146,6 +149,7 @@
   .nav_item_notice {
     width: 24px;
     height: 24px;
+    cursor: pointer;
   }
   .nav_item_verLine {
     width: 4px;
@@ -157,6 +161,8 @@
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 18.43px;
+
+    font-family: "BR B";
 
     color: #dddddd;
   }
@@ -231,6 +237,7 @@
   .nav_item_notice {
     width: 22px;
     height: 22px;
+    cursor: pointer;
   }
   .nav_item_verLine {
     display: none;

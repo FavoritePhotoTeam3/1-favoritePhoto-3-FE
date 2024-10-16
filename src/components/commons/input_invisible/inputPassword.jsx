@@ -1,32 +1,27 @@
-import "./inputPassword.css";
+import style from "./inputPassword.module.css";
 import invisible from "./assets/invisible.png";
 import visible from "./assets/visible.png";
 import { useState } from "react";
 
-export const Inputpassword = ({ containrWidth, inputHeight }) => {
+export const Inputpassword = ({ onChange, value }) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: containrWidth,
-        backgroundColor: "#171717",
-      }}
-    >
-      <span className="input_password_title">비밀번호</span>
-      <div className="input_password_container">
+    <div className={style.password_Wrapper}>
+      <span className={style.input_password_title}>비밀번호</span>
+      <div className={style.input_password_container}>
         <input
-          className="input_password"
+          className={style.input_password}
           type={isVisible ? "string" : "password"}
           placeholder="비밀번호을 입력해 주세요"
-          style={{ height: inputHeight }}
+          name="password"
+          value={value}
+          onChange={onChange}
         />
         <img
           onClick={() => {
             setIsVisible((prev) => !prev);
           }}
-          className="password_invisible_img"
+          className={style.password_invisible_img}
           src={isVisible ? visible : invisible}
           alt=""
         />
@@ -34,35 +29,31 @@ export const Inputpassword = ({ containrWidth, inputHeight }) => {
     </div>
   );
 };
-export const InputpasswordInValid = ({ containrWidth, inputHeight }) => {
+export const InputpasswordConfirm = ({ onChange, value, valid }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const isValid = valid ? "" : "invalid";
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: containrWidth,
-        backgroundColor: "#171717",
-      }}
-    >
-      <span className="input_password_title">비밀번호</span>
-      <div className="input_password_container">
+    <div className={`${style.password_Wrapper} ${style.confirm}`}>
+      <span className={style.input_password_title}>비밀번호 확인</span>
+      <div className={style.input_password_container}>
         <input
-          className="input_password invalid"
+          className={`${style.input_password} ${style[isValid]}`}
           type={isVisible ? "string" : "password"}
-          placeholder="비밀번호을 입력해 주세요"
-          style={{ height: inputHeight }}
+          placeholder="비밀번호을 한번 더 입력해 주세요"
+          name="passwordConfirm"
+          value={value}
+          onChange={onChange}
         />
         <img
           onClick={() => {
             setIsVisible((prev) => !prev);
           }}
-          className="password_invisible_img"
+          className={style.password_invisible_img}
           src={isVisible ? visible : invisible}
           alt=""
         />
       </div>
-      <span className="input_password_valid">
+      <span className={`${style.input_password_valid} ${style[isValid]}`}>
         비밀번호가 일치하지 않습니다.
       </span>
     </div>
