@@ -140,9 +140,14 @@
   }
   .filter {
     gap: 10px;
+    justify-content: space-between;
   }
   .filterWrapper {
+    order: -1;
     gap: 10px;
+  }
+  .searchBarWrapper {
+    width: 100%;
   }
   .imageCardContainer {
     gap: 5px;

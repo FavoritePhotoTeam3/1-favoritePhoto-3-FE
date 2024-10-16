@@ -92,11 +92,15 @@ const PhotoSelling = ({ onClose, imageCards }) => {
                   <DropdownNoneBorder
                     title={selectGrade}
                     options={gradeOptions}
+                    mobileWidth="52px"
+                    mobileHeight="52px"
                     onSelect={handleGradeChange}
                   />
                   <DropdownNoneBorder
                     title={selectGenre}
                     options={genreOptions}
+                    mobileWidth="52px"
+                    mobileHeight="52px"
                     onSelect={handleGenreChange}
                   />
                 </div>
