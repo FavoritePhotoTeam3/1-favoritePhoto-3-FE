@@ -56,55 +56,56 @@ const PhotoExchange = ({ onClose, imageCards }) => {
 
   return (
     <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-      <div className={styles.modalContent} ref={modalContentRef}>
+      <div className={styles.modalContainer}>
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
-
-        {selectedCard ? (
-          <PhotoExchangeDetail
-            card={selectedCard}
-            onCancel={handleCancel}
-            onExchange={handleExchange}
-          />
-        ) : (
-          <div>
-            <div className={styles.logo}>마이갤러리</div>
-            <div className={styles.title}>
-              <Title title={"포토카드 교환하기"} />
-            </div>
-            <div className={styles.filter}>
-              <div className={styles.searchBarWrapper}>
-                <SearchBar
-                  value={search}
-                  onChange={handleSearchChange}
-                  onKeyDown={handleSearchClick}
-                />
+        <div className={styles.modalContent} ref={modalContentRef}>
+          {selectedCard ? (
+            <PhotoExchangeDetail
+              card={selectedCard}
+              onCancel={handleCancel}
+              onExchange={handleExchange}
+            />
+          ) : (
+            <div>
+              <div className={styles.logo}>마이갤러리</div>
+              <div className={styles.title}>
+                <Title title={"포토카드 교환하기"} />
               </div>
-              <div className={styles.filterWrapper}>
-                <DropdownNoneBorder
-                  title={selectGrade}
-                  options={gradeOptions}
-                  onSelect={handleGradeChange}
-                />
-                <DropdownNoneBorder
-                  title={selectGenre}
-                  options={genreOptions}
-                  onSelect={handleGenreChange}
-                />
+              <div className={styles.filter}>
+                <div className={styles.searchBarWrapper}>
+                  <SearchBar
+                    value={search}
+                    onChange={handleSearchChange}
+                    onKeyDown={handleSearchClick}
+                  />
+                </div>
+                <div className={styles.filterWrapper}>
+                  <DropdownNoneBorder
+                    title={selectGrade}
+                    options={gradeOptions}
+                    onSelect={handleGradeChange}
+                  />
+                  <DropdownNoneBorder
+                    title={selectGenre}
+                    options={genreOptions}
+                    onSelect={handleGenreChange}
+                  />
+                </div>
+              </div>
+              <div className={styles.imageCardContainer}>
+                {imageCards.map((card) => (
+                  <ImgCardMy
+                    key={card.id}
+                    {...card}
+                    onClick={() => handleCardClick(card)}
+                  />
+                ))}
               </div>
             </div>
-            <div className={styles.imageCardContainer}>
-              {imageCards.map((card) => (
-                <ImgCardMy
-                  key={card.id}
-                  {...card}
-                  onClick={() => handleCardClick(card)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
