@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../CommonPhotoListPage.module.css";
+// import style from "./index.module.css";
 
 //임시 이미지
 import tempImg from "./assets/img.png";
