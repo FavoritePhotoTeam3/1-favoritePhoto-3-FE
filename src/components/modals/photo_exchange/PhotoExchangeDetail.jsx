@@ -14,7 +14,7 @@ const PhotoExchangeDetail = ({ card, onCancel, onExchange }) => {
   };
 
   return (
-    <div>
+    <div className={styles.detailWrapper}>
       <div className={styles.logo}>포토카드 교환하기</div>
       <div className={styles.title}>
         <Title title={card.title} />
