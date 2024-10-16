@@ -4,16 +4,16 @@ import { DropdownNoneBorder } from "../../commons/dropdown_normal/DropdownNormal
 import styles from "./PhotoSelling.module.css";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import PhotoSellingDetail from "./PhotoSellingDetail";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const PhotoSelling = ({ onClose, imageCards }) => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [search, setSearch] = useState("");
+  const modalContentRef = useRef(null);
 
   const [selectGrade, setSelectGrade] = useState("등급");
-  const [selectOrder, setSelectOrder] = useState("낮은 가격순");
+  const [selectGenre, setSelectGenre] = useState("장르");
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const orderOptions = ["최신 순", "오래된 순", "높은 가격순", "낮은 가격순"];
   const genreOptions = ["풍경", "자연", "도시", "기계", "우주"];
 
   // 이미지카드 클릭시 상세 페이지 보기
@@ -41,13 +41,22 @@ const PhotoSelling = ({ onClose, imageCards }) => {
   const handleGradeChange = (option) => {
     setSelectGrade(option);
   };
-  const handleOrderChange = (option) => {
-    setSelectOrder(option);
+  const handleGenreChange = (option) => {
+    setSelectGenre(option);
+  };
+
+  const handleOverlayClick = (e) => {
+    if (
+      modalContentRef.current &&
+      !modalContentRef.current.contains(e.target)
+    ) {
+      onClose();
+    }
   };
 
   return (
-    <div className={styles.modalOverlay}>
-      <div className={styles.modalContent}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+      <div className={styles.modalContent} ref={modalContentRef}>
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
@@ -81,9 +90,9 @@ const PhotoSelling = ({ onClose, imageCards }) => {
                   onSelect={handleGradeChange}
                 />
                 <DropdownNoneBorder
-                  title={selectOrder}
-                  options={orderOptions}
-                  onSelect={handleOrderChange}
+                  title={selectGenre}
+                  options={genreOptions}
+                  onSelect={handleGenreChange}
                 />
               </div>
             </div>
