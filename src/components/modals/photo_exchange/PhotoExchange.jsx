@@ -58,14 +58,14 @@ const PhotoExchange = ({ onClose, imageCards }) => {
 
   return (
     <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-      <div className={styles.modalContainer}>
+      <div className={styles.modalContainer} ref={modalContentRef}>
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
         <div className={styles.dragZone} onClick={onClose}>
           <img src={dragThumb} alt="drag thumb" className={styles.dragThumb} />
         </div>
-        <div className={styles.modalContent} ref={modalContentRef}>
+        <div className={styles.modalContent}>
           {selectedCard ? (
             <PhotoExchangeDetail
               card={selectedCard}

@@ -42,3 +42,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+@media (max-width: 743px) {
+  .detailContent {
+    grid-template-columns: 1fr;
+  }
+}
