@@ -29,7 +29,7 @@ const NavItem = ({ isLogin }) => {
         <img className={style.nav_item_verLine} src={verLine} alt="" />
         <span className={style.nav_item_userName}>유디</span>
         <span className={style.nav_itme_logout}>로그아웃</span>
-        <Notice />
+        {/* <Notice /> */}
       </div>
     );
   } else {

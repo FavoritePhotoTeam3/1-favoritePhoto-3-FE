@@ -11,3 +11,5 @@ const CardGradeByUser = ({ data }) => {
     </div>
   );
 };
+
+export default CardGradeByUser;
