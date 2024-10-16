@@ -6,6 +6,8 @@ import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import PhotoExchangeDetail from "./PhotoExchangeDetail";
 import { useRef, useState } from "react";
 
+import dragThumb from "./assets/drag_thumb.svg";
+
 const PhotoExchange = ({ onClose, imageCards }) => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [search, setSearch] = useState("");
@@ -60,6 +62,9 @@ const PhotoExchange = ({ onClose, imageCards }) => {
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
+        <div className={styles.dragZone} onClick={onClose}>
+          <img src={dragThumb} alt="drag thumb" className={styles.dragThumb} />
+        </div>
         <div className={styles.modalContent} ref={modalContentRef}>
           {selectedCard ? (
             <PhotoExchangeDetail

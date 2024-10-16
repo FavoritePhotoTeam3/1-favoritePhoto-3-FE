@@ -61,6 +61,9 @@
     background-color: #ffffff;
   }
 }
+.dragZone {
+  display: none;
+}
 .mainWrapper {
   width: 100%;
 }
@@ -97,8 +100,25 @@
   }
 }
 @media (max-width: 1199px) {
-  .modalContent {
-    padding: 15px 20px;
+  .modalContainer {
     width: 100vw;
+  }
+  .modalContent {
+    width: 100%;
+    padding: 15px 20px;
+  }
+  .modalContent::-webkit-scrollbar {
+    display: none;
+  }
+  .closeButton {
+    display: none;
+  }
+  .dragZone {
+    display: block;
+    position: absolute;
+    top: 15px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
