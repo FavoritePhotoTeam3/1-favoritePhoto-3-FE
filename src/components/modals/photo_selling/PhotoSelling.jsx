@@ -70,7 +70,7 @@ const PhotoSelling = ({ onClose, imageCards }) => {
               genreOptions={genreOptions}
             />
           ) : (
-            <div>
+            <div className={styles.mainWrapper}>
               <div className={styles.logo}>마이갤러리</div>
               <div className={styles.title}>
                 <Title title={"나의 포토카드 판매하기"} />

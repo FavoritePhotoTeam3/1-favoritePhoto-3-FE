@@ -68,7 +68,7 @@ const PhotoExchange = ({ onClose, imageCards }) => {
               onExchange={handleExchange}
             />
           ) : (
-            <div>
+            <div className={styles.mainWrapper}>
               <div className={styles.logo}>마이갤러리</div>
               <div className={styles.title}>
                 <Title title={"포토카드 교환하기"} />
