@@ -19,6 +19,9 @@
 .imageWrapper {
   width: 100%;
 }
+.cardImage {
+  width: 100%;
+}
 .cardDetailWrapper {
   color: #ffffff;
 }
@@ -43,6 +46,9 @@
   gap: 20px;
 }
 @media (max-width: 743px) {
+  .sellingDetailModal {
+    width: 100%;
+  }
   .detailContent {
     grid-template-columns: 1fr;
   }

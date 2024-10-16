@@ -26,8 +26,14 @@
   background-color: inherit;
   color: #ffffff;
 }
+.titleDetailContainer {
+  width: 100%;
+  height: 83px;
+  border-bottom: 2px solid #eeeeee;
+}
 @media (max-width: 1199px) {
-  .titleContainer {
+  .titleContainer,
+  .titleDetailContainer {
     height: 61px;
   }
   .title {
@@ -39,7 +45,10 @@
     height: 27px;
     border-bottom: none;
   }
+  .titleDetailContainer {
+    height: 35px;
+  }
   .title {
-    font-size: 27px;
+    font-size: 24px;
   }
 }
