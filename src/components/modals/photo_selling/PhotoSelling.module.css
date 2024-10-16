@@ -102,6 +102,8 @@
 @media (max-width: 1199px) {
   .modalContainer {
     width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .modalContent {
     width: 100%;
@@ -120,5 +122,29 @@
     &:hover {
       cursor: pointer;
     }
+  }
+  .filter {
+    gap: 30px;
+  }
+  .filterWrapper {
+    gap: 25px;
+  }
+  .imageCardContainer {
+    gap: 20px;
+  }
+}
+@media (max-width: 743px) {
+  .modalContainer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .filter {
+    gap: 10px;
+  }
+  .filterWrapper {
+    gap: 10px;
+  }
+  .imageCardContainer {
+    gap: 5px;
   }
 }

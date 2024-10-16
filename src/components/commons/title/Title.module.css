@@ -26,3 +26,20 @@
   background-color: inherit;
   color: #ffffff;
 }
+@media (max-width: 1199px) {
+  .titleContainer {
+    height: 61px;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 743px) {
+  .titleContainer {
+    height: 27px;
+    border-bottom: none;
+  }
+  .title {
+    font-size: 27px;
+  }
+}
