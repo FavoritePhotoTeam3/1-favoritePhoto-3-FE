@@ -23,7 +23,6 @@
 .primary_btn_text {
   font-size: 1.25rem; /* 16 : 20 = 1 : 1.25*/
   font-weight: 700;
-  line-height: 28.96;
   align-content: center;
   color: #0f0f0f;
 }
@@ -35,7 +34,6 @@
 .primary_btn_text.approve {
   font-size: 0.75rem; /* 16 : 12 = 1 : 0.75*/
   font-weight: 700;
-  line-height: 17.38;
   align-content: center;
   color: #0f0f0f;
 }
