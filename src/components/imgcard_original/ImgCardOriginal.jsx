@@ -16,13 +16,13 @@ const ImgCardOriginal = ({
   // 등급에 따라 글자의 컬러를 정하는 함수
   const gradeColor = (grade) => {
     switch (grade) {
-      case "COMMON":
+      case "common":
         return styles.common;
-      case "RARE":
+      case "rare":
         return styles.rare;
-      case "SUPER RARE":
+      case "super rare":
         return styles.superRare;
-      case "LEGENDARY":
+      case "legendary":
         return styles.legendary;
       default:
         return "";
@@ -51,7 +51,7 @@ const ImgCardOriginal = ({
         <h3 className={styles.cardTitle}>{title}</h3>
         <div className={styles.cardSubtitle}>
           <span className={`${styles.cardGrade} ${gradeColor(grade)}`}>
-            {grade}
+            {grade.toUpperCase()}
           </span>
           <span className={styles.cardGenre}>{genre}</span>
           <span className={styles.cardNickname}>{nickname}</span>
