@@ -1,6 +1,6 @@
 import style from "./profile.module.css";
 
-const Profile = ({ isOpen, openProfile }) => {
+const Profile = ({ user, isOpen, openProfile }) => {
   const close = isOpen ? "" : "close";
   return (
     <div
@@ -13,12 +13,12 @@ const Profile = ({ isOpen, openProfile }) => {
         <div className={style.profile_info_Container}>
           <div className={style.profile_topArea}>
             <p className={style.top_helloUser}>
-              안녕하세요, <span>유디</span>님!
+              안녕하세요, <span>{user.nickname}</span>님!
             </p>
             <div className={style.top_point_Wrapper}>
               <span className={style.top_point_text}>보유 포인트</span>
               <span className={`${style.top_point_text} ${style.point}`}>
-                1,540p
+                {user.point}p
               </span>
             </div>
           </div>

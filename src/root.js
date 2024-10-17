@@ -38,6 +38,7 @@ const router = createBrowserRouter([
         ],
       },
     ],
+    errorElement: <spna>404 대첵 입니다. 임시로 구성했습니다.</spna>,
   },
 ]);
 

@@ -10,8 +10,10 @@ import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
 import { useNavigate } from "react-router-dom";
 import { InputEmail } from "../../components/commons/input_normal/inputEmail";
 import { InputNickname } from "../../components/commons/input_normal/inputNickname";
+import { useAuth } from "../../context/authProvider";
 
 const SignupPage = () => {
+  const { signup } = useAuth();
   const nav = useNavigate();
   const emailRegEx =
     /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i;
@@ -53,8 +55,16 @@ const SignupPage = () => {
         passwordConfirm: "",
       }));
     } else {
-      console.log(values);
-      /**TODO API -> values */
+      const { email, password, nickname } = values;
+      setValues((prev) => ({
+        ...prev,
+        email: "",
+        password: "",
+        nickname: "",
+
+        passwordConfirm: "",
+      }));
+      signup({ email, password, nickname });
     }
   };
   return (

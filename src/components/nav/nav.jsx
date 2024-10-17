@@ -39,7 +39,7 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
   if (user) {
     return (
       <div className={style.nav_item_container}>
-        <span className={style.nav_item_point}>{user.point}</span>
+        <span className={style.nav_item_point}>{user.point}P</span>
         <img
           onClick={() => {
             setNoticeOpen((prev) => !prev);
@@ -66,7 +66,11 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
           로그아웃
         </span>
         <Notice isOpen={noticeOpen} openNotice={setNoticeOpen} />
-        <Profile isOpen={profileOpen} openProfile={setProfileOpen} />
+        <Profile
+          user={user}
+          isOpen={profileOpen}
+          openProfile={setProfileOpen}
+        />
       </div>
     );
   } else {

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { USERS } from "../api/axios";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "../styles/reset.css";
 
 const AuthContext = createContext({
@@ -17,7 +17,6 @@ export const AuthProvider = () => {
     isPending: true,
   });
   const nav = useNavigate();
-  const { pathname } = useLocation();
 
   const getUser = async () => {
     setValue((prev) => ({
@@ -82,6 +81,7 @@ export const AuthProvider = () => {
         ...prev,
         isPending: false,
       }));
+      nav("/");
       await getUser();
     } catch (e) {
       alert(e.data?.message);
@@ -94,23 +94,23 @@ export const AuthProvider = () => {
       ...prev,
       isPending: true,
     }));
-    const response = await USERS.get("/logout");
-    alert(response.data.message);
-    setValue((prev) => ({
-      ...prev,
-      user: null,
-      isPending: false,
-    }));
+    try {
+      const response = await USERS.delete("/logout");
+      alert(response.data.message);
+      setValue((prev) => ({
+        ...prev,
+        user: null,
+        isPending: false,
+      }));
+    } catch (e) {
+      alert(e.data?.message);
+      console.log(e.status, "/context/authProvider/logout");
+    }
   };
 
   useEffect(() => {
-    (async () => {
-      await getUser();
-      if (values.user && (pathname === "/login") | (pathname === "/signup")) {
-        nav("/");
-      }
-    })();
-  }, [nav, pathname, values.user]);
+    getUser();
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -128,7 +128,7 @@ export const AuthProvider = () => {
 };
 
 export const useAuth = () => {
-  const { user, isPending, login, logout } = useContext(AuthContext);
+  const { user, isPending, login, logout, signup } = useContext(AuthContext);
 
-  return { user, isPending, login, logout };
+  return { user, isPending, login, logout, signup };
 };
