@@ -121,23 +121,24 @@
 }
 
 .sectionPhotoList {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, minmax(300px, 440px));
   gap: 80px 20px;
 }
 
-.boxSize {
-  max-width: 440px;
+@media (max-width: 1200px) {
+  .sectionPhotoList {
+    gap: 40px 20px;
+  }
 }
 
 @media (max-width: 1024px) {
   .sectionPhotoList {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 20px;
-  }
-
-  .headerText {
-    font-size: 3rem;;
   }
 }
 

@@ -68,7 +68,11 @@ export default function MyGallery() {
           <header className={style.header}>
             <p className={style.headerText}>마이갤러리</p>
             <div className={style.headerBtnSize}>
-              <PrimaryBtnAnother text={"포토카드 생성하기"} font={"medium"} onclick={() => {}}/>
+              <PrimaryBtnAnother
+                text={"포토카드 생성하기"}
+                font={"medium"}
+                onclick={() => {}}
+              />
             </div>
           </header>
 
@@ -95,22 +99,20 @@ export default function MyGallery() {
               <DropdownNoneBorder title={"장르"} options={genreOption} />
             </div>
           </section>
-          
+
           <section className={style.sectionPhotoList}>
             {cardData().map((item) => {
               return (
-                <div className={style.boxSize}>
-                  <ImgCardMy
-                    key={item.id}
-                    title={item.title}
-                    grade={item.grade}
-                    genre={item.genre}
-                    nickname={item.nickname}
-                    price={item.price}
-                    counts={item.counts}
-                    imageUrl={item.imageUrl}
-                  />
-                </div>
+                <ImgCardMy
+                  key={item.id}
+                  title={item.title}
+                  grade={item.grade}
+                  genre={item.genre}
+                  nickname={item.nickname}
+                  price={item.price}
+                  counts={item.counts}
+                  imageUrl={item.imageUrl}
+                />
               );
             })}
           </section>

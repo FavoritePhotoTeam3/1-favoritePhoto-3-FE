@@ -103,7 +103,6 @@ export default function PhotoMarket() {
           <section className={style.sectionPhotoList}>
             {cardData().map((item) => {
               return (
-                <div className={style.boxSize}>
                   <ImgCardOriginal
                     key={item.id}
                     title={item.title}
@@ -115,7 +114,6 @@ export default function PhotoMarket() {
                     maxCounts={item.maxCounts}
                     imageUrl={item.imageUrl}
                   />
-                </div>
               );
             })}
           </section>

@@ -98,22 +98,20 @@ export default function MyMarket() {
               />
             </div>
           </section>
-          
+
           <section className={style.sectionPhotoList}>
             {cardData().map((item) => {
               return (
-                <div className={style.boxSize}>
-                  <ImgCardMy
-                    key={item.id}
-                    title={item.title}
-                    grade={item.grade}
-                    genre={item.genre}
-                    nickname={item.nickname}
-                    price={item.price}
-                    counts={item.counts}
-                    imageUrl={item.imageUrl}
-                  />
-                </div>
+                <ImgCardMy
+                  key={item.id}
+                  title={item.title}
+                  grade={item.grade}
+                  genre={item.genre}
+                  nickname={item.nickname}
+                  price={item.price}
+                  counts={item.counts}
+                  imageUrl={item.imageUrl}
+                />
               );
             })}
           </section>
