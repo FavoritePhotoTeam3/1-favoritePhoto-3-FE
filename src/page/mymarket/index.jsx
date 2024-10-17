@@ -1,27 +1,25 @@
 import React from "react";
-import style from "../CommonPhotoListPage.module.css";
-// import style from "./index.module.css";
+import style from "./index.module.css";
 
 //임시 이미지
 import tempImg from "./assets/img.png";
 
 // 컴포넌트
 import { Nav } from "../../components/nav/nav.jsx";
-import PrimaryBtnAnother from "../../components/commons/btn/PrimaryBtnAnother.jsx";
 import CardGradeByUser from "../../components/card_held_by_user_state/CardGradeByUser.jsx";
 import SearchBar from "../../components/commons/search_bar/SearchBar.jsx";
 import { DropdownNoneBorder } from "../../components/commons/dropdown_normal/DropdownNormal.jsx";
 import ImgCardMy from "../../components/imgcard_my/ImgCardMy.jsx";
 
-export default function MyGallery() {
+export default function MyMarket() {
   //목업
   const userData = {
     nickname: "유디",
-    totalPhotoCount: 50,
+    totalPhotoCount: 40,
     cardGrade: [
       {
         grade: "COMMON",
-        count: 20,
+        count: 10,
       },
       {
         grade: "RARE",
@@ -40,12 +38,14 @@ export default function MyGallery() {
 
   const gradeOption = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOption = ["여행", "풍경", "인물", "사물"];
+  const saleOption = ["교환", "판매"];
+  const soldStateOption = ["판매 중", "매진"];
 
   const cardData = () => {
     const data = [];
     const temp = {
       title: "임시",
-      grade: "LEGENDARY",
+      grade: "legendary",
       genre: "여행",
       nickname: "유디",
       price: 4,
@@ -67,15 +67,12 @@ export default function MyGallery() {
       <main className={style.main}>
         <div className={style.container}>
           <header className={style.header}>
-            <p className={style.headerText}>마이갤러리</p>
-            <div className={style.headerBtnSize}>
-              <PrimaryBtnAnother text={"포토카드 생성하기"} font={"medium"} onclick={() => {}}/>
-            </div>
+            <p className={style.headerText}>나의 판매 포토카드</p>
           </header>
 
           <section className={style.sectionUserState}>
             <header className={style.SaleState}>
-              <p>{`${userData.nickname}님이 보유한 포토카드`}</p>
+              <p>{`${userData.nickname}님이 판매 중인 포토카드`}</p>
               <p
                 className={style.totalPhotoCount}
               >{`(${userData.totalPhotoCount}장)`}</p>
@@ -94,6 +91,11 @@ export default function MyGallery() {
             <div className={style.dropDownBox}>
               <DropdownNoneBorder title={"등급"} options={gradeOption} />
               <DropdownNoneBorder title={"장르"} options={genreOption} />
+              <DropdownNoneBorder title={"판매방법"} options={saleOption} />
+              <DropdownNoneBorder
+                title={"매진여부"}
+                options={soldStateOption}
+              />
             </div>
           </section>
           

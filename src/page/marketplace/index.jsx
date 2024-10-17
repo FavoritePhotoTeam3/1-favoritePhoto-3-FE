@@ -1,18 +1,20 @@
 import React from "react";
-import style from "../CommonPhotoListPage.module.css";
-// import style from "./index.module.css";
+import style from "./index.module.css";
 
 //임시 이미지
 import tempImg from "./assets/img.png";
 
 // 컴포넌트
 import { Nav } from "../../components/nav/nav.jsx";
-import CardGradeByUser from "../../components/card_held_by_user_state/CardGradeByUser.jsx";
+import PrimaryBtnAnother from "../../components/commons/btn/PrimaryBtnAnother.jsx";
 import SearchBar from "../../components/commons/search_bar/SearchBar.jsx";
-import { DropdownNoneBorder } from "../../components/commons/dropdown_normal/DropdownNormal.jsx";
-import ImgCardMy from "../../components/imgcard_my/ImgCardMy.jsx";
+import {
+  DropdownNoneBorder,
+  DropdownBorder,
+} from "../../components/commons/dropdown_normal/DropdownNormal.jsx";
+import ImgCardOriginal from "../../components/imgcard_original/ImgCardOriginal.jsx";
 
-export default function MyMarket() {
+export default function PhotoMarket() {
   //목업
   const userData = {
     nickname: "유디",
@@ -39,18 +41,19 @@ export default function MyMarket() {
 
   const gradeOption = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOption = ["여행", "풍경", "인물", "사물"];
-  const saleOption = ["교환", "판매"];
   const soldStateOption = ["판매 중", "매진"];
+  const priceOption = ["높은 가격 순", "낮은 가격 순"]
 
   const cardData = () => {
     const data = [];
     const temp = {
       title: "임시",
-      grade: "LEGENDARY",
+      grade: "legendary",
       genre: "여행",
       nickname: "유디",
       price: 4,
       counts: 9,
+      maxCounts: 10,
       imageUrl: tempImg,
     };
 
@@ -65,46 +68,43 @@ export default function MyMarket() {
       <nav>
         <Nav />
       </nav>
+
       <main className={style.main}>
         <div className={style.container}>
           <header className={style.header}>
-            <p className={style.headerText}>나의 판매 포토카드</p>
+            <p className={style.headerText}>마켓플레이스</p>
+            <div className={style.headerBtnSize}>
+              <PrimaryBtnAnother
+                text={"나의 포토카드 판매하기"}
+                font={"medium"}
+                onclick={() => {}}
+              />
+            </div>
           </header>
-
-          <section className={style.sectionUserState}>
-            <header className={style.SaleState}>
-              <p>{`${userData.nickname}님이 판매 중인 포토카드`}</p>
-              <p
-                className={style.totalPhotoCount}
-              >{`(${userData.totalPhotoCount}장)`}</p>
-            </header>
-            <section className={style.gradeContainer}>
-              {userData.cardGrade.map((item) => {
-                return <CardGradeByUser key={item.grade} data={item} />; // key 추가
-              })}
-            </section>
-          </section>
 
           <section className={style.sectionFilter}>
             <div className={style.searchBarSize}>
               <SearchBar />
             </div>
-            <div className={style.dropDownBox}>
-              <DropdownNoneBorder title={"등급"} options={gradeOption} />
-              <DropdownNoneBorder title={"장르"} options={genreOption} />
-              <DropdownNoneBorder title={"판매방법"} options={saleOption} />
-              <DropdownNoneBorder
-                title={"매진여부"}
-                options={soldStateOption}
-              />
+
+            <div className={style.FilterBox}>
+              <div className={style.dropDownBox}>
+                <DropdownNoneBorder title={"등급"} options={gradeOption} />
+                <DropdownNoneBorder title={"장르"} options={genreOption} />
+                <DropdownNoneBorder
+                  title={"매진여부"}
+                  options={soldStateOption}
+                />
+              </div>
+              <DropdownBorder title={"낮은 가격 순"} options={priceOption} />
             </div>
           </section>
-          
+
           <section className={style.sectionPhotoList}>
             {cardData().map((item) => {
               return (
                 <div className={style.boxSize}>
-                  <ImgCardMy
+                  <ImgCardOriginal
                     key={item.id}
                     title={item.title}
                     grade={item.grade}
@@ -112,6 +112,7 @@ export default function MyMarket() {
                     nickname={item.nickname}
                     price={item.price}
                     counts={item.counts}
+                    maxCounts={item.maxCounts}
                     imageUrl={item.imageUrl}
                   />
                 </div>
