@@ -4,13 +4,13 @@ import mainLogo from "./assets/logo.png";
 
 import { Inputpassword } from "../../components/commons/input_invisible/inputPassword";
 import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { InputEmail } from "../../components/commons/input_normal/inputEmail";
 import { useAuth } from "../../context/authProvider";
 
 const LoginPage = () => {
   const { login } = useAuth();
-  const nav = useNavigate();
+
   const emailRegEx =
     /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i;
   const [values, setValues] = useState({
@@ -60,14 +60,9 @@ const LoginPage = () => {
       </form>
       <p className={style.login_textArea}>
         최애의 포토가 처음이신가요?{" "}
-        <span
-          className={style.join}
-          onClick={() => {
-            nav("/join");
-          }}
-        >
+        <Link to="/signup" className={style.join}>
           회원가입하기
-        </span>
+        </Link>
       </p>
     </div>
   );
