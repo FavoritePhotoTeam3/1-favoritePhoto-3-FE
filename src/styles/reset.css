@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "BR B";
-  src: url("../fonts/배스킨라빈스\ B.ttf");
+  src: url("./fonts/배스킨라빈스\ B.ttf");
 }
 
 /* Reset 전역 스타일 */
@@ -16,6 +16,10 @@
   white-space: nowrap;
   text-align: center;
   vertical-align: bottom;
+}
+
+body {
+  background-color: #0F0F0F;
 }
 
 a {

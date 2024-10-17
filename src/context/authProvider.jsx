@@ -128,7 +128,7 @@ export const AuthProvider = () => {
 };
 
 export const useAuth = () => {
-  const { user, isPending, login, logout, signup } = useContext(AuthContext);
+  const { user, isPending, login, logout, signup } = useContext(AuthContext); // 권한이 필요 없는 페이지 marketplace
 
   return { user, isPending, login, logout, signup };
 };
