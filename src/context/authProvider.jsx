@@ -81,8 +81,8 @@ export const AuthProvider = () => {
         ...prev,
         isPending: false,
       }));
-      nav("/");
       await getUser();
+      nav("/");
     } catch (e) {
       alert(e.data?.message);
       console.log(e.status, "/context/authProvider/login");

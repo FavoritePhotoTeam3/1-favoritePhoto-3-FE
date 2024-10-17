@@ -6,6 +6,12 @@ import SignupPage from "./page/signup";
 import SellerDetailPage from "./page/seller_detail";
 import BuyerDetailPage from "./page/buyer_detail";
 
+import MarketPlace from "./page/marketplace";
+
+import MyGallery from "./page/mygallery";
+
+import MyMarket from "./page/mymarket";
+
 import NavLayout from "./page/layout/nav/navLayout";
 import NomalLayout from "./page/layout/nomal/nomalLayout";
 
@@ -25,13 +31,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <NavLayout />,
         children: [
-          /*
-          path: 상대주소로 지정해주세요!
-          element: 제작하신 페이지 컴포넌트를 넣어주시면 됩니다!
-          */
           {
-            path: "succes",
-            element: <span>언젠가 만나 네게 할 말이 많아.</span>,
+            path: "/",
+            element: <MarketPlace />,
+          },
+          {
+            path: "mygallery",
+            element: <MyGallery />,
+          },
+          {
+            path: "mymarket",
+            element: <MyMarket />,
           },
           { path: "seller-detail/:id", element: <SellerDetailPage /> },
           { path: "buyer-detail/:id", element: <BuyerDetailPage /> },

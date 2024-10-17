@@ -1,0 +1,164 @@
+.main {
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1480px;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 60px 0px 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #EEEEEE
+}
+
+.headerText {
+  width: 100%;
+  text-align: left;
+  font-size: 3.875rem;
+  font-family: "BR B";
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.headerBtnSize {
+  max-width: 440px;
+  width: 100%;
+  height: 60px;
+}
+
+.sectionUserState {
+  width: 100%;
+  padding: 40px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+  border-bottom: 1px solid #5A5A5A;
+}
+
+.SaleState {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #DDDDDD;
+}
+
+.totalPhotoCount {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #A4A4A4;
+}
+
+.gradeContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px 20px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+}
+
+.gradeContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gradeContainer::-webkit-scrollbar-track {
+  background: #212121;
+  border-radius: 10px;
+}
+
+.gradeContainer::-webkit-scrollbar-thumb {
+  min-width: 101px;
+  background-color: #131313;
+  border-radius: 10px;
+  border: 2px solid #212121;
+}
+
+.gradeContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.sectionFilter {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 0px 60px 0px;
+  gap: 0px 60px;
+}
+
+.searchBarSize {
+  max-width: 320px;
+  min-width: 200px;
+  width: 100%;
+}
+
+.FilterBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 45px;
+}
+
+.dropDownBox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 45px;
+}
+
+.sectionPhotoList {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, minmax(300px, 440px));
+  gap: 80px 20px;
+}
+
+@media (max-width: 1200px) {
+  .sectionPhotoList {
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionPhotoList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+  }
+
+  .headerText {
+    font-size: 3rem;;
+  }
+}
+
+@media (max-width: 744px) {
+  .sectionPhotoList {
+    gap: 5px 5px;
+  }
+
+  .searchBarSize {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 425px) {
+  .sectionPhotoList {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px 20px;
+  }
+}
