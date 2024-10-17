@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { USERS } from "../api/axios";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import "../styles/reset.css";
 
 const AuthContext = createContext({
   user: null,
@@ -15,6 +16,8 @@ export const AuthProvider = () => {
     user: null,
     isPending: true,
   });
+  const nav = useNavigate();
+  const { pathname } = useLocation();
 
   const getUser = async () => {
     setValue((prev) => ({
@@ -95,14 +98,19 @@ export const AuthProvider = () => {
     alert(response.data.message);
     setValue((prev) => ({
       ...prev,
-      motel: null,
+      user: null,
       isPending: false,
     }));
   };
 
   useEffect(() => {
-    getUser();
-  }, []);
+    (async () => {
+      await getUser();
+      if (values.user && (pathname === "/login") | (pathname === "/signup")) {
+        nav("/");
+      }
+    })();
+  }, [nav, pathname, values.user]);
 
   return (
     <AuthContext.Provider
