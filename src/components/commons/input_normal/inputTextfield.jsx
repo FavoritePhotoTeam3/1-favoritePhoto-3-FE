@@ -19,6 +19,31 @@ export const Textfield = ({ containrWidth, inputHeight }) => {
     </div>
   );
 };
+export const TextfieldNormal = ({
+  containerWidth,
+  inputHeight,
+  title,
+  placeholder,
+}) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: containerWidth,
+        backgroundColor: "#171717",
+      }}
+    >
+      <span className="input_textfield_title normal">{title}</span>
+      <input
+        className="input_textfield normal"
+        type="email"
+        placeholder={placeholder}
+        style={{ height: inputHeight }}
+      />
+    </div>
+  );
+};
 export const TextfieldInValid = ({ containrWidth, inputHeight }) => {
   return (
     <div

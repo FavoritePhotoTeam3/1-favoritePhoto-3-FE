@@ -5,6 +5,7 @@ import LoginPage from "./page/login";
 import SignupPage from "./page/signup";
 import SellerDetailPage from "./page/seller_detail";
 import BuyerDetailPage from "./page/buyer_detail";
+import CreatePhotoCardPage from "./page/create_photocard";
 
 import MarketPlace from "./page/marketplace";
 
@@ -43,8 +44,18 @@ const router = createBrowserRouter([
             path: "mymarket",
             element: <MyMarket />,
           },
-          { path: "seller-detail/:id", element: <SellerDetailPage /> },
-          { path: "buyer-detail/:id", element: <BuyerDetailPage /> },
+          {
+            path: "seller-detail/:id",
+            element: <SellerDetailPage />,
+          },
+          {
+            path: "buyer-detail/:id",
+            element: <BuyerDetailPage />,
+          },
+          {
+            path: "create-photocard",
+            element: <CreatePhotoCardPage />,
+          },
         ],
       },
     ],
