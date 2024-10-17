@@ -22,8 +22,6 @@
 }
 .buttonIcon {
   display: none;
-  width: 35px;
-  height: 35px;
 }
 .arrowIcon {
   width: 24px;
@@ -116,8 +114,8 @@
   .dropdownNormal .normalButton {
     border: 1px solid #ffffff;
     border-radius: 2px;
-    width: 35px;
-    height: 35px;
+    width: var(--mobile-width);
+    height: var(--mobile-height);
   }
   .dropdownNormal .buttonText {
     display: none;
@@ -126,6 +124,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: var(--mobile-width);
+    height: var(--mobile-height);
   }
   .dropdownNormal .arrowIcon {
     display: none;

@@ -11,8 +11,10 @@ export function DropdownNoneBorder({
   options = [],
   desktopWidth = "100%",
   tabletWidth = "100%",
+  mobileWidth = "35px",
   desktopHeight = "60px",
   tabletHeight = "55px",
+  mobileHeight = "35px",
   onSelect,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,8 +52,10 @@ export function DropdownNoneBorder({
   const customStyles = {
     "--desktop-width": desktopWidth,
     "--tablet-width": tabletWidth,
+    "--mobile-width": mobileWidth,
     "--desktop-height": desktopHeight,
     "--tablet-height": tabletHeight,
+    "--mobile-height": mobileHeight,
   };
 
   return (
