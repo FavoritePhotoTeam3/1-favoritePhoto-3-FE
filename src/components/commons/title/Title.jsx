@@ -7,3 +7,19 @@ export const Title = ({ title }) => {
     </div>
   );
 };
+
+export const TitleMiddle = ({ title }) => {
+  return (
+    <div className={styles.titleMiddleContainer}>
+      <div className={styles.titleMiddle}>{title}</div>
+    </div>
+  );
+};
+
+export const TitleDetail = ({ title }) => {
+  return (
+    <div className={styles.titleDetailContainer}>
+      <div className={styles.title}>{title}</div>
+    </div>
+  );
+};

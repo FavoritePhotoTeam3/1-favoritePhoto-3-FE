@@ -42,6 +42,8 @@
 .dropdownMenu {
   width: var(--desktop-width); /* 데스크탑 사이즈*/
   color: #ffffff;
+  background-color: #161616;
+
   border: 1px solid #ffffff;
   border-radius: 2px;
   padding: 20px 20px;

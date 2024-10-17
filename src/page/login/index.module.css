@@ -1,0 +1,126 @@
+@media screen and (min-width: 745px) {
+  .login_Container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    max-height: 524px;
+
+    gap: 40px;
+  }
+  .login_mainLogo {
+    width: 330.82px;
+    height: 60px;
+
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+  .login_textArea {
+    width: 100%;
+
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 23.17px;
+
+    color: #ffffff;
+  }
+
+  .join {
+    color: #efff04;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 744px) and (min-width: 440px) {
+  .login_Container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 440px;
+    height: 100%;
+    max-height: 524px;
+
+    gap: 40px;
+  }
+  .login_mainLogo {
+    width: 330.82px;
+    height: 60px;
+
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+  .login_textArea {
+    width: 100%;
+
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 20.27px;
+
+    color: #ffffff;
+  }
+
+  .join {
+    color: #efff04;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 439px) {
+  .login_Container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 345px;
+    height: 100%;
+    max-height: 524px;
+
+    gap: 40px;
+  }
+  .login_mainLogo {
+    width: 189px;
+    height: 35px;
+
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+  .login_textArea {
+    width: 100%;
+
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 20.27px;
+
+    color: #ffffff;
+  }
+
+  .join {
+    color: #efff04;
+    cursor: pointer;
+  }
+}

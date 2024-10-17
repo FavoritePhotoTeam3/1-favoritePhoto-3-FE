@@ -11,6 +11,9 @@
     right: 85px;
     z-index: 1;
   }
+  .profile_Wrapper.close {
+    display: none;
+  }
   .profile_Container {
     display: flex;
     flex-direction: column;
@@ -36,6 +39,7 @@
     font-weight: 700;
     line-height: 26.06px;
     color: #ffffff;
+    margin: 0px 0px;
   }
   .top_point_Wrapper {
     display: flex;
@@ -96,6 +100,9 @@
     right: 70px;
     z-index: 1;
   }
+  .profile_Wrapper.close {
+    display: none;
+  }
 
   .profile_Container {
     display: flex;
@@ -122,6 +129,8 @@
     font-weight: 700;
     line-height: 26.06px;
     color: #ffffff;
+
+    margin: 0px 0px;
   }
   .top_point_Wrapper {
     display: flex;
@@ -182,6 +191,9 @@
     left: 0;
     right: 0;
     z-index: 1;
+  }
+  .profile_Wrapper.close {
+    display: none;
   }
 
   .profile_Container {

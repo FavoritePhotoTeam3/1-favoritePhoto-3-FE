@@ -15,6 +15,9 @@
 
     background-color: pink;
   }
+  .notice_Wrapper.close {
+    display: none;
+  }
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -43,6 +46,7 @@
 
     white-space: pre-wrap;
     text-align: start;
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
@@ -84,6 +88,9 @@
 
     background-color: pink;
   }
+  .notice_Wrapper.close {
+    display: none;
+  }
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -112,6 +119,8 @@
 
     white-space: pre-wrap;
     text-align: start;
+
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
@@ -151,6 +160,9 @@
 
     background-color: #0f0f0f;
   }
+  .notice_Wrapper.close {
+    display: none;
+  }
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -179,6 +191,8 @@
 
     white-space: pre-wrap;
     text-align: start;
+
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
