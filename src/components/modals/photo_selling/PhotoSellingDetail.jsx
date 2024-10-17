@@ -15,6 +15,19 @@ const PhotoSellingDetail = ({
   genreOptions,
 }) => {
   const [textareaValue, setTextareaValue] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const handleMinusClick = () => {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+
+  const handlePlusClick = () => {
+    if (quantity < card.totalCount) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
+  };
 
   const handleTextChange = (e) => {
     setTextareaValue(e.target.value);
@@ -35,7 +48,12 @@ const PhotoSellingDetail = ({
           />
         </div>
         <div className={styles.cardDetailWrapper}>
-          <DescCardDetail registData={card} quantity={card.counts} />
+          <DescCardDetail
+            registData={card}
+            quantity={quantity}
+            onMinusClick={handleMinusClick}
+            onPlusClick={handlePlusClick}
+          />
         </div>
       </div>
       <div className={styles.subTitle}>

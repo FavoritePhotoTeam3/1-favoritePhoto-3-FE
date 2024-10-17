@@ -4,7 +4,8 @@ import "./styles/reset.css";
 import LoginPage from "./page/login";
 import JoinPage from "./page/join";
 import CompleteTradePage from "./page/completeTrade";
-
+import SellerDetailPage from "./page/seller_detail";
+import BuyerDetailPage from "./page/buyer_detail";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} />
         <Route path="/completeTrade" element={<CompleteTradePage />} />
+        <Route path="/seller-detail/:id" element={<SellerDetailPage />} />
+        <Route path="/buyer-detail/:id" element={<BuyerDetailPage />} />
       </Routes>
     </BrowserRouter>
   );
