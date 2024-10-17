@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { InputEmail } from "../../components/commons/input_normal/inputEmail";
 import { InputNickname } from "../../components/commons/input_normal/inputNickname";
 
-const JoinPage = () => {
+const SignupPage = () => {
   const nav = useNavigate();
   const emailRegEx =
     /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i;
@@ -91,4 +91,4 @@ const JoinPage = () => {
     </div>
   );
 };
-export default JoinPage;
+export default SignupPage;

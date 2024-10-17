@@ -6,8 +6,10 @@ import { Inputpassword } from "../../components/commons/input_invisible/inputPas
 import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
 import { useNavigate } from "react-router-dom";
 import { InputEmail } from "../../components/commons/input_normal/inputEmail";
+import { useAuth } from "../../context/authProvider";
 
 const LoginPage = () => {
+  const { login } = useAuth();
   const nav = useNavigate();
   const emailRegEx =
     /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i;
@@ -36,35 +38,37 @@ const LoginPage = () => {
         password: "",
       }));
     } else {
-      console.log(values);
-      /**TODO API -> values */
+      setValues((prev) => ({
+        ...prev,
+        email: "",
+        password: "",
+      }));
+      login(values);
     }
   };
   return (
-    <div className={style.login_Wrapper}>
-      <div className={style.login_Container}>
-        <img className={style.login_mainLogo} src={mainLogo} alt="" />
-        <form className={style.loginForm} onSubmit={onSubmit}>
-          <InputEmail
-            onChange={handleChange}
-            valid={emailValied}
-            value={values.email}
-          />
-          <Inputpassword onChange={handleChange} value={values.password} />
-          <PrimaryBtn text="로그인" width="100%" height="60px" />
-        </form>
-        <p className={style.login_textArea}>
-          최애의 포토가 처음이신가요?{" "}
-          <span
-            className={style.join}
-            onClick={() => {
-              nav("/join");
-            }}
-          >
-            회원가입하기
-          </span>
-        </p>
-      </div>
+    <div className={style.login_Container}>
+      <img className={style.login_mainLogo} src={mainLogo} alt="" />
+      <form className={style.loginForm} onSubmit={onSubmit}>
+        <InputEmail
+          onChange={handleChange}
+          valid={emailValied}
+          value={values.email}
+        />
+        <Inputpassword onChange={handleChange} value={values.password} />
+        <PrimaryBtn text="로그인" width="100%" height="60px" />
+      </form>
+      <p className={style.login_textArea}>
+        최애의 포토가 처음이신가요?{" "}
+        <span
+          className={style.join}
+          onClick={() => {
+            nav("/join");
+          }}
+        >
+          회원가입하기
+        </span>
+      </p>
     </div>
   );
 };
