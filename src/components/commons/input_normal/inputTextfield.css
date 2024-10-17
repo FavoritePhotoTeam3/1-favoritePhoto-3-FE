@@ -45,3 +45,9 @@
   line-height: 23.17px;
   color: #ff483d;
 }
+
+.normal {
+  text-align: start;
+  text-indent: 8px;
+  background-color: #0f0f0f;
+}
