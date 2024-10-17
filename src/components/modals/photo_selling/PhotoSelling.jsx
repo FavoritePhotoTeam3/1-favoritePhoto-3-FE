@@ -4,16 +4,20 @@ import { DropdownNoneBorder } from "../../commons/dropdown_normal/DropdownNormal
 import styles from "./PhotoSelling.module.css";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import PhotoSellingDetail from "./PhotoSellingDetail";
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+import dragThumb from "./assets/drag_thumb.svg";
+import backIcon from "./assets/back_icon.svg";
 
 const PhotoSelling = ({ onClose, imageCards }) => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [search, setSearch] = useState("");
+  const modalContentRef = useRef(null);
 
   const [selectGrade, setSelectGrade] = useState("등급");
-  const [selectOrder, setSelectOrder] = useState("낮은 가격순");
+  const [selectGenre, setSelectGenre] = useState("장르");
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const orderOptions = ["최신 순", "오래된 순", "높은 가격순", "낮은 가격순"];
+  const genreOptions = ["풍경", "자연", "도시", "기계", "우주"];
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
@@ -25,7 +29,7 @@ const PhotoSelling = ({ onClose, imageCards }) => {
   };
 
   const handleSelling = () => {
-    console.log("교환 동작 수행하기");
+    console.log("판매 동작 수행하기");
   };
 
   const handleSearchChange = (e) => {
@@ -40,61 +44,98 @@ const PhotoSelling = ({ onClose, imageCards }) => {
   const handleGradeChange = (option) => {
     setSelectGrade(option);
   };
-  const handleOrderChange = (option) => {
-    setSelectOrder(option);
+  const handleGenreChange = (option) => {
+    setSelectGenre(option);
+  };
+
+  const handleOverlayClick = (e) => {
+    if (
+      modalContentRef.current &&
+      !modalContentRef.current.contains(e.target)
+    ) {
+      onClose();
+    }
   };
 
   return (
-    <div className={styles.modalOverlay}>
-      <div className={styles.modalContent}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+      <div
+        className={`${styles.modalContainer} ${
+          selectedCard ? styles.mobileDetailContainer : ""
+        }`}
+        ref={modalContentRef}
+      >
+        <img
+          src={backIcon}
+          alt="back icon"
+          className={`${styles.backIcon} ${
+            selectedCard ? styles.mobileDetailBack : ""
+          }`}
+          onClick={handleCancel}
+        />
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
-
-        {selectedCard ? (
-          <PhotoSellingDetail
-            card={selectedCard}
-            onCancel={handleCancel}
-            onSelling={handleSelling}
-          />
-        ) : (
-          <div>
-            <div className={styles.logo}>마이갤러리</div>
-            <div className={styles.title}>
-              <Title title={"나의 포토카드 판매하기"} />
-            </div>
-            <div className={styles.filter}>
-              <div className={styles.searchBarWrapper}>
-                <SearchBar
-                  value={search}
-                  onChange={handleSearchChange}
-                  onKeyDown={handleSearchClick}
-                />
+        <div
+          className={`${styles.dragZone} ${
+            selectedCard ? styles.mobileDetailThumb : ""
+          }`}
+          onClick={onClose}
+        >
+          <img src={dragThumb} alt="drag thumb" className={styles.dragThumb} />
+        </div>
+        <div className={styles.modalContent}>
+          {selectedCard ? (
+            <PhotoSellingDetail
+              card={selectedCard}
+              onCancel={handleCancel}
+              onSelling={handleSelling}
+              gradeOptions={gradeOptions}
+              genreOptions={genreOptions}
+            />
+          ) : (
+            <div className={styles.mainWrapper}>
+              <div className={styles.logo}>마이갤러리</div>
+              <div className={styles.title}>
+                <Title title={"나의 포토카드 판매하기"} />
               </div>
-              <div className={styles.filterWrapper}>
-                <DropdownNoneBorder
-                  title={selectGrade}
-                  options={gradeOptions}
-                  onSelect={handleGradeChange}
-                />
-                <DropdownNoneBorder
-                  title={selectOrder}
-                  options={orderOptions}
-                  onSelect={handleOrderChange}
-                />
+              <div className={styles.filter}>
+                <div className={styles.searchBarWrapper}>
+                  <SearchBar
+                    value={search}
+                    onChange={handleSearchChange}
+                    onKeyDown={handleSearchClick}
+                  />
+                </div>
+                <div className={styles.filterWrapper}>
+                  <DropdownNoneBorder
+                    title={selectGrade}
+                    options={gradeOptions}
+                    mobileWidth="52px"
+                    mobileHeight="52px"
+                    onSelect={handleGradeChange}
+                  />
+                  <DropdownNoneBorder
+                    title={selectGenre}
+                    options={genreOptions}
+                    mobileWidth="52px"
+                    mobileHeight="52px"
+                    onSelect={handleGenreChange}
+                  />
+                </div>
+              </div>
+              <div className={styles.imageCardContainer}>
+                {imageCards.map((card) => (
+                  <ImgCardMy
+                    key={card.id}
+                    {...card}
+                    onClick={() => handleCardClick(card)}
+                  />
+                ))}
               </div>
             </div>
-            <div className={styles.imageCardContainer}>
-              {imageCards.map((card) => (
-                <ImgCardMy
-                  key={card.id}
-                  {...card}
-                  onClick={() => handleCardClick(card)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

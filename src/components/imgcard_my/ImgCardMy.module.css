@@ -1,7 +1,9 @@
 .imgCard {
   width: 100%;
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2px;
+  background-color: #161616;
+
   display: flex;
   flex-direction: column;
   padding: 40px;
@@ -113,12 +115,11 @@
     margin-bottom: 30px;
   }
 }
-@media (max-width: 743px) {
+/* @media (max-width: 743px) {
   .imgCard {
     padding: 10px;
   }
   .cardContent {
-    margin-top: 10px;
     margin-bottom: 0;
   }
   .cardTitle {
@@ -136,4 +137,4 @@
   .logoImage {
     display: none;
   }
-}
+} */

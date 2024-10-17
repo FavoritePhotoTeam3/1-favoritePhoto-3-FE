@@ -27,16 +27,16 @@ const ImgCardExchange = ({
 
   const gradeColor = (grade) => {
     switch (grade) {
-      case "COMMON":
+      case "common":
         return styles.common;
-      case "RARE":
+      case "rare":
         return styles.rare;
-      case "SUPER RARE":
+      case "super rare":
         return styles.superRare;
-      case "LEGENDARY":
+      case "legendary":
         return styles.legendary;
       default:
-        return "";
+        return styles.common;
     }
   };
 
@@ -49,7 +49,7 @@ const ImgCardExchange = ({
         <h3 className={styles.cardTitle}>{title}</h3>
         <div className={styles.cardSubtitle}>
           <span className={`${styles.cardGrade} ${gradeColor(grade)}`}>
-            {grade}
+            {grade.toUpperCase()}
           </span>
           <span className={styles.cardGenre}>{genre}</span>
           <div className={styles.cardPrice}>

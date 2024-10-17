@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./PhotoExchangeDetail.module.css";
-import { Title } from "../../commons/title/Title";
+import { TitleDetail } from "../../commons/title/Title";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import TextArea from "../../commons/text_area/TextArea";
 import { SecondaryBtn } from "../../commons/btn/secondary";
@@ -14,10 +14,10 @@ const PhotoExchangeDetail = ({ card, onCancel, onExchange }) => {
   };
 
   return (
-    <div>
+    <div className={styles.detailWrapper}>
       <div className={styles.logo}>포토카드 교환하기</div>
       <div className={styles.title}>
-        <Title title={card.title} />
+        <TitleDetail title={card.title} />
       </div>
       <div className={styles.cardDetail}>
         <div className={styles.cardWrapper}>
