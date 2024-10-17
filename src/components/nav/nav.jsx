@@ -9,6 +9,8 @@ import Notice from "../modals/notice/notice";
 
 import { useState } from "react";
 import Profile from "../modals/profile/profile";
+import { useAuth } from "../../context/authProvider";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
@@ -24,23 +26,20 @@ export const Nav = () => {
           alt=""
         />
         <img className={style.nav_logo} src={logo} alt="" />
-        <NavItem
-          isLogin={true}
-          profileOpen={profileOpen}
-          setProfileOpen={setProfileOpen}
-        />
+        <NavItem profileOpen={profileOpen} setProfileOpen={setProfileOpen} />
       </div>
     </div>
   );
 };
 
-const NavItem = ({ isLogin, profileOpen, setProfileOpen }) => {
+const NavItem = ({ profileOpen, setProfileOpen }) => {
   const [noticeOpen, setNoticeOpen] = useState(false);
+  const { user, logout } = useAuth();
 
-  if (isLogin) {
+  if (user) {
     return (
       <div className={style.nav_item_container}>
-        <span className={style.nav_item_point}>1,540p</span>
+        <span className={style.nav_item_point}>{user.point}</span>
         <img
           onClick={() => {
             setNoticeOpen((prev) => !prev);
@@ -56,9 +55,16 @@ const NavItem = ({ isLogin, profileOpen, setProfileOpen }) => {
           }}
           className={style.nav_item_userName}
         >
-          유디
+          {user.nickname}
         </span>
-        <span className={style.nav_itme_logout}>로그아웃</span>
+        <span
+          onClick={() => {
+            logout();
+          }}
+          className={style.nav_itme_logout}
+        >
+          로그아웃
+        </span>
         <Notice isOpen={noticeOpen} openNotice={setNoticeOpen} />
         <Profile isOpen={profileOpen} openProfile={setProfileOpen} />
       </div>
@@ -66,8 +72,12 @@ const NavItem = ({ isLogin, profileOpen, setProfileOpen }) => {
   } else {
     return (
       <div className={`${style.nav_item_container} ${style.notLogin}`}>
-        <span className={style.nav_item_text}>로그인</span>
-        <span className={style.nav_item_text}>회원 가입</span>
+        <Link to="/login" className={style.nav_item_text}>
+          로그인
+        </Link>
+        <Link to="/signup" className={style.nav_item_text}>
+          회원가입
+        </Link>
       </div>
     );
   }

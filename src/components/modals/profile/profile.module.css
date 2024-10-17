@@ -39,6 +39,7 @@
     font-weight: 700;
     line-height: 26.06px;
     color: #ffffff;
+    margin: 0px 0px;
   }
   .top_point_Wrapper {
     display: flex;
@@ -128,6 +129,8 @@
     font-weight: 700;
     line-height: 26.06px;
     color: #ffffff;
+
+    margin: 0px 0px;
   }
   .top_point_Wrapper {
     display: flex;
