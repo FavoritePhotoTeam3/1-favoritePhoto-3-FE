@@ -31,7 +31,13 @@
   height: 60px;
 }
 @media (max-width: 743px) {
+  .logo {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 5px;
+  }
   .cardDetail {
     grid-template-columns: 1fr;
+    gap: 120px;
   }
 }

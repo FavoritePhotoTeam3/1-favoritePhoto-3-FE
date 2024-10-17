@@ -43,6 +43,9 @@
 .modalContent::-webkit-scrollbar-thumb:hover {
   background-color: #ffffff;
 }
+.backIcon {
+  display: none;
+}
 .closeButton {
   position: absolute;
   top: 30px;
@@ -155,5 +158,23 @@
   }
   .imageCardContainer {
     gap: 5px;
+  }
+  /*상세보기 모바일사이즈*/
+  .mobileDetailContainer {
+    padding-top: 0;
+    background-color: #0f0f0f;
+    height: 100vh;
+  }
+  .mobileDetailBack {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .mobileDetailThumb {
+    display: none;
   }
 }

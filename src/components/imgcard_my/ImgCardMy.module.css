@@ -115,12 +115,11 @@
     margin-bottom: 30px;
   }
 }
-@media (max-width: 743px) {
+/* @media (max-width: 743px) {
   .imgCard {
     padding: 10px;
   }
   .cardContent {
-    margin-top: 10px;
     margin-bottom: 0;
   }
   .cardTitle {
@@ -138,4 +137,4 @@
   .logoImage {
     display: none;
   }
-}
+} */

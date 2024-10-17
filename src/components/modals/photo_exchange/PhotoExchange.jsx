@@ -7,6 +7,7 @@ import PhotoExchangeDetail from "./PhotoExchangeDetail";
 import { useRef, useState } from "react";
 
 import dragThumb from "./assets/drag_thumb.svg";
+import backIcon from "./assets/back_icon.svg";
 
 const PhotoExchange = ({ onClose, imageCards }) => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -58,11 +59,29 @@ const PhotoExchange = ({ onClose, imageCards }) => {
 
   return (
     <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-      <div className={styles.modalContainer} ref={modalContentRef}>
+      <div
+        className={`${styles.modalContainer} ${
+          selectedCard ? styles.mobileDetailContainer : ""
+        }`}
+        ref={modalContentRef}
+      >
+        <img
+          src={backIcon}
+          alt="back icon"
+          className={`${styles.backIcon} ${
+            selectedCard ? styles.mobileDetailBack : ""
+          }`}
+          onClick={handleCancel}
+        />
         <button className={styles.closeButton} onClick={onClose}>
           &times;
         </button>
-        <div className={styles.dragZone} onClick={onClose}>
+        <div
+          className={`${styles.dragZone} ${
+            selectedCard ? styles.mobileDetailThumb : ""
+          }`}
+          onClick={onClose}
+        >
           <img src={dragThumb} alt="drag thumb" className={styles.dragThumb} />
         </div>
         <div className={styles.modalContent}>
