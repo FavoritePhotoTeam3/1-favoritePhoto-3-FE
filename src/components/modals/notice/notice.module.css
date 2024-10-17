@@ -46,6 +46,7 @@
 
     white-space: pre-wrap;
     text-align: start;
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
@@ -118,6 +119,8 @@
 
     white-space: pre-wrap;
     text-align: start;
+
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
@@ -188,6 +191,8 @@
 
     white-space: pre-wrap;
     text-align: start;
+
+    margin: 0px 0px;
   }
 
   .notice_item_textArea.complete {
