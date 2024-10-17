@@ -1,10 +1,11 @@
 import style from "./notice.module.css";
 import arrow from "./assets/arrow.png";
 
-const Notice = () => {
+const Notice = ({ isOpen, openNotice }) => {
+  const close = isOpen ? "" : "close";
   return (
-    <div className={style.notice_Wrapper}>
-      <NoticeHeader />
+    <div className={`${style.notice_Wrapper} ${style[close]}`}>
+      <NoticeHeader openNotice={openNotice} />
       <BuyItem />
       <TradeItem />
       <SoldOutItem />
@@ -30,7 +31,7 @@ const BuyItem = () => {
           {" "}
           [{grade.toUpperCase()} | {cardName}]을{" "}
         </span>
-        <spna>{count}장</spna> 구매했습니다.
+        <span>{count}장</span> 구매했습니다.
       </p>
       <span className={style.notice_item_time}>{hour}시간 전</span>
     </div>
@@ -111,11 +112,18 @@ const SucTradeItem = () => {
   );
 };
 
-export const NoticeHeader = () => {
+export const NoticeHeader = ({ openNotice }) => {
   return (
     <div className={style.notice_header_Wrapper}>
       <div className={style.notice_header_Container}>
-        <img className={style.notice_header_back} src={arrow} alt="" />
+        <img
+          onClick={() => {
+            openNotice((prev) => !prev);
+          }}
+          className={style.notice_header_back}
+          src={arrow}
+          alt=""
+        />
         <span className={style.notice_header_logo}>알림</span>
       </div>
     </div>

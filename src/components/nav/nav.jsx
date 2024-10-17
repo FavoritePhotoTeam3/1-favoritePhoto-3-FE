@@ -7,29 +7,60 @@ import arrow from "./assets/arrow.png";
 import myLogo from "./assets/myLogo.png";
 import Notice from "../modals/notice/notice";
 
+import { useState } from "react";
+import Profile from "../modals/profile/profile";
+
 export const Nav = () => {
+  const [profileOpen, setProfileOpen] = useState(false);
   return (
     <div className={style.nav_Wrapper}>
       <div className={style.nav_Container}>
-        <img className={style.nav_item_menu} src={menu} alt="" />
+        <img
+          onClick={() => {
+            setProfileOpen((prev) => !prev);
+          }}
+          className={style.nav_item_menu}
+          src={menu}
+          alt=""
+        />
         <img className={style.nav_logo} src={logo} alt="" />
-        <NavItem isLogin={true} />
+        <NavItem
+          isLogin={true}
+          profileOpen={profileOpen}
+          setProfileOpen={setProfileOpen}
+        />
       </div>
     </div>
   );
 };
 
-const NavItem = ({ isLogin }) => {
-  console.log(isLogin);
+const NavItem = ({ isLogin, profileOpen, setProfileOpen }) => {
+  const [noticeOpen, setNoticeOpen] = useState(false);
+
   if (isLogin) {
     return (
       <div className={style.nav_item_container}>
         <span className={style.nav_item_point}>1,540p</span>
-        <img className={style.nav_item_notice} src={notice} alt="" />
+        <img
+          onClick={() => {
+            setNoticeOpen((prev) => !prev);
+          }}
+          className={style.nav_item_notice}
+          src={notice}
+          alt=""
+        />
         <img className={style.nav_item_verLine} src={verLine} alt="" />
-        <span className={style.nav_item_userName}>유디</span>
+        <span
+          onClick={() => {
+            setProfileOpen((prev) => !prev);
+          }}
+          className={style.nav_item_userName}
+        >
+          유디
+        </span>
         <span className={style.nav_itme_logout}>로그아웃</span>
-        <Notice />
+        <Notice isOpen={noticeOpen} openNotice={setNoticeOpen} />
+        <Profile isOpen={profileOpen} openProfile={setProfileOpen} />
       </div>
     );
   } else {

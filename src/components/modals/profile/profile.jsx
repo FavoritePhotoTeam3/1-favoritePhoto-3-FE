@@ -1,8 +1,14 @@
 import style from "./profile.module.css";
 
-const Profile = () => {
+const Profile = ({ isOpen, openProfile }) => {
+  const close = isOpen ? "" : "close";
   return (
-    <div className={style.profile_Wrapper}>
+    <div
+      onClick={() => {
+        openProfile((prev) => !prev);
+      }}
+      className={`${style.profile_Wrapper} ${style[close]}`}
+    >
       <div className={style.profile_Container}>
         <div className={style.profile_info_Container}>
           <div className={style.profile_topArea}>

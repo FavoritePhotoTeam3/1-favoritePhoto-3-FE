@@ -1,0 +1,153 @@
+@media screen and (min-width: 745px) {
+  .trade_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+  }
+  .trade_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 440px;
+    height: 236px;
+
+    gap: 40px;
+  }
+  .trade_logo {
+    width: 264px;
+    height: 47px;
+  }
+  .trade_text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 28.96px;
+
+    color: #ffffff;
+  }
+  .tarde_reDirection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+    background-color: #0f0f0f;
+    border: 1px solid #eeeeee;
+
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 26.06px;
+
+    color: white;
+
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 744px) and (min-width: 426px) {
+  .trade_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+  }
+  .trade_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 277px;
+    height: 236px;
+
+    gap: 40px;
+  }
+  .trade_logo {
+    width: 206px;
+    height: 37px;
+  }
+  .trade_text {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 23.17px;
+
+    color: #ffffff;
+  }
+  .tarde_reDirection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+    background-color: #0f0f0f;
+    border: 1px solid #eeeeee;
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 23.17px;
+
+    color: white;
+
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .trade_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+  }
+  .trade_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 277px;
+    height: 236px;
+
+    gap: 40px;
+  }
+  .trade_logo {
+    width: 206px;
+    height: 37px;
+  }
+  .trade_text {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 23.17px;
+
+    color: #ffffff;
+  }
+  .tarde_reDirection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+
+    background-color: #0f0f0f;
+    border: 1px solid #eeeeee;
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 23.17px;
+
+    color: white;
+
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+}
