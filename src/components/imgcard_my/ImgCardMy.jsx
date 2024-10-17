@@ -31,7 +31,7 @@ const ImgCardMy = ({
   return (
     <div className={styles.imgCard} onClick={onClick}>
       <div className={styles.imgCardWrapper}>
-        <img src={imageUrl} alt="card photo" className={styles.cardImage} />
+        <img src={imageUrl} alt="card" className={styles.cardImage} />
       </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>

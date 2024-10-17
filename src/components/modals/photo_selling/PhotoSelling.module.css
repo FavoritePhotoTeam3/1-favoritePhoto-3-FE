@@ -93,6 +93,9 @@
   display: flex;
   gap: 45px;
 }
+.filterMobile {
+  display: none;
+}
 .imageCardContainer {
   width: 100%;
   display: grid;
@@ -150,8 +153,22 @@
     justify-content: space-between;
   }
   .filterWrapper {
+    display: none;
+  }
+  .filterMobile {
     order: -1;
-    gap: 10px;
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .searchBarWrapper {
     width: 100%;
@@ -176,5 +193,21 @@
   }
   .mobileDetailThumb {
     display: none;
+  }
+  /*필터 모바일 사이즈*/
+  .filterModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    z-index: 300;
+  }
+  .filterModal {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1b1b1b;
+    border-radius: 16px 16px 0 0;
   }
 }

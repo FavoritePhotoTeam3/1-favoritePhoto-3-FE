@@ -36,7 +36,7 @@ const ImgCardOriginal = ({
       <div className={styles.imgCardWrapper}>
         <img
           src={imageUrl}
-          alt="card photo"
+          alt="card"
           className={`${styles.cardImage} ${isSoldOut ? styles.soldOut : ""}`}
         />
         {isSoldOut && (
