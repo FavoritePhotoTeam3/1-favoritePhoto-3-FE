@@ -12,6 +12,9 @@
     padding-right: 40px;
 
     background-color: #0f0f0f;
+
+    position: absolute;
+    top: 0;
   }
   .nav_Container {
     display: flex;
@@ -105,6 +108,9 @@
     padding-right: 20px;
 
     background-color: #0f0f0f;
+
+    position: absolute;
+    top: 0;
   }
   .nav_Container {
     display: flex;
@@ -200,6 +206,9 @@
     padding-right: 20px;
 
     background-color: #0f0f0f;
+
+    position: absolute;
+    top: 0;
   }
   .nav_Container {
     display: flex;
