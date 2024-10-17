@@ -81,8 +81,8 @@ export const AuthProvider = () => {
         ...prev,
         isPending: false,
       }));
-      nav("/");
       await getUser();
+      nav("/");
     } catch (e) {
       alert(e.data?.message);
       console.log(e.status, "/context/authProvider/login");
@@ -128,7 +128,7 @@ export const AuthProvider = () => {
 };
 
 export const useAuth = () => {
-  const { user, isPending, login, logout, signup } = useContext(AuthContext); // 권한이 필요 없는 페이지 marketplace
+  const { user, isPending, login, logout, signup } = useContext(AuthContext);
 
   return { user, isPending, login, logout, signup };
 };

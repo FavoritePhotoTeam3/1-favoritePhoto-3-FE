@@ -31,18 +31,17 @@ const router = createBrowserRouter([
         element: <NavLayout />,
         children: [
           {
-            path: "marketplace",
-            element: <MarketPlace />
+            path: "/",
+            element: <MarketPlace />,
           },
           {
             path: "mygallery",
-            element: <MyGallery />
+            element: <MyGallery />,
           },
           {
             path: "mymarket",
-            element: <MyMarket />
+            element: <MyMarket />,
           },
-
         ],
       },
     ],
