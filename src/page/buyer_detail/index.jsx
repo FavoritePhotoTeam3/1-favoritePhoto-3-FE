@@ -1,10 +1,11 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/commons/title/Title";
-
-import defaultImage from "./assets/image1.svg";
 import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
 import { useState } from "react";
 import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
+
+import defaultImage from "./assets/image1.svg";
+import backIcon from "./assets/back_icon.svg";
 
 const BuyerDetailPage = () => {
   // mock 데이터
@@ -59,7 +60,12 @@ const BuyerDetailPage = () => {
     <>
       <main className={styles.main}>
         <div className={styles.mainContainer}>
-          <p className={styles.logo}>마켓플레이스</p>
+          <div className={styles.header}>
+            <img src={backIcon} alt="back" className={styles.backIcon} />
+            <div className={styles.logoWrapper}>
+              <p className={styles.logo}>마켓플레이스</p>
+            </div>
+          </div>
 
           <div className={styles.detailContent}>
             <div className={styles.titleWrapper}>

@@ -1,9 +1,10 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/commons/title/Title";
 import DescCardSeller from "../../components/desc_card_seller/DescCardSeller";
+import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 
 import defaultImage from "./assets/image1.svg";
-import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
+import backIcon from "./assets/back_icon.svg";
 
 const SellerDetailPage = () => {
   // mock 데이터
@@ -40,8 +41,12 @@ const SellerDetailPage = () => {
     <>
       <main className={styles.main}>
         <div className={styles.mainContainer}>
-          <p className={styles.logo}>마켓플레이스</p>
-
+          <div className={styles.header}>
+            <img src={backIcon} alt="back" className={styles.backIcon} />
+            <div className={styles.logoWrapper}>
+              <p className={styles.logo}>마켓플레이스</p>
+            </div>
+          </div>
           <div className={styles.detailContent}>
             <div className={styles.titleWrapper}>
               <TitleDetail title={"임시 card.title"} />

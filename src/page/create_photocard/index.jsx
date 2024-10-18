@@ -4,13 +4,18 @@ import { TextfieldNormal } from "../../components/commons/input_normal/inputText
 import { Title } from "../../components/commons/title/Title";
 import styles from "./index.module.css";
 
+import backIcon from "./assets/back_icon.svg";
+
 const CreatePhotoCardPage = () => {
   return (
     <>
       <main className={styles.main}>
         <div className={styles.mainContainer}>
-          <div className={styles.titleWrapper}>
-            <Title title={"포토카드 생성"} />
+          <div className={styles.titleContainer}>
+            <img src={backIcon} alt="back" className={styles.backIcon} />
+            <div className={styles.titleWrapper}>
+              <Title title={"포토카드 생성"} />
+            </div>
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.photoCardName}>
