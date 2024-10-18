@@ -15,8 +15,12 @@
   flex-direction: column;
   align-items: center;
 }
-.titleWrapper {
+.titleContainer {
   width: 100%;
+  position: relative;
+}
+.backIcon {
+  display: none;
 }
 .inputContainer {
   margin-top: 80px;
@@ -52,4 +56,25 @@
 }
 .createButtonWrapper {
   height: 60px;
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 743px) {
+  .titleContainer {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    background-color: #0f0f0f;
+    position: absolute;
+    top: 20px;
+    z-index: 100;
+  }
+  .backIcon {
+    display: block;
+    position: absolute;
+    left: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

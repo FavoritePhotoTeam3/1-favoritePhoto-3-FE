@@ -1,16 +1,28 @@
 import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
 import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
-import { TextfieldNormal } from "../../components/commons/input_normal/inputTextfield";
+import {
+  TextareaNormal,
+  TextfieldNormal,
+} from "../../components/commons/input_normal/inputTextfield";
 import { Title } from "../../components/commons/title/Title";
 import styles from "./index.module.css";
 
+import backIcon from "./assets/back_icon.svg";
+
 const CreatePhotoCardPage = () => {
+  // mock
+  const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
+  const genreOptions = ["풍경", "자연", "우주"];
+
   return (
     <>
       <main className={styles.main}>
         <div className={styles.mainContainer}>
-          <div className={styles.titleWrapper}>
-            <Title title={"포토카드 생성"} />
+          <div className={styles.titleContainer}>
+            <img src={backIcon} alt="back" className={styles.backIcon} />
+            <div className={styles.titleWrapper}>
+              <Title title={"포토카드 생성"} />
+            </div>
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.photoCardName}>
@@ -24,14 +36,14 @@ const CreatePhotoCardPage = () => {
               <DropdownInput
                 label={"등급"}
                 placeholder={"등급을 선택해 주세요"}
-                options={[]}
+                options={gradeOptions}
               />
             </div>
             <div className={styles.genre}>
               <DropdownInput
                 label={"장르"}
                 placeholder={"장르를 선택해 주세요"}
-                options={[]}
+                options={genreOptions}
               />
             </div>
             <div className={styles.price}>
@@ -61,7 +73,7 @@ const CreatePhotoCardPage = () => {
               </div>
             </div>
             <div className={styles.photoCardDesc}>
-              <TextfieldNormal // textarea로 변경
+              <TextareaNormal
                 inputHeight="180px"
                 title={"포토카드 설명"}
                 placeholder={"카드 설명을 입력해주세요"}
