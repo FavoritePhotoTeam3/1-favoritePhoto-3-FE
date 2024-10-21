@@ -1,0 +1,27 @@
+.secondary_btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #0f0f0f;
+
+  border: 1px solid #eeeeee;
+  border-radius: 2px;
+}
+
+.secondary_btn_text {
+  font-size: 1.25rem; /* 16 : 20 = 1 : 1.25*/
+  font-weight: 700;
+  align-content: center;
+  color: #ffffff;
+}
+
+.secondary_btn_text.refuse {
+  font-size: 0.75rem; /* 16 : 12 = 1 : 0.75*/
+  font-weight: 700;
+  align-content: center;
+  color: #ffffff;
+}
