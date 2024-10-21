@@ -16,8 +16,8 @@ export const useLoginQuery = () => {
         email,
         password,
       });
-      dispatch(completeAuth({ user: response.data }));
-      queryClient.setQueryData(["user"], { user: response.data });
+      dispatch(completeAuth(response.data));
+      queryClient.setQueryData(["user"], response.data);
       dispatch(APIrequestPending({ isPending: false }));
       nav("/");
     } catch (e) {

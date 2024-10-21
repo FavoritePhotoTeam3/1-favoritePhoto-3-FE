@@ -7,25 +7,33 @@ import { useEffect } from "react";
 
 export const UserProvider = ({ children }) => {
   const dispatch = useDispatch();
+  const { user, isLogged } = useSelector((state) => state.auth);
+  console.log(user);
 
   const {
-    data: user,
+    data: newUser,
     isPending,
     isError,
   } = useQuery({
     queryKey: ["user"],
-    queryFn: getUser,
+    queryFn: () => {
+      if (isLogged && !user) {
+        return getUser();
+      } else {
+        return null;
+      }
+    },
     staleTime: 30 * 1000,
   });
 
   useEffect(() => {
     dispatch(APIrequestPending({ isPending }));
     if (isError) {
-      dispatch(completeAuth({ user: null }));
+      dispatch(completeAuth(null));
     } else {
-      dispatch(completeAuth({ user }));
+      dispatch(completeAuth(newUser));
     }
-  }, [dispatch, isError, isPending, user]);
+  }, [dispatch, isError, isPending, user, newUser]);
 
   return <>{children}</>;
 };
@@ -33,9 +41,11 @@ export const UserProvider = ({ children }) => {
 export const AuthValidation = ({ children }) => {
   const nav = useNavigate();
   const { user, isLogged } = useSelector((state) => state.auth);
-  if (!isLogged || !user) {
-    nav("/");
-  } else {
-    return <>{children}</>;
-  }
+
+  useEffect(() => {
+    if (!isLogged || !user) {
+      nav("/");
+    }
+  }, [isLogged, user, nav]);
+  return <>{children}</>;
 };

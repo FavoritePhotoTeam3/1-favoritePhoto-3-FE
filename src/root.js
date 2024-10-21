@@ -27,7 +27,6 @@ const router = createBrowserRouter([
         children: [{ path: "/login", element: <LoginPage /> }],
       },
       {
-        path: "/",
         element: (
           <UserProvider>
             <NavLayout />
@@ -36,9 +35,13 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/",
+            element: <span>임시</span>,
+          },
+          {
+            path: "/test",
             element: (
               <AuthValidation>
-                <span>로그인이 필요한 페이지 컴포넌트 자리</span>
+                <span>로그인 및 회원 정보가 필요한 페이지 자리</span>
               </AuthValidation>
             ),
           },

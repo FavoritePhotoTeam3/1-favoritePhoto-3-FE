@@ -6,7 +6,7 @@ import verLine from "./assets/verLine.png";
 import arrow from "./assets/arrow.png";
 import myLogo from "./assets/myLogo.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -36,6 +36,10 @@ export const Nav = () => {
 const NavItem = ({ profileOpen, setProfileOpen }) => {
   const [noticeOpen, setNoticeOpen] = useState(false);
   const user = useSelector((state) => state.auth.user);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   if (user) {
     return (
