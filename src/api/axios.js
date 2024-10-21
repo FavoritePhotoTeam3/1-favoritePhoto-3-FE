@@ -30,7 +30,8 @@ USERS.interceptors.response.use(
         const response = await postRefreshToken();
         if (response.status === 200) {
           const originRequest = config;
-          axios(originRequest);
+          await axios(originRequest);
+          return (window.location.href = "/");
         }
       } catch (e) {
         if (e.response.status === 401) {

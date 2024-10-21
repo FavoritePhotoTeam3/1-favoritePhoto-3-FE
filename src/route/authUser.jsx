@@ -17,7 +17,8 @@ export const UserProvider = ({ children }) => {
   } = useQuery({
     queryKey: ["user"],
     queryFn: () => {
-      if (isLogged && !user) {
+      if (isLogged || (!isLogged && !user)) {
+        console.log("사랑해 이시온");
         return getUser();
       } else {
         return null;
