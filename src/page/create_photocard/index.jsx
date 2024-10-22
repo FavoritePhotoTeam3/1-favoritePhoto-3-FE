@@ -38,7 +38,11 @@ const CreatePhotoCardPage = () => {
       dispatch(resetForm()); // 폼 리셋
     },
     onError: (error) => {
-      alert("포토카드 생성 중 오류가 발생했습니다.");
+      const message =
+        error.response?.data?.message ||
+        "포토카드 생성 중 오류가 발생했습니다.";
+      alert(message);
+      console.error("Error data:", error.response?.data);
       console.error("Error:", error);
     },
   });
@@ -88,7 +92,7 @@ const CreatePhotoCardPage = () => {
                 placeholder={"등급을 선택해 주세요"}
                 options={gradeOptions}
                 value={grade}
-                onChange={(e) => dispatch(setGrade(e.target.value))}
+                onChange={(selectedGrade) => dispatch(setGrade(selectedGrade))}
               />
             </div>
             <div className={styles.genre}>
@@ -97,7 +101,7 @@ const CreatePhotoCardPage = () => {
                 placeholder={"장르를 선택해 주세요"}
                 options={genreOptions}
                 value={genre}
-                onChange={(e) => dispatch(setGenre(e.target.value))}
+                onChange={(selectedGenre) => dispatch(setGenre(selectedGenre))}
               />
             </div>
             <div className={styles.price}>

@@ -13,9 +13,11 @@ export function DropdownInput({
   desktopHeight = "60px",
   tabletHeight = "55px",
   mobileHeight = "55px",
+  value,
+  onChange,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(placeholder);
+  const [selectedOption, setSelectedOption] = useState(value || placeholder);
 
   const dropdownRef = useRef(null);
 
@@ -26,6 +28,10 @@ export function DropdownInput({
   const selectOption = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+
+    if (onChange) {
+      onChange(option);
+    }
   };
 
   useEffect(() => {
@@ -40,6 +46,12 @@ export function DropdownInput({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (value) {
+      setSelectedOption(value);
+    }
+  }, [value]);
 
   const customStyles = {
     "--desktop-width": desktopWidth,
