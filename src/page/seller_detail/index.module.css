@@ -50,6 +50,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 80px;
 }
+.exchangeEmpty {
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+}
 @media (max-width: 1199px) {
   .contentContainer {
     grid-template-columns: repeat(2, 1fr);

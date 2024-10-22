@@ -32,7 +32,7 @@ const BuyerDetailPage = () => {
   };
 
   const gradeColor = (grade) => {
-    switch (grade) {
+    switch (grade.toLowerCase()) {
       case "common":
         return styles.common;
       case "rare":
@@ -50,7 +50,7 @@ const BuyerDetailPage = () => {
   if (error) return <div>에러 : {error.message}</div>;
 
   const {
-    card: { name, imageURL, genre, grade } = {},
+    card: { name, imageURL, genre, grade, description } = {},
     user: { nickname } = {},
     price,
     remainingCount,
@@ -64,7 +64,7 @@ const BuyerDetailPage = () => {
     grade,
     genre,
     nickname,
-    description: exchangeDescription,
+    description,
     price,
     remainingCount,
     totalCount,

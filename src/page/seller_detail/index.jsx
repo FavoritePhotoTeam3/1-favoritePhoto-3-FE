@@ -3,7 +3,10 @@ import { TitleDetail } from "../../components/common/title/Title";
 import DescCardSeller from "../../components/desc_card_seller/DescCardSeller";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 import { useParams } from "react-router-dom";
-import { useSellerDetail } from "../../feature/seller_detail/useSellerDetail";
+import {
+  useSellerDetail,
+  useSellerExchangeCards,
+} from "../../feature/seller_detail/useSellerDetail";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
@@ -11,7 +14,18 @@ import backIcon from "./assets/back_icon.svg";
 const SellerDetailPage = () => {
   const { shopId } = useParams();
 
-  const { data, error, isLoading } = useSellerDetail(shopId);
+  // 카드 상세 데이터
+  const {
+    data: sellerData,
+    error: sellerError,
+    isLoading: sellerLoading,
+  } = useSellerDetail(shopId);
+  // 교환 제시 목록 데이터
+  const {
+    data: exchangeCardsData,
+    error: exchangeError,
+    isLoading: exchangeLoading,
+  } = useSellerExchangeCards(shopId);
 
   const handleRefresh = () => {
     console.log("새로고침 버튼 클릭됨");
@@ -25,11 +39,14 @@ const SellerDetailPage = () => {
     console.log("판매 내리기 버튼 클릭됨");
   };
 
-  if (isLoading) return <div>로딩중...</div>;
-  if (error) return <div>에러 발생: {error.message}</div>;
+  if (sellerLoading || exchangeLoading) return <div>로딩중...</div>;
+  if (sellerError || exchangeError)
+    return (
+      <div>에러 발생: {sellerError?.message || exchangeError?.message}</div>
+    );
 
   const {
-    card: { name, genre, grade, imageURL } = {},
+    card: { name, genre, grade, imageURL, description } = {},
     user: { nickname } = {},
     price,
     remainingCount,
@@ -37,14 +54,14 @@ const SellerDetailPage = () => {
     exchangeDescription,
     exchangeGrade,
     exchangeGenre,
-  } = data || {};
+  } = sellerData || {};
 
   const sellingData = {
     title: name,
     grade,
     genre,
     nickname,
-    description: exchangeDescription,
+    description,
     imageUrl: imageURL || defaultImage,
     price,
     remainingCount,
@@ -91,9 +108,13 @@ const SellerDetailPage = () => {
               <TitleDetail title={"교환 제시 목록"} />
             </div>
             <div className={styles.exchangeCardsContainer}>
-              <ImgCardExchange {...sellingData} />
-              <ImgCardExchange {...sellingData} />
-              <ImgCardExchange {...sellingData} />
+              {exchangeCardsData?.length > 0 ? (
+                exchangeCardsData.map((exchangeCard) => (
+                  <ImgCardExchange key={exchangeCard.id} {...exchangeCard} />
+                ))
+              ) : (
+                <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
+              )}
             </div>
           </div>
         </div>
