@@ -1,10 +1,9 @@
 import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import store from "./store/store";
-import NomalLayout from "./layout/nomal/nomalLayout";
-import LoginPage from "./page/login";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import NavLayout from "./layout/nav/navLayout";
 import {
   AuthValidation,
@@ -12,6 +11,12 @@ import {
   UserProvider,
 } from "./route/authUser";
 import SignupPage from "./page/signup";
+import store from "./store/store";
+import NomalLayout from "./layout/nomal/nomalLayout";
+import NavLayout from "./layout/nav/navLayout";
+import LoginPage from "./page/login";
+import Market from "./page/market";
+
 
 const queryClient = new QueryClient();
 
@@ -65,6 +70,10 @@ const router = createBrowserRouter([
               </AuthValidation>
             ),
           },
+          {
+            path: "/market",
+            element: <Market />,
+          }
         ],
       },
     ],

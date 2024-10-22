@@ -1,0 +1,15 @@
+.listRenderContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px 20px;
+}
+
+.loading {
+  font-size: 10rem;
+  color: azure;
+}
+
+.loadMore {
+  width: 100%;
+  height: 1000px;
+}
