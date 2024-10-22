@@ -110,7 +110,14 @@ const SellerDetailPage = () => {
             <div className={styles.exchangeCardsContainer}>
               {exchangeCardsData?.length > 0 ? (
                 exchangeCardsData.map((exchangeCard) => (
-                  <ImgCardExchange key={exchangeCard.id} {...exchangeCard} />
+                  <ImgCardExchange
+                    key={exchangeCard.id}
+                    title={exchangeCard.card.name}
+                    grade={exchangeCard.card.grade}
+                    genre={exchangeCard.card.genre}
+                    imageUrl={exchangeCard.card.imageURL}
+                    description={exchangeCard.description}
+                  />
                 ))
               ) : (
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
