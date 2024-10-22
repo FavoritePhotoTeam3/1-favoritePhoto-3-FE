@@ -1,0 +1,131 @@
+.main {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+}
+.mainContainer {
+  max-width: 1480px;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 180px;
+}
+.header {
+  width: 100%;
+}
+.backIcon {
+  display: none;
+}
+.logo {
+  font-family: "BR B";
+  font-size: 24px;
+  font-weight: 400;
+  color: #a4a4a4;
+  text-align: start;
+}
+.detailContent {
+  margin-top: 60px;
+}
+.contentContainer {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
+}
+.imageWrapper {
+  width: 100%;
+}
+.cardImage {
+  width: 100%;
+  height: auto;
+}
+.titleWrapper {
+  margin-top: 120px;
+  position: relative;
+}
+.buttonWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 440px;
+  height: 60px;
+}
+.exchangeInfo {
+  margin-top: 60px;
+}
+.exchangeDescription {
+  text-align: start;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.common {
+  color: #efff04;
+}
+.rare {
+  color: #29c9f9;
+}
+.superRare {
+  color: #a77eff;
+}
+.legendary {
+  color: #ff2a6a;
+}
+.gradeAndGenre {
+  margin-top: 20px;
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+}
+.exchangeGrade {
+  padding-right: 15px;
+  border-right: 1px solid #5a5a5a;
+}
+.exchangeGenre {
+  padding-left: 15px;
+  color: #a4a4a4;
+}
+@media (max-width: 1199px) {
+  .contentContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .buttonWrapper {
+    width: 342px;
+  }
+}
+@media (max-width: 743px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    padding-top: 20px;
+
+    background-color: #0f0f0f;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+  }
+  .backIcon {
+    display: block;
+    position: absolute;
+    left: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .logo {
+    color: #ffffff;
+  }
+  .contentContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .buttonWrapper {
+    width: 100%;
+    left: 0;
+    top: 240px;
+  }
+}
