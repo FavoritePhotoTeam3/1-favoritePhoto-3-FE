@@ -24,7 +24,7 @@ export const signupSlice = createSlice({
   name: "signup",
   initialState,
   reducers: {
-    signupInputAndVaildation(state, action) {
+    signupInputAndValidation(state, action) {
       const { name, value } = action.payload;
       state.signupForm = { ...state.signupForm, [name]: value };
       state.signupValidation = {
@@ -51,4 +51,4 @@ export const signupSlice = createSlice({
   },
 });
 
-export const { signupInputAndVaildation, formReset } = signupSlice.actions;
+export const { signupInputAndValidation, formReset } = signupSlice.actions;

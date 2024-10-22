@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Notice from "../../components/modals/notice/notice";
 import Profile from "../../components/modals/profile/profile";
+import { useLogoutQuery } from "./logoutQuery";
 
 export const Nav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
@@ -36,6 +37,7 @@ export const Nav = () => {
 const NavItem = ({ profileOpen, setProfileOpen }) => {
   const [noticeOpen, setNoticeOpen] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const { logout } = useLogoutQuery();
 
   useEffect(() => {
     console.log(user);
@@ -64,7 +66,7 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
         </span>
         <span
           onClick={() => {
-            // logout();
+            logout();
           }}
           className={style.nav_itme_logout}
         >

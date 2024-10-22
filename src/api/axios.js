@@ -25,7 +25,6 @@ USERS.interceptors.response.use(
 
     //토큰이 만료되을 때
     if (status === 401) {
-      console.log(status);
       try {
         const response = await postRefreshToken();
         if (response.status === 200) {
@@ -34,10 +33,12 @@ USERS.interceptors.response.use(
           return (window.location.href = "/");
         }
       } catch (e) {
-        if (e.response.status === 401) {
-          return (window.location.href = "/login");
+        if (e.response.status === 403) {
+          console.log(e.response.data.message);
+          return;
         } else {
-          alert("오류!");
+          console.log(e.response.data.message);
+          return;
         }
       }
     }

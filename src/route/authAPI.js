@@ -6,7 +6,7 @@ export const getUser = async () => {
     const response = await USERS.get("/me");
     nextUser = response.data;
   } catch (e) {
-    console.log(e.data?.message, "/context/authProvider/getUser");
+    console.log(e.data.data?.message, "/context/authProvider/getUser");
   } finally {
     return nextUser;
   }
