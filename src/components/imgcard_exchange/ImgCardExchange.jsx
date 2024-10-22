@@ -26,7 +26,7 @@ const ImgCardExchange = ({
   }, []);
 
   const gradeColor = (grade) => {
-    switch (grade) {
+    switch (grade.toLowerCase()) {
       case "common":
         return styles.common;
       case "rare":

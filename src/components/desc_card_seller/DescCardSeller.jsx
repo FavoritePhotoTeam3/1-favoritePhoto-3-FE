@@ -14,7 +14,7 @@ import SecondaryAnother from "../common/btn/SecondaryAnother.jsx";
 
 export default function DescCardSeller(props) {
   const getColor = (grade) => {
-    switch (grade) {
+    switch (grade.toLowerCase()) {
       case "common":
         return font.common;
       case "rare":

@@ -13,7 +13,7 @@ import PrimaryBtnAnother from "../common/btn/PrimaryBtnAnother.jsx";
 
 export default function DescCardBuyer(props) {
   const getColor = (grade) => {
-    switch (grade) {
+    switch (grade.toLowerCase()) {
       case "common":
         return font.common;
       case "rare":
