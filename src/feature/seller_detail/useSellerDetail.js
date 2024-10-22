@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchSellerCardDetails } from "../sellerDetailAPI";
+import { fetchSellerCardDetails } from "./sellerDetailAPI";
 
 export const useSellerDetail = (shopId) => {
   return useQuery(

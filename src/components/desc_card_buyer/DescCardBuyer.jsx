@@ -3,8 +3,8 @@ import style from "./DescCardBuyer.module.css";
 import font from "../../styles/fonts.module.css";
 
 //컴포넌트
-import QuantityControl from "../commons/quantity_control/QuantityControl.jsx";
-import PrimaryBtnAnother from "../commons/btn/PrimaryBtnAnother.jsx";
+import QuantityControl from "../common/quantity_control/QuantityControl.jsx";
+import PrimaryBtnAnother from "../common/btn/PrimaryBtnAnother.jsx";
 
 // props 정리 *이름 준수
 // selllingData = 판매 Photo 데이터 묶음

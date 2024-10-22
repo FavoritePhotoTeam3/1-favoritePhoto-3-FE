@@ -1,9 +1,9 @@
 import styles from "./index.module.css";
-import { TitleDetail } from "../../components/commons/title/Title";
+import { TitleDetail } from "../../components/common/title/Title";
 import DescCardSeller from "../../components/desc_card_seller/DescCardSeller";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 import { useParams } from "react-router-dom";
-import { useSellerDetail } from "../../feature/sellerDetail/useSellerDetail";
+import { useSellerDetail } from "../../feature/seller_detail/useSellerDetail";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";

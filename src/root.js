@@ -13,6 +13,8 @@ import {
 } from "./route/authUser";
 import SignupPage from "./page/signup";
 import CreatePhotoCardPage from "./page/create_photocard";
+import SellerDetailPage from "./page/seller_detail";
+import BuyerDetailPage from "./page/buyer_detail";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
                 <span>로그인 및 회원 정보가 필요한 페이지 자리</span>
               </AuthValidation>
             ),
+          },
+          {
+            path: "seller-detail/:id",
+            element: <SellerDetailPage />,
+          },
+          {
+            path: "buyer-detail/:id",
+            element: <BuyerDetailPage />,
           },
           {
             path: "/create-photocard",

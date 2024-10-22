@@ -1,8 +1,8 @@
 import styles from "./index.module.css";
-import { TitleDetail } from "../../components/commons/title/Title";
+import { TitleDetail } from "../../components/common/title/Title";
 import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
 import { useState } from "react";
-import { PrimaryBtn } from "../../components/commons/btn/primaryBtn";
+import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useParams } from "react-router-dom";
 import { useBuyerDetail } from "../../feature/buyer_detail/useBuyerDetail";
 
