@@ -45,3 +45,20 @@ USERS.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+
+export const SHOP = axios.create({
+  baseURL: process.env.REACT_APP_URL + '/shop',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+
+// 요청 인터셉터 추가 (API 요청 전 URL 확인)
+SHOP.interceptors.request.use((config) => {
+  console.log(`Final API URL: ${config.baseURL}${config.url}`);
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
