@@ -1,11 +1,12 @@
 import { Provider } from "react-redux";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import store from "./store/store";
 import NomalLayout from "./layout/nomal/nomalLayout";
+import NavLayout from "./layout/nav/navLayout";
 import LoginPage from "./page/login";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import NavLayout from "./layout/nav/navLayout";
+
 import {
   AuthValidation,
   NotAuthValidation,
@@ -22,6 +23,8 @@ import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
 import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
 import StateHandler from "./route/stateHandler";
+import LoginPage from "./page/login";
+import Market from "./page/market";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +34,9 @@ const router = createBrowserRouter([
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <StateHandler>
-            <UserProvider />
+            <UserProvider>
+              <Outlet />
+            </UserProvider>
           </StateHandler>
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
@@ -108,6 +113,10 @@ const router = createBrowserRouter([
                 element: <SignupPage />,
               },
             ],
+          },
+          {
+            path: "/market",
+            element: <Market />,
           },
         ],
       },
