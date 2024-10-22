@@ -12,6 +12,10 @@ export const store = configureStore({
     signup: signupSlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;

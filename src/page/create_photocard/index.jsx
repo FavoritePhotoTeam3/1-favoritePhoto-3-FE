@@ -9,9 +9,9 @@ import {
   setDescription,
   setImage,
   resetForm,
-} from "../../features/photoCardFormSlice";
+} from "../../feature/create_photocard/photoCardFormSlice";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
-import { DropdownInput } from "../../components/commons/dropdown_input/DropdownInput";
+import { DropdownInput } from "../../components/common/dropdown_input/DropdownInput";
 import {
   TextareaNormal,
   TextfieldNormal,
@@ -31,7 +31,8 @@ const CreatePhotoCardPage = () => {
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOptions = ["풍경", "자연", "우주", "동물", "기타"];
 
-  const mutation = useMutation(CreatePhotoCard, {
+  const mutation = useMutation({
+    mutationFn: CreatePhotoCard,
     onSuccess: () => {
       alert("포토카드가 성공적으로 생성되었습니다!");
       dispatch(resetForm()); // 폼 리셋

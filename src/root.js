@@ -12,6 +12,7 @@ import {
   UserProvider,
 } from "./route/authUser";
 import SignupPage from "./page/signup";
+import CreatePhotoCardPage from "./page/create_photocard";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
                 <span>로그인 및 회원 정보가 필요한 페이지 자리</span>
               </AuthValidation>
             ),
+          },
+          {
+            path: "/create-photocard",
+            element: <CreatePhotoCardPage />,
           },
         ],
       },
