@@ -20,11 +20,13 @@ USERS.interceptors.response.use(
   async (error) => {
     const {
       config,
-      response: { status },
+      response: {
+        status,
+        data: { RequestURL },
+      },
     } = error;
-
     //토큰이 만료되을 때
-    if (status === 401) {
+    if (status === 401 && RequestURL === "/users/me") {
       try {
         const response = await postRefreshToken();
         if (response.status === 200) {
@@ -34,6 +36,7 @@ USERS.interceptors.response.use(
         }
       } catch (e) {
         if (e.response.status === 403) {
+          localStorage.removeItem("isLogged");
           console.log(e.response.data.message);
           return;
         } else {
@@ -42,6 +45,7 @@ USERS.interceptors.response.use(
         }
       }
     }
+
     return Promise.reject(error);
   }
 );

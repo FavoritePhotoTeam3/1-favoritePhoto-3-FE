@@ -1,6 +1,6 @@
 import style from "./inputEmail.module.css";
 
-export const InputEmail = ({ onChange, validation }) => {
+export const InputEmail = ({ onChange, validation, value }) => {
   const isValid = validation ? "" : "invalid";
 
   return (
@@ -11,6 +11,7 @@ export const InputEmail = ({ onChange, validation }) => {
         type="text"
         placeholder="이메일을 입력해 주세요"
         name="email"
+        value={value ?? ""}
         onChange={onChange}
       />
       <span className={`${style.input_email_valid} ${style[isValid]}`}>

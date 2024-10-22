@@ -17,13 +17,13 @@ export const UserProvider = ({ children }) => {
   } = useQuery({
     queryKey: ["user"],
     queryFn: () => {
-      if (isLogged || (!isLogged && !user)) {
+      if (isLogged) {
         return getUser();
       } else {
         return null;
       }
     },
-    staleTime: 30 * 1000,
+    staleTime: 60 * 1000 * 60 * 24, //하루
   });
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export const NotAuthValidation = ({ children }) => {
   // state.auth.user 에서 유저 데이터 불러왔을 때, 존재한다면 / 으로 리다이렉션
   const nav = useNavigate();
   const { user, isLogged } = useSelector((state) => state.auth);
-  console.log(user, isLogged);
+
   useEffect(() => {
-    if (isLogged || user) {
+    if (isLogged) {
       nav("/");
     }
   }, [isLogged, user, nav]);

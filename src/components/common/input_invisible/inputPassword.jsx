@@ -2,9 +2,8 @@ import style from "./inputPassword.module.css";
 import invisible from "./assets/invisible.png";
 import visible from "./assets/visible.png";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
-export const InputPassword = ({ onChange, validation }) => {
+export const InputPassword = ({ onChange, validation, value }) => {
   const [isVisible, setIsVisible] = useState(false);
   const isValid = validation ? "" : "invalid";
 
@@ -17,6 +16,7 @@ export const InputPassword = ({ onChange, validation }) => {
           type={isVisible ? "string" : "password"}
           placeholder="비밀번호을 입력해 주세요"
           name="password"
+          value={value ?? ""}
           onChange={onChange}
         />
         <img
@@ -29,19 +29,15 @@ export const InputPassword = ({ onChange, validation }) => {
         />
       </div>
       <span className={`${style.input_password_valid} ${style[isValid]}`}>
-        비밀번호를 입력해주세요.
+        영문, 숫자, 특수기호, 조합 8자리 이상을 입력해주세요
       </span>
     </div>
   );
 };
-export const InputPasswordConfirm = ({ onChange }) => {
+export const InputPasswordConfirm = ({ onChange, validation, value }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const Signup = useSelector(
-    (state) => state.signup.signupValidation.passwordConfirm
-  );
-
-  const isValid = Signup ? "" : "invalid";
+  const isValid = validation ? "" : "invalid";
 
   return (
     <div className={`${style.password_Wrapper} ${style.confirm}`}>
@@ -52,6 +48,7 @@ export const InputPasswordConfirm = ({ onChange }) => {
           type={isVisible ? "string" : "password"}
           placeholder="비밀번호을 한번 더 입력해 주세요"
           name="passwordConfirm"
+          value={value ?? ""}
           onChange={onChange}
         />
         <img

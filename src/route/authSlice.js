@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const isLogged = !!localStorage.getItem("isLogged");
+
 const initialState = {
   user: null,
-  isLogged: false,
+  isLogged: isLogged ?? false,
   isPending: false,
 };
 
@@ -15,14 +17,16 @@ export const authSlice = createSlice({
       if (user) {
         state.isLogged = true;
         state.user = user;
+        localStorage.setItem("isLogged", true);
       } else {
         state.isLogged = false;
         state.user = null;
       }
     },
     expireAuth(state, action) {
-      state.user = null;
       state.isLogged = false;
+      state.user = null;
+      localStorage.removeItem("isLogged");
     },
     APIrequestPending(state, action) {
       const { isPending } = action.payload;

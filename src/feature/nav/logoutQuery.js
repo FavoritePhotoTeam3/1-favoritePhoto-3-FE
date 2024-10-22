@@ -2,7 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 
 import { APIrequestPending, expireAuth } from "../../route/authSlice";
-import { USERS } from "../../api/axios";
+import { USERS } from "../../api/users";
 
 export const useLogoutQuery = () => {
   const queryClient = useQueryClient();

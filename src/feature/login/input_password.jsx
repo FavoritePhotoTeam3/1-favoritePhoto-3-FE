@@ -3,8 +3,9 @@ import { InputPassword } from "../../components/common/input_invisible/inputPass
 import { loginInputAndValidation } from "./loginSlice";
 
 const LoginPasswordInput = () => {
+  const password = useSelector((state) => state.login?.loginForm.password);
   const passwordValidation = useSelector(
-    (state) => state.login.loginValidation.password
+    (state) => state.login?.loginValidation.password.validation
   );
 
   const dispatch = useDispatch();
@@ -13,7 +14,11 @@ const LoginPasswordInput = () => {
     dispatch(loginInputAndValidation({ name, value }));
   };
   return (
-    <InputPassword onChange={handleChange} validation={passwordValidation} />
+    <InputPassword
+      onChange={handleChange}
+      validation={passwordValidation}
+      value={password}
+    />
   );
 };
 
