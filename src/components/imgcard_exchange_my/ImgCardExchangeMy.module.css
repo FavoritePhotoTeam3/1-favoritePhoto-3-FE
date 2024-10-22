@@ -105,9 +105,7 @@
   text-overflow: ellipsis;
 }
 .buttonWrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  width: 100%;
 }
 @media (max-width: 1199px) {
   .imgCard {
@@ -153,8 +151,5 @@
   }
   .cardDescription {
     margin-top: 10px;
-  }
-  .buttonWrapper {
-    gap: 5px;
   }
 }
