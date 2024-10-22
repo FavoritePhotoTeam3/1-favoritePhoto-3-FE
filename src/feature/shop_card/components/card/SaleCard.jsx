@@ -1,11 +1,18 @@
-import React from "react";
+import React, { forwardRef, useEffect } from "react";
 import style from "./SaleCard.module.css";
 import { Link } from "react-router-dom";
 
 import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
-const ImgCardOriginal = ({ data }) => {
+const SaleCard = ({ data }, ref) => {
+
+  useEffect(() => {
+    if (ref && ref.current) {
+      console.log("ref가 가리키는 요소:", ref.current); // ref.current가 가리키는 요소 출력
+    }
+  }, [ref]);
+
   const price = data.price;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
@@ -23,7 +30,7 @@ const ImgCardOriginal = ({ data }) => {
 
   return (
     <Link to={`/item/${data?.id}`}>
-      <figure className={style.contaier}>
+      <figure className={style.contaier} ref={ref}>
         <section className={style.imgWrapper}>
           <picture>
             <source
@@ -79,4 +86,4 @@ const ImgCardOriginal = ({ data }) => {
   );
 };
 
-export default React.memo(ImgCardOriginal);
+export default React.memo(forwardRef(SaleCard));

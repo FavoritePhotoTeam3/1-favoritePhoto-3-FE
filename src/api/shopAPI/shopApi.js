@@ -1,40 +1,18 @@
 import { SHOP } from "../axios";
 
-const removeEmptyParams = (params) => {
-  return Object.fromEntries(
-    Object.entries(params).filter(([_, value]) => value)
-  );
+// 검색어와 필터 옵션을 받아 페이지네이션된 카드 데이터를 요청하는 함수
+export const getShopCards = async ({ pageParam = 1, searchTerm = "", filterOptions = {} }) => {
+  const params = {
+    page: pageParam,
+    search: searchTerm,
+    ...filterOptions,  // grade, soldOut, genre 등 필터 옵션
+  };
+
+  const response = await SHOP.get("/cards", { params });
+  return response.data;  // 서버로부터 받은 데이터 반환
 };
 
-export const getShopCards = async ({
-  pageParam = 1,
-  searchTerm = "",
-  filterOptions = { grade: "", soldOut: "", genre: "" },
-}) => {
-  try {
-    const params = removeEmptyParams({
-      page: pageParam,
-      search: searchTerm,
-      grade: filterOptions.grade,
-      soldOut: filterOptions.soldOut,
-      genre: filterOptions.genre,
-    });
-    const queryString = new URLSearchParams(params).toString();
 
-    const response = await SHOP.get(`/cards?${queryString}`);
-
-    // 응답 전체 로깅
-    console.log("API Response Data:", response.data); // 응답 데이터 구조 확인
-
-    // API 서버 오류 코드
-    if (!response.data) {
-      throw new Error(`Failed to fetch products: ${response.status}`);
-    }
-
-    return response.data; // 데이터 반환
-
-  } catch (error) {
-    console.error("Error in getShopCards function:", error);
-    throw error; // 에러를 상위로 전달
-  }
+export const createQueryKey = (searchTerm = "", filterOptions = {}) => {
+  return ["shopCards", searchTerm, filterOptions];
 };

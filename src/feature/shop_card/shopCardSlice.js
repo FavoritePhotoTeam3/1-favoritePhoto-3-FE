@@ -1,25 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cards: [], // 불러온 제품 데이터
-  loading: false, // 로딩 상태
-  error: null, // 에러 상태
+  cards: [],
 };
 
 export const shopSlice = createSlice({
-  name: 'shop',
+  name: "shop",
   initialState,
   reducers: {
     setCards: (state, action) => {
-      state.cards = [...state.cards, ...action.payload];
-    },
-    setLoading: (state, action) => {
-      state.loading = action.payload;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
+      const newCards = action.payload.filter(
+        (newCard) =>
+          !state.cards.some((existingCard) => existingCard.id === newCard.id)
+      );
+      console.log("기존 카드:", state.cards);
+      console.log("새 카드:", newCards);
+      
+      state.cards = [...state.cards, ...newCards];
     },
   },
 });
 
-export const { setCards, setLoading, setError } = shopSlice.actions;
+export const { setCards, addNextPageCards, setLoading, setError } =
+  shopSlice.actions;

@@ -1,67 +1,50 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useMemo, useEffect } from "react";
 import style from "./ShopCardRender.module.css";
 import SaleCard from "./components/card/SaleCard";
 
-import { useDispatch, useSelector } from "react-redux";
-import { setCards } from "./shopCardSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { setCards } from '../../feature/shop_card/shopCardSlice';
 
 import { useGetCardQuery } from "../../hooks/shop_card/useGetCardQuery";
-import { useLogQueryStatus } from "../../hooks/shop_card/useLogQueryStatus";
-import { useIntersectionObserver } from "../../hooks/shop_card/useIntersectionObserver";
 
-export const ShopCardRender = () => {
+import { useInfiniteScroll } from "../../hooks/shop_card/useInfiniteScroll";
+
+
+const ShopCardRender = () => {
+  const cards = useSelector((state) => state.shop.cards); 
+
+  const { data, fetchNextPage, hasNextPage } = useGetCardQuery();
+
+  const loadMoreRef = useInfiniteScroll(hasNextPage, fetchNextPage, { log: true });
+
   const dispatch = useDispatch();
-  const cards = useSelector((state) => state.shop.cards);
-  const loadMoreRef = useRef();
-
-  // React Query로 데이터 페치
-  const {
-    data,
-    fetchNextPage,
-    isFetchingNextPage,
-    hasNextPage,
-    isError,
-    error,
-    isLoading,
-  } = useGetCardQuery();
-
-
-  // React Query 상태 로깅 훅 사용
-  useLogQueryStatus(
-    { data, hasNextPage, isFetchingNextPage, isLoading, isError, error },
-    { log: true } // 로그 활성화
-  );
-  // IntersectionObserver 훅 사용
-  useIntersectionObserver(
-    loadMoreRef,
-    hasNextPage,
-    fetchNextPage,
-    isFetchingNextPage,
-    { log: true }
-  );
-
-  // redux 업데이트
   useEffect(() => {
-    console.log("fetching data... 마운트");
     if (data) {
-      console.log("Fetched data:", data.pages);
-      dispatch(setCards(data.pages.flatMap((page) => page.list)));
-    } else {
-      console.log("데이터가 아직 fetch되지 않음");
+      const lastPage = data.pages[data.pages.length - 1];
+      dispatch(setCards(lastPage.list));  // 여기서 dispatch 실행
+      console.log(`★ ${lastPage.list[0][0]} 디스패치`);
     }
   }, [data, dispatch]);
 
-  // 렌더링 전 상태 확인
   const renderCards = useMemo(() => {
-    console.log("cards 리스트 렌더링:", cards);
-    return cards.map((data) => <SaleCard key={data.id} data={data} />);
-  }, [cards]);
+    return cards.map((data, index) => {
+      // 마지막 카드에만 ref를 적용
+      const isLastCard = index === cards.length - 2;
+      return (
+        <SaleCard
+          key={data.id}
+          data={data}
+          ref={isLastCard ? loadMoreRef : null} // 특정 번째에만 ref 전달
+        />
+      );
+    });
+  }, [cards, loadMoreRef]);
 
   return (
     <>
-      <section className={style.listRenderContainer}>{renderCards}</section>
-      <section className={style.loadMore} ref={loadMoreRef}>
-        {isFetchingNextPage && "Loading..."}
+      <section className={style.listRenderContainer}>
+        {renderCards}
       </section>
     </>
   );
