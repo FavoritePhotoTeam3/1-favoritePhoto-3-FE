@@ -32,9 +32,11 @@
   border-bottom: 2px solid #eeeeee;
 }
 @media (max-width: 1199px) {
-  .titleContainer,
-  .titleDetailContainer {
+  .titleContainer {
     height: 61px;
+  }
+  .titleDetailContainer {
+    height: 80px;
   }
   .title {
     font-size: 40px;

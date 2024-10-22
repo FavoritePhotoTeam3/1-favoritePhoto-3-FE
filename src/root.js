@@ -69,11 +69,11 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "seller-detail/:id",
+            path: "seller-detail/:shopId",
             element: <SellerDetailPage />,
           },
           {
-            path: "buyer-detail/:id",
+            path: "buyer-detail/:shopId",
             element: <BuyerDetailPage />,
           },
           {

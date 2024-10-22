@@ -52,7 +52,6 @@ const BuyerDetailPage = () => {
   const {
     card: { name, imageURL, genre, grade } = {},
     user: { nickname } = {},
-    description,
     price,
     remainingCount,
     totalCount,
@@ -65,7 +64,7 @@ const BuyerDetailPage = () => {
     grade,
     genre,
     nickname,
-    description,
+    description: exchangeDescription,
     price,
     remainingCount,
     totalCount,
