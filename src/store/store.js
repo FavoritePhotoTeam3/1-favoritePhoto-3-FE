@@ -15,7 +15,7 @@ export const store = configureStore({
     shop: shopSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(errorLoggerMiddleware), // errorLoggerMiddleware 추가
+    getDefaultMiddleware().concat(errorLoggerMiddleware(true)), // errorLoggerMiddleware 추가
 });
 
 export default store;
