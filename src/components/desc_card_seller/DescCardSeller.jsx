@@ -4,8 +4,8 @@ import font from "../../styles/fonts.module.css";
 import icRefresh from "./assets/ic_refresh.png";
 
 //컴포넌트
-import PrimaryBtnAnother from "../commons/btn/PrimaryBtnAnother.jsx";
-import SecondaryAnother from "../commons/btn/SecondaryAnother.jsx";
+import PrimaryBtnAnother from "../common/btn/PrimaryBtnAnother.jsx";
+import SecondaryAnother from "../common/btn/SecondaryAnother.jsx";
 
 // props 정리 *이름 준수
 // selllingData = 판매 Photo 데이터 묶음
