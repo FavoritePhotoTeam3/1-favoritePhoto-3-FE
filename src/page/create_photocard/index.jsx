@@ -19,11 +19,14 @@ import {
 import { Title } from "../../components/common/title/Title";
 import styles from "./index.module.css";
 import { CreatePhotoCard } from "../../feature/create_photocard/photoCardAPI";
+import { useState } from "react";
 
 import backIcon from "./assets/back_icon.svg";
 
 const CreatePhotoCardPage = () => {
   const dispatch = useDispatch();
+
+  const [selectedFileName, setSelectedFileName] = useState("사진 업로드");
 
   const { name, grade, genre, price, totalCount, description, image } =
     useSelector((state) => state.photoCardForm);
@@ -48,7 +51,13 @@ const CreatePhotoCardPage = () => {
   });
 
   const handleFileChange = (e) => {
-    dispatch(setImage(e.target.files[0]));
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFileName(file.name);
+    } else {
+      setSelectedFileName("사진 업로드");
+    }
+    dispatch(setImage(file));
   };
 
   const handleSubmit = (e) => {
@@ -127,18 +136,21 @@ const CreatePhotoCardPage = () => {
                 <TextfieldNormal
                   inputHeight="60px"
                   title={"사진 업로드"}
-                  placeholder={"사진 업로드"}
+                  placeholder={selectedFileName}
+                  readOnly
                 />
               </div>
               <div className={styles.uploadButtonWrapper}>
-                <input
-                  type="file"
-                  placeholder="사진 업로드"
-                  className={styles.uploadButton}
-                  onChange={handleFileChange}
-                  accept="image/*" // 이미지 파일만 업로드 가능
-                />
-                파일 선택
+                <label className={styles.uploadButton}>
+                  파일 선택
+                  <input
+                    type="file"
+                    placeholder="사진 업로드"
+                    className={styles.hiddenUploadButton}
+                    onChange={handleFileChange}
+                    accept="image/*" // 이미지 파일만 업로드 가능
+                  />
+                </label>
               </div>
             </div>
             <div className={styles.photoCardDesc}>

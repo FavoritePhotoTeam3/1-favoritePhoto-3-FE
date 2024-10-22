@@ -49,6 +49,7 @@ export const TextfieldNormal = ({
   placeholder,
   value,
   onChange,
+  readOnly,
 }) => {
   return (
     <div
@@ -66,6 +67,7 @@ export const TextfieldNormal = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        readOnly={readOnly}
         style={{ height: inputHeight }}
       />
     </div>

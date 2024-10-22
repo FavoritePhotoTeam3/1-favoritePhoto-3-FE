@@ -45,6 +45,7 @@
 }
 .uploadButton {
   height: 60px;
+  line-height: 60px;
 
   background-color: #0f0f0f;
   color: #efff04;
@@ -53,6 +54,9 @@
   &:hover {
     cursor: pointer;
   }
+}
+.hiddenUploadButton {
+  display: none;
 }
 .createButtonWrapper {
   height: 60px;
