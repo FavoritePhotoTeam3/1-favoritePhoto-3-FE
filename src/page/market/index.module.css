@@ -1,0 +1,36 @@
+main {
+  padding: 0px 20px;
+  width: 1480px;
+}
+
+.sectionFilter {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 0px 60px 0px;
+  gap: 0px 60px;
+}
+
+.searchBarSize {
+  max-width: 320px;
+  min-width: 200px;
+  width: 100%;
+}
+
+.FilterBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 45px;
+}
+
+.dropDownBox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 45px;
+}

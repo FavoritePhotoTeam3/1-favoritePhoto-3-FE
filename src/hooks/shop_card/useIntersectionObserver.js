@@ -4,7 +4,8 @@ export const useIntersectionObserver = (
   loadMoreRef,
   hasNextPage,
   fetchNextPage,
-  { log = false } = {} // threshold와 log만 매개변수로 사용
+  isFetchingNextPage, 
+  { log = false } = {} 
 ) => {
   useEffect(() => {
     // ref를 변수에 저장하여 클린업에서 안전하게 사용
@@ -21,7 +22,8 @@ export const useIntersectionObserver = (
             console.log("Observed element가 뷰포트에 들어옴:", entry.target);
 
           // 다음 페이지가 있나 없나 확인하고 로깅하면서 페칭
-          if (hasNextPage) {
+          // + 추가로, 현재 데이터를 로드 중인지 체크하는 로직 추가
+          if (entry.isIntersecting && hasNextPage && !isFetchingNextPage) {
             if (log) console.log("Fetching the next page...");
             fetchNextPage();
           } else {
@@ -51,5 +53,5 @@ export const useIntersectionObserver = (
         if (log) console.log("observing 종료:", targetElement);
       }
     };
-  }, [hasNextPage, fetchNextPage, loadMoreRef, log]);
+  }, [hasNextPage, fetchNextPage, isFetchingNextPage, loadMoreRef, log]);
 };

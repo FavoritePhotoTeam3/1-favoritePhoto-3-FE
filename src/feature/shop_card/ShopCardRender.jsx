@@ -5,9 +5,9 @@ import SaleCard from "./components/card/SaleCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setCards } from "./shopCardSlice";
 
-import { useGetCardQuery } from "./useGetCardQuery";
-import { useLogQueryStatus } from './hooks/useLogQueryStatus';
-import { useIntersectionObserver } from './hooks/useIntersectionObserver';
+import { useGetCardQuery } from "../../hooks/shop_card/useGetCardQuery";
+import { useLogQueryStatus } from "../../hooks/shop_card/useLogQueryStatus";
+import { useIntersectionObserver } from "../../hooks/shop_card/useIntersectionObserver";
 
 export const ShopCardRender = () => {
   const dispatch = useDispatch();
@@ -25,21 +25,29 @@ export const ShopCardRender = () => {
     isLoading,
   } = useGetCardQuery();
 
+
   // React Query 상태 로깅 훅 사용
   useLogQueryStatus(
-    { hasNextPage, isFetchingNextPage, isLoading, isError, error },
-    { log: false } // 로그 활성화
+    { data, hasNextPage, isFetchingNextPage, isLoading, isError, error },
+    { log: true } // 로그 활성화
   );
   // IntersectionObserver 훅 사용
-  useIntersectionObserver(loadMoreRef, hasNextPage, fetchNextPage, { log: false });
+  useIntersectionObserver(
+    loadMoreRef,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    { log: true }
+  );
 
   // redux 업데이트
   useEffect(() => {
+    console.log("fetching data... 마운트");
     if (data) {
       console.log("Fetched data:", data.pages);
-      dispatch(setCards(data.pages.flatMap((page) => page)));
+      dispatch(setCards(data.pages.flatMap((page) => page.list)));
     } else {
-      console.log("No data fetched yet");
+      console.log("데이터가 아직 fetch되지 않음");
     }
   }, [data, dispatch]);
 

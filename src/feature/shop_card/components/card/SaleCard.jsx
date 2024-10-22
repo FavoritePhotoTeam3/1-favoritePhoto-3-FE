@@ -6,7 +6,6 @@ import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
 const ImgCardOriginal = ({ data }) => {
-  
   const price = data.price;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
@@ -19,22 +18,25 @@ const ImgCardOriginal = ({ data }) => {
 
   const nickname = data.user.nickname;
 
-  const gradeStyle = grade
-    ? grade.replace(/\s+/g, "").toLowerCase()
-    : "";
+  const gradeStyle = grade ? grade.replace(/\s+/g, "").toLowerCase() : "";
   console.log(`데이터 등급 : ${grade}`);
-
-
 
   return (
     <Link to={`/item/${data?.id}`}>
       <figure className={style.contaier}>
         <section className={style.imgWrapper}>
-          <img
-            src={imageURL}
-            alt="Card"
-            className={`${style.cardImage} ${isSoldOut ? style.soldOut : ""}`}
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={`${imageURL}`}
+              className={style.cardImage}
+            />
+            <img
+              src={imageURL}
+              alt="Card"
+              className={`${style.cardImage} ${isSoldOut ? style.soldOut : ""}`}
+            />
+          </picture>
           {isSoldOut && (
             <img
               src={soldOutImage}
@@ -66,9 +68,7 @@ const ImgCardOriginal = ({ data }) => {
               <label>잔여</label>
               <p className={style.whiteCount}>
                 {remainingCount}
-                <span
-                  className={style.grayCount}
-                >{` / ${totalCount}`}</span>
+                <span className={style.grayCount}>{` / ${totalCount}`}</span>
               </p>
             </div>
           </section>

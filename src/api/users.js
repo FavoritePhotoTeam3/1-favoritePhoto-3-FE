@@ -48,7 +48,6 @@ export const SHOP = axios.create({
 });
 
 
-// 요청 인터셉터 추가 (API 요청 전 URL 확인)
 SHOP.interceptors.request.use((config) => {
   console.log(`Final API URL: ${config.baseURL}${config.url}`);
   return config;
