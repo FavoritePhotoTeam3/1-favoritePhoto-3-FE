@@ -4,6 +4,7 @@ import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
 import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import {
   useBuyerDetail,
   useBuyerExchangeCards,
@@ -20,9 +21,9 @@ import backIcon from "./assets/back_icon.svg";
 
 const BuyerDetailPage = () => {
   const { shopId } = useParams();
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  const quantity = useSelector((state) => state.modal.purchaseInfo?.count || 1);
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const modalType = useSelector((state) => state.modal.modalType);
   const purchaseInfo = useSelector((state) => state.modal.purchaseInfo || {});
@@ -43,13 +44,13 @@ const BuyerDetailPage = () => {
 
   const handleMinusClick = () => {
     if (quantity > 1) {
-      dispatch(openPurchaseModal({ ...purchaseInfo, count: quantity - 1 }));
+      setQuantity(quantity - 1);
     }
   };
 
   const handlePlusClick = () => {
     if (quantity < (buyerData?.remainingCount || 1)) {
-      dispatch(openPurchaseModal({ ...purchaseInfo, count: quantity + 1 }));
+      setQuantity(quantity + 1);
     }
   };
 
