@@ -12,7 +12,7 @@ export const store = configureStore({
     login: loginSlice.reducer,
     signup: signupSlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
-    buyerModal: buyerModalSlice.reducer,
+    modal: buyerModalSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

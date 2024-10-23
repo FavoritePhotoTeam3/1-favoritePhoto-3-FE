@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isModalOpen: false,
   modalType: null, // purchase 또는 exchange
-  purchaseInfo: null,
+  purchaseInfo: {},
   exchangeInfo: null,
 };
 

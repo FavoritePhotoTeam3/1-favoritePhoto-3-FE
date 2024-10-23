@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./CommonConfirmModalStyle.module.css";
+import style from "./PurchaseConfirm.module.css";
 import { useNavigate } from "react-router-dom";
 import { purchaseCard } from "../../../feature/buyer_detail/buyerDetailAPI";
 
@@ -25,25 +25,27 @@ export default function PurchaseAsking(props) {
   };
 
   return (
-    <div className={style.container}>
-      <img
-        src={icClose}
-        alt="닫기"
-        className={style.closeIcon}
-        onClick={props.onClose}
-      />
-      <header className={style.header}>포토카드 구매</header>
-      <p
-        className={style.descMedium}
-      >{`[${props.purchase.grade.toUpperCase()} | ${props.purchase.name}] ${
-        props.purchase.count
-      }장을 구매하시겠습니까?`}</p>
-      <div className={style.btnSize}>
-        <PrimaryBtnAnother
-          text={"구매하기"}
-          font={"medium"}
-          onClick={props.onClickPurchaseConfirm}
+    <div className={style.overlay}>
+      <div className={style.container}>
+        <img
+          src={icClose}
+          alt="닫기"
+          className={style.closeIcon}
+          onClick={props.onClose}
         />
+        <header className={style.header}>포토카드 구매</header>
+        <p
+          className={style.descMedium}
+        >{`[${props.purchase.grade.toUpperCase()} | ${props.purchase.name}] ${
+          props.purchase.count
+        }장을 구매하시겠습니까?`}</p>
+        <div className={style.btnSize}>
+          <PrimaryBtnAnother
+            text={"구매하기"}
+            font={"medium"}
+            onClick={props.onClickPurchaseConfirm}
+          />
+        </div>
       </div>
     </div>
   );

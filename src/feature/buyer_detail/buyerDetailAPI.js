@@ -6,7 +6,7 @@ export const fetchBuyerCardDetails = async (shopId) => {
 };
 
 export const fetchExchangeCards = async (shopId) => {
-  const response = await axiosInstance.get(`/users/cards/${shopId}/exchange`);
+  const response = await axiosInstance.get(`/users/${shopId}/exchange`);
   return response.data;
 };
 // 구매하기 API

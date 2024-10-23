@@ -9,7 +9,10 @@ import {
   useBuyerExchangeCards,
 } from "../../feature/buyer_detail/useBuyerDetail";
 import { useDispatch, useSelector } from "react-redux";
-import { openPurchaseModal } from "../../feature/buyer_detail/buyerModalSlice";
+import {
+  openPurchaseModal,
+  closeModal,
+} from "../../feature/buyer_detail/buyerModalSlice";
 import PurchaseAsking from "../../components/modals/confirm/PurchaseConfirm";
 
 import defaultImage from "./assets/image1.svg";
@@ -22,7 +25,7 @@ const BuyerDetailPage = () => {
   const quantity = useSelector((state) => state.modal.purchaseInfo?.count || 1);
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const modalType = useSelector((state) => state.modal.modalType);
-  const purchaseInfo = useSelector((state) => state.modal.purchaseInfo);
+  const purchaseInfo = useSelector((state) => state.modal.purchaseInfo || {});
   const exchangeInfo = useSelector((state) => state.modal.exchangeInfo);
 
   // 카드 상세 데이터
@@ -54,6 +57,7 @@ const BuyerDetailPage = () => {
     console.log(`${quantity}개의 포토카드를 구매합니다.`);
     dispatch(
       openPurchaseModal({
+        shopId: buyerData?.shopId,
         name: buyerData?.card.name,
         grade: buyerData?.card.grade,
         count: quantity,
@@ -198,7 +202,7 @@ const BuyerDetailPage = () => {
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
-            {isModalOpen && modalType === "purchase" && (
+            {isModalOpen && modalType === "purchase" && purchaseInfo && (
               <PurchaseAsking
                 purchase={purchaseInfo}
                 onClickPurchaseConfirm={handlePurchaseConfirm}
