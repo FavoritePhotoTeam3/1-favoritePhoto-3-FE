@@ -1,6 +1,6 @@
-import { Title } from "../../commons/title/Title";
-import SearchBar from "../../commons/search_bar/SearchBar";
-import { DropdownNoneBorder } from "../../commons/dropdown_normal/DropdownNormal";
+import { Title } from "../../common/title/Title";
+import SearchBar from "../../common/search_bar/SearchBar";
+import { DropdownNoneBorder } from "../../common/dropdown_normal/DropdownNormal";
 import styles from "./PhotoExchange.module.css";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import PhotoExchangeDetail from "./PhotoExchangeDetail";

@@ -12,12 +12,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPurchaseModal,
+  openExchangeModal,
   closeModal,
 } from "../../feature/buyer_detail/buyerModalSlice";
 import PurchaseAsking from "../../components/modals/confirm/PurchaseConfirm";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
+import PhotoExchange from "../../components/modals/photo_exchange/PhotoExchange";
 
 const BuyerDetailPage = () => {
   const { shopId } = useParams();
@@ -28,7 +30,7 @@ const BuyerDetailPage = () => {
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const modalType = useSelector((state) => state.modal.modalType);
   const purchaseInfo = useSelector((state) => state.modal.purchaseInfo || {});
-  const exchangeInfo = useSelector((state) => state.modal.exchangeInfo);
+  // const exchangeInfo = useSelector((state) => state.modal.exchangeInfo);
 
   // 카드 상세 데이터
   const {
@@ -69,6 +71,7 @@ const BuyerDetailPage = () => {
 
   const handleExchangeClick = () => {
     console.log(`포토카드를 교환합니다.`);
+    dispatch(openExchangeModal());
   };
 
   const handleCloseModal = () => {
@@ -77,11 +80,6 @@ const BuyerDetailPage = () => {
 
   const handlePurchaseConfirm = () => {
     console.log(`${purchaseInfo?.count}개의 포토카드를 구매합니다.`);
-    dispatch(closeModal());
-  };
-
-  const handleExchangeConfirm = () => {
-    console.log("교환 신청을 처리합니다.", exchangeInfo);
     dispatch(closeModal());
   };
 
@@ -167,6 +165,7 @@ const BuyerDetailPage = () => {
                   text="포토카드 교환하기"
                   width={"100%"}
                   height={"100%"}
+                  onClick={handleExchangeClick}
                 />
               </div>
             </div>
@@ -211,13 +210,9 @@ const BuyerDetailPage = () => {
                 onClose={handleCloseModal}
               />
             )}
-            {/* {isModalOpen && modalType === "exchange" && (
-              <exchangeModal
-                exchange={exchangeInfo}
-                onClickExchangeConfirm={handleExchangeConfirm}
-                onClose={handleCloseModal}
-              />
-            )} */}
+            {isModalOpen && modalType === "exchange" && (
+              <PhotoExchange onClose={handleCloseModal} />
+            )}
           </div>
         </div>
       </main>

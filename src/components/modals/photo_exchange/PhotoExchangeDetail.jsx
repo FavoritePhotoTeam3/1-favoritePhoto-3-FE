@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styles from "./PhotoExchangeDetail.module.css";
-import { TitleDetail } from "../../commons/title/Title";
+import { TitleDetail } from "../../common/title/Title";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
-import TextArea from "../../commons/text_area/TextArea";
-import { SecondaryBtn } from "../../commons/btn/secondary";
-import { PrimaryBtn } from "../../commons/btn/primaryBtn";
+import TextArea from "../../common/text_area/TextArea";
+import { SecondaryBtn } from "../../common/btn/secondary";
+import { PrimaryBtn } from "../../common/btn/primaryBtn";
 
 const PhotoExchangeDetail = ({ card, onCancel, onExchange }) => {
   const [textareaValue, setTextareaValue] = useState("");
