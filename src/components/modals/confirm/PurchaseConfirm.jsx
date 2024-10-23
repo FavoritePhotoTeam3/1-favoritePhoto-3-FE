@@ -1,14 +1,37 @@
 import React from "react";
 import style from "./CommonConfirmModalStyle.module.css";
-
-import icClose from "./assets/ic_close.png";
+import { useNavigate } from "react-router-dom";
+import { purchaseCard } from "../../../feature/buyer_detail/buyerDetailAPI";
 
 import PrimaryBtnAnother from "../../common/btn/PrimaryBtnAnother";
 
+import icClose from "./assets/ic_close.png";
+
 export default function PurchaseAsking(props) {
+  const navigate = useNavigate();
+
+  const handlePurchaseConfirm = async () => {
+    const result = await purchaseCard(
+      props.purchase.shopId,
+      props.purchase.count
+    );
+
+    if (result.success) {
+      navigate("/purchase-success", { state: { purchase: result.data } });
+    } else {
+      alert(result.error);
+      navigate("/purchase-fail", { state: { purchase: result.data } });
+    }
+  };
+
   return (
     <div className={style.container}>
-      <img src={icClose} alt="닫기" className={style.closeIcon} />
+      <img
+        src={icClose}
+        alt="닫기"
+        className={style.closeIcon}
+        onClick={props.onClose}
+      />
       <header className={style.header}>포토카드 구매</header>
       <p
         className={style.descMedium}
