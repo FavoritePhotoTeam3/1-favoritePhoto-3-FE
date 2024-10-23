@@ -9,7 +9,7 @@ export const InputNickname = ({ onChange, value }) => {
         type="text"
         placeholder="닉네임을 입력해 주세요"
         name="nickname"
-        value={value}
+        value={value ?? ""}
         onChange={onChange}
       />
     </div>

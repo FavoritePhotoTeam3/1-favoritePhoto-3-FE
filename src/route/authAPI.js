@@ -1,4 +1,4 @@
-import { USERS } from "../api/axios";
+import { USERS } from "../api/users";
 
 export const getUser = async () => {
   let nextUser = null;

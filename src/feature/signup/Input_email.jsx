@@ -3,8 +3,9 @@ import { InputEmail } from "../../components/common/input_normal/inputEmail";
 import { signupInputAndValidation } from "./signupSlice";
 
 const SignupEmailInput = () => {
+  const email = useSelector((state) => state.signup?.signupForm.email);
   const emailValidation = useSelector(
-    (state) => state.signup.signupValidation.email
+    (state) => state.signup?.signupValidation.email.validation
   );
 
   const dispatch = useDispatch();
@@ -12,7 +13,13 @@ const SignupEmailInput = () => {
     const { name, value } = e.target;
     dispatch(signupInputAndValidation({ name, value }));
   };
-  return <InputEmail onChange={handleChange} validation={emailValidation} />;
+  return (
+    <InputEmail
+      onChange={handleChange}
+      validation={emailValidation}
+      value={email}
+    />
+  );
 };
 
 export default SignupEmailInput;

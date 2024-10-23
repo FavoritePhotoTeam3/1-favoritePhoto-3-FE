@@ -6,7 +6,7 @@ import verLine from "./assets/verLine.png";
 import arrow from "./assets/arrow.png";
 import myLogo from "./assets/myLogo.png";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -36,14 +36,10 @@ export const Nav = () => {
 
 const NavItem = ({ profileOpen, setProfileOpen }) => {
   const [noticeOpen, setNoticeOpen] = useState(false);
-  const user = useSelector((state) => state.auth.user);
+  const { user, isLogged } = useSelector((state) => state.auth);
   const { logout } = useLogoutQuery();
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
-  if (user) {
+  if (isLogged && user) {
     return (
       <div className={style.nav_item_container}>
         <span className={style.nav_item_point}>{user.point}P</span>

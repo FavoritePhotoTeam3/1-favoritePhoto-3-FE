@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { emailValidation, isNotNull } from "../../util/sliceValidation";
+import {
+  emailValidation,
+  isNotNull,
+  passwordValidation,
+} from "../../util/sliceValidation";
 
 const initialState = {
   loginForm: {
@@ -7,31 +11,46 @@ const initialState = {
     password: "",
   },
   loginValidation: {
-    email: true,
-    password: true,
+    email: { isNotNull: false, validation: true },
+    password: { isNotNull: false, validation: true },
   },
 };
 
 export const loginSlice = createSlice({
   name: "login",
-  initialState,
+  initialState: null,
   reducers: {
+    pageInit(state, action) {
+      return initialState;
+    },
+    pageReset(state, action) {
+      return null;
+    },
     loginInputAndValidation(state, action) {
       const { name, value } = action.payload;
-      console.log(name, value);
       state.loginForm = { ...state.loginForm, [name]: value };
-      state.loginValidation = {
-        ...state.loginValidation,
-        [name]: isNotNull(value),
+      state.loginValidation[name] = {
+        ...state.loginValidation[name],
+        isNotNull: isNotNull(value),
       };
 
-      const { email } = state.loginForm;
-      state.loginValidation.email = emailValidation(email);
+      const { email, password } = state.loginForm;
+
+      state.loginValidation.email = {
+        ...state.loginValidation.email,
+        validation: emailValidation(email),
+      };
+      state.loginValidation.password = {
+        ...state.loginValidation.password,
+        validation: passwordValidation(password),
+      };
     },
     formReset(state, _) {
-      state.loginForm = { email: "", password: "" };
+      state.loginForm = { ...initialState.loginForm };
+      state.loginValidation = { ...initialState.loginValidation };
     },
   },
 });
 
-export const { loginInputAndValidation, formReset } = loginSlice.actions;
+export const { pageInit, pageReset, loginInputAndValidation, formReset } =
+  loginSlice.actions;

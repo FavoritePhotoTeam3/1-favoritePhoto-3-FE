@@ -2,7 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { APIrequestPending, completeAuth } from "../../route/authSlice";
-import { USERS } from "../../api/axios";
+import { USERS } from "../../api/users";
 
 export const useLoginQuery = () => {
   const queryClient = useQueryClient();

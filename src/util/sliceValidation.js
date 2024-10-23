@@ -9,8 +9,17 @@ export const emailValidation = (email) => {
   }
 };
 
-export const passwordValidation = (password, passwordConfirm) => {
-  if (!(password === passwordConfirm) && passwordConfirm) {
+export const passwordValidation = (password) => {
+  const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+  if (!passwordRegEx.test(password) && password) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+export const passwordEqualValidation = (password, passwordConfirm) => {
+  if (password && passwordConfirm && !(password === passwordConfirm)) {
     return false;
   } else {
     return true;

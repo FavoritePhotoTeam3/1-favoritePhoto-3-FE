@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   emailValidation,
   isNotNull,
+  passwordEqualValidation,
   passwordValidation,
 } from "../../util/sliceValidation";
 
@@ -13,42 +14,63 @@ const initialState = {
     passwordConfirm: "",
   },
   signupValidation: {
-    email: true,
-    nickname: true,
-    password: true,
-    passwordConfirm: true,
+    email: { isNotNull: false, validation: true, errorMessage: "" },
+    nickname: { isNotNull: false, validation: true, errorMessage: "" },
+    password: { isNotNull: false, validation: true, errorMessage: "" },
+    passwordConfirm: { isNotNull: false, validation: true, errorMessage: "" },
   },
 };
 
 export const signupSlice = createSlice({
   name: "signup",
-  initialState,
+  initialState: null,
   reducers: {
+    pageInit(state, action) {
+      return initialState;
+    },
+    pageReset(state, action) {
+      return null;
+    },
     signupInputAndValidation(state, action) {
       const { name, value } = action.payload;
       state.signupForm = { ...state.signupForm, [name]: value };
-      state.signupValidation = {
-        ...state.signupValidation,
-        [name]: isNotNull(value),
+      state.signupValidation[name] = {
+        ...state.signupValidation[name],
+        isNotNull: isNotNull(value),
       };
 
       const { email, password, passwordConfirm } = state.signupForm;
-      state.signupValidation.email = emailValidation(email);
-      state.signupValidation.passwordConfirm = passwordValidation(
-        password,
-        passwordConfirm
-      );
+
+      state.signupValidation.email = {
+        ...state.signupValidation.email,
+        validation: emailValidation(email),
+      };
+      state.signupValidation.password = {
+        ...state.signupValidation.password,
+        validation: passwordValidation(password),
+      };
+      state.signupValidation.passwordConfirm = {
+        ...state.signupValidation.passwordConfirm,
+        validation: passwordEqualValidation(password, passwordConfirm),
+      };
       //추후에 비슷한 방식으로 유효성 검사 로직 추가.
+    },
+    setErrorMessage(state, action) {
+      state.errorMessage = { message: action.payload };
     },
     formReset(state, _) {
       state.signupForm = {
-        email: "",
-        nickname: "",
-        password: "",
-        passwordConfirm: "",
+        ...initialState.signupForm,
       };
+      state.signupValidation = { ...initialState.signupValidation };
     },
   },
 });
 
-export const { signupInputAndValidation, formReset } = signupSlice.actions;
+export const {
+  pageInit,
+  pageReset,
+  signupInputAndValidation,
+  setErrorMessage,
+  formReset,
+} = signupSlice.actions;
