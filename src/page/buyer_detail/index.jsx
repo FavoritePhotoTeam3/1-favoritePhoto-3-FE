@@ -2,20 +2,28 @@ import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
 import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
 import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
-import { useState } from "react";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useParams } from "react-router-dom";
 import {
   useBuyerDetail,
   useBuyerExchangeCards,
 } from "../../feature/buyer_detail/useBuyerDetail";
+import { useDispatch, useSelector } from "react-redux";
+import { openPurchaseModal } from "../../feature/buyer_detail/buyerModalSlice";
+import PurchaseAsking from "../../components/modals/confirm/PurchaseConfirm";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
 
 const BuyerDetailPage = () => {
   const { shopId } = useParams();
-  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const quantity = useSelector((state) => state.modal.purchaseInfo?.count || 1);
+  const isModalOpen = useSelector((state) => state.modal.isModalOpen);
+  const modalType = useSelector((state) => state.modal.modalType);
+  const purchaseInfo = useSelector((state) => state.modal.purchaseInfo);
+  const exchangeInfo = useSelector((state) => state.modal.exchangeInfo);
 
   // 카드 상세 데이터
   const {
@@ -32,18 +40,43 @@ const BuyerDetailPage = () => {
 
   const handleMinusClick = () => {
     if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
+      dispatch(openPurchaseModal({ ...purchaseInfo, count: quantity - 1 }));
     }
   };
 
   const handlePlusClick = () => {
-    if (quantity < (data?.remainingCount || 1)) {
-      setQuantity((prevQuantity) => prevQuantity + 1);
+    if (quantity < (buyerData?.remainingCount || 1)) {
+      dispatch(openPurchaseModal({ ...purchaseInfo, count: quantity + 1 }));
     }
   };
 
   const handlePurchaseClick = () => {
     console.log(`${quantity}개의 포토카드를 구매합니다.`);
+    dispatch(
+      openPurchaseModal({
+        name: buyerData?.card.name,
+        grade: buyerData?.card.grade,
+        count: quantity,
+      })
+    );
+  };
+
+  const handleExchangeClick = () => {
+    console.log(`포토카드를 교환합니다.`);
+  };
+
+  const handleCloseModal = () => {
+    dispatch(closeModal());
+  };
+
+  const handlePurchaseConfirm = () => {
+    console.log(`${purchaseInfo?.count}개의 포토카드를 구매합니다.`);
+    dispatch(closeModal());
+  };
+
+  const handleExchangeConfirm = () => {
+    console.log("교환 신청을 처리합니다.", exchangeInfo);
+    dispatch(closeModal());
   };
 
   const gradeColor = (grade) => {
@@ -165,6 +198,20 @@ const BuyerDetailPage = () => {
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
+            {isModalOpen && modalType === "purchase" && (
+              <PurchaseAsking
+                purchase={purchaseInfo}
+                onClickPurchaseConfirm={handlePurchaseConfirm}
+                onClose={handleCloseModal}
+              />
+            )}
+            {/* {isModalOpen && modalType === "exchange" && (
+              <exchangeModal
+                exchange={exchangeInfo}
+                onClickExchangeConfirm={handleExchangeConfirm}
+                onClose={handleCloseModal}
+              />
+            )} */}
           </div>
         </div>
       </main>
