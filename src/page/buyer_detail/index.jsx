@@ -1,10 +1,14 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
 import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
+import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
 import { useState } from "react";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useParams } from "react-router-dom";
-import { useBuyerDetail } from "../../feature/buyer_detail/useBuyerDetail";
+import {
+  useBuyerDetail,
+  useBuyerExchangeCards,
+} from "../../feature/buyer_detail/useBuyerDetail";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
@@ -13,7 +17,18 @@ const BuyerDetailPage = () => {
   const { shopId } = useParams();
   const [quantity, setQuantity] = useState(1);
 
-  const { data, error, isLoading } = useBuyerDetail(shopId);
+  // 카드 상세 데이터
+  const {
+    data: buyerData,
+    error: buyerError,
+    isLoading: buyerLoading,
+  } = useBuyerDetail(shopId);
+  // 교환 제시 목록 데이터
+  const {
+    data: exchangeCardsData,
+    error: exchangeError,
+    isLoading: exchangeLoading,
+  } = useBuyerExchangeCards(shopId);
 
   const handleMinusClick = () => {
     if (quantity > 1) {
@@ -46,8 +61,11 @@ const BuyerDetailPage = () => {
     }
   };
 
-  if (isLoading) return <div>로딩중</div>;
-  if (error) return <div>에러 : {error.message}</div>;
+  if (buyerLoading || exchangeLoading) return <div>로딩중...</div>;
+  if (buyerError || exchangeError)
+    return (
+      <div>에러 발생: {buyerError?.message || exchangeError?.message}</div>
+    );
 
   const {
     card: { name, imageURL, genre, grade, description } = {},
@@ -58,7 +76,7 @@ const BuyerDetailPage = () => {
     exchangeDescription,
     exchangeGrade,
     exchangeGenre,
-  } = data || {};
+  } = buyerData || {};
 
   const sellingData = {
     grade,
@@ -127,6 +145,25 @@ const BuyerDetailPage = () => {
                 </span>
                 <span className={styles.exchangeGenre}>{exchangeGenre}</span>
               </div>
+            </div>
+            <div className={styles.titleWrapper}>
+              <TitleDetail title={"내가 제시한 교환 목록"} />
+            </div>
+            <div className={styles.exchangeCardsContainer}>
+              {exchangeCardsData?.length > 0 ? (
+                exchangeCardsData.map((exchangeCard) => (
+                  <ImgCardExchangeMy
+                    key={exchangeCard.id}
+                    title={exchangeCard.card.name}
+                    grade={exchangeCard.card.grade}
+                    genre={exchangeCard.card.genre}
+                    imageUrl={exchangeCard.card.imageURL}
+                    description={exchangeCard.description}
+                  />
+                ))
+              ) : (
+                <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
+              )}
             </div>
           </div>
         </div>

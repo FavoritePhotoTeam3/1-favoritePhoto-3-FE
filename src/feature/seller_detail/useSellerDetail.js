@@ -11,7 +11,7 @@ export const useSellerDetail = (shopId) => {
 
 export const useSellerExchangeCards = (shopId) => {
   return useQuery({
-    queryKey: ["exchangeCards", shopId],
+    queryKey: ["sellerExchangeCards", shopId],
     queryFn: () => fetchExchangeCards(shopId),
     enabled: !!shopId,
   });

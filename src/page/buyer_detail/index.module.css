@@ -87,6 +87,17 @@
   padding-left: 15px;
   color: #a4a4a4;
 }
+.exchangeCardsContainer {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+.exchangeEmpty {
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+}
 @media (max-width: 1199px) {
   .contentContainer {
     grid-template-columns: repeat(2, 1fr);
@@ -94,6 +105,11 @@
   }
   .buttonWrapper {
     width: 342px;
+  }
+  .exchangeCardsContainer {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 @media (max-width: 743px) {
