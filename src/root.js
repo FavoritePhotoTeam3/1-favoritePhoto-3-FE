@@ -15,6 +15,8 @@ import SignupPage from "./page/signup";
 import CreatePhotoCardPage from "./page/create_photocard";
 import SellerDetailPage from "./page/seller_detail";
 import BuyerDetailPage from "./page/buyer_detail";
+import PurchaseSuccessPage from "./page/purchase_result/purchaseSuccess";
+import PurchaseFailPage from "./page/purchase_result/purchaseFail";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +81,14 @@ const router = createBrowserRouter([
           {
             path: "/create-photocard",
             element: <CreatePhotoCardPage />,
+          },
+          {
+            path: "/purchase-success",
+            element: <PurchaseSuccessPage />,
+          },
+          {
+            path: "/purchase-fail",
+            element: <PurchaseFailPage />,
           },
         ],
       },

@@ -17,10 +17,14 @@ export default function PurchaseAsking(props) {
     );
 
     if (result.success) {
-      navigate("/purchase-success", { state: { purchase: result.data } });
+      navigate("/purchase-success", {
+        state: { purchase: { ...props.purchase } },
+      });
     } else {
       alert(result.error);
-      navigate("/purchase-fail", { state: { purchase: result.data } });
+      navigate("/purchase-fail", {
+        state: { purchase: { ...props.purchase } },
+      });
     }
   };
 
@@ -43,7 +47,7 @@ export default function PurchaseAsking(props) {
           <PrimaryBtnAnother
             text={"구매하기"}
             font={"medium"}
-            onClick={props.onClickPurchaseConfirm}
+            onClick={handlePurchaseConfirm}
           />
         </div>
       </div>

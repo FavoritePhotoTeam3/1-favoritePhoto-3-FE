@@ -1,0 +1,99 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  margin-bottom: 180px;
+}
+.closeIconWrapper {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+.closeIcon {
+  position: absolute;
+  right: -120px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.backIcon {
+  display: none;
+}
+.header {
+  margin-top: 96px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.headerPurchase,
+.headerSuccess,
+.headerFail {
+  font-family: "BR B";
+  font-size: 46px;
+  font-weight: 400;
+}
+.headerPurchase {
+  color: #ffffff;
+}
+.headerSuccess {
+  color: #efff04;
+}
+.headerFail {
+  color: #a4a4a4;
+}
+.descMedium {
+  margin-top: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.btnWrapper {
+  margin-top: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
+@media (max-width: 1199px) {
+  .headerPurchase,
+  .headerSuccess,
+  .headerFail {
+    font-size: 36px;
+  }
+  .descMedium {
+    font-size: 16px;
+  }
+}
+@media (max-width: 743px) {
+  .container {
+    margin-bottom: 300px;
+  }
+  .headerPurchase,
+  .headerSuccess,
+  .headerFail {
+    font-size: 30px;
+  }
+  .closeIconWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    background-color: #0f0f0f;
+  }
+  .closeIcon {
+    display: none;
+  }
+  .backIcon {
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
