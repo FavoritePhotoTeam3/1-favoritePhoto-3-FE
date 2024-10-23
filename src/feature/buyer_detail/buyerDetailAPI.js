@@ -18,21 +18,30 @@ export const purchaseCard = async (shopId, count) => {
 
     if (response.status === 201) {
       return { success: true, data: response.data.purchase }; // 성공
-    } else if (response.status === 401) {
-      return { success: false, error: "Unauthorized" }; // 인증 실패
-    } else if (response.status === 500) {
-      const error = response.data.message;
-      if (error === "Not enough Points") {
-        return { success: false, error: "포인트가 부족합니다." };
-      } else if (error === "Insufficient stock.") {
-        return { success: false, error: "재고가 부족합니다." };
-      } else {
-        return { success: false, error: "구매 처리 중 오류가 발생했습니다." };
-      }
-    } else {
-      return { success: false, error: "알 수 없는 오류가 발생했습니다." };
     }
   } catch (error) {
-    return { success: false, error: "서버와 통신 중 문제가 발생했습니다." };
+    if (error.response) {
+      const status = error.response.status;
+      const errorMessage = error.response.data.message;
+
+      if (status === 401) {
+        return { success: false, error: "Unauthorized" };
+      } else if (status === 500) {
+        if (errorMessage === "Not enough Points") {
+          return { success: false, error: "포인트가 부족합니다." };
+        } else if (errorMessage === "Insufficient stock.") {
+          return { success: false, error: "재고가 부족합니다." };
+        } else {
+          return {
+            success: false,
+            error: "구매 처리 중 서버 오류가 발생했습니다.",
+          };
+        }
+      } else {
+        return { success: false, error: "알 수 없는 오류가 발생했습니다." };
+      }
+    } else {
+      return { success: false, error: "서버와 통신 중 문제가 발생했습니다." };
+    }
   }
 };

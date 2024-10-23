@@ -22,6 +22,7 @@ import backIcon from "./assets/back_icon.svg";
 const BuyerDetailPage = () => {
   const { shopId } = useParams();
   const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
 
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
@@ -58,7 +59,7 @@ const BuyerDetailPage = () => {
     console.log(`${quantity}개의 포토카드를 구매합니다.`);
     dispatch(
       openPurchaseModal({
-        shopId: buyerData?.shopId,
+        shopId: buyerData?.id,
         name: buyerData?.card.name,
         grade: buyerData?.card.grade,
         count: quantity,

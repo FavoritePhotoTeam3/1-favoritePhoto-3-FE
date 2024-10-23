@@ -4,7 +4,7 @@ const initialState = {
   isModalOpen: false,
   modalType: null, // purchase 또는 exchange
   purchaseInfo: {},
-  exchangeInfo: null,
+  exchangeInfo: {},
 };
 
 const buyerModalSlice = createSlice({
@@ -14,18 +14,18 @@ const buyerModalSlice = createSlice({
     openPurchaseModal: (state, action) => {
       state.isModalOpen = true;
       state.modalType = "purchase";
-      state.purchaseInfo = action.payload;
+      state.purchaseInfo = { ...action.payload };
     },
     openExchangeModal: (state, action) => {
       state.isModalOpen = true;
       state.modalType = "exchange";
-      state.exchangeInfo = action.payload;
+      state.exchangeInfo = { ...action.payload };
     },
     closeModal: (state) => {
       state.isModalOpen = false;
       state.modalType = null;
-      state.purchaseInfo = null;
-      state.exchangeInfo = null;
+      state.purchaseInfo = {};
+      state.exchangeInfo = {};
     },
   },
 });
