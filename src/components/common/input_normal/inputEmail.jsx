@@ -1,6 +1,6 @@
 import style from "./inputEmail.module.css";
 
-export const InputEmail = ({ onChange, validation, value }) => {
+export const InputEmail = ({ onChange, validation, value, errorMessage }) => {
   const isValid = validation ? "" : "invalid";
 
   return (
@@ -15,7 +15,7 @@ export const InputEmail = ({ onChange, validation, value }) => {
         onChange={onChange}
       />
       <span className={`${style.input_email_valid} ${style[isValid]}`}>
-        이메일 형식이 아닙니다.
+        {errorMessage ? errorMessage : "이메일 형식이 아닙니다."}
       </span>
     </div>
   );

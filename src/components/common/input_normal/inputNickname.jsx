@@ -1,6 +1,12 @@
 import style from "./inputNickname.module.css";
 
-export const InputNickname = ({ onChange, value }) => {
+export const InputNickname = ({
+  onChange,
+  validation,
+  value,
+  errorMessage,
+}) => {
+  const isValid = validation ? "" : "invalid";
   return (
     <div className={style.inputNickname_Container}>
       <span className={style.input_nickname_title}>닉네임</span>
@@ -12,6 +18,9 @@ export const InputNickname = ({ onChange, value }) => {
         value={value ?? ""}
         onChange={onChange}
       />
+      <span className={`${style.input_nickname_valid} ${style[isValid]}`}>
+        {errorMessage}
+      </span>
     </div>
   );
 };

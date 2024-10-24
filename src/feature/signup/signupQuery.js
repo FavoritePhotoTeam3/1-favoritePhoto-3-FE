@@ -9,7 +9,6 @@ export const useSignupQuery = () => {
   const nav = useNavigate();
 
   const signup = async ({ email, password, nickname }) => {
-    console.log(email, password, nickname);
     dispatch(APIrequestPending({ isPending: true }));
     try {
       await USERS.post("/signup", {
@@ -24,11 +23,18 @@ export const useSignupQuery = () => {
       const {
         response: {
           status,
-          data: { data: message },
+          data: {
+            data: { message, column },
+          },
         },
       } = e;
       if (status === 422) {
-        dispatch(setErrorMessage(message));
+        dispatch(setErrorMessage({ message, column }));
+        dispatch(APIrequestPending({ isPending: false }));
+        return;
+      } else {
+        dispatch(setErrorMessage(message, column));
+        alert("오류!");
       }
     }
   };

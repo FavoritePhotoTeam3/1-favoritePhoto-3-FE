@@ -7,6 +7,9 @@ const SignupEmailInput = () => {
   const emailValidation = useSelector(
     (state) => state.signup?.signupValidation.email.validation
   );
+  const errorMessage = useSelector(
+    (state) => state.signup?.signupValidation.email.errorMessage
+  );
 
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -18,6 +21,7 @@ const SignupEmailInput = () => {
       onChange={handleChange}
       validation={emailValidation}
       value={email}
+      errorMessage={errorMessage}
     />
   );
 };

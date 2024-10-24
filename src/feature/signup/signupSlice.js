@@ -37,6 +37,7 @@ export const signupSlice = createSlice({
       state.signupValidation[name] = {
         ...state.signupValidation[name],
         isNotNull: isNotNull(value),
+        errorMessage: "",
       };
 
       const { email, password, passwordConfirm } = state.signupForm;
@@ -56,7 +57,9 @@ export const signupSlice = createSlice({
       //추후에 비슷한 방식으로 유효성 검사 로직 추가.
     },
     setErrorMessage(state, action) {
-      state.errorMessage = { message: action.payload };
+      const { message, column } = action.payload;
+      state.signupValidation[column].errorMessage = message;
+      state.signupValidation[column].validation = false;
     },
     formReset(state, _) {
       state.signupForm = {

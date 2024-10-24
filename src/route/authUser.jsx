@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
         return null;
       }
     },
-    staleTime: 60 * 1000 * 60 * 24, //하루
+    staleTime: 60 * 60 * 1000, //1시간
   });
 
   useEffect(() => {
