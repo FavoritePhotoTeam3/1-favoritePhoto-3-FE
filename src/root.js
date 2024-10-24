@@ -12,6 +12,11 @@ import {
   UserProvider,
 } from "./route/authUser";
 import SignupPage from "./page/signup";
+import CreatePhotoCardPage from "./page/create_photocard";
+import SellerDetailPage from "./page/seller_detail";
+import BuyerDetailPage from "./page/buyer_detail";
+import PurchaseSuccessPage from "./page/purchase_result/purchaseSuccess";
+import PurchaseFailPage from "./page/purchase_result/purchaseFail";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +69,26 @@ const router = createBrowserRouter([
                 <span>로그인 및 회원 정보가 필요한 페이지 자리</span>
               </AuthValidation>
             ),
+          },
+          {
+            path: "seller-detail/:shopId",
+            element: <SellerDetailPage />,
+          },
+          {
+            path: "buyer-detail/:shopId",
+            element: <BuyerDetailPage />,
+          },
+          {
+            path: "/create-photocard",
+            element: <CreatePhotoCardPage />,
+          },
+          {
+            path: "/purchase-success",
+            element: <PurchaseSuccessPage />,
+          },
+          {
+            path: "/purchase-fail",
+            element: <PurchaseFailPage />,
           },
         ],
       },

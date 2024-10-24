@@ -47,6 +47,9 @@ export const TextfieldNormal = ({
   inputHeight,
   title,
   placeholder,
+  value,
+  onChange,
+  readOnly,
 }) => {
   return (
     <div
@@ -62,6 +65,9 @@ export const TextfieldNormal = ({
         className="input_textfield normal"
         type="text"
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        readOnly={readOnly}
         style={{ height: inputHeight }}
       />
     </div>
@@ -72,6 +78,8 @@ export const TextareaNormal = ({
   inputHeight,
   title,
   placeholder,
+  value,
+  onChange,
 }) => {
   return (
     <div
@@ -86,6 +94,8 @@ export const TextareaNormal = ({
       <textarea
         className="input_textfield normal area"
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         style={{ height: inputHeight }}
       />
     </div>

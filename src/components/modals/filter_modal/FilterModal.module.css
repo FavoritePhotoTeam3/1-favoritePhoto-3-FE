@@ -1,0 +1,86 @@
+/* Font */
+.container {
+  width: 100%;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.header {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #5a5a5a;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.closeIcon {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+.menu {
+  height: 52px;
+  padding: 0px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px 24px;
+  font-size: 0.875rem;
+  color: #5a5a5a;
+  font-weight: 400;
+}
+
+.menuItem {
+  padding: 16px;
+}
+
+.menuActive {
+  color: #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+}
+
+.selectorBox {
+  width: 100%;
+  height: 100%;
+  color: #a4a4a4;
+}
+
+.list {
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list:hover {
+  background-color: #161616;
+  cursor: pointer;
+  color: #eeeeee;
+}
+
+.listText {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.btnBox {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px 40px 15px;
+}
+
+.btnBox > img {
+  margin: 15px 23px;
+}
+
+.btnSize {
+  width: 100%;
+  height: 55px;
+}
