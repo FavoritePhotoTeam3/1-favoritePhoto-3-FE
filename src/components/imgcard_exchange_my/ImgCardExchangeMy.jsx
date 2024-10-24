@@ -3,6 +3,7 @@ import { SecondaryBtn } from "../common/btn/secondary";
 import { useEffect, useState } from "react";
 
 const ImgCardExchangeMy = ({
+  exchangeId,
   title,
   grade,
   genre,
