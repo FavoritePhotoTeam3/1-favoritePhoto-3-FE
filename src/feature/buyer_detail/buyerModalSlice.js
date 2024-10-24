@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isModalOpen: false,
-  modalType: null, // purchase 또는 exchange
+  modalType: null, // purchase, exchange, cancel
   purchaseInfo: {},
   exchangeInfo: {},
+  selectedExchangeInfo: {}, // 교환 취소 정보
 };
 
 const buyerModalSlice = createSlice({
@@ -21,15 +22,25 @@ const buyerModalSlice = createSlice({
       state.modalType = "exchange";
       state.exchangeInfo = { ...action.payload };
     },
+    openCancelModal: (state, action) => {
+      state.isModalOpen = true;
+      state.modalType = "cancel";
+      state.selectedExchangeInfo = { ...action.payload };
+    },
     closeModal: (state) => {
       state.isModalOpen = false;
       state.modalType = null;
       state.purchaseInfo = {};
       state.exchangeInfo = {};
+      state.selectedExchangeInfo = {};
     },
   },
 });
 
-export const { openPurchaseModal, openExchangeModal, closeModal } =
-  buyerModalSlice.actions;
+export const {
+  openPurchaseModal,
+  openExchangeModal,
+  openCancelModal,
+  closeModal,
+} = buyerModalSlice.actions;
 export default buyerModalSlice;

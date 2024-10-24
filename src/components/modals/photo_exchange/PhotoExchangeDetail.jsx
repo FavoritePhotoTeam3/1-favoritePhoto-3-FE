@@ -7,7 +7,13 @@ import { SecondaryBtn } from "../../common/btn/secondary";
 import { PrimaryBtn } from "../../common/btn/primaryBtn";
 import { requestCardExchange } from "../../../feature/photo_exchange/PhotoExchangeAPI";
 
-const PhotoExchangeDetail = ({ card, onCancel, onExchange, shopId }) => {
+const PhotoExchangeDetail = ({
+  card,
+  onCancel,
+  onExchange,
+  shopId,
+  onSuccess,
+}) => {
   const [description, setDescription] = useState("");
   const count = 1;
 
@@ -24,6 +30,7 @@ const PhotoExchangeDetail = ({ card, onCancel, onExchange, shopId }) => {
       if (response.success) {
         console.log("교환 요청이 성공적으로 처리되었습니다.", response.data);
         onExchange();
+        onSuccess(); // 교환 목록 새로고침
       } else {
         console.error("교환 요청 실패:", response.error);
       }

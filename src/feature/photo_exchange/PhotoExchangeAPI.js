@@ -41,3 +41,18 @@ export const requestCardExchange = async (
     }
   }
 };
+
+export const requestCardExchangeCancel = async (exchangeId) => {
+  try {
+    const response = await axiosInstance.delete(`/exchange/${exchangeId}`);
+    if (response.status === 204) {
+      return { success: true };
+    }
+  } catch (error) {
+    if (error.response) {
+      return { success: false, error: error.response.data.message };
+    } else {
+      return { success: false, error: "서버와 통신 중 문제가 발생했습니다." };
+    }
+  }
+};
