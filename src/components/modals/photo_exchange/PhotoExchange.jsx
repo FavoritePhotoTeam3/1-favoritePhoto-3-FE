@@ -22,7 +22,7 @@ import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
 import filterIcon from "./assets/icon_filter.svg";
 
-const PhotoExchange = ({ onClose, shopId }) => {
+const PhotoExchange = ({ onClose, shopId, onSuccess }) => {
   const dispatch = useDispatch();
   const { search, gradeFilter, genreFilter, selectedCard, isFilterOpen } =
     useSelector((state) => state.photoExchange);
@@ -113,6 +113,7 @@ const PhotoExchange = ({ onClose, shopId }) => {
               onCancel={handleCancel}
               onExchange={handleExchange}
               shopId={shopId}
+              onSuccess={onSuccess}
             />
           ) : (
             <div className={styles.mainWrapper}>

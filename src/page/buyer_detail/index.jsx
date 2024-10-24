@@ -43,6 +43,7 @@ const BuyerDetailPage = () => {
     data: exchangeCardsData,
     error: exchangeError,
     isLoading: exchangeLoading,
+    refetch,
   } = useBuyerExchangeCards(shopId);
 
   const handleMinusClick = () => {
@@ -72,6 +73,10 @@ const BuyerDetailPage = () => {
   const handleExchangeClick = () => {
     console.log(`포토카드를 교환합니다.`);
     dispatch(openExchangeModal());
+  };
+
+  const handleExchangeSuccess = () => {
+    refetch(); // 교환 목록 다시 불러오기
   };
 
   const handleCloseModal = () => {
@@ -212,7 +217,11 @@ const BuyerDetailPage = () => {
               />
             )}
             {isModalOpen && modalType === "exchange" && (
-              <PhotoExchange onClose={handleCloseModal} shopId={shopId} />
+              <PhotoExchange
+                onClose={handleCloseModal}
+                shopId={shopId}
+                onSuccess={handleExchangeSuccess}
+              />
             )}
             {isModalOpen && modalType === "cancel" && (
               <CancelExchangeAsking onClose={handleCloseModal} />
