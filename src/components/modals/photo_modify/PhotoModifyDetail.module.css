@@ -1,0 +1,67 @@
+.sellingDetailModal {
+  width: 100%;
+}
+.logo {
+  color: #a4a4a4;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "BR B";
+  text-align: start;
+
+  margin-bottom: 40px;
+}
+.detailContent {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.imageWrapper {
+  width: 100%;
+}
+.cardImage {
+  width: 100%;
+}
+.cardDetailWrapper {
+  color: #ffffff;
+}
+.subTitle {
+  margin-top: 80px;
+}
+.filterWrapper {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.textareaWrapper {
+  margin-top: 30px;
+  height: 159px;
+}
+.buttonWrapper {
+  margin-top: 60px;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 743px) {
+  .logo {
+    text-align: center;
+    color: #ffffff;
+    padding-top: 5px;
+  }
+  .sellingDetailModal {
+    width: 100%;
+  }
+  .detailContent {
+    grid-template-columns: 1fr;
+  }
+  .filterWrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .buttonWrapper {
+    margin-top: 40px;
+  }
+}

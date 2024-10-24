@@ -8,6 +8,7 @@ import {
   useSellerDetail,
   useSellerExchangeCards,
 } from "../../feature/seller_detail/useSellerDetail";
+import PhotoModify from "../../components/modals/photo_modify/PhotoModify";
 import CancelSellingAsking from "../../components/modals/confirm/CancelSellingConfirm";
 import RejectAsking from "../../components/modals/confirm/RejectConfirm";
 import ApproveAsking from "../../components/modals/confirm/ApproveConfirm";
@@ -15,7 +16,7 @@ import {
   openCancelSellingModal,
   openRejectModal,
   openApproveModal,
-  closeModal,
+  openModifyModal,
 } from "../../feature/seller_detail/sellerModalSlice";
 
 import defaultImage from "./assets/image1.svg";
@@ -45,7 +46,23 @@ const SellerDetailPage = () => {
   };
 
   const handleModifyClick = () => {
-    console.log("수정하기 버튼 클릭됨");
+    dispatch(
+      openModifyModal({
+        shopId: sellerData.id,
+        cardId: sellerData.cardId,
+        price: sellerData.price,
+        totalCount: sellerData.totalCount,
+        nickname: sellerData.user.nickname,
+        grade: sellerData.card.grade,
+        genre: sellerData.card.genre,
+        name: sellerData.card.name,
+        description: sellerData.card.description,
+        imageURL: sellerData.card.imageURL,
+        exchangeGrade: sellerData.exchangeGrade,
+        exchangeGenre: sellerData.exchangeGenre,
+        exchangeDescription: sellerData.exchangeDescription,
+      })
+    );
   };
 
   const handleCancelSellingClick = () => {
@@ -164,6 +181,7 @@ const SellerDetailPage = () => {
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
+            {isModalOpen && modalType === "modify" && <PhotoModify />}
             {isModalOpen && modalType === "cancelSelling" && (
               <CancelSellingAsking />
             )}
