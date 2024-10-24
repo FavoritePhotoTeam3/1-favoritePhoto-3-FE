@@ -211,7 +211,7 @@ const BuyerDetailPage = () => {
               />
             )}
             {isModalOpen && modalType === "exchange" && (
-              <PhotoExchange onClose={handleCloseModal} />
+              <PhotoExchange onClose={handleCloseModal} shopId={shopId} />
             )}
           </div>
         </div>

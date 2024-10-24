@@ -22,7 +22,7 @@ import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
 import filterIcon from "./assets/icon_filter.svg";
 
-const PhotoExchange = ({ onClose }) => {
+const PhotoExchange = ({ onClose, shopId }) => {
   const dispatch = useDispatch();
   const { search, gradeFilter, genreFilter, selectedCard, isFilterOpen } =
     useSelector((state) => state.photoExchange);
@@ -43,7 +43,9 @@ const PhotoExchange = ({ onClose }) => {
   };
 
   const handleExchange = () => {
-    console.log("교환 동작 수행하기");
+    console.log("교환 요청 완료");
+    dispatch(clearSelectedCard());
+    onClose();
   };
 
   const handleSearchChange = (e) => {
@@ -110,6 +112,7 @@ const PhotoExchange = ({ onClose }) => {
               card={selectedCard}
               onCancel={handleCancel}
               onExchange={handleExchange}
+              shopId={shopId}
             />
           ) : (
             <div className={styles.mainWrapper}>
