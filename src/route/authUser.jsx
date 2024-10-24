@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 import { getUser } from "./authAPI";
@@ -8,32 +7,24 @@ import { useEffect } from "react";
 export const UserProvider = ({ children }) => {
   // /users/me 호출 후 유저 데이터 state.auth.user에 저장
   const dispatch = useDispatch();
-  const { user, isLogged } = useSelector((state) => state.auth);
-
-  const {
-    data: newUser,
-    isPending,
-    isError,
-  } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => {
-      if (isLogged) {
-        return getUser();
-      } else {
-        return null;
-      }
-    },
-    staleTime: 60 * 60 * 1000,
-  });
+  const { isLogged } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(APIrequestPending({ isPending }));
-    if (isError) {
-      dispatch(completeAuth(null));
-    } else {
-      dispatch(completeAuth(newUser));
+    if (isLogged) {
+      (async () => {
+        dispatch(APIrequestPending({ isPending: true }));
+        let APIrequest = null;
+
+        try {
+          APIrequest = await getUser();
+        } catch (e) {
+        } finally {
+          dispatch(completeAuth(APIrequest));
+          dispatch(APIrequestPending({ isPending: false }));
+        }
+      })();
     }
-  }, [dispatch, isError, isPending, user, newUser]);
+  }, [isLogged, dispatch]);
 
   return <Outlet />;
 };

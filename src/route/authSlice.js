@@ -23,7 +23,7 @@ export const authSlice = createSlice({
         state.user = null;
       }
     },
-    expireAuth(state, action) {
+    expireAuth(state) {
       state.isLogged = false;
       state.user = null;
       localStorage.removeItem("isLogged");
