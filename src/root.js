@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import store from "./store/store";
 import NomalLayout from "./layout/nomal/nomalLayout";
 import LoginPage from "./page/login";
@@ -29,48 +29,32 @@ const router = createBrowserRouter([
     element: (
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <UserProvider>
-            <Outlet />
-          </UserProvider>
+          <UserProvider />
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     ),
     children: [
       {
-        element: <NomalLayout />,
-        children: [
-          {
-            path: "/login",
-            element: (
-              <NotAuthValidation>
-                <LoginPage />
-              </NotAuthValidation>
-            ),
-          },
-          {
-            path: "/signup",
-            element: (
-              <NotAuthValidation>
-                <SignupPage />
-              </NotAuthValidation>
-            ),
-          },
-        ],
-      },
-      {
-        path: "/",
         element: <NavLayout />,
         children: [
+          //아무 제한이 필요없는 라우터 입니다.
+          {
+            path: "/",
+            element: (
+              <span>임시 메인 페이지입니다. localhost:3000에 해당합니다.</span>
+            ),
+          },
           {
             element: <AuthValidation />,
             children: [
+              // 로그인 상태에서만 들어갈 수 있는 라우터 입니다.
               {
-                path: "seller-detail/:shopId",
+                path: "/seller-detail/:shopId",
                 element: <SellerDetailPage />,
               },
               {
-                path: "buyer-detail/:shopId",
+                path: "/buyer-detail/:shopId",
                 element: <BuyerDetailPage />,
               },
               {
@@ -103,21 +87,24 @@ const router = createBrowserRouter([
               },
             ],
           },
+        ],
+      },
+      {
+        element: <NomalLayout />,
+        children: [
           {
-            path: "/exchange-cancel-success",
-            element: <CancelExchangeSuccessPage />,
-          },
-          {
-            path: "/exchange-cancel-fail",
-            element: <CancelExchangeFailPage />,
-          },
-          {
-            path: "/create-success",
-            element: <CreatePhotoSuccessPage />,
-          },
-          {
-            path: "/create-fail",
-            element: <CreatePhotoFailPage />,
+            element: <NotAuthValidation />,
+            children: [
+              //비 로그인 상태에서만 들어갈 수 있는 라우터 입니다.
+              {
+                path: "/login",
+                element: <LoginPage />,
+              },
+              {
+                path: "/signup",
+                element: <SignupPage />,
+              },
+            ],
           },
         ],
       },

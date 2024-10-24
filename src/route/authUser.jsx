@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { getUser } from "./authAPI";
 import { APIrequestPending, completeAuth } from "./authSlice";
 import { useEffect } from "react";
@@ -23,6 +23,7 @@ export const UserProvider = ({ children }) => {
         return null;
       }
     },
+    staleTime: 60 * 60 * 1000,
   });
 
   useEffect(() => {
@@ -34,37 +35,26 @@ export const UserProvider = ({ children }) => {
     }
   }, [dispatch, isError, isPending, user, newUser]);
 
-  return <>{children}</>;
+  return <Outlet />;
 };
 
 export const AuthValidation = () => {
   // state.auth.user 에서 유저 데이터 불러왔을 때, 존재하지 않는다면 / 으로 리다이렉션
 
-  const { isLogged } = useSelector((state) => state.auth);
-  const nav = useNavigate();
-  useEffect(() => {
-    console.log("렌더링 태스트");
-    if (isLogged) {
-      return nav("/login");
-    }
-  }, []);
-
-  if (isLogged) {
-    return <Outlet />;
+  const { isPending, isLogged } = useSelector((state) => state.auth);
+  if (!isPending && !isLogged) {
+    return <Navigate to="/" />;
   } else {
-    return <Navigate to="/login" />;
+    return <Outlet />;
   }
 };
 
-export const NotAuthValidation = ({ children }) => {
+export const NotAuthValidation = () => {
   // state.auth.user 에서 유저 데이터 불러왔을 때, 존재한다면 / 으로 리다이렉션
-  const nav = useNavigate();
-  const { user, isLogged } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (isLogged) {
-      nav("/");
-    }
-  }, [isLogged, user, nav]);
-  return <>{children}</>;
+  const { isPending, isLogged } = useSelector((state) => state.auth);
+  if (!isPending && isLogged) {
+    return <Navigate to="/" />;
+  } else {
+    return <Outlet />;
+  }
 };
