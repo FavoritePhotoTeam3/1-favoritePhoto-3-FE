@@ -1,5 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   setName,
   setGrade,
@@ -19,12 +21,12 @@ import {
 import { Title } from "../../components/common/title/Title";
 import styles from "./index.module.css";
 import { CreatePhotoCard } from "../../feature/create_photocard/photoCardAPI";
-import { useState } from "react";
 
 import backIcon from "./assets/back_icon.svg";
 
 const CreatePhotoCardPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [selectedFileName, setSelectedFileName] = useState("사진 업로드");
 
@@ -39,6 +41,7 @@ const CreatePhotoCardPage = () => {
     onSuccess: () => {
       alert("포토카드가 성공적으로 생성되었습니다!");
       dispatch(resetForm()); // 폼 리셋
+      navigate("/create-success", { state: { name, grade } });
     },
     onError: (error) => {
       const message =
@@ -47,6 +50,7 @@ const CreatePhotoCardPage = () => {
       alert(message);
       console.error("Error data:", error.response?.data);
       console.error("Error:", error);
+      navigate("/create-fail", { state: { name, grade } });
     },
   });
 

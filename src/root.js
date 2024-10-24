@@ -19,6 +19,8 @@ import PurchaseSuccessPage from "./page/purchase_result/purchaseSuccess";
 import PurchaseFailPage from "./page/purchase_result/purchaseFail";
 import CancelExchangeSuccessPage from "./page/purchase_result/cancelExchangeSuccess";
 import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
+import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
+import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
 
 const queryClient = new QueryClient();
 
@@ -99,6 +101,14 @@ const router = createBrowserRouter([
           {
             path: "/exchange-cancel-fail",
             element: <CancelExchangeFailPage />,
+          },
+          {
+            path: "/create-success",
+            element: <CreatePhotoSuccessPage />,
+          },
+          {
+            path: "/create-fail",
+            element: <CreatePhotoFailPage />,
           },
         ],
       },
