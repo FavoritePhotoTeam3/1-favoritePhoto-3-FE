@@ -24,7 +24,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(errorLoggerMiddleware(true)),
+    }).concat(errorLoggerMiddleware(false)),
 });
 
 export default store;

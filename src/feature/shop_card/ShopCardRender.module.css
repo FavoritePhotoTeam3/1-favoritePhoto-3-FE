@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, minmax(300px, 440px)); /* 3개의 카드 */
   justify-content: space-between;
   width: 100%; /* 부모 컨테이너의 너비 */
-  gap: 2000px 30px;
+  gap: 80px 30px;
 }
 
 .loading {

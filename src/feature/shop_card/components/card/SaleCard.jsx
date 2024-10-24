@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
-const SaleCard = ({ data, id}, ref) => {
+const SaleCard = ({ data }, ref ) => {
   const price = data.price;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
@@ -21,8 +21,8 @@ const SaleCard = ({ data, id}, ref) => {
   const gradeStyle = grade ? grade.replace(/\s+/g, "").toLowerCase() : "";
 
   return (
-    <Link to={`/item/${data?.id}`} id={id}>
-      <figure className={style.contaier} ref={ref}>
+    <Link to={`/item/${data?.id}`} ref={ref}>
+      <figure className={style.contaier}>
         <section className={style.imgWrapper}>
           <picture>
             <source

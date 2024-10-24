@@ -1,75 +1,68 @@
-import React, { useMemo, useEffect } from "react";
-import { useRef, useState } from "react";
+import React, { useMemo, useEffect, useRef, useState } from "react";
 import style from "./ShopCardRender.module.css";
 import SaleCard from "./components/card/SaleCard";
+import { useSelector, useDispatch } from "react-redux";
+import { setCards } from "../shop_card/shopCardSlice";
+import { useGetCardQuery } from "../../hooks/shop_query/useGetCardQuery";
 
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { setCards } from "../../feature/shop_card/shopCardSlice";
-
-import { useGetCardQuery } from "../../hooks/shop_card/useGetCardQuery";
-import { useInfiniteScroll } from "../../hooks/shop_card/useInfiniteScroll";
+import { useImageLoadCheck } from "../../hooks/card_render/useImageLoadCheck"; // 커스텀 훅
+import { useIntersectionObserver } from "../../hooks/card_render/useIntersectionObserver"; // 커스텀 훅
 
 const ShopCardRender = () => {
-  const [pageSize, setPageSize] = useState(3); // 페이지 크기 상태 임시 관리
-
   const dispatch = useDispatch();
+  const pageSize = 7;
+  const triggerCardIndex = 1;
   const cards = useSelector((state) => state.shop.cards);
   const searchTerm = useSelector((state) => state.shop.searchTerm);
   const filterOptions = useSelector((state) => state.shop.filterOptions);
+  const [imagesLoadedOnce, setImagesLoadedOnce] = useState(false); // 이미지 로드가 한 번 완료되었는지 상태 추적
 
-  // 상태 기반 쿼리 실행
-  const { data, fetchNextPage, hasNextPage } = useGetCardQuery(
-    pageSize,
-    searchTerm,
-    filterOptions
+  const { data, fetchNextPage, hasNextPage, isError, isFetching, status } =
+    useGetCardQuery(pageSize, searchTerm, filterOptions);
+
+  const { checkImagesLoaded } = useImageLoadCheck(() => {
+    setImagesLoadedOnce(true); // 이미지 로드가 완료되었음을 상태로 설정
+    setupObserver(); // 이미지 로드 후 옵저버 설정
+  });
+
+  const { setupObserver } = useIntersectionObserver(
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    cards,
+    triggerCardIndex,
+    style.listRenderContainer
   );
 
-  // redux 연동
+  // 데이터 변경 시 리덕스와 동기화
   useEffect(() => {
-    console.log("◆ Card 데이터 useEffect 실행");
+    console.log("★★ Query Get Data & 리덕스 연동", data);
     if (data) {
-      //lastPage만 넣는 방식
-      // const lastPage = data.pages[data.pages.length - 1];
-      // dispatch(setCards(lastPage.list)); 
-      const mergedData = data.pages.flatMap(page => page.list);
-      dispatch(setCards(mergedData)); 
+      const mergedData = data.pages.flatMap((page) => page.list);
+      dispatch(setCards(mergedData));
     }
   }, [data, dispatch]);
 
-  const loadMoreRef = useRef();
-  useInfiniteScroll(loadMoreRef, hasNextPage, fetchNextPage, { log: true });
-
-  // useEffect(() => {
-  //   console.log("◆ Card 데이터 변경되어서 useRef 재설정");
-  //   if (cards.length > 0) {
-  //     const lastCardElement = document.getElementById(
-  //       `card-${cards.length - 1}`
-  //     );
-  //     if (lastCardElement) {
-  //       loadMoreRef.current = lastCardElement;
-  //       console.log(
-  //         "◆ Card 데이터 변경되어서 useRef 재설정 : ",
-  //         loadMoreRef.current
-  //       );
-  //     }
-  //   }
-  // }, [cards]);
+  // 첫 로드에서만 이미지 로드 상태 체크 후 옵저버 설정
+  useEffect(() => {
+    if (cards.length > 0) {
+      if (!imagesLoadedOnce) {
+        // 처음 페이지 로딩일 때 이미지 체크 실행
+        checkImagesLoaded(); // 이미지 로드 상태 확인
+      } else {
+        // 그 이후에는 이미지 로딩 체크 없이 옵저버만 설정
+        setupObserver(); // 이미지 체크가 완료된 후에만 옵저버 설정
+      }
+    }
+  }, [cards, imagesLoadedOnce, checkImagesLoaded, setupObserver]);
 
   const renderCards = useMemo(() => {
-    return cards.map((data, index) => {
-      return <SaleCard key={data.id} id={`card-${index}`} data={data} />;
-    });
+    return cards.map((data) => <SaleCard key={data.id} data={data} />);
   }, [cards]);
 
   return (
     <>
-      <section className={style.listRenderContainer}>
-        {renderCards}
-      </section>
-      <section className={style.loadMore} ref={loadMoreRef}>
-
-      </section>
+      <section className={style.listRenderContainer}>{renderCards}</section>
     </>
   );
 };

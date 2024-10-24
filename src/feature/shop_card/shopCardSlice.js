@@ -15,16 +15,10 @@ export const shopSlice = createSlice({
   initialState,
   reducers: {
     setCards: (state, action) => {
-      // const newCards = action.payload.filter(
-      //   (newCard) =>
-      //     !state.cards.some((existingCard) => existingCard.id === newCard.id)
-      // );
-      // state.cards = [...state.cards, ...newCards];
       state.cards = action.payload;
     },
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
-      // state.cards = [];
     },
     setFilterOptions: (state, action) => {
       state.filterOptions = action.payload;
