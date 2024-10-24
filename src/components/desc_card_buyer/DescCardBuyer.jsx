@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./DescCardBuyer.module.css";
 import font from "../../styles/fonts.module.css";
 

@@ -12,27 +12,25 @@ export async function postRefreshToken() {
   const response = await USERS.get("/refresh-token");
   return response;
 }
-
+//무한 요청 처리 retry;
+// USERS.interceptors.request
 USERS.interceptors.response.use(
   (response) => {
     return response;
   },
   async (error) => {
     const {
-      config,
-      response: {
-        status,
-        data: { RequestURL },
-      },
+      config, // 이것도 살펴봐라.
+      response: { status },
     } = error;
     //토큰이 만료되을 때
-    if (status === 401 && RequestURL === "/users/me") {
+    if (status === 401) {
       try {
         const response = await postRefreshToken();
         if (response.status === 200) {
           const originRequest = config;
           await axios(originRequest);
-          return (window.location.href = "/");
+          return;
         }
       } catch (e) {
         if (e.response.status === 403) {

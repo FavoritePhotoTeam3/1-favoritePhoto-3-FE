@@ -26,7 +26,6 @@ const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
-    path: "",
     element: (
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
@@ -60,39 +59,49 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "/",
         element: <NavLayout />,
         children: [
           {
-            path: "/",
-            element: <span>임시</span>,
-          },
-          {
-            path: "/test",
-            element: (
-              <AuthValidation>
-                <span>로그인 및 회원 정보가 필요한 페이지 자리</span>
-              </AuthValidation>
-            ),
-          },
-          {
-            path: "seller-detail/:shopId",
-            element: <SellerDetailPage />,
-          },
-          {
-            path: "buyer-detail/:shopId",
-            element: <BuyerDetailPage />,
-          },
-          {
-            path: "/create-photocard",
-            element: <CreatePhotoCardPage />,
-          },
-          {
-            path: "/purchase-success",
-            element: <PurchaseSuccessPage />,
-          },
-          {
-            path: "/purchase-fail",
-            element: <PurchaseFailPage />,
+            element: <AuthValidation />,
+            children: [
+              {
+                path: "seller-detail/:shopId",
+                element: <SellerDetailPage />,
+              },
+              {
+                path: "buyer-detail/:shopId",
+                element: <BuyerDetailPage />,
+              },
+              {
+                path: "/create-photocard",
+                element: <CreatePhotoCardPage />,
+              },
+              {
+                path: "/purchase-success",
+                element: <PurchaseSuccessPage />,
+              },
+              {
+                path: "/purchase-fail",
+                element: <PurchaseFailPage />,
+              },
+              {
+                path: "/exchange-cancel-success",
+                element: <CancelExchangeSuccessPage />,
+              },
+              {
+                path: "/exchange-cancel-fail",
+                element: <CancelExchangeFailPage />,
+              },
+              {
+                path: "/create-success",
+                element: <CreatePhotoSuccessPage />,
+              },
+              {
+                path: "/create-fail",
+                element: <CreatePhotoFailPage />,
+              },
+            ],
           },
           {
             path: "/exchange-cancel-success",

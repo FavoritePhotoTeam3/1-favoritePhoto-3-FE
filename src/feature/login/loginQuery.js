@@ -21,6 +21,7 @@ export const useLoginQuery = () => {
       dispatch(APIrequestPending({ isPending: false }));
       nav("/");
     } catch (e) {
+      dispatch(APIrequestPending({ isPending: false }));
       alert(e.response.data.data.message);
       console.log(e.status, "/context/authProvider/login");
     }
