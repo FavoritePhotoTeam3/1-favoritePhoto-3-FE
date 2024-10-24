@@ -16,6 +16,7 @@ import {
   closeModal,
 } from "../../feature/buyer_detail/buyerModalSlice";
 import PurchaseAsking from "../../components/modals/confirm/PurchaseConfirm";
+import CancelExchangeAsking from "../../components/modals/confirm/CancelExchangeConfirm";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
@@ -30,7 +31,6 @@ const BuyerDetailPage = () => {
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
   const modalType = useSelector((state) => state.modal.modalType);
   const purchaseInfo = useSelector((state) => state.modal.purchaseInfo || {});
-  // const exchangeInfo = useSelector((state) => state.modal.exchangeInfo);
 
   // 카드 상세 데이터
   const {
@@ -197,6 +197,7 @@ const BuyerDetailPage = () => {
                     genre={exchangeCard.card.genre}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
+                    exchangeId={exchangeCard.id}
                   />
                 ))
               ) : (
@@ -212,6 +213,9 @@ const BuyerDetailPage = () => {
             )}
             {isModalOpen && modalType === "exchange" && (
               <PhotoExchange onClose={handleCloseModal} shopId={shopId} />
+            )}
+            {isModalOpen && modalType === "cancel" && (
+              <CancelExchangeAsking onClose={handleCloseModal} />
             )}
           </div>
         </div>

@@ -1,9 +1,10 @@
 import styles from "./ImgCardExchangeMy.module.css";
 import { SecondaryBtn } from "../common/btn/secondary";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { openCancelModal } from "../../feature/buyer_detail/buyerModalSlice";
 
 const ImgCardExchangeMy = ({
-  exchangeId,
   title,
   grade,
   genre,
@@ -11,8 +12,20 @@ const ImgCardExchangeMy = ({
   price,
   description,
   imageUrl,
+  exchangeId,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleCancelClick = () => {
+    dispatch(
+      openCancelModal({
+        exchangeId,
+        name: title,
+        grade,
+      })
+    );
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,6 +78,7 @@ const ImgCardExchangeMy = ({
           text={isMobile ? "취소" : "취소하기"}
           width={"100%"}
           height={isMobile ? "40px" : "60px"}
+          onClick={handleCancelClick}
         />
       </div>
     </div>

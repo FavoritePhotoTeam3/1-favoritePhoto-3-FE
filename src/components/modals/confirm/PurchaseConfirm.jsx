@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./PurchaseConfirm.module.css";
+import style from "./CommonConfirm.module.css";
 import { useNavigate } from "react-router-dom";
 import { purchaseCard } from "../../../feature/buyer_detail/buyerDetailAPI";
 

@@ -1,21 +1,19 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SecondaryBtn } from "../../components/common/btn/secondary";
 import styles from "./purchaseResult.module.css";
 
 import closeIcon from "./assets/ic_close.png";
 import backIcon from "./assets/back_icon.svg";
 
-const PurchaseFailPage = () => {
+const CancelExchangeSuccessPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { purchase } = location.state || {};
 
   const handleClose = () => {
     navigate(-1);
   };
 
-  const handleMarket = () => {
-    navigate("/market");
+  const handleMySales = () => {
+    navigate("/mysales"); // 나의 판매 포토카드 경로 넣어야함
   };
 
   return (
@@ -36,19 +34,18 @@ const PurchaseFailPage = () => {
           />
         </div>
         <header className={styles.header}>
-          <p className={styles.headerPurchase}>구매</p>{" "}
-          <p className={styles.headerFail}>실패</p>
+          <p className={styles.headerPurchase}>교환 제시 취소</p>{" "}
+          <p className={styles.headerSuccess}>성공</p>
         </header>
         <p className={styles.descMedium}>
-          [{purchase?.grade?.toUpperCase()} | {purchase?.name}]{" "}
-          {purchase?.count}장 구매에 실패했습니다.
+          포토카드 교환 제시 취소에 성공했습니다!
         </p>
         <div className={styles.btnWrapper}>
           <SecondaryBtn
-            text={"마켓플레이스로 돌아가기"}
+            text={"나의 판매 포토카드에서 확인하기"}
             width={"440px"}
             height={"60px"}
-            onClick={handleMarket}
+            onClick={handleMySales}
           />
         </div>
       </div>
@@ -56,4 +53,4 @@ const PurchaseFailPage = () => {
   );
 };
 
-export default PurchaseFailPage;
+export default CancelExchangeSuccessPage;

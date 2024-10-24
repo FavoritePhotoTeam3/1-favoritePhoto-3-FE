@@ -1,14 +1,12 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SecondaryBtn } from "../../components/common/btn/secondary";
 import styles from "./purchaseResult.module.css";
 
 import closeIcon from "./assets/ic_close.png";
 import backIcon from "./assets/back_icon.svg";
 
-const PurchaseFailPage = () => {
+const CancelExchangeFailPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { purchase } = location.state || {};
 
   const handleClose = () => {
     navigate(-1);
@@ -36,12 +34,11 @@ const PurchaseFailPage = () => {
           />
         </div>
         <header className={styles.header}>
-          <p className={styles.headerPurchase}>구매</p>{" "}
+          <p className={styles.headerPurchase}>교환 제시 취소</p>{" "}
           <p className={styles.headerFail}>실패</p>
         </header>
         <p className={styles.descMedium}>
-          [{purchase?.grade?.toUpperCase()} | {purchase?.name}]{" "}
-          {purchase?.count}장 구매에 실패했습니다.
+          포토카드 교환 제시 취소에 실패했습니다.
         </p>
         <div className={styles.btnWrapper}>
           <SecondaryBtn
@@ -56,4 +53,4 @@ const PurchaseFailPage = () => {
   );
 };
 
-export default PurchaseFailPage;
+export default CancelExchangeFailPage;

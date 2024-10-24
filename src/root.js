@@ -17,6 +17,8 @@ import SellerDetailPage from "./page/seller_detail";
 import BuyerDetailPage from "./page/buyer_detail";
 import PurchaseSuccessPage from "./page/purchase_result/purchaseSuccess";
 import PurchaseFailPage from "./page/purchase_result/purchaseFail";
+import CancelExchangeSuccessPage from "./page/purchase_result/cancelExchangeSuccess";
+import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 
 const queryClient = new QueryClient();
 
@@ -89,6 +91,14 @@ const router = createBrowserRouter([
           {
             path: "/purchase-fail",
             element: <PurchaseFailPage />,
+          },
+          {
+            path: "/exchange-cancel-success",
+            element: <CancelExchangeSuccessPage />,
+          },
+          {
+            path: "/exchange-cancel-fail",
+            element: <CancelExchangeFailPage />,
           },
         ],
       },
