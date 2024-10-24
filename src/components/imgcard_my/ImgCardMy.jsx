@@ -8,8 +8,8 @@ const ImgCardMy = ({
   genre,
   nickname,
   price,
-  counts,
-  imageUrl,
+  remainingCount,
+  imageURL,
   onClick,
 }) => {
   // 등급에 따라 글자의 컬러를 정하는 함수
@@ -31,7 +31,7 @@ const ImgCardMy = ({
   return (
     <div className={styles.imgCard} onClick={onClick}>
       <div className={styles.imgCardWrapper}>
-        <img src={imageUrl} alt="card" className={styles.cardImage} />
+        <img src={imageURL} alt="card" className={styles.cardImage} />
       </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>
@@ -48,7 +48,7 @@ const ImgCardMy = ({
         </div>
         <div className={styles.cardCounts}>
           <span className={styles.countsName}>수량</span>
-          <span className={styles.counts}>{counts}</span>
+          <span className={styles.counts}>{remainingCount}</span>
         </div>
       </div>
       <img src={logoImage} alt="logo icon" className={styles.logoImage} />

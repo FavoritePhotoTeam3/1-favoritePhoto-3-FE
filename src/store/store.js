@@ -5,6 +5,7 @@ import { signupSlice } from "../feature/signup/signupSlice";
 import { authSlice } from "../route/authSlice";
 import photoCardFormSlice from "../feature/create_photocard/photoCardFormSlice";
 import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
+import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     signup: signupSlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
     modal: buyerModalSlice.reducer,
+    photoExchange: photoExchangeSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

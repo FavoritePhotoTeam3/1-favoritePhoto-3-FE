@@ -1,3 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  toggleFilter,
+  selectCard,
+  clearSelectedCard,
+  setSearch,
+  setGradeFilter,
+  setGenreFilter,
+} from "../../../feature/photo_exchange/PhotoExchangeSlice";
+
 import { Title } from "../../common/title/Title";
 import SearchBar from "../../common/search_bar/SearchBar";
 import { DropdownNoneBorder } from "../../common/dropdown_normal/DropdownNormal";
@@ -5,30 +15,31 @@ import styles from "./PhotoExchange.module.css";
 import ImgCardMy from "../../imgcard_my/ImgCardMy";
 import PhotoExchangeDetail from "./PhotoExchangeDetail";
 import Filter from "../filter_modal/FilterModal";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { useMyCards } from "../../../feature/photo_exchange/usePhotoExchange";
 
 import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
 import filterIcon from "./assets/icon_filter.svg";
 
-const PhotoExchange = ({ onClose, imageCards }) => {
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [search, setSearch] = useState("");
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+const PhotoExchange = ({ onClose }) => {
+  const dispatch = useDispatch();
+  const { search, gradeFilter, genreFilter, selectedCard, isFilterOpen } =
+    useSelector((state) => state.photoExchange);
   const modalContentRef = useRef(null);
 
-  const [selectGrade, setSelectGrade] = useState("등급");
-  const [selectGenre, setSelectGenre] = useState("장르");
+  const { data: imageCards, isLoading } = useMyCards(search);
+
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const genreOptions = ["풍경", "자연", "도시", "기계", "우주"];
+  const genreOptions = ["풍경", "자연", "도시", "동물", "우주"];
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
-    setSelectedCard(card);
+    dispatch(selectCard(card));
   };
 
   const handleCancel = () => {
-    setSelectedCard(null);
+    dispatch(clearSelectedCard());
   };
 
   const handleExchange = () => {
@@ -36,23 +47,19 @@ const PhotoExchange = ({ onClose, imageCards }) => {
   };
 
   const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const handleSearchClick = () => {
-    console.log("검색 동작 수행하기");
+    dispatch(setSearch(e.target.value));
   };
 
   // 드롭다운 선택 시 호출되는 함수
   const handleGradeChange = (option) => {
-    setSelectGrade(option);
+    dispatch(setGradeFilter(option));
   };
   const handleGenreChange = (option) => {
-    setSelectGenre(option);
+    dispatch(setGenreFilter(option));
   };
 
-  const toggleFilter = () => {
-    setIsFilterOpen(!isFilterOpen);
+  const toggleFilterModal = () => {
+    dispatch(toggleFilter());
   };
 
   const handleOverlayClick = (e) => {
@@ -63,6 +70,12 @@ const PhotoExchange = ({ onClose, imageCards }) => {
       onClose();
     }
   };
+
+  const filteredCards = imageCards?.filter((card) => {
+    const matchesGrade = gradeFilter ? card.grade === gradeFilter : true;
+    const matchesGenre = genreFilter ? card.genre === genreFilter : true;
+    return matchesGrade && matchesGenre;
+  });
 
   return (
     <div className={styles.modalOverlay} onClick={handleOverlayClick}>
@@ -106,22 +119,18 @@ const PhotoExchange = ({ onClose, imageCards }) => {
               </div>
               <div className={styles.filter}>
                 <div className={styles.searchBarWrapper}>
-                  <SearchBar
-                    value={search}
-                    onChange={handleSearchChange}
-                    onKeyDown={handleSearchClick}
-                  />
+                  <SearchBar value={search} onChange={handleSearchChange} />
                 </div>
                 <div className={styles.filterWrapper}>
                   <DropdownNoneBorder
-                    title={selectGrade}
+                    title={gradeFilter || "등급"}
                     options={gradeOptions}
                     mobileWidth="52px"
                     mobileHeight="52px"
                     onSelect={handleGradeChange}
                   />
                   <DropdownNoneBorder
-                    title={selectGenre}
+                    title={genreFilter || "장르"}
                     options={genreOptions}
                     mobileWidth="52px"
                     mobileHeight="52px"
@@ -133,13 +142,23 @@ const PhotoExchange = ({ onClose, imageCards }) => {
                 </div>
               </div>
               <div className={styles.imageCardContainer}>
-                {imageCards.map((card) => (
-                  <ImgCardMy
-                    key={card.id}
-                    {...card}
-                    onClick={() => handleCardClick(card)}
-                  />
-                ))}
+                {isLoading ? (
+                  <p>로딩 중...</p>
+                ) : (
+                  filteredCards.map((card) => (
+                    <ImgCardMy
+                      key={card.id}
+                      title={card.name}
+                      grade={card.grade}
+                      genre={card.genre}
+                      nickname={card.user.nickname}
+                      price={card.purchasePrice || 0}
+                      remainingCount={card.remainingCount}
+                      imageURL={card.imageURL}
+                      onClick={() => handleCardClick(card)}
+                    />
+                  ))
+                )}
               </div>
             </div>
           )}
@@ -149,7 +168,7 @@ const PhotoExchange = ({ onClose, imageCards }) => {
         <div className={styles.filterModalOverlay}>
           <div className={styles.filterModal}>
             <Filter
-              onClickClose={toggleFilter}
+              onClickClose={toggleFilterModal}
               onClickRefresh={() => console.log("필터 새로고침 동작")}
             />
           </div>
