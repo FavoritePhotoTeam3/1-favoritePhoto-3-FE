@@ -1,20 +1,14 @@
 import React from "react";
-import styles from "./SearchBar.module.css";
+import style from "./SearchBar.module.css";
 import icSearch from "./assets/ic_search.png";
 
-// 사용 가능 Props *이름 준수
-// value
-// onChange
-// onBlur
-// onKeyDown
 export default function SearchBar(props) {
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       <input
-        className={styles.input}
-        value={props.value}
-        onChange={props.onChange}
-        onBlur={props.onBlur}
+        className={style.input}
+        value={props.inputValue}
+        onChange={(e)=> props.setInputValue(e.target.value)}
         onKeyDown={props.onKeyDown}
         placeholder="검색"
       />

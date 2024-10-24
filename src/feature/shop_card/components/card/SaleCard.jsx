@@ -1,18 +1,11 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef } from "react";
 import style from "./SaleCard.module.css";
 import { Link } from "react-router-dom";
 
 import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
-const SaleCard = ({ data }, ref) => {
-
-  useEffect(() => {
-    if (ref && ref.current) {
-      console.log("ref가 가리키는 요소:", ref.current); // ref.current가 가리키는 요소 출력
-    }
-  }, [ref]);
-
+const SaleCard = ({ data, id}, ref) => {
   const price = data.price;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
@@ -26,10 +19,9 @@ const SaleCard = ({ data }, ref) => {
   const nickname = data.user.nickname;
 
   const gradeStyle = grade ? grade.replace(/\s+/g, "").toLowerCase() : "";
-  console.log(`데이터 등급 : ${grade}`);
 
   return (
-    <Link to={`/item/${data?.id}`}>
+    <Link to={`/item/${data?.id}`} id={id}>
       <figure className={style.contaier} ref={ref}>
         <section className={style.imgWrapper}>
           <picture>

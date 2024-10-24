@@ -4,14 +4,16 @@ import style from "./index.module.css";
 import ShopCardRender from "../../feature/shop_card/ShopCardRender";
 import MarketActionHeader from "../../feature/card_regist/MarketActionHeader";
 
+import ShopSearch from "../../feature/shop_filter/search/ShopSearch";
+
 export default function Market() {
   return (
-    <main className={style.main}>
+    <main className={style.main} id="modal-root">
       <MarketActionHeader />
 
       <section className={style.sectionFilter}>
         <div className={style.searchBarSize}>
-          <span> 서치바</span>
+          <ShopSearch />
         </div>
 
         <div className={style.FilterBox}>
