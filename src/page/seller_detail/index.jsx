@@ -3,16 +3,29 @@ import { TitleDetail } from "../../components/common/title/Title";
 import DescCardSeller from "../../components/desc_card_seller/DescCardSeller";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   useSellerDetail,
   useSellerExchangeCards,
 } from "../../feature/seller_detail/useSellerDetail";
+import CancelSellingAsking from "../../components/modals/confirm/CancelSellingConfirm";
+import RejectAsking from "../../components/modals/confirm/RejectConfirm";
+import ApproveAsking from "../../components/modals/confirm/ApproveConfirm";
+import {
+  openCancelSellingModal,
+  openRejectModal,
+  openApproveModal,
+  closeModal,
+} from "../../feature/seller_detail/sellerModalSlice";
 
 import defaultImage from "./assets/image1.svg";
 import backIcon from "./assets/back_icon.svg";
 
 const SellerDetailPage = () => {
+  const dispatch = useDispatch();
   const { shopId } = useParams();
+
+  const { isModalOpen, modalType } = useSelector((state) => state.sellerModal);
 
   // 카드 상세 데이터
   const {
@@ -31,12 +44,38 @@ const SellerDetailPage = () => {
     console.log("새로고침 버튼 클릭됨");
   };
 
-  const handleModify = () => {
+  const handleModifyClick = () => {
     console.log("수정하기 버튼 클릭됨");
   };
 
-  const handleCloseSelling = () => {
-    console.log("판매 내리기 버튼 클릭됨");
+  const handleCancelSellingClick = () => {
+    dispatch(
+      openCancelSellingModal({
+        shopId,
+        name: sellerData?.card.name,
+        grade: sellerData?.card.grade,
+      })
+    );
+  };
+
+  const handleRejectClick = (exchangeCard) => {
+    dispatch(
+      openRejectModal({
+        exchangeId: exchangeCard.id,
+        name: exchangeCard.card.name,
+        grade: exchangeCard.card.grade,
+      })
+    );
+  };
+
+  const handleApproveClick = (exchangeCard) => {
+    dispatch(
+      openApproveModal({
+        exchangeId: exchangeCard.id,
+        name: exchangeCard.card.name,
+        grade: exchangeCard.card.grade,
+      })
+    );
   };
 
   if (sellerLoading || exchangeLoading) return <div>로딩중...</div>;
@@ -99,8 +138,8 @@ const SellerDetailPage = () => {
                     description: exchangeDescription,
                   }}
                   onClickRefresh={handleRefresh}
-                  onClickModify={handleModify}
-                  onClickCloseSelling={handleCloseSelling}
+                  onClickModify={handleModifyClick}
+                  onClickCloseSelling={handleCancelSellingClick}
                 />
               </div>
             </div>
@@ -117,12 +156,19 @@ const SellerDetailPage = () => {
                     genre={exchangeCard.card.genre}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
+                    onClickReject={() => handleRejectClick(exchangeCard)}
+                    onClickApprove={() => handleApproveClick(exchangeCard)}
                   />
                 ))
               ) : (
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
+            {isModalOpen && modalType === "cancelSelling" && (
+              <CancelSellingAsking />
+            )}
+            {isModalOpen && modalType === "reject" && <RejectAsking />}
+            {isModalOpen && modalType === "approve" && <ApproveAsking />}
           </div>
         </div>
       </main>

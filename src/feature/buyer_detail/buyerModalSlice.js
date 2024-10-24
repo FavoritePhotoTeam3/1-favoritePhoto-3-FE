@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const buyerModalSlice = createSlice({
-  name: "modal",
+  name: "buyerModal",
   initialState,
   reducers: {
     openPurchaseModal: (state, action) => {

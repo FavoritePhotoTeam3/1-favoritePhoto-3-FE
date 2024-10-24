@@ -11,6 +11,8 @@ const ImgCardExchange = ({
   price,
   description,
   imageUrl,
+  onClickReject,
+  onClickApprove,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -65,11 +67,13 @@ const ImgCardExchange = ({
           text={isMobile ? "거절" : "거절하기"}
           width={"100%"}
           height={isMobile ? "40px" : "60px"}
+          onClick={onClickReject}
         />
         <PrimaryBtn
           text={isMobile ? "승인" : "승인하기"}
           width={"100%"}
           height={isMobile ? "40px" : "60px"}
+          onClick={onClickApprove}
         />
       </div>
     </div>

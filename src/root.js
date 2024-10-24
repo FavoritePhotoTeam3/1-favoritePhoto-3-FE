@@ -83,31 +83,31 @@ const router = createBrowserRouter([
             element: <BuyerDetailPage />,
           },
           {
-            path: "/create-photocard",
+            path: "create-photocard",
             element: <CreatePhotoCardPage />,
           },
           {
-            path: "/purchase-success",
+            path: "purchase-success",
             element: <PurchaseSuccessPage />,
           },
           {
-            path: "/purchase-fail",
+            path: "purchase-fail",
             element: <PurchaseFailPage />,
           },
           {
-            path: "/exchange-cancel-success",
+            path: "exchange-cancel-success",
             element: <CancelExchangeSuccessPage />,
           },
           {
-            path: "/exchange-cancel-fail",
+            path: "exchange-cancel-fail",
             element: <CancelExchangeFailPage />,
           },
           {
-            path: "/create-success",
+            path: "create-success",
             element: <CreatePhotoSuccessPage />,
           },
           {
-            path: "/create-fail",
+            path: "create-fail",
             element: <CreatePhotoFailPage />,
           },
         ],
