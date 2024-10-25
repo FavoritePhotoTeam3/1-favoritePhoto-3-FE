@@ -34,9 +34,7 @@ const router = createBrowserRouter([
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <StateHandler>
-            <UserProvider>
-              <Outlet />
-            </UserProvider>
+            <UserProvider />
           </StateHandler>
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
@@ -52,7 +50,6 @@ const router = createBrowserRouter([
             element: (
               <span>임시 메인 페이지입니다. localhost:3000에 해당합니다.</span>
             ),
-
           },
           {
             path: "/market",
@@ -119,7 +116,6 @@ const router = createBrowserRouter([
               },
             ],
           },
-
         ],
       },
     ],
