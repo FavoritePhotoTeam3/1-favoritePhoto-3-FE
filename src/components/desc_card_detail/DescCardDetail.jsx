@@ -13,7 +13,7 @@ import QuantityControl from "../common/quantity_control/QuantityControl.jsx";
 // 개인 메모 > input박스 크기 수정 필요
 export default function DescCardDetail(props) {
   const getColor = (grade) => {
-    switch (grade) {
+    switch (grade.toLowerCase()) {
       case "common":
         return font.common;
       case "rare":

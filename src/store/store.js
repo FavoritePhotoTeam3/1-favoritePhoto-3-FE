@@ -9,6 +9,7 @@ import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
 import { shopSlice } from "../feature/shop_card/shopCardSlice";
+import photoModifySlice from "../feature/photo_modify/photoModifySlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     buyerModal: buyerModalSlice.reducer,
     photoExchange: photoExchangeSlice.reducer,
     sellerModal: sellerModalSlice.reducer,
+    photoModify: photoModifySlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
