@@ -28,9 +28,11 @@ const BuyerDetailPage = () => {
 
   const dispatch = useDispatch();
 
-  const isModalOpen = useSelector((state) => state.modal.isModalOpen);
-  const modalType = useSelector((state) => state.modal.modalType);
-  const purchaseInfo = useSelector((state) => state.modal.purchaseInfo || {});
+  const isModalOpen = useSelector((state) => state.buyerModal.isModalOpen);
+  const modalType = useSelector((state) => state.buyerModal.modalType);
+  const purchaseInfo = useSelector(
+    (state) => state.buyerModal.purchaseInfo || {}
+  );
 
   // 카드 상세 데이터
   const {
