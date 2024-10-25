@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
-const SaleCard = ({ data }, ref ) => {
+const SaleCard = ({ data }, ref) => {
   const id = data.id;
   const price = data.price;
   const totalCount = data.totalCount;
@@ -32,6 +32,7 @@ const SaleCard = ({ data }, ref ) => {
               className={style.cardImage}
             />
             <img
+              id="checkCard"
               src={imageURL}
               alt="Card"
               className={`${style.cardImage} ${isSoldOut ? style.soldOut : ""}`}

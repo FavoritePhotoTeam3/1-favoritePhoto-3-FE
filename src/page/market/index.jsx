@@ -2,16 +2,17 @@ import React from "react";
 import style from "./index.module.css";
 
 import ShopCardRender from "../../feature/shop_card/ShopCardRender";
-import MarketActionHeader from "../../feature/card_regist/MarketActionHeader";
+import MarketActionHeader from "../../feature/card_sale_regist/MarketActionHeader";
 
 import ShopSearch from "../../feature/shop_filter/search/ShopSearch";
 import GradeButton from "../../feature/shop_filter/option/GradeButton";
 import GenreButton from "../../feature/shop_filter/option/GenreButton";
 import IsSaleButton from "../../feature/shop_filter/option/IsSaleButton";
+import SortButton from "../../feature/shop_filter/sort/SortButton";
 
 export default function Market() {
   return (
-    <main className={style.main} id="modal-root">
+    <main className={style.main}>
       <MarketActionHeader />
 
       <section className={style.sectionFilter}>
@@ -25,7 +26,7 @@ export default function Market() {
             <GenreButton />
             <IsSaleButton />
           </div>
-          <span> 낮은 가격순</span>
+          <SortButton />
         </div>
       </section>
 

@@ -5,18 +5,18 @@ import style from "./ModalStyle.module.css"; // 모달 스타일
 import { useDispatch } from "react-redux";
 import { setFilterOptions } from "../../../shop_card/shopCardSlice";
 
-export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
+export const SortModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();
   const option = [
     { showOption: "ALL", param: undefined },
-    { showOption: "판매 중", param: "false" },
-    { showOption: "매진", param: "true" },
+    { showOption: "낮은 가격순", param: "price_ASC " },
+    { showOption: "높은 가격순", param: "price_DESC" },
   ];
 
   // 모달이 버튼 아래에 위치하도록
   const getModalPosition = () => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
-    const modalwidth = 130
+    const modalwidth = buttonRect.width
     return {
       top: buttonRect.bottom + window.scrollY + 5,
       left: buttonRect.right + window.scrollX - modalwidth,
@@ -27,7 +27,7 @@ export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
   const modalStyle = getModalPosition();
 
   const onOptionClick = (option) => {
-    const dispatchOption = { key: "isSoldOut", value: option.param };
+    const dispatchOption = { key: "sortOrder", value: option.param };
     dispatch(setFilterOptions(dispatchOption));
     onOptionSelect(option.showOption);
   };
@@ -52,4 +52,4 @@ export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
   );
 };
 
-export default forwardRef(IsSaleModal);
+export default forwardRef(SortModal);

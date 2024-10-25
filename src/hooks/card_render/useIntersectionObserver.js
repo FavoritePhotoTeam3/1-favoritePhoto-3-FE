@@ -11,6 +11,7 @@ export const useIntersectionObserver = (
   const lastObservedElement = useRef(null); // 마지막으로 관찰한 요소를 추적
 
   const setupObserver = () => {
+    console.log("＠＠＠ 옵저버 로그 : 옵저버 설정 훅 실행");
     if (!hasNextPage || isFetching || cards.length === 0) return;
 
     const targetIndex =

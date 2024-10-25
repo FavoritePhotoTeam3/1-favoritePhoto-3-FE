@@ -18,9 +18,11 @@ export const GradeModal = ({ anchorRef, onOptionSelect }, ref) => {
   // 모달이 버튼 아래에 위치하도록
   const getModalPosition = () => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
+    const modalwidth = 130
     return {
-      top: buttonRect.bottom + window.scrollY,
-      left: buttonRect.left + window.scrollX,
+      top: buttonRect.bottom + window.scrollY + 5,
+      left: buttonRect.right + window.scrollX - modalwidth,
+      width: modalwidth
     };
   };
 
@@ -47,7 +49,7 @@ export const GradeModal = ({ anchorRef, onOptionSelect }, ref) => {
         </li>
       ))}
     </ul>,
-    document.getElementById("modal-root")
+    document.getElementById("root")
   );
 };
 

@@ -7,6 +7,7 @@ const initialState = {
     grade: undefined,
     isSoldOut: undefined,
     genre: undefined,
+    sortOrder: undefined,
   }
 };
 
@@ -31,6 +32,7 @@ export const shopSlice = createSlice({
         grade: undefined,
         soldOut: undefined,
         genre: undefined,
+        sortOrder: undefined
       }
     }
   },

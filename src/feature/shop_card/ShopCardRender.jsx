@@ -47,17 +47,16 @@ const ShopCardRender = () => {
   }, [data, dispatch]);
 
   useEffect(() => {
+    console.log("★★★ 검색어나 filter옵션이 변경되어 이미지 체크 리셋");
     setImagesLoadedOnce(false); // 검색어나 필터 옵션 변경 시 이미지 로딩 체크를 다시 시작
   }, [searchTerm, filterOptions]);
 
   // 첫 로드에서만 이미지 로드 상태 체크 후 옵저버 설정
   useEffect(() => {
     if (cards.length > 0) {
-      if (!imagesLoadedOnce) {
-        // 처음 페이지 로딩일 때 이미지 체크 실행
-        checkImagesLoaded(); // 이미지 로드 상태 확인
-      } else {
-        // 그 이후에는 이미지 로딩 체크 없이 옵저버만 설정
+      if (!imagesLoadedOnce) { // 처음 페이지 로딩일 때 이미지 체크 실행
+        checkImagesLoaded(); // 이미지 로드 상태 확인 
+      } else { // 그 이후에는 이미지 로딩 체크 없이 옵저버만 설정
         setupObserver(); // 이미지 체크가 완료된 후에만 옵저버 설정
       }
     }
