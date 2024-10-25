@@ -52,6 +52,11 @@ const router = createBrowserRouter([
             element: (
               <span>임시 메인 페이지입니다. localhost:3000에 해당합니다.</span>
             ),
+
+          },
+          {
+            path: "/market",
+            element: <Market />,
           },
           {
             element: <AuthValidation />,
@@ -114,10 +119,7 @@ const router = createBrowserRouter([
               },
             ],
           },
-          {
-            path: "/market",
-            element: <Market />,
-          }
+
         ],
       },
     ],

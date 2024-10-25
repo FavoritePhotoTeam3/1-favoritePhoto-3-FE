@@ -21,7 +21,6 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
     return {
       top: buttonRect.bottom + window.scrollY,
       left: buttonRect.left + window.scrollX,
-      width: buttonRect.width,
     };
   };
 
