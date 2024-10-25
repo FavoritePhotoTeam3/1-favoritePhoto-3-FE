@@ -1,37 +1,36 @@
 import axios from "axios";
 
-export const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_URL,
+export const USERS = axios.create({
+  baseURL: process.env.REACT_APP_URL + "/users",
   headers: {
     "Content-Type": "application/json",
   },
   withCredentials: true,
 });
 
-axiosInstance.interceptors.response.use(
+USERS.interceptors.response.use(
   (response) => {
     return response;
   },
   async (error) => {
-    console.log(error);
     const {
       config,
       response: { status },
     } = error;
     if (status === 401) {
       try {
-        const response = await axiosInstance.get("/users/refresh-token");
+        const response = await USERS.get("/refresh-token");
         if (response.status === 200) {
           const originRequest = config;
-          await axios(originRequest);
-          return window.location.reload();
+          const response = await axios(originRequest);
+          return response;
         }
       } catch (e) {
         if (e.response.status === 403) {
           localStorage.removeItem("isLogged");
-          return window.location.reload();
+          return null;
         } else {
-          return window.location.reload();
+          return null;
         }
       }
     }
