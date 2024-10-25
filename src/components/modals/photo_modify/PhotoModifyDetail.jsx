@@ -12,7 +12,7 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
   const [price, setPrice] = useState(0);
   const [exchangeGrade, setExchangeGrade] = useState("COMMON");
   const [exchangeGenre, setExchangeGenre] = useState("풍경");
-  const [textareaValue, setTextareaValue] = useState("");
+  const [exchangeDescription, setExchangeDescription] = useState("");
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOptions = ["풍경", "자연", "도시", "동물", "우주"];
@@ -34,7 +34,17 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
   };
 
   const handleTextChange = (e) => {
-    setTextareaValue(e.target.value);
+    setExchangeDescription(e.target.value);
+  };
+
+  const handleModify = () => {
+    onModifying({
+      price,
+      totalCount: quantity,
+      exchangeGrade,
+      exchangeGenre,
+      exchangeDescription,
+    });
   };
 
   const registData = {
@@ -90,13 +100,13 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
         <TextArea
           label="교환 희망 설명"
           placeholder="설명을 입력해 주세요"
-          value={textareaValue}
+          value={exchangeDescription}
           onChange={handleTextChange}
         />
       </div>
       <div className={styles.buttonWrapper}>
         <SecondaryBtn text="취소하기" onClick={onCancel} />
-        <PrimaryBtn text="수정하기" onClick={onModifying} />
+        <PrimaryBtn text="수정하기" onClick={handleModify} />
       </div>
     </div>
   );

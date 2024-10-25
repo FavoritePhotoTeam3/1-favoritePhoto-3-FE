@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./CommonConfirm.module.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cancelSelling } from "../../../feature/seller_detail/sellerDetailAPI";
 import { closeModal } from "../../../feature/seller_detail/sellerModalSlice";
@@ -10,7 +9,6 @@ import PrimaryBtnAnother from "../../common/btn/PrimaryBtnAnother";
 import icClose from "./assets/ic_close.png";
 
 export default function CancelSellingAsking(props) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { sellInfo } = useSelector((state) => state.sellerModal);
 
@@ -18,15 +16,10 @@ export default function CancelSellingAsking(props) {
     const result = await cancelSelling(sellInfo.shopId);
 
     if (result.success) {
-      navigate("/cancel-selling-success", {
-        state: { name: sellInfo.name, grade: sellInfo.grade },
-      });
+      alert("판매가 성공적으로 취소되었습니다!");
       dispatch(closeModal());
     } else {
-      alert(result.error);
-      navigate("/cancel-selling-fail", {
-        state: { name: sellInfo.name, grade: sellInfo.grade },
-      });
+      alert(`판매 취소 실패: ${result.error}`);
     }
   };
 

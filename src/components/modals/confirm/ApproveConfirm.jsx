@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./CommonConfirm.module.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptExchange } from "../../../feature/seller_detail/sellerDetailAPI";
 import { closeModal } from "../../../feature/seller_detail/sellerModalSlice";
@@ -10,7 +9,6 @@ import PrimaryBtnAnother from "../../common/btn/PrimaryBtnAnother";
 import icClose from "./assets/ic_close.png";
 
 export default function ApproveAsking() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { exchangeId, name, grade } = useSelector(
     (state) => state.sellerModal.selectedExchangeInfo
@@ -20,15 +18,10 @@ export default function ApproveAsking() {
     const result = await acceptExchange(exchangeId);
 
     if (result.success) {
-      navigate("/approve-success", {
-        state: { name, grade },
-      });
+      alert("교환이 성공적으로 승인되었습니다!");
       dispatch(closeModal());
     } else {
-      alert(result.error);
-      navigate("/approve-fail", {
-        state: { name, grade },
-      });
+      alert(`교환 승인 실패: ${result.error}`);
     }
   };
 

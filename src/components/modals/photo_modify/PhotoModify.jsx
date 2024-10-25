@@ -1,8 +1,10 @@
 import styles from "./PhotoModify.module.css";
 import PhotoModifyDetail from "./PhotoModifyDetail";
 import { useDispatch, useSelector } from "react-redux";
+import { useMutation } from "@tanstack/react-query";
 import { closeModal } from "../../../feature/seller_detail/sellerModalSlice";
 import { useRef } from "react";
+import { updatePhotoCard } from "../../../feature/photo_modify/PhotoModifyAPI";
 
 import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
@@ -14,12 +16,28 @@ const PhotoModify = () => {
 
   const modalContentRef = useRef(null);
 
+  const mutation = useMutation({
+    mutationFn: ({ shopId, cardId, data }) =>
+      updatePhotoCard(shopId, cardId, data),
+    onSuccess: () => {
+      alert("수정이 완료되었습니다.");
+      dispatch(closeModal());
+    },
+    onError: (error) => {
+      alert(`수정 실패: ${error.message}`);
+    },
+  });
+
   const handleCancel = () => {
     dispatch(closeModal());
   };
 
-  const handleModifying = () => {
-    console.log("판매 동작 수행하기");
+  const handleModifying = (data) => {
+    mutation.mutate({
+      shopId: selectedCard.shopId,
+      cardId: selectedCard.cardId,
+      data,
+    });
   };
 
   const handleOverlayClick = (e) => {
