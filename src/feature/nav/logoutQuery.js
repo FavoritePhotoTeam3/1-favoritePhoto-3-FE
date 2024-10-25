@@ -2,7 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 
 import { APIrequestPending, expireAuth } from "../../route/authSlice";
-import { USERS } from "../../api/users";
+import { axiosInstance } from "../../api/axios";
 
 export const useLogoutQuery = () => {
   const queryClient = useQueryClient();
@@ -11,7 +11,7 @@ export const useLogoutQuery = () => {
   const logout = async () => {
     dispatch(APIrequestPending({ isPending: true }));
     try {
-      const response = await USERS.delete("/logout");
+      const response = await axiosInstance.delete("/users/logout");
       dispatch(expireAuth(response.data));
       queryClient.removeQueries(["user"]);
       dispatch(APIrequestPending({ isPending: false }));

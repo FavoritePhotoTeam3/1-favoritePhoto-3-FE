@@ -8,11 +8,6 @@ export const USERS = axios.create({
   withCredentials: true,
 });
 
-export async function postRefreshToken() {
-  const response = await USERS.get("/refresh-token");
-  return response;
-}
-
 USERS.interceptors.response.use(
   (response) => {
     return response;
@@ -20,28 +15,22 @@ USERS.interceptors.response.use(
   async (error) => {
     const {
       config,
-      response: {
-        status,
-        data: { RequestURL },
-      },
+      response: { status },
     } = error;
-    //토큰이 만료되을 때
-    if (status === 401 && RequestURL === "/users/me") {
+    if (status === 401) {
       try {
-        const response = await postRefreshToken();
+        const response = await USERS.get("/refresh-token");
         if (response.status === 200) {
           const originRequest = config;
-          await axios(originRequest);
-          return (window.location.href = "/");
+          const response = await axios(originRequest);
+          return response;
         }
       } catch (e) {
         if (e.response.status === 403) {
           localStorage.removeItem("isLogged");
-          console.log(e.response.data.message);
-          return;
+          return null;
         } else {
-          console.log(e.response.data.message);
-          return;
+          return null;
         }
       }
     }

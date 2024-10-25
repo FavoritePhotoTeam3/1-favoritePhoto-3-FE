@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { APIrequestPending } from "../../route/authSlice";
-import { USERS } from "../../api/users";
 import { setErrorMessage } from "./signupSlice";
+import { axiosInstance } from "../../api/axios";
 
 export const useSignupQuery = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const useSignupQuery = () => {
   const signup = async ({ email, password, nickname }) => {
     dispatch(APIrequestPending({ isPending: true }));
     try {
-      await USERS.post("/signup", {
+      await axiosInstance.post("/users/signup", {
         email,
         password,
         nickname,

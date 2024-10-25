@@ -25,10 +25,10 @@ export const signupSlice = createSlice({
   name: "signup",
   initialState: null,
   reducers: {
-    pageInit(state, action) {
+    signupPageInit(state, action) {
       return initialState;
     },
-    pageReset(state, action) {
+    signupPageReset(state, action) {
       return null;
     },
     signupInputAndValidation(state, action) {
@@ -71,8 +71,8 @@ export const signupSlice = createSlice({
 });
 
 export const {
-  pageInit,
-  pageReset,
+  signupPageInit,
+  signupPageReset,
   signupInputAndValidation,
   setErrorMessage,
   formReset,

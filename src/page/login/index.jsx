@@ -1,37 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./index.module.css";
 import mainLogo from "./assets/logo.png";
 
-import { Link, useBlocker } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import LoginEmailInput from "../../feature/login/Input_email";
 import LoginPasswordInput from "../../feature/login/input_password";
-import { formReset, pageInit, pageReset } from "../../feature/login/loginSlice";
+import { formReset } from "../../feature/login/loginSlice";
 import { useLoginQuery } from "../../feature/login/loginQuery";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const { login } = useLoginQuery();
-
-  useBlocker(({ currentLocation, nextLocation }) => {
-    if (currentLocation.pathname !== nextLocation.pathname) {
-      dispatch(pageReset());
-    }
-  });
-
-  useEffect(() => {
-    const handlePopstate = () => {
-      dispatch(pageReset());
-    };
-    dispatch(pageInit());
-    window.addEventListener("popstate", handlePopstate);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, [dispatch]);
 
   const loginValidation = useSelector((state) => state.login?.loginValidation);
   const loginForm = useSelector((state) => state.login?.loginForm);

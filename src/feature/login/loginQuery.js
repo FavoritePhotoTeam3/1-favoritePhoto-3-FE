@@ -2,7 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { APIrequestPending, completeAuth } from "../../route/authSlice";
-import { USERS } from "../../api/users";
+import { axiosInstance } from "../../api/axios";
 
 export const useLoginQuery = () => {
   const queryClient = useQueryClient();
@@ -12,7 +12,7 @@ export const useLoginQuery = () => {
   const login = async ({ email, password }) => {
     dispatch(APIrequestPending({ isPending: true }));
     try {
-      const response = await USERS.post("/login", {
+      const response = await axiosInstance.post("/users/login", {
         email,
         password,
       });
@@ -21,6 +21,7 @@ export const useLoginQuery = () => {
       dispatch(APIrequestPending({ isPending: false }));
       nav("/");
     } catch (e) {
+      dispatch(APIrequestPending({ isPending: false }));
       alert(e.response.data.data.message);
       console.log(e.status, "/context/authProvider/login");
     }
