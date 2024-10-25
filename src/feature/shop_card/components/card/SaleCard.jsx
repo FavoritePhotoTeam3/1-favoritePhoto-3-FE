@@ -6,6 +6,7 @@ import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
 
 const SaleCard = ({ data }, ref ) => {
+  const id = data.id;
   const price = data.price;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
@@ -21,7 +22,7 @@ const SaleCard = ({ data }, ref ) => {
   const gradeStyle = grade ? grade.replace(/\s+/g, "").toLowerCase() : "";
 
   return (
-    <Link to={`/item/${data?.id}`} ref={ref}>
+    <Link to={`/item/${id}`} ref={ref}>
       <figure className={style.contaier}>
         <section className={style.imgWrapper}>
           <picture>

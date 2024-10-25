@@ -37,7 +37,7 @@ export const useIntersectionObserver = (
       {
         root: null, // viewport를 root로 설정
         rootMargin: "0px",
-        threshold: 1.0, // 요소가 100% 보일 때 트리거
+        threshold: 0.5, // 요소가 100% 보일 때 트리거
       }
     );
 

@@ -5,7 +5,7 @@ const initialState = {
   searchTerm: undefined,
   filterOptions: {
     grade: undefined,
-    soldOut: undefined,
+    isSoldOut: undefined,
     genre: undefined,
   }
 };
@@ -21,7 +21,8 @@ export const shopSlice = createSlice({
       state.searchTerm = action.payload;
     },
     setFilterOptions: (state, action) => {
-      state.filterOptions = action.payload;
+      const { key, value } = action.payload;
+      state.filterOptions[key] = value;
     },
     clearState(state) {
       state.cards = [];

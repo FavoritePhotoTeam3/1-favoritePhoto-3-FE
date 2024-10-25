@@ -5,6 +5,9 @@ import ShopCardRender from "../../feature/shop_card/ShopCardRender";
 import MarketActionHeader from "../../feature/card_regist/MarketActionHeader";
 
 import ShopSearch from "../../feature/shop_filter/search/ShopSearch";
+import GradeButton from "../../feature/shop_filter/option/GradeButton";
+import GenreButton from "../../feature/shop_filter/option/GenreButton";
+import IsSaleButton from "../../feature/shop_filter/option/IsSaleButton";
 
 export default function Market() {
   return (
@@ -18,9 +21,9 @@ export default function Market() {
 
         <div className={style.FilterBox}>
           <div className={style.dropDownBox}>
-            <span> 등급</span>
-            <span> 장르</span>
-            <span> 뭐시깽이</span>
+            <GradeButton />
+            <GenreButton />
+            <IsSaleButton />
           </div>
           <span> 낮은 가격순</span>
         </div>
