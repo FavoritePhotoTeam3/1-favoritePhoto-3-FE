@@ -1,9 +1,6 @@
 import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import store from "./store/store";
-import NomalLayout from "./layout/nomal/nomalLayout";
-import NavLayout from "./layout/nav/navLayout";
-import LoginPage from "./page/login";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
@@ -12,6 +9,9 @@ import {
   NotAuthValidation,
   UserProvider,
 } from "./route/authUser";
+import NomalLayout from "./layout/nomal/nomalLayout";
+import NavLayout from "./layout/nav/navLayout";
+
 import SignupPage from "./page/signup";
 import CreatePhotoCardPage from "./page/create_photocard";
 import SellerDetailPage from "./page/seller_detail";

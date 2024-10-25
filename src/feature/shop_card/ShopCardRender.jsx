@@ -67,7 +67,7 @@ const ShopCardRender = () => {
     if (isError) {
       dispatch(setCards([]));
     }
-  }, [isError]);
+  }, [isError, dispatch]);
 
 
 
