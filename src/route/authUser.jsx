@@ -17,6 +17,9 @@ export const UserProvider = ({ children }) => {
 
         try {
           APIrequest = await getUser();
+          const date = new Date(APIrequest.drawtime);
+          const today = new Date();
+          console.log(today.getHours() < date.getHours() - 1);
         } catch (e) {
         } finally {
           dispatch(completeAuth(APIrequest));

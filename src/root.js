@@ -21,6 +21,7 @@ import CancelExchangeSuccessPage from "./page/purchase_result/cancelExchangeSucc
 import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
 import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
+import StateHandler from "./route/stateHandler";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
     element: (
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <UserProvider />
+          <StateHandler>
+            <UserProvider />
+          </StateHandler>
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

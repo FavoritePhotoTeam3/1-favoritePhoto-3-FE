@@ -1,39 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./index.module.css";
 import mainLogo from "./assets/logo.png";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useBlocker } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import SignupEmailInput from "../../feature/signup/Input_email";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import {
   SignpuPasswordConfirmInput,
   SignpuPasswordInput,
 } from "../../feature/signup/input_password";
-import { pageInit, pageReset } from "../../feature/signup/signupSlice";
+
 import { SignpuNicknameInput } from "../../feature/signup/input_nickname";
 import { useSignupQuery } from "../../feature/signup/signupQuery";
 
 const SignupPage = () => {
-  const dispatch = useDispatch();
   const { signup } = useSignupQuery();
-
-  useBlocker(({ currentLocation, nextLocation }) => {
-    if (currentLocation.pathname !== nextLocation.pathname) {
-      dispatch(pageReset());
-    }
-  });
-
-  useEffect(() => {
-    const handlePopstate = () => {
-      dispatch(pageReset());
-    };
-    dispatch(pageInit());
-    window.addEventListener("popstate", handlePopstate);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, [dispatch]);
 
   const signupValidation = useSelector(
     (state) => state.signup?.signupValidation

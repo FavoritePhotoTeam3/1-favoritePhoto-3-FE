@@ -20,10 +20,10 @@ export const loginSlice = createSlice({
   name: "login",
   initialState: null,
   reducers: {
-    pageInit(state, action) {
+    loginPageInit(state, action) {
       return initialState;
     },
-    pageReset(state, action) {
+    loginPageReset(state, action) {
       return null;
     },
     loginInputAndValidation(state, action) {
@@ -52,5 +52,9 @@ export const loginSlice = createSlice({
   },
 });
 
-export const { pageInit, pageReset, loginInputAndValidation, formReset } =
-  loginSlice.actions;
+export const {
+  loginPageInit,
+  loginPageReset,
+  loginInputAndValidation,
+  formReset,
+} = loginSlice.actions;
