@@ -23,6 +23,7 @@ import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
 import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
 import StateHandler from "./route/stateHandler";
+import CheckPointEvent from "./route/checkPointEvent";
 import LoginPage from "./page/login";
 import Market from "./page/market";
 import MyGallery from "./page/my_gallery";
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        element: <NavLayout />,
+        element: (
+          <CheckPointEvent>
+            <NavLayout />
+          </CheckPointEvent>
+        ),
         children: [
           //아무 제한이 필요없는 라우터 입니다.
           {

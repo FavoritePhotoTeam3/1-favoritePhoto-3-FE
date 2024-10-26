@@ -11,8 +11,8 @@ const initialState = {
     password: "",
   },
   loginValidation: {
-    email: { isNotNull: false, validation: true },
-    password: { isNotNull: false, validation: true },
+    email: { isNotNull: false, validation: true, errorMessage: "" },
+    password: { isNotNull: false, validation: true, errorMessage: "" },
   },
 };
 
@@ -32,6 +32,7 @@ export const loginSlice = createSlice({
       state.loginValidation[name] = {
         ...state.loginValidation[name],
         isNotNull: isNotNull(value),
+        errorMessage: "",
       };
 
       const { email, password } = state.loginForm;
@@ -45,6 +46,11 @@ export const loginSlice = createSlice({
         validation: passwordValidation(password),
       };
     },
+    setErrorMessage(state, action) {
+      const { message, column } = action.payload;
+      state.loginValidation[column].errorMessage = message;
+      state.loginValidation[column].validation = false;
+    },
     formReset(state, _) {
       state.loginForm = { ...initialState.loginForm };
       state.loginValidation = { ...initialState.loginValidation };
@@ -56,5 +62,6 @@ export const {
   loginPageInit,
   loginPageReset,
   loginInputAndValidation,
+  setErrorMessage,
   formReset,
 } = loginSlice.actions;

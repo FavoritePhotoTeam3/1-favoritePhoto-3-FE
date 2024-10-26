@@ -7,6 +7,9 @@ const LoginEmailInput = () => {
   const emailValidation = useSelector(
     (state) => state.login?.loginValidation.email.validation
   );
+  const errorMessage = useSelector(
+    (state) => state.login?.loginValidation.email.errorMessage
+  );
 
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -18,6 +21,7 @@ const LoginEmailInput = () => {
       onChange={handleChange}
       validation={emailValidation}
       value={email}
+      errorMessage={errorMessage}
     />
   );
 };

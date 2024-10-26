@@ -4,7 +4,7 @@ import { getUser } from "./authAPI";
 import { APIrequestPending, completeAuth } from "./authSlice";
 import { useEffect } from "react";
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = () => {
   // /users/me 호출 후 유저 데이터 state.auth.user에 저장
   const dispatch = useDispatch();
   const { isLogged } = useSelector((state) => state.auth);
@@ -37,7 +37,7 @@ export const AuthValidation = () => {
 
   const { isPending, isLogged } = useSelector((state) => state.auth);
   if (!isPending && !isLogged) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   } else {
     return <Outlet />;
   }
