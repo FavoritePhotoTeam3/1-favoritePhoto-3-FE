@@ -7,6 +7,9 @@ const LoginPasswordInput = () => {
   const passwordValidation = useSelector(
     (state) => state.login?.loginValidation.password.validation
   );
+  const errorMessage = useSelector(
+    (state) => state.login?.loginValidation.password.errorMessage
+  );
 
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -18,6 +21,7 @@ const LoginPasswordInput = () => {
       onChange={handleChange}
       validation={passwordValidation}
       value={password}
+      errorMessage={errorMessage}
     />
   );
 };

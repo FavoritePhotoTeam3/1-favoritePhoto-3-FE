@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   emailValidation,
   isNotNull,
+  nicknameValidation,
   passwordEqualValidation,
   passwordValidation,
 } from "../../util/sliceValidation";
@@ -16,8 +17,8 @@ const initialState = {
   signupValidation: {
     email: { isNotNull: false, validation: true, errorMessage: "" },
     nickname: { isNotNull: false, validation: true, errorMessage: "" },
-    password: { isNotNull: false, validation: true, errorMessage: "" },
-    passwordConfirm: { isNotNull: false, validation: true, errorMessage: "" },
+    password: { isNotNull: false, validation: true },
+    passwordConfirm: { isNotNull: false, validation: true },
   },
 };
 
@@ -40,11 +41,15 @@ export const signupSlice = createSlice({
         errorMessage: "",
       };
 
-      const { email, password, passwordConfirm } = state.signupForm;
+      const { email, nickname, password, passwordConfirm } = state.signupForm;
 
       state.signupValidation.email = {
         ...state.signupValidation.email,
         validation: emailValidation(email),
+      };
+      state.signupValidation.nickname = {
+        ...state.signupValidation.nickname,
+        validation: nicknameValidation(nickname),
       };
       state.signupValidation.password = {
         ...state.signupValidation.password,
