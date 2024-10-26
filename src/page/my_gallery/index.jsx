@@ -1,36 +1,36 @@
 import React from "react";
 import style from "./index.module.css";
 
-import ShopCardRender from "../../feature/card_render/shop/ShopCardRender";
-import MarketActionHeader from "../../feature/header_action/MyPlaceHeader";
+import MyGalleryHeader from "@feature/header_action/MyGalleryHeader";
+import MyCardGalleryRender from "@feature/card_render/my_gallery/MyCardGalleryRender";
+import MyCardTotalState from "@feature/my_card_total_state/MyCardTotalState";
 
-import ShopSearch from "../../feature/card_filter/shop/search/ShopSearch";
-import GradeButton from "../../feature/card_filter/shop/option/GradeButton";
-import GenreButton from "../../feature/card_filter/shop/option/GenreButton";
-import IsSaleButton from "../../feature/card_filter/shop/option/IsSaleButton";
-import SortButton from "../../feature/card_filter/shop/sort/SortButton";
+import MyGallerySearch from "@feature/card_filter/my_gallery/search/MyGallerySearch";
+import GradeButton from "@feature/card_filter/my_gallery/option/GradeButton";
+import GenreButton from "@feature/card_filter/my_gallery/option/GenreButton";
 
 export default function MyGallery() {
+
+  console.log("my_gallery page rendered");
   return (
     <main className={style.main}>
-      <MarketActionHeader />
+      <MyGalleryHeader />
+      <MyCardTotalState />
 
       <section className={style.sectionFilter}>
         <div className={style.searchBarSize}>
-          <ShopSearch />
+          <MyGallerySearch />
         </div>
 
         <div className={style.FilterBox}>
           <div className={style.dropDownBox}>
             <GradeButton />
             <GenreButton />
-            <IsSaleButton />
           </div>
-          <SortButton />
         </div>
       </section>
 
-      <ShopCardRender />
+      <MyCardGalleryRender />
     </main>
   );
 }

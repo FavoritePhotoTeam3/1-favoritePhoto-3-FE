@@ -9,6 +9,8 @@ import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
 import { shopSlice } from "../feature/card_render/shop/shopCardSlice";
+import { myGallerySlice } from "../feature/card_render/my_gallery/myGallerySlice";
+import {registShopDataSlice} from "../feature/card_regist_shop/modals/registShopDataSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,10 +18,12 @@ export const store = configureStore({
     login: loginSlice.reducer,
     signup: signupSlice.reducer,
     shop: shopSlice.reducer,
+    myGallery: myGallerySlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
     buyerModal: buyerModalSlice.reducer,
     photoExchange: photoExchangeSlice.reducer,
     sellerModal: sellerModalSlice.reducer,
+    registShopData: registShopDataSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -3,18 +3,16 @@ import ReactDOM from "react-dom";
 import style from "./ModalStyle.module.css"; // 모달 스타일
 
 import { useDispatch } from "react-redux";
-import { setFilterOptions } from "../../../../card_render/shop/shopCardSlice";
+import { setFilterOptions } from "@feature/card_render/my_gallery/myGallerySlice";
 
-export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
+export const GradeModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();
   const option = [
     { showOption: "ALL", param: undefined },
-    { showOption: "풍경", param: "풍경" },
-    { showOption: "여행", param: "여행" },
-    { showOption: "자연", param: "자연" },
-    { showOption: "도시", param: "도시" },
-    { showOption: "우주", param: "우주" },
-    { showOption: "기타", param: "기타" },
+    { showOption: "COMMON", param: "COMMON" },
+    { showOption: "RARE", param: "RARE" },
+    { showOption: "SUPER RARE", param: "SUPER RARE" },
+    { showOption: "LEGENDARY", param: "LEGENDARY" },
   ];
 
   // 모달이 버튼 아래에 위치하도록
@@ -31,7 +29,7 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
   const modalStyle = getModalPosition();
 
   const onOptionClick = (option) => {
-    const dispatchOption = { key: "genre", value: option.param };
+    const dispatchOption = { key: "grade", value: option.param };
     dispatch(setFilterOptions(dispatchOption));
     onOptionSelect(option.showOption);
   };
@@ -55,4 +53,4 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
   );
 };
 
-export default forwardRef(GenreModal);
+export default forwardRef(GradeModal);

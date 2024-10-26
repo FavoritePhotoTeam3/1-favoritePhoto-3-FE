@@ -2,7 +2,7 @@ import React from "react";
 import style from "./index.module.css";
 
 import ShopCardRender from "@feature/card_render/shop/ShopCardRender";
-import MyPlaceHeader from "@feature/header_action/MyPlaceHeader";
+import MyPlaceHeader from "@feature/header_action/MarketHeader";
 
 import ShopSearch from "@feature/card_filter/shop/search/ShopSearch";
 import GradeButton from "@feature/card_filter/shop/option/GradeButton";

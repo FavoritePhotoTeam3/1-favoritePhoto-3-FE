@@ -63,7 +63,7 @@ const SaleCard = ({ data }, ref) => {
           <section className={style.quntitySection}>
             <div className={style.price}>
               <label>가격</label>
-              <p className={style.whiteCount}>{price}</p>
+              <p className={style.whiteCount}>{`${price} P`}</p>
             </div>
             <div className={style.remain}>
               <label>잔여</label>

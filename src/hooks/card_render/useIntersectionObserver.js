@@ -22,7 +22,7 @@ export const useIntersectionObserver = (
 
     const targetIndex =
       cards.length - triggerCardIndex >= 0
-        ? cards.length - triggerCardIndex
+        ? cards.length - triggerCardIndex + 1
         : 0; // 뒤에서 설정된 기준 카드
     const targetCard = document.querySelector(
       `#observeSelector > :nth-child(${targetIndex})`
@@ -46,7 +46,7 @@ export const useIntersectionObserver = (
       {
         root: null, // viewport를 root로 설정
         rootMargin: "0px",
-        threshold: 0.5, // 요소가 100% 보일 때 트리거
+        threshold: 1, // 요소가 100% 보일 때 트리거
       }
     );
 

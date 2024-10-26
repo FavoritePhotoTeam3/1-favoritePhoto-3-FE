@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import style from "./ModalStyle.module.css"; // 모달 스타일
 
 import { useDispatch } from "react-redux";
-import { setFilterOptions } from "../../../../card_render/shop/shopCardSlice";
+import { setFilterOptions } from "@feature/card_render/my_gallery/myGallerySlice";
 
 export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();

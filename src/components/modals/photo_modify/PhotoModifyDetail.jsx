@@ -4,7 +4,7 @@ import { SecondaryBtn } from "../../common/btn/secondary";
 import { DropdownInput } from "../../common/dropdown_input/DropdownInput";
 import TextArea from "../../common/text_area/TextArea";
 import { TitleDetail, TitleMiddle } from "../../common/title/Title";
-import DescCardDetail from "../../desc_card_detail/DescCardDetail";
+import DescCardDetail from "@components/desc_card/desc_card_detail/DescCardDetail";
 import styles from "./PhotoModifyDetail.module.css";
 
 const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {

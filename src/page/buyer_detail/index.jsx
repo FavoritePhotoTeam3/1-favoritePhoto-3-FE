@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
-import DescCardBuyer from "../../components/desc_card_buyer/DescCardBuyer";
+import DescCardBuyer from "@components/desc_card/desc_card_buyer/DescCardBuyer";
 import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useParams } from "react-router-dom";
