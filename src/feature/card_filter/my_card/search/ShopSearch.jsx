@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-// import styles from "./SearchBar.module.css";
-// import icSearch from "./assets/ic_search.png";
 
 import { useDispatch } from "react-redux";
-import { setSearchTerm } from "../../shop_card/shopCardSlice";
+import { setSearchTerm } from "@feature/card_render/shop/shopCardSlice";
 
-import SearchBar from "../../../components/common/search_bar/SearchBar";
+import SearchBar from "@components/common/search_bar/SearchBar";
 
 export const ShopSearch = () => {
   const dispatch = useDispatch();

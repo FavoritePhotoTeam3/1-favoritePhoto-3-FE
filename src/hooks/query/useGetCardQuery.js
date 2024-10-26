@@ -73,3 +73,4 @@ export const useGetCardQuery = (
 };
 
 // 현재 grade 필터가 단독으로만 처리되고 다른 옵션들과 중첩으로 처리되지 않음
+// 검색어도 마찬가지로 단독으로만 처리됨

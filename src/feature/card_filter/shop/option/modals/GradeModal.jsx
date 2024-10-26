@@ -3,14 +3,16 @@ import ReactDOM from "react-dom";
 import style from "./ModalStyle.module.css"; // 모달 스타일
 
 import { useDispatch } from "react-redux";
-import { setFilterOptions } from "../../../shop_card/shopCardSlice";
+import { setFilterOptions } from "../../../../card_render/shop/shopCardSlice";
 
-export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
+export const GradeModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();
   const option = [
     { showOption: "ALL", param: undefined },
-    { showOption: "판매 중", param: "false" },
-    { showOption: "매진", param: "true" },
+    { showOption: "COMMON", param: "COMMON" },
+    { showOption: "RARE", param: "RARE" },
+    { showOption: "SUPER RARE", param: "SUPER RARE" },
+    { showOption: "LEGENDARY", param: "LEGENDARY" },
   ];
 
   // 모달이 버튼 아래에 위치하도록
@@ -27,12 +29,11 @@ export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
   const modalStyle = getModalPosition();
 
   const onOptionClick = (option) => {
-    const dispatchOption = { key: "isSoldOut", value: option.param };
+    const dispatchOption = { key: "grade", value: option.param };
     dispatch(setFilterOptions(dispatchOption));
     onOptionSelect(option.showOption);
   };
 
-  // 모달 jsx
   return ReactDOM.createPortal(
     <ul className={style.dropdownMenu} style={modalStyle} ref={ref}>
       {option.map((option, index) => (
@@ -52,4 +53,4 @@ export const IsSaleModal = ({ anchorRef, onOptionSelect }, ref) => {
   );
 };
 
-export default forwardRef(IsSaleModal);
+export default forwardRef(GradeModal);

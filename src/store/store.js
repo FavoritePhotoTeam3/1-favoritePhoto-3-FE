@@ -8,7 +8,7 @@ import photoCardFormSlice from "../feature/create_photocard/photoCardFormSlice";
 import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
-import { shopSlice } from "../feature/shop_card/shopCardSlice";
+import { shopSlice } from "../feature/card_render/shop/shopCardSlice";
 
 export const store = configureStore({
   reducer: {

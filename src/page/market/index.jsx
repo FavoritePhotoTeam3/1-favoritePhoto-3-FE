@@ -1,19 +1,19 @@
 import React from "react";
 import style from "./index.module.css";
 
-import ShopCardRender from "../../feature/shop_card/ShopCardRender";
-import MarketActionHeader from "../../feature/card_sale_regist/MarketActionHeader";
+import ShopCardRender from "@feature/card_render/shop/ShopCardRender";
+import MyPlaceHeader from "@feature/header_action/MyPlaceHeader";
 
-import ShopSearch from "../../feature/shop_filter/search/ShopSearch";
-import GradeButton from "../../feature/shop_filter/option/GradeButton";
-import GenreButton from "../../feature/shop_filter/option/GenreButton";
-import IsSaleButton from "../../feature/shop_filter/option/IsSaleButton";
-import SortButton from "../../feature/shop_filter/sort/SortButton";
+import ShopSearch from "@feature/card_filter/shop/search/ShopSearch";
+import GradeButton from "@feature/card_filter/shop/option/GradeButton";
+import GenreButton from "@feature/card_filter/shop/option/GenreButton";
+import IsSaleButton from "@feature/card_filter/shop/option/IsSaleButton";
+import SortButton from "@feature/card_filter/shop/sort/SortButton";
 
 export default function Market() {
   return (
     <main className={style.main}>
-      <MarketActionHeader />
+      <MyPlaceHeader />
 
       <section className={style.sectionFilter}>
         <div className={style.searchBarSize}>

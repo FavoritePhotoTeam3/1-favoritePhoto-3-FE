@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import style from "./MarketActionHeader.module.css";
+import style from "./CommonHeader.module.css";
 import { useSelector } from "react-redux";
 
 import LoginAsking from "../../components/modals/confirm/LoginAsking";

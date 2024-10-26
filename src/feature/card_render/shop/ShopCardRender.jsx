@@ -1,12 +1,13 @@
 import React, { useMemo, useEffect, useState } from "react";
 import style from "./ShopCardRender.module.css";
 import SaleCard from "./components/card/SaleCard";
-import { useSelector, useDispatch } from "react-redux";
-import { setCards } from "../shop_card/shopCardSlice";
-import { useGetCardQuery } from "../../hooks/shop_query/useGetCardQuery";
 
-import { useImageLoadCheck } from "../../hooks/card_render/useImageLoadCheck"; // 커스텀 훅
-import { useIntersectionObserver } from "../../hooks/card_render/useIntersectionObserver"; // 커스텀 훅
+import { useSelector, useDispatch } from "react-redux";
+import { setCards } from "./shopCardSlice";
+
+import { useGetCardQuery } from "@hooks/query/useGetCardQuery";
+import { useImageLoadCheck } from "@hooks/card_render/useImageLoadCheck"; // 커스텀 훅
+import { useIntersectionObserver } from "@hooks/card_render/useIntersectionObserver"; // 커스텀 훅
 
 const ShopCardRender = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,6 @@ const ShopCardRender = () => {
     isFetching,
     cards,
     triggerCardIndex,
-    style.listRenderContainer // get엘리먼트 할 대상
   );
 
   console.log("◆ Query Status : ", status, " ◆ Data : ", data, " ◆ Error : ", isError);
@@ -78,7 +78,7 @@ const ShopCardRender = () => {
 
   return (
     <>
-      <section className={style.listRenderContainer}>{renderCards}</section>
+      <section className={style.listRenderContainer} id="observeSelector">{renderCards}</section>
       {isError && (
         <div className={style.errorContainer}>
           <p>입력하신 조건의 카드를 찾을 수 없습니다.</p>
