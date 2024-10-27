@@ -15,9 +15,13 @@ USERS.interceptors.response.use(
   async (error) => {
     const {
       config,
-      response: { status },
+      response: {
+        status,
+        data: { RequestURL },
+      },
     } = error;
-    if (status === 401) {
+    if (status === 401 && RequestURL !== "/users/login") {
+      //인터셉터 적용범위 주의하자. 상태코드 만으로는 충분히 식별하기 힘들다.
       try {
         const response = await USERS.get("/refresh-token");
         if (response.status === 200) {
@@ -38,5 +42,3 @@ USERS.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-

@@ -1,0 +1,52 @@
+.sectionUserState {
+  width: 100%;
+  padding: 40px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+  border-bottom: 1px solid #5A5A5A;
+}
+
+.SaleState {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #DDDDDD;
+}
+
+.totalPhotoCount {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #A4A4A4;
+}
+
+.gradeContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px 20px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+}
+
+.gradeContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gradeContainer::-webkit-scrollbar-track {
+  background: #212121;
+  border-radius: 10px;
+}
+
+.gradeContainer::-webkit-scrollbar-thumb {
+  min-width: 101px;
+  background-color: #131313;
+  border-radius: 10px;
+  border: 2px solid #212121;
+}
+
+.gradeContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

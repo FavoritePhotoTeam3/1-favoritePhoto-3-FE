@@ -11,7 +11,7 @@ export const InputNickname = ({
     <div className={style.inputNickname_Container}>
       <span className={style.input_nickname_title}>닉네임</span>
       <input
-        className={style.input_nickname}
+        className={`${style.input_nickname} ${style[isValid]}`}
         type="text"
         placeholder="닉네임을 입력해 주세요"
         name="nickname"
@@ -19,7 +19,7 @@ export const InputNickname = ({
         onChange={onChange}
       />
       <span className={`${style.input_nickname_valid} ${style[isValid]}`}>
-        {errorMessage}
+        {errorMessage ? errorMessage : "2글자 이상 입력해주세요."}
       </span>
     </div>
   );

@@ -23,8 +23,11 @@ import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
 import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
 import StateHandler from "./route/stateHandler";
+import CheckPointEvent from "./route/checkPointEvent";
 import LoginPage from "./page/login";
 import Market from "./page/market";
+import MyGallery from "./page/my_gallery";
+import MyGalleryDetail from "./page/my_card_detail";
 
 const queryClient = new QueryClient();
 
@@ -42,23 +45,29 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        element: <NavLayout />,
+        element: (
+          <CheckPointEvent>
+            <NavLayout />
+          </CheckPointEvent>
+        ),
         children: [
           //아무 제한이 필요없는 라우터 입니다.
           {
             path: "/",
-            element: (
-              <span>임시 메인 페이지입니다. localhost:3000에 해당합니다.</span>
-            ),
-          },
-          {
-            path: "/market",
             element: <Market />,
           },
           {
             element: <AuthValidation />,
             children: [
               // 로그인 상태에서만 들어갈 수 있는 라우터 입니다.
+              {
+                path: "/mygallery",
+                element: <MyGallery />,
+              },
+              {
+                path: "/mygallery/:id",
+                element: <MyGalleryDetail />,
+              },
               {
                 path: "/seller-detail/:shopId",
                 element: <SellerDetailPage />,

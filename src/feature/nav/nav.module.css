@@ -40,7 +40,7 @@
   .nav_item_container {
     display: flex;
     align-items: center;
-    width: 281px;
+    min-width: 281px;
     height: 24px;
     gap: 30px;
 
@@ -58,6 +58,11 @@
     color: #dddddd;
   }
   .nav_item_notice {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  .nav_item_randomPoint {
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -99,7 +104,7 @@
     justify-content: end;
   }
 }
-@media screen and (max-width: 744px) and (min-width: 426px) {
+@media screen and (max-width: 745px) and (min-width: 425px) {
   .nav_Wrapper {
     display: flex;
     justify-content: center;
@@ -159,6 +164,12 @@
     color: #dddddd;
   }
   .nav_item_notice {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .nav_item_randomPoint {
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -255,6 +266,11 @@
     display: none;
   }
   .nav_item_notice {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+  }
+  .nav_item_randomPoint {
     width: 22px;
     height: 22px;
     cursor: pointer;

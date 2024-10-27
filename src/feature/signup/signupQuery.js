@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { APIrequestPending } from "../../route/authSlice";
 import { setErrorMessage } from "./signupSlice";
-import { axiosInstance } from "../../api/axios";
+import { USERS } from "../../api/users";
 
 export const useSignupQuery = () => {
   const dispatch = useDispatch();
@@ -11,13 +11,13 @@ export const useSignupQuery = () => {
   const signup = async ({ email, password, nickname }) => {
     dispatch(APIrequestPending({ isPending: true }));
     try {
-      await axiosInstance.post("/users/signup", {
+      await USERS.post("/signup", {
         email,
         password,
         nickname,
       });
       dispatch(APIrequestPending({ isPending: false }));
-      alert("회원가입 완료");
+      alert("회원가입이 완료되었습니다!");
       nav("/");
     } catch (e) {
       const {
@@ -33,8 +33,9 @@ export const useSignupQuery = () => {
         dispatch(APIrequestPending({ isPending: false }));
         return;
       } else {
-        dispatch(setErrorMessage(message, column));
+        dispatch(APIrequestPending({ isPending: false }));
         alert("오류!");
+        window.location.href = "/";
       }
     }
   };

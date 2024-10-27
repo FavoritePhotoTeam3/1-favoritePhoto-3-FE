@@ -3,7 +3,12 @@ import invisible from "./assets/invisible.png";
 import visible from "./assets/visible.png";
 import { useState } from "react";
 
-export const InputPassword = ({ onChange, validation, value }) => {
+export const InputPassword = ({
+  onChange,
+  validation,
+  value,
+  errorMessage = null,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const isValid = validation ? "" : "invalid";
 
@@ -29,7 +34,9 @@ export const InputPassword = ({ onChange, validation, value }) => {
         />
       </div>
       <span className={`${style.input_password_valid} ${style[isValid]}`}>
-        영문, 숫자, 특수기호, 조합 8자리 이상을 입력해주세요
+        {errorMessage
+          ? errorMessage
+          : "영문, 숫자, 특수기호, 조합 8자리 이상을 입력해주세요"}
       </span>
     </div>
   );

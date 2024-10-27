@@ -3,16 +3,14 @@ import style from "./index.module.css";
 import mainLogo from "./assets/logo.png";
 
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import LoginEmailInput from "../../feature/login/Input_email";
 import LoginPasswordInput from "../../feature/login/input_password";
-import { formReset } from "../../feature/login/loginSlice";
 import { useLoginQuery } from "../../feature/login/loginQuery";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
   const { login } = useLoginQuery();
 
   const loginValidation = useSelector((state) => state.login?.loginValidation);
@@ -25,16 +23,13 @@ const LoginPage = () => {
       !loginValidation?.password.validation
     ) {
       alert("올바른 값을 입력해주세요.");
-      dispatch(formReset());
     } else if (
       !loginValidation?.email.isNotNull ||
       !loginValidation?.password.isNotNull
     ) {
       alert("값을 입력해주세요");
-      dispatch(formReset());
     } else {
       login({ ...loginForm });
-      dispatch(formReset());
     }
   };
   return (
