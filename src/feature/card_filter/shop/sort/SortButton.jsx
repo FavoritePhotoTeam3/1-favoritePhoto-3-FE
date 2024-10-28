@@ -7,7 +7,7 @@ import SortModal from "./modals/SortModal";
 //initOption
 //options
 export const IsSaleButton = () => {
-  const [currentOption, setCurrentOption] = useState("ALL"); // 초기값 설정
+  const [currentOption, setCurrentOption] = useState("낮은 가격순"); // 초기값 설정
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
   const modalRef = useRef(null);

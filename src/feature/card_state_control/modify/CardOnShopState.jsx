@@ -4,7 +4,7 @@ import style from "@styles/CardStateControlStyle.module.css";
 
 export const CardModifyOnShop = ({ data }) => {
 
-  const id = data.id;
+  // const id = data.id;
   const price = data.card?.purchasePrice || 0;
   const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
