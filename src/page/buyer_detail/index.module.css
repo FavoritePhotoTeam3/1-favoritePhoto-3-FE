@@ -113,6 +113,9 @@
   }
 }
 @media (max-width: 743px) {
+  .mainContainer {
+    padding-top: 0px;
+  }
   .header {
     display: flex;
     justify-content: center;
@@ -135,6 +138,9 @@
   .logo {
     color: #ffffff;
   }
+  .detailContent .titleWrapper:first-child {
+    margin-top: 40px;
+  }
   .contentContainer {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -143,5 +149,8 @@
     width: 100%;
     left: 0;
     top: 240px;
+  }
+  .titleWrapper {
+    margin-top: 160px;
   }
 }
