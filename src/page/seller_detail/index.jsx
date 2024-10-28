@@ -33,12 +33,14 @@ const SellerDetailPage = () => {
     data: sellerData,
     error: sellerError,
     isLoading: sellerLoading,
+    refetch: refetchSellerDetail,
   } = useSellerDetail(shopId);
   // 교환 제시 목록 데이터
   const {
     data: exchangeCardsData,
     error: exchangeError,
     isLoading: exchangeLoading,
+    refetch: refetchExchangeCards,
   } = useSellerExchangeCards(shopId);
 
   const handleRefresh = () => {
@@ -182,7 +184,12 @@ const SellerDetailPage = () => {
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
-            {isModalOpen && modalType === "modify" && <PhotoModify />}
+            {isModalOpen && modalType === "modify" && (
+              <PhotoModify
+                refetchSellerDetail={refetchSellerDetail}
+                refetchExchangeCards={refetchExchangeCards}
+              />
+            )}
             {isModalOpen && modalType === "cancelSelling" && (
               <CancelSellingAsking />
             )}

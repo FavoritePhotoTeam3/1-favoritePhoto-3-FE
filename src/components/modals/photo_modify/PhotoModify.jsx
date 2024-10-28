@@ -9,7 +9,7 @@ import { updatePhotoCard } from "../../../feature/photo_modify/PhotoModifyAPI";
 import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
 
-const PhotoModify = () => {
+const PhotoModify = ({ refetchSellerDetail, refetchExchangeCards }) => {
   const dispatch = useDispatch();
 
   const selectedCard = useSelector((state) => state.sellerModal.sellInfo);
@@ -19,8 +19,12 @@ const PhotoModify = () => {
   const mutation = useMutation({
     mutationFn: ({ shopId, cardId, data }) =>
       updatePhotoCard(shopId, cardId, data),
-    onSuccess: () => {
+    onSuccess: async () => {
       alert("수정이 완료되었습니다.");
+
+      await refetchSellerDetail();
+      await refetchExchangeCards();
+
       dispatch(closeModal());
     },
     onError: (error) => {
