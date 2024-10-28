@@ -31,7 +31,14 @@ const ImgCardMy = ({
   return (
     <div className={styles.imgCard} onClick={onClick}>
       <div className={styles.imgCardWrapper}>
-        <img src={imageURL} alt="card" className={styles.cardImage} />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${imageURL}`}
+            className={styles.cardImage}
+          />
+          <img src={imageURL} alt="card" className={styles.cardImage} />
+        </picture>
       </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>

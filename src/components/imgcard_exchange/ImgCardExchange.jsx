@@ -45,7 +45,14 @@ const ImgCardExchange = ({
   return (
     <div className={styles.imgCard}>
       <div className={styles.imgCardWrapper}>
-        <img src={imageUrl} alt="card" className={styles.cardImage} />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${imageUrl}`}
+            className={styles.cardImage}
+          />
+          <img src={imageUrl} alt="card" className={styles.cardImage} />
+        </picture>
       </div>
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>
