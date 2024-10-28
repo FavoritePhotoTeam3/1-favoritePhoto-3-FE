@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import style from "./CommonHeader.module.css";
+import style from "@styles/PageHeaderStyle.module.css";
 import { useSelector } from "react-redux";
 
 import PrimaryBtnAnother from "@components/common/btn/PrimaryBtnAnother";

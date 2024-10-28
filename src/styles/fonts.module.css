@@ -74,6 +74,8 @@
   font-weight: 400;
   white-space: normal;
   text-align: start;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .whiteSmallValue {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import style from "./CommonHeader.module.css";
+import style from "@styles/PageHeaderStyle.module.css";
 import { useSelector } from "react-redux";
 
 import LoginAsking from "@components/modals/confirm/LoginAsking";

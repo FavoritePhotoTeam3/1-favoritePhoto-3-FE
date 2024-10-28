@@ -9,10 +9,13 @@ import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
 import photoModifySlice from "../feature/photo_modify/photoModifySlice";
-import { shopSlice } from "@feature/card_render/shop/shopCardSlice";
-import { randomPointSlice } from "../feature/randomPoint/randomPointSlice";
+import { shopSlice } from "../feature/card_render/shop/shopCardSlice";
 import { myGallerySlice } from "../feature/card_render/my_gallery/myGallerySlice";
-import { registShopDataSlice } from "../feature/card_regist_shop/modals/registShopDataSlice";
+import { mySaleCardSlice } from "../feature/card_render/my_sale_card/mySaleCardSlice";
+import { patchShopDataSlice } from "../feature/card_state_control/modify/modals/patchShopDataSlice";
+import { randomPointSlice } from "../feature/randomPoint/randomPointSlice";
+
+import { registShopDataSlice } from "../feature/card_state_control/regist/modals/registShopDataSlice";
 import { noticeSlice } from "../route/notice/noticeSlice";
 
 export const store = configureStore({
@@ -24,6 +27,8 @@ export const store = configureStore({
     signup: signupSlice.reducer,
     shop: shopSlice.reducer,
     myGallery: myGallerySlice.reducer,
+    mySaleCard: mySaleCardSlice.reducer,
+    patchShopData : patchShopDataSlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
     buyerModal: buyerModalSlice.reducer,
     photoExchange: photoExchangeSlice.reducer,

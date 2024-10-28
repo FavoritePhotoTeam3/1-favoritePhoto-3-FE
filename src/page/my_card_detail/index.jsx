@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./index.module.css";
+import style from "@styles/CardDetailStyle.module.css";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import CardRegistShop from "@feature/card_regist_shop/CardRegistShop";
+import CardRegistShop from "@feature/card_state_control/regist/CardRegistShop";
 
 const DetailPage = () => {
   const { id } = useParams();

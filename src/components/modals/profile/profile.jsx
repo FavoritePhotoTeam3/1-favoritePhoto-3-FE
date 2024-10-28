@@ -33,8 +33,7 @@ const Profile = ({ user, isOpen, openProfile }) => {
             </span>
             <span
               onClick={() => {
-                // window.location.href = "/mygallery"
-                //
+                window.location.href = "/myshop";
               }}
               className={style.bottom_text}
             >

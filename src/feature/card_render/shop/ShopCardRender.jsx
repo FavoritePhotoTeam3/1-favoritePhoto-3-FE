@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
-import style from "./ShopCardRender.module.css";
+import style from "@styles/CardListRenderStyle.module.css";
 import SaleCard from "./components/card/SaleCard";
 
 import { useSelector, useDispatch } from "react-redux";
