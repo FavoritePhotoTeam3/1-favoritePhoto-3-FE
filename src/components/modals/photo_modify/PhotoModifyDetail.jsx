@@ -45,6 +45,14 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
     dispatch(setPrice(isNaN(numberValue) ? 0 : numberValue));
   };
 
+  const handleGradeChange = (exchangeGrade) => {
+    dispatch(setExchangeGrade(exchangeGrade));
+  };
+
+  const handleGenreChange = (exchangeGenre) => {
+    dispatch(setExchangeGenre(exchangeGenre));
+  };
+
   const handleTextChange = (e) => {
     dispatch(setExchangeDescription(e.target.value));
   };
@@ -98,14 +106,14 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
           placeholder="등급을 선택해주세요"
           options={gradeOptions}
           value={exchangeGrade}
-          onChange={setExchangeGrade}
+          onChange={handleGradeChange}
         />
         <DropdownInput
           label="장르"
           placeholder="장르를 선택해주세요"
           options={genreOptions}
           value={exchangeGenre}
-          onChange={setExchangeGenre}
+          onChange={handleGenreChange}
         />
       </div>
       <div className={styles.textareaWrapper}>
