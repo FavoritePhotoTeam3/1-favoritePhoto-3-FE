@@ -26,7 +26,7 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
   } = useSelector((state) => state.photoModify);
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const genreOptions = ["풍경", "자연", "도시", "동물", "우주"];
+  const genreOptions = ["풍경", "여행", "자연", "도시", "동물", "기타"];
 
   const handleMinusClick = () => {
     if (totalCount > 1) {

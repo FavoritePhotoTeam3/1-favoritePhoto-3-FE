@@ -34,7 +34,7 @@ const CreatePhotoCardPage = () => {
     useSelector((state) => state.photoCardForm);
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const genreOptions = ["풍경", "자연", "우주", "동물", "기타"];
+  const genreOptions = ["풍경", "여행", "자연", "도시", "동물", "기타"];
 
   const mutation = useMutation({
     mutationFn: CreatePhotoCard,
