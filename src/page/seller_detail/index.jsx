@@ -171,6 +171,7 @@ const SellerDetailPage = () => {
                     title={exchangeCard.card.name}
                     grade={exchangeCard.card.grade}
                     genre={exchangeCard.card.genre}
+                    nickname={exchangeCard.user.nickname}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
                     onClickReject={() => handleRejectClick(exchangeCard)}

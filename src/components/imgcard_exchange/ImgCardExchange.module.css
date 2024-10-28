@@ -121,6 +121,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  .cardGrade {
+    text-align: start;
+  }
   .cardGenre {
     margin-right: auto;
   }

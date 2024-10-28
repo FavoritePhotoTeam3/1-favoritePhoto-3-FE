@@ -55,7 +55,7 @@ const ImgCardExchange = ({
           </span>
           <span className={styles.cardGenre}>{genre}</span>
           <div className={styles.cardPrice}>
-            <span className={styles.price}>{price}P</span>
+            <span className={styles.price}>{price || 0}P</span>
             <span className={styles.priceDesc}>에 구매</span>
           </div>
           <span className={styles.cardNickname}>{nickname}</span>
