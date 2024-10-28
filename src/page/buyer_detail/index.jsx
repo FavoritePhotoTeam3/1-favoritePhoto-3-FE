@@ -3,7 +3,7 @@ import { TitleDetail } from "../../components/common/title/Title";
 import DescCardBuyer from "@components/desc_card/desc_card_buyer/DescCardBuyer";
 import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import {
   useBuyerDetail,
@@ -27,6 +27,7 @@ const BuyerDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isModalOpen = useSelector((state) => state.buyerModal.isModalOpen);
   const modalType = useSelector((state) => state.buyerModal.modalType);
@@ -47,6 +48,8 @@ const BuyerDetailPage = () => {
     isLoading: exchangeLoading,
     refetch,
   } = useBuyerExchangeCards(shopId);
+
+  const handleHomeClick = () => navigate("/");
 
   const handleMinusClick = () => {
     if (quantity > 1) {
@@ -137,8 +140,13 @@ const BuyerDetailPage = () => {
       <main className={styles.main}>
         <div className={styles.mainContainer}>
           <div className={styles.header}>
-            <img src={backIcon} alt="back" className={styles.backIcon} />
-            <div className={styles.logoWrapper}>
+            <img
+              src={backIcon}
+              alt="back"
+              className={styles.backIcon}
+              onClick={handleHomeClick}
+            />
+            <div className={styles.logoWrapper} onClick={handleHomeClick}>
               <p className={styles.logo}>마켓플레이스</p>
             </div>
           </div>
@@ -202,6 +210,8 @@ const BuyerDetailPage = () => {
                     title={exchangeCard.card.name}
                     grade={exchangeCard.card.grade}
                     genre={exchangeCard.card.genre}
+                    nickname={exchangeCard.user.nickname}
+                    price={exchangeCard.card.purchasePrice}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
                     exchangeId={exchangeCard.id}

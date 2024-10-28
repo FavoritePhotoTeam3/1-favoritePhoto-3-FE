@@ -1,4 +1,11 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setPrice,
+  setTotalCount,
+  setExchangeGrade,
+  setExchangeGenre,
+  setExchangeDescription,
+} from "../../../feature/photo_modify/photoModifySlice";
 import { PrimaryBtn } from "../../common/btn/primaryBtn";
 import { SecondaryBtn } from "../../common/btn/secondary";
 import { DropdownInput } from "../../common/dropdown_input/DropdownInput";
@@ -8,39 +15,52 @@ import DescCardDetail from "@components/desc_card/desc_card_detail/DescCardDetai
 import styles from "./PhotoModifyDetail.module.css";
 
 const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
-  const [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState(0);
-  const [exchangeGrade, setExchangeGrade] = useState("COMMON");
-  const [exchangeGenre, setExchangeGenre] = useState("풍경");
-  const [exchangeDescription, setExchangeDescription] = useState("");
+  const dispatch = useDispatch();
+
+  const {
+    price,
+    totalCount,
+    exchangeGrade,
+    exchangeGenre,
+    exchangeDescription,
+  } = useSelector((state) => state.photoModify);
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOptions = ["풍경", "자연", "도시", "동물", "우주"];
 
   const handleMinusClick = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
+    if (totalCount > 1) {
+      dispatch(setTotalCount(totalCount - 1));
     }
   };
 
   const handlePlusClick = () => {
-    if (quantity < card.totalCount) {
-      setQuantity((prevQuantity) => prevQuantity + 1);
+    if (totalCount < card.totalCount) {
+      dispatch(setTotalCount(totalCount + 1));
     }
   };
 
   const handlePriceChange = (e) => {
-    setPrice(e.target.value);
+    const numberValue = parseInt(e.target.value);
+    dispatch(setPrice(isNaN(numberValue) ? 0 : numberValue));
+  };
+
+  const handleGradeChange = (exchangeGrade) => {
+    dispatch(setExchangeGrade(exchangeGrade));
+  };
+
+  const handleGenreChange = (exchangeGenre) => {
+    dispatch(setExchangeGenre(exchangeGenre));
   };
 
   const handleTextChange = (e) => {
-    setExchangeDescription(e.target.value);
+    dispatch(setExchangeDescription(e.target.value));
   };
 
   const handleModify = () => {
     onModifying({
       price,
-      totalCount: quantity,
+      totalCount,
       exchangeGrade,
       exchangeGenre,
       exchangeDescription,
@@ -69,7 +89,7 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
         <div className={styles.cardDetailWrapper}>
           <DescCardDetail
             registData={registData}
-            quantity={quantity}
+            quantity={totalCount}
             onMinusClick={handleMinusClick}
             onPlusClick={handlePlusClick}
             sellingPoint={price}
@@ -86,14 +106,14 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
           placeholder="등급을 선택해주세요"
           options={gradeOptions}
           value={exchangeGrade}
-          onChange={setExchangeGrade}
+          onChange={handleGradeChange}
         />
         <DropdownInput
           label="장르"
           placeholder="장르를 선택해주세요"
           options={genreOptions}
           value={exchangeGenre}
-          onChange={setExchangeGenre}
+          onChange={handleGenreChange}
         />
       </div>
       <div className={styles.textareaWrapper}>

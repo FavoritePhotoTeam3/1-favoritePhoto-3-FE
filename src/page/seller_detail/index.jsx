@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
 import DescCardSeller from "@components/desc_card/desc_card_seller/DescCardSeller";
 import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   useSellerDetail,
@@ -24,6 +24,7 @@ import backIcon from "./assets/back_icon.svg";
 
 const SellerDetailPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { shopId } = useParams();
 
   const { isModalOpen, modalType } = useSelector((state) => state.sellerModal);
@@ -33,13 +34,17 @@ const SellerDetailPage = () => {
     data: sellerData,
     error: sellerError,
     isLoading: sellerLoading,
+    refetch: refetchSellerDetail,
   } = useSellerDetail(shopId);
   // 교환 제시 목록 데이터
   const {
     data: exchangeCardsData,
     error: exchangeError,
     isLoading: exchangeLoading,
+    refetch: refetchExchangeCards,
   } = useSellerExchangeCards(shopId);
+
+  const handleHomeClick = () => navigate("/");
 
   const handleRefresh = () => {
     console.log("새로고침 버튼 클릭됨");
@@ -129,8 +134,13 @@ const SellerDetailPage = () => {
       <main className={styles.main}>
         <div className={styles.mainContainer}>
           <div className={styles.header}>
-            <img src={backIcon} alt="back" className={styles.backIcon} />
-            <div className={styles.logoWrapper}>
+            <img
+              src={backIcon}
+              alt="back"
+              className={styles.backIcon}
+              onClick={handleHomeClick}
+            />
+            <div className={styles.logoWrapper} onClick={handleHomeClick}>
               <p className={styles.logo}>마켓플레이스</p>
             </div>
           </div>
@@ -171,6 +181,8 @@ const SellerDetailPage = () => {
                     title={exchangeCard.card.name}
                     grade={exchangeCard.card.grade}
                     genre={exchangeCard.card.genre}
+                    nickname={exchangeCard.user.nickname}
+                    price={exchangeCard.card.purchasePrice}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
                     onClickReject={() => handleRejectClick(exchangeCard)}
@@ -181,7 +193,12 @@ const SellerDetailPage = () => {
                 <p className={styles.exchangeEmpty}>- 교환 신청이 없습니다 -</p>
               )}
             </div>
-            {isModalOpen && modalType === "modify" && <PhotoModify />}
+            {isModalOpen && modalType === "modify" && (
+              <PhotoModify
+                refetchSellerDetail={refetchSellerDetail}
+                refetchExchangeCards={refetchExchangeCards}
+              />
+            )}
             {isModalOpen && modalType === "cancelSelling" && (
               <CancelSellingAsking />
             )}

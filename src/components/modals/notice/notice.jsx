@@ -12,6 +12,8 @@ const Notice = () => {
   const notices = useSelector((state) => state.notice?.notices);
   const isOpen = useSelector((state) => state.notice?.isOpen);
   const close = isOpen ? "" : "close";
+
+  console.log(notices);
   return (
     <div className={`${style.notice_Wrapper} ${style[close]}`}>
       <NoticeHeader />

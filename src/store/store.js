@@ -8,11 +8,12 @@ import photoCardFormSlice from "../feature/create_photocard/photoCardFormSlice";
 import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
 import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
+import photoModifySlice from "../feature/photo_modify/photoModifySlice";
 import { shopSlice } from "@feature/card_render/shop/shopCardSlice";
 import { randomPointSlice } from "../feature/randomPoint/randomPointSlice";
-import { noticeSlice } from "../route/notice/noticeSlice";
 import { myGallerySlice } from "../feature/card_render/my_gallery/myGallerySlice";
 import { registShopDataSlice } from "../feature/card_regist_shop/modals/registShopDataSlice";
+import { noticeSlice } from "../route/notice/noticeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
     buyerModal: buyerModalSlice.reducer,
     photoExchange: photoExchangeSlice.reducer,
     sellerModal: sellerModalSlice.reducer,
+    photoModify: photoModifySlice.reducer,
     registShopData: registShopDataSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>

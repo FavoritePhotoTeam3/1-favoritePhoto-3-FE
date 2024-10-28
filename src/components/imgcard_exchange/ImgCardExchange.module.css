@@ -6,6 +6,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 40px;
 }
 .imgCardWrapper {
@@ -120,6 +121,9 @@
     flex-wrap: wrap;
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  .cardGrade {
+    text-align: start;
   }
   .cardGenre {
     margin-right: auto;

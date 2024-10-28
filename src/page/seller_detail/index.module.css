@@ -24,6 +24,9 @@
   font-weight: 400;
   color: #a4a4a4;
   text-align: start;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .detailContent {
   margin-top: 60px;
@@ -67,6 +70,9 @@
   }
 }
 @media (max-width: 743px) {
+  .mainContainer {
+    padding-top: 0px;
+  }
   .header {
     display: flex;
     justify-content: center;
