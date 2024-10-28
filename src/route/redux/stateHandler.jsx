@@ -1,7 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signupPageInit, signupPageReset } from "../feature/signup/signupSlice";
-import { loginPageInit, loginPageReset } from "../feature/login/loginSlice";
+import {
+  signupPageInit,
+  signupPageReset,
+} from "../../feature/signup/signupSlice";
+import { loginPageInit, loginPageReset } from "../../feature/login/loginSlice";
 import { useEffect } from "react";
 
 const useResetState = () => {

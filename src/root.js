@@ -8,7 +8,7 @@ import {
   AuthValidation,
   NotAuthValidation,
   UserProvider,
-} from "./route/authUser";
+} from "./route/auth/authUser";
 import NomalLayout from "./layout/nomal/nomalLayout";
 import NavLayout from "./layout/nav/navLayout";
 
@@ -22,12 +22,14 @@ import CancelExchangeSuccessPage from "./page/purchase_result/cancelExchangeSucc
 import CancelExchangeFailPage from "./page/purchase_result/cancelExchangeFail";
 import CreatePhotoSuccessPage from "./page/purchase_result/createPhotoSuccess";
 import CreatePhotoFailPage from "./page/purchase_result/createPhotoFail";
-import StateHandler from "./route/stateHandler";
-import CheckPointEvent from "./route/checkPointEvent";
+import StateHandler from "./route/redux/stateHandler";
+
 import LoginPage from "./page/login";
 import Market from "./page/market";
 import MyGallery from "./page/my_gallery";
 import MyGalleryDetail from "./page/my_card_detail";
+import CheckNoticeEvent from "./route/notice/checkNoticeEvent";
+import CheckPointEvent from "./route/randomPoint/checkPointEvent";
 
 const queryClient = new QueryClient();
 
@@ -46,9 +48,11 @@ const router = createBrowserRouter([
     children: [
       {
         element: (
-          <CheckPointEvent>
-            <NavLayout />
-          </CheckPointEvent>
+          <CheckNoticeEvent>
+            <CheckPointEvent>
+              <NavLayout />
+            </CheckPointEvent>
+          </CheckNoticeEvent>
         ),
         children: [
           //아무 제한이 필요없는 라우터 입니다.

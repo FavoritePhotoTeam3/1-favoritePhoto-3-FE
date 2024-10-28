@@ -3,7 +3,7 @@ import { errorLoggerMiddleware } from "./errorLoggerMiddleware";
 
 import { loginSlice } from "../feature/login/loginSlice";
 import { signupSlice } from "../feature/signup/signupSlice";
-import { authSlice } from "../route/authSlice";
+import { authSlice } from "../route/auth/authSlice";
 import photoCardFormSlice from "../feature/create_photocard/photoCardFormSlice";
 import buyerModalSlice from "../feature/buyer_detail/buyerModalSlice";
 import photoExchangeSlice from "../feature/photo_exchange/PhotoExchangeSlice";
@@ -13,10 +13,12 @@ import { shopSlice } from "@feature/card_render/shop/shopCardSlice";
 import { randomPointSlice } from "../feature/randomPoint/randomPointSlice";
 import { myGallerySlice } from "../feature/card_render/my_gallery/myGallerySlice";
 import { registShopDataSlice } from "../feature/card_regist_shop/modals/registShopDataSlice";
+import { noticeSlice } from "../route/notice/noticeSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
+    notice: noticeSlice.reducer,
     randomPoint: randomPointSlice.reducer,
     login: loginSlice.reducer,
     signup: signupSlice.reducer,
