@@ -8,14 +8,13 @@ import myLogo from "./assets/myLogo.png";
 import pointBox from "./assets/box2.png";
 
 import { useState } from "react";
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Profile from "../../components/modals/profile/profile";
 import { useLogoutQuery } from "./logoutQuery";
 import { randomModalController } from "../randomPoint/randomPointSlice";
 import NavNotice from "./nav_notice";
 import { noticeModalController } from "../../route/notice/noticeSlice";
+import NavProfile from "./nav_profile";
 
 export const Nav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
@@ -30,7 +29,14 @@ export const Nav = () => {
           src={menu}
           alt=""
         />
-        <img className={style.nav_logo} src={logo} alt="" />
+        <img
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className={style.nav_logo}
+          src={logo}
+          alt=""
+        />
         <NavItem profileOpen={profileOpen} setProfileOpen={setProfileOpen} />
       </div>
     </div>
@@ -45,6 +51,7 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
   const noticeHandler = () => {
     dispatch(noticeModalController());
   };
+  const non_read = useSelector((state) => state.notice?.non_read);
 
   const { user, isLogged } = useSelector((state) => state.auth);
 
@@ -68,12 +75,23 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
           ""
         )}
         <span className={style.nav_item_point}>{point}P</span>
-        <img
-          onClick={noticeHandler}
-          className={style.nav_item_notice}
-          src={notice}
-          alt=""
-        />
+        <div className={style.nav_item_notice_Container}>
+          {non_read ? (
+            <div
+              className={`${style.nav_item_notice_count} ${
+                non_read > 0 ? "" : "none"
+              }`}
+            >
+              {non_read > 99 ? "99+" : non_read}
+            </div>
+          ) : null}
+          <img
+            onClick={noticeHandler}
+            className={style.nav_item_notice}
+            src={notice}
+            alt=""
+          />
+        </div>
         <img className={style.nav_item_verLine} src={verLine} alt="" />
         <span
           onClick={() => {
@@ -92,7 +110,7 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
           로그아웃
         </span>
         <NavNotice />
-        <Profile
+        <NavProfile
           user={user}
           isOpen={profileOpen}
           openProfile={setProfileOpen}

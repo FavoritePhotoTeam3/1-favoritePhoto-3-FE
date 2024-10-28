@@ -1,7 +1,12 @@
 import style from "./notice.module.css";
 import arrow from "./assets/arrow.png";
+import deleteNotice from "./assets/deleteNotice.png";
 import { useDispatch, useSelector } from "react-redux";
-import { noticeModalController } from "../../../route/notice/noticeSlice";
+import {
+  noticeModalController,
+  popNotice,
+} from "../../../route/notice/noticeSlice";
+import { NOTICE } from "../../../api/notifications";
 
 const Notice = () => {
   const notices = useSelector((state) => state.notice?.notices);
@@ -14,25 +19,36 @@ const Notice = () => {
       <NoticeHeader />
       {notices?.length > 0
         ? notices.map((notice, index) => (
-            <CardItem key={index} notice={notice} />
+            <CardItem
+              key={index}
+              notice={notice}
+              index={index}
+              id={notice.id}
+            />
           ))
         : null}
-      {/* <BuyItem />
-      <TradeItem />
-      <SoldOutItem />
-      <SucBuhyItem />
-      <SucTradeItem /> */}
     </div>
   );
 };
 
 export default Notice;
 
-const CardItem = ({ notice }) => {
-  const { content, read, timeAgo } = notice;
+const CardItem = ({ notice, index, id }) => {
+  const dispatch = useDispatch();
+  const { content, timeAgo } = notice;
+  const noticeDelete = async () => {
+    dispatch(popNotice(index));
+    await NOTICE.delete(`/${id}`);
+  };
 
   return (
     <div className={style.notice_item_Container}>
+      <img
+        onClick={noticeDelete}
+        className={style.notice_item_deleteNotice}
+        src={deleteNotice}
+        alt=""
+      />
       <p className={style.notice_item_textArea}>{content}</p>
       <span className={style.notice_item_time}>{timeAgo}</span>
     </div>
