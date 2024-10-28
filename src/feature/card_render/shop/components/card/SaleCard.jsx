@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import style from "./SaleCard.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import logoImage from "./assets/logo.svg";
 import soldOutImage from "./assets/soldout.svg";
@@ -18,11 +19,17 @@ const SaleCard = ({ data }, ref) => {
   const imageURL = data.card.imageURL;
 
   const nickname = data.user.nickname;
+  const userId = data.userId; // 카드의 userId
+  const loginId = useSelector((state) => state.auth.user?.id); // 접속중인 사용자의 id
+
+  const isSeller = userId && userId === loginId; // 카드 userId와 접속중인 id가 같은지
+
+  const linkPath = isSeller ? `/seller-detail/${id}` : `/buyer-detail/${id}`;
 
   const gradeStyle = grade ? grade.replace(/\s+/g, "").toLowerCase() : "";
 
   return (
-    <Link to={`/item/${id}`} ref={ref}>
+    <Link to={linkPath} ref={ref}>
       <figure className={style.contaier}>
         <section className={style.imgWrapper}>
           <picture>
