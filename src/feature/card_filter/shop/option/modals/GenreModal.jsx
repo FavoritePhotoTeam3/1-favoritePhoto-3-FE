@@ -13,18 +13,18 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
     { showOption: "여행", param: "여행" },
     { showOption: "자연", param: "자연" },
     { showOption: "도시", param: "도시" },
-    { showOption: "우주", param: "우주" },
+    { showOption: "동물", param: "동물" },
     { showOption: "기타", param: "기타" },
   ];
 
   // 모달이 버튼 아래에 위치하도록
   const getModalPosition = () => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
-    const modalwidth = 130
+    const modalwidth = 130;
     return {
       top: buttonRect.bottom + window.scrollY + 5,
       left: buttonRect.right + window.scrollX - modalwidth,
-      width: modalwidth
+      width: modalwidth,
     };
   };
 

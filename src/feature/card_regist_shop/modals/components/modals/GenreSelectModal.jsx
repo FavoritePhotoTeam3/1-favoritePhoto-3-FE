@@ -11,7 +11,7 @@ export const GenreSelectModal = ({ anchorRef, closeModal }, ref) => {
     { showOption: "여행", setOption: "여행" },
     { showOption: "자연", setOption: "자연" },
     { showOption: "도시", setOption: "도시" },
-    { showOption: "우주", setOption: "우주" },
+    { showOption: "동물", setOption: "동물" },
     { showOption: "기타", setOption: "기타" },
   ];
 
