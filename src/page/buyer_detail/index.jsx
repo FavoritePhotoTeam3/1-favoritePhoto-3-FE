@@ -211,6 +211,7 @@ const BuyerDetailPage = () => {
                     grade={exchangeCard.card.grade}
                     genre={exchangeCard.card.genre}
                     nickname={exchangeCard.user.nickname}
+                    price={exchangeCard.card.purchasePrice}
                     imageUrl={exchangeCard.card.imageURL}
                     description={exchangeCard.description}
                     exchangeId={exchangeCard.id}
