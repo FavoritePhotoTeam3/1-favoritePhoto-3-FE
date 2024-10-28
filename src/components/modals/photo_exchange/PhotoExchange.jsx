@@ -31,7 +31,7 @@ const PhotoExchange = ({ onClose, shopId, onSuccess }) => {
   const { data: imageCards, isLoading } = useMyCards(search);
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
-  const genreOptions = ["풍경", "자연", "도시", "동물", "우주"];
+  const genreOptions = ["풍경", "여행", "자연", "도시", "동물", "기타"];
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
@@ -141,7 +141,10 @@ const PhotoExchange = ({ onClose, shopId, onSuccess }) => {
                     onSelect={handleGenreChange}
                   />
                 </div>
-                <div className={styles.filterMobile} onClick={toggleFilter}>
+                <div
+                  className={styles.filterMobile}
+                  onClick={toggleFilterModal}
+                >
                   <img src={filterIcon} alt="mobile filter" />
                 </div>
               </div>
@@ -169,7 +172,10 @@ const PhotoExchange = ({ onClose, shopId, onSuccess }) => {
         </div>
       </div>
       {isFilterOpen && (
-        <div className={styles.filterModalOverlay}>
+        <div
+          className={styles.filterModalOverlay}
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className={styles.filterModal}>
             <Filter
               onClickClose={toggleFilterModal}

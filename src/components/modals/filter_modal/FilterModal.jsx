@@ -24,10 +24,12 @@ export default function Filter(props) {
   ];
 
   const genreList = [
-    { label: "여행", count: 30 },
     { label: "풍경", count: 500 },
-    { label: "인물", count: 250 },
-    { label: "사물", count: 340 },
+    { label: "여행", count: 30 },
+    { label: "자연", count: 100 },
+    { label: "도시", count: 250 },
+    { label: "동물", count: 200 },
+    { label: "기타", count: 340 },
   ];
 
   const salesStatus = [
