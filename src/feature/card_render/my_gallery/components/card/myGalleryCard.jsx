@@ -4,7 +4,7 @@ import style from "./myGalleryCard.module.css";
 import logoImage from "./assets/logo.svg";
 
 export const myGalleryCard = ({ data }, ref) => {
-  const price = data.purchasePrice;
+  const price = data.card.purchasePrice;
   const totalCount = data.totalCount;
   // const remainingCount = data.remainingCount;
 
@@ -21,17 +21,17 @@ export const myGalleryCard = ({ data }, ref) => {
   return (
     <figure className={style.contaier} ref={ref}>
       <picture className={style.imgWrapper}>
-          <source
-            type="image/webp"
-            srcSet={`${imageURL}`}
-            className={style.cardImage}
-          />
-          <img
-            id="checkCard"
-            src={imageURL}
-            alt="Card"
-            className={`${style.cardImage}`}
-          />
+        <source
+          type="image/webp"
+          srcSet={`${imageURL}`}
+          className={style.cardImage}
+        />
+        <img
+          id="checkCard"
+          src={imageURL}
+          alt="Card"
+          className={`${style.cardImage}`}
+        />
       </picture>
 
       <article className={style.contentSection}>
