@@ -23,8 +23,23 @@ const Profile = ({ user, isOpen, openProfile }) => {
             </div>
           </div>
           <div className={style.profile_bottomArea}>
-            <span className={style.bottom_text}>마이겔러리</span>
-            <span className={style.bottom_text}>나의 판매 포토카드</span>
+            <span
+              onClick={() => {
+                window.location.href = "/mygallery";
+              }}
+              className={style.bottom_text}
+            >
+              마이겔러리
+            </span>
+            <span
+              onClick={() => {
+                // window.location.href = "/mygallery"
+                //
+              }}
+              className={style.bottom_text}
+            >
+              나의 판매 포토카드
+            </span>
           </div>
         </div>
         <span className={style.logout}>로그아웃</span>

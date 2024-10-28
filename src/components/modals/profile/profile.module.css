@@ -75,6 +75,7 @@
     font-weight: 700;
     line-height: 20.27px;
     color: #ffffff;
+    cursor: pointer;
   }
 
   .logout {
@@ -166,6 +167,7 @@
     font-weight: 700;
     line-height: 20.27px;
     color: #ffffff;
+    cursor: pointer;
   }
 
   .logout {
@@ -270,6 +272,7 @@
     font-weight: 700;
     line-height: 20.27px;
     color: #ffffff;
+    cursor: pointer;
   }
 
   .logout {
@@ -280,5 +283,6 @@
 
     box-sizing: border-box;
     padding-left: 20px;
+    cursor: pointer;
   }
 }

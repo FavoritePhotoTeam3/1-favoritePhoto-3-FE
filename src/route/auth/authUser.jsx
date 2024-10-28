@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { getUser } from "./authAPI";
 import { APIrequestPending, completeAuth } from "./authSlice";
 import { useEffect } from "react";
@@ -8,6 +8,7 @@ export const UserProvider = () => {
   // /users/me 호출 후 유저 데이터 state.auth.user에 저장
   const dispatch = useDispatch();
   const { isLogged } = useSelector((state) => state.auth);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (isLogged) {
@@ -24,7 +25,8 @@ export const UserProvider = () => {
         }
       })();
     }
-  }, [isLogged, dispatch]);
+    //route 변경 시 매번 실행.
+  }, [isLogged, dispatch, pathname]);
 
   return <Outlet />;
 };
