@@ -1,36 +1,36 @@
 /* COlOR */
 .common {
-  color: #EFFF04;
+  color: #efff04;
 }
 
 .rare {
-  color: #29C9F9;
+  color: #29c9f9;
 }
 
 .superRare,
 .superrare {
-  color: #A77EFF;
+  color: #a77eff;
 }
 
 .legendary {
-  color: #FF2A6A;
+  color: #ff2a6a;
 }
 
 .white {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .gray {
-  color: #A4A4A4;
+  color: #a4a4a4;
 }
 
 .darkGray {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 
 /* Size */
 .bigHeader {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.75rem;
   font-weight: 700;
 }
@@ -45,47 +45,48 @@
 }
 
 .grayLabel {
-  color: #A4A4A4;
+  color: #a4a4a4;
   font-size: 1.25rem;
   font-weight: 400;
 }
 
 .whiteLabel {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.25rem;
   font-weight: 400;
 }
 
 .whiteValue {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .grayValue {
-  color: #5A5A5A;
+  color: #5a5a5a;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .whiteDesc {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: 400;
+  white-space: normal;
+  text-align: start;
 }
 
 .whiteSmallValue {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
 .graySmallValue {
-  color: #DDDDDD;
+  color: #dddddd;
   font-size: 0.875rem;
   font-weight: 300;
 }
-
 
 @media (max-width: 744px) {
   .bigHeader {
@@ -99,7 +100,6 @@
   .grayLabel,
   .whiteLabel {
     font-size: 1.125rem;
-
   }
 
   .whiteValue,
