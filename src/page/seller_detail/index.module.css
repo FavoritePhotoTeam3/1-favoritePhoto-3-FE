@@ -24,6 +24,9 @@
   font-weight: 400;
   color: #a4a4a4;
   text-align: start;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .detailContent {
   margin-top: 60px;
