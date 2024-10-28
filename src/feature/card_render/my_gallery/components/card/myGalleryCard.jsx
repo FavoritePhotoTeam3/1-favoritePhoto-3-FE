@@ -4,7 +4,7 @@ import style from "./myGalleryCard.module.css";
 import logoImage from "./assets/logo.svg";
 
 export const myGalleryCard = ({ data }, ref) => {
-  const price = data.card.purchasePrice;
+  const price = data.card?.purchasePrice || 0;
   const totalCount = data.totalCount;
   // const remainingCount = data.remainingCount;
 
