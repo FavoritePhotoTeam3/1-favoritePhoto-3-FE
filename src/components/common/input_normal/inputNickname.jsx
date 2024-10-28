@@ -19,7 +19,7 @@ export const InputNickname = ({
         onChange={onChange}
       />
       <span className={`${style.input_nickname_valid} ${style[isValid]}`}>
-        {errorMessage ? errorMessage : "2글자 이상 입력해주세요."}
+        {errorMessage ? errorMessage : "2글자 이상, 10자 이하로 입력해주세요."}
       </span>
     </div>
   );
