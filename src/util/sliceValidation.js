@@ -10,9 +10,8 @@ export const emailValidation = (email) => {
 };
 export const nicknameValidation = (nickname) => {
   const length = nickname.length;
-  console.log(length);
   //값이 있을 경우에만 유효성 검사 실행.
-  if (length < 2 && nickname) {
+  if ((length < 2 || length >= 11) && nickname) {
     return false;
   } else {
     return true;
