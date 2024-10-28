@@ -41,7 +41,8 @@ const PhotoModifyDetail = ({ card, onCancel, onModifying }) => {
   };
 
   const handlePriceChange = (e) => {
-    dispatch(setPrice(e.target.value));
+    const numberValue = parseInt(e.target.value);
+    dispatch(setPrice(isNaN(numberValue) ? 0 : numberValue));
   };
 
   const handleTextChange = (e) => {
