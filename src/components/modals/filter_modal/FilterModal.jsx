@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import style from "./FilterModal.module.css";
 import font from "../../../styles/fonts.module.css";
+import { useDispatch } from "react-redux";
+import {
+  setGradeFilter,
+  setGenreFilter,
+} from "../../../feature/photo_exchange/PhotoExchangeSlice";
 
 import icRefresh from "./assets/ic_refresh.png";
 import icClose from "./assets/ic_close.png";
@@ -8,6 +13,8 @@ import icClose from "./assets/ic_close.png";
 import PrimaryBtnAnother from "../../common/btn/PrimaryBtnAnother";
 
 export default function Filter(props) {
+  const dispatch = useDispatch();
+
   const menuList = [
     { label: "등급", key: "등급" },
     { label: "장르", key: "장르" },
@@ -58,6 +65,28 @@ export default function Filter(props) {
     }
   };
 
+  // 옵션 클릭 핸들러
+  const handleOptionClick = (item) => {
+    if (activeMenu === "등급") {
+      dispatch(setGradeFilter(item.label));
+    } else if (activeMenu === "장르") {
+      dispatch(setGenreFilter(item.label));
+    }
+    setPhotoCount(item.count);
+  };
+
+  // 필터 초기화 핸들러
+  const handleResetFilters = () => {
+    dispatch(setGradeFilter(null));
+    dispatch(setGenreFilter(null));
+    setPhotoCount(0);
+  };
+
+  // 필터 적용 핸들러
+  const handleApplyFilters = () => {
+    props.onClickClose(); // 모달 닫기
+  };
+
   return (
     <div className={style.container}>
       <section className={style.header}>
@@ -89,7 +118,7 @@ export default function Filter(props) {
           <li
             key={item.label}
             className={style.list}
-            onClick={() => setPhotoCount(item.count)}
+            onClick={() => handleOptionClick(item)}
           >
             <p
               className={`${style.listText} ${isGenre ? font[item.color] : ""}`}
@@ -102,13 +131,14 @@ export default function Filter(props) {
       </ul>
 
       <section className={style.btnBox}>
-        <img src={icRefresh} alt="새로고침" onClick={props.onClickRefresh} />
+        <img src={icRefresh} alt="새로고침" onClick={handleResetFilters} />
         <div className={style.btnSize}>
           <PrimaryBtnAnother
             text={
               photoCount ? `${photoCount}개 포토 보기` : "필터를 선택해주세요"
             }
             font={"small"}
+            onClick={handleApplyFilters}
           />
         </div>
       </section>
