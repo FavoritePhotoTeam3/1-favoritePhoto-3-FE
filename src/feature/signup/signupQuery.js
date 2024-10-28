@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { APIrequestPending } from "../../route/authSlice";
+import { APIrequestPending } from "../../route/auth/authSlice";
 import { setErrorMessage } from "./signupSlice";
 import { USERS } from "../../api/users";
 

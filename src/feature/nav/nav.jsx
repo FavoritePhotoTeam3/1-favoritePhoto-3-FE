@@ -11,10 +11,11 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Notice from "../../components/modals/notice/notice";
 import Profile from "../../components/modals/profile/profile";
 import { useLogoutQuery } from "./logoutQuery";
 import { randomModalController } from "../randomPoint/randomPointSlice";
+import NavNotice from "./nav_notice";
+import { noticeModalController } from "../../route/notice/noticeSlice";
 
 export const Nav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
@@ -41,14 +42,19 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
   const randomPointHandler = () => {
     dispatch(randomModalController());
   };
-  const [noticeOpen, setNoticeOpen] = useState(false);
+  const noticeHandler = () => {
+    dispatch(noticeModalController());
+  };
+
   const { user, isLogged } = useSelector((state) => state.auth);
+
   const canGetPoint = useSelector(
     (state) => state.randomPoint?.modal.canGetPoint
   );
   const { logout } = useLogoutQuery();
 
   if (isLogged && user) {
+    const point = user.point >= 10000 ? "9999+" : user.point;
     return (
       <div className={style.nav_item_container}>
         {canGetPoint ? (
@@ -61,11 +67,9 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
         ) : (
           ""
         )}
-        <span className={style.nav_item_point}>{user.point}P</span>
+        <span className={style.nav_item_point}>{point}P</span>
         <img
-          onClick={() => {
-            setNoticeOpen((prev) => !prev);
-          }}
+          onClick={noticeHandler}
           className={style.nav_item_notice}
           src={notice}
           alt=""
@@ -87,7 +91,7 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
         >
           로그아웃
         </span>
-        <Notice isOpen={noticeOpen} openNotice={setNoticeOpen} />
+        <NavNotice />
         <Profile
           user={user}
           isOpen={profileOpen}
