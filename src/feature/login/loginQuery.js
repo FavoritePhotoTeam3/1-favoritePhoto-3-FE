@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { APIrequestPending, completeAuth } from "../../route/authSlice";
+import { APIrequestPending, completeAuth } from "../../route/auth/authSlice";
 import { USERS } from "../../api/users";
 import { setErrorMessage } from "./loginSlice";
 

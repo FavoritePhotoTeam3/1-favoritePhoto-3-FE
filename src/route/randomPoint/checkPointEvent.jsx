@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { randomPointInit } from "../feature/randomPoint/randomPointSlice";
+import { randomPointInit } from "../../feature/randomPoint/randomPointSlice";
 
 const CheckPointEvent = ({ children }) => {
   const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
-import { APIrequestPending } from "../../route/authSlice";
+
 import { POINT } from "../../api/point";
+import { APIrequestPending } from "../../route/auth/authSlice";
 
 const useRandomPoint = () => {
   const dispatch = useDispatch();
