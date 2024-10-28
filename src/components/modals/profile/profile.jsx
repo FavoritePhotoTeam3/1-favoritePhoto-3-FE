@@ -29,7 +29,7 @@ const Profile = ({ user, isOpen, openProfile }) => {
               }}
               className={style.bottom_text}
             >
-              마이겔러리
+              마이갤러리
             </span>
             <span
               onClick={() => {
