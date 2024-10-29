@@ -4,8 +4,8 @@ import style from "@styles/PageHeaderStyle.module.css";
 import { useSelector } from "react-redux";
 
 import LoginAsking from "@components/modals/confirm/LoginAsking";
+import MyCardSelectOnModal from "@feature/card_state_control/regist_on_modal/MyCardSelectOnModal";
 import PrimaryBtnAnother from "@components/common/btn/PrimaryBtnAnother";
-import { Link } from "react-router-dom";
 
 export const MarketActionHeader = () => {
   const [gotoLoginIsOpen, setGotoLoginIsOpen] = useState(false);
@@ -18,17 +18,23 @@ export const MarketActionHeader = () => {
   };
 
   useEffect(() => {
-    console.log("isLogged : ", isLogged);
-    console.log("gotoLoginIsOpen : ", gotoLoginIsOpen);
-    console.log("registIsOpen : ", registIsOpen);
-  }, [gotoLoginIsOpen, isLogged, registIsOpen]);
+    if (registIsOpen) {
+      document.body.style.overflow = "hidden"; // 모달이 열리면 body 스크롤 비활성화
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // 모달이 닫힐 때 스크롤 활성화
+    };
+  }, [registIsOpen]);
 
   const onClickButtonAction = () => {
     if (!isLogged) {
       setGotoLoginIsOpen(true);
     } else {
       setIsregistIsOpen(true);
-      // console.log("isLogged : ", isLogged, "로그인 되어있음");
+      console.log("isLogged : ", isLogged, "로그인 되어있음");
     }
   };
 
@@ -41,27 +47,27 @@ export const MarketActionHeader = () => {
     );
   };
 
+  const MyCardSelectOnModalToRoot = () => {
+    return ReactDOM.createPortal(
+      <section className={style.outSide}>
+        <MyCardSelectOnModal onClickClose={closeModal} />
+      </section>,
+      document.getElementById("root")
+    );
+  };
+
   return (
     <header className={style.header}>
       <p className={style.headerText}>마켓플레이스</p>
       <div className={style.headerBtnSize}>
-        {isLogged ? (
-          <Link to={"/mygallery"}>
-            <PrimaryBtnAnother
-              text={"나의 포토카드 판매하기"}
-              font={"medium"}
-              onClick={onClickButtonAction}
-            />
-          </Link>
-        ) : (
-          <PrimaryBtnAnother
-            text={"나의 포토카드 판매하기"}
-            font={"medium"}
-            onClick={onClickButtonAction}
-          />
-        )}
+        <PrimaryBtnAnother
+          text={"나의 포토카드 판매하기"}
+          font={"medium"}
+          onClick={onClickButtonAction}
+        />
 
         {gotoLoginIsOpen && <LoginAskingModal />}
+        {registIsOpen && <MyCardSelectOnModalToRoot />}
       </div>
     </header>
   );

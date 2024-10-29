@@ -25,12 +25,15 @@ export const myGallerySlice = createSlice({
       const { key, value } = action.payload;
       state.filterOptions[key] = value;
     },
-
+    clearFilter: (state) => {
+      state.keyword = initialState.keyword;
+      state.filterOptions = initialState.filterOptions;
+    },
     clearState(state) {
       state = initialState;
     }
   },
 });
 
-export const { setMyCards, setKeyword, setFilterOptions, clearState } =
+export const { setMyCards, setKeyword, setFilterOptions, clearState, clearFilter } =
 myGallerySlice.actions;
