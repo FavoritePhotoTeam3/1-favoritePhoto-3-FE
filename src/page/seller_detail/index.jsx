@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
 import DescCardSeller from "@components/desc_card/desc_card_seller/DescCardSeller";
-import ImgCardExchange from "../../components/imgcard_exchange/ImgCardExchange";
+import ImgCardExchange from "../../components/img_card/imgcard_exchange/ImgCardExchange";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {

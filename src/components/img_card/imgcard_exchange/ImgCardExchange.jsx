@@ -1,10 +1,9 @@
-import styles from "./ImgCardExchangeMy.module.css";
-import { SecondaryBtn } from "../common/btn/secondary";
+import styles from "./ImgCardExchange.module.css";
+import { PrimaryBtn } from "../../common/btn/primaryBtn";
+import { SecondaryBtn } from "../../common/btn/secondary";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { openCancelModal } from "../../feature/buyer_detail/buyerModalSlice";
 
-const ImgCardExchangeMy = ({
+const ImgCardExchange = ({
   title,
   grade,
   genre,
@@ -12,20 +11,10 @@ const ImgCardExchangeMy = ({
   price,
   description,
   imageUrl,
-  exchangeId,
+  onClickReject,
+  onClickApprove,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const dispatch = useDispatch();
-
-  const handleCancelClick = () => {
-    dispatch(
-      openCancelModal({
-        exchangeId,
-        name: title,
-        grade,
-      })
-    );
-  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,14 +71,20 @@ const ImgCardExchangeMy = ({
       </div>
       <div className={styles.buttonWrapper}>
         <SecondaryBtn
-          text={isMobile ? "취소" : "취소하기"}
+          text={isMobile ? "거절" : "거절하기"}
           width={"100%"}
           height={isMobile ? "40px" : "60px"}
-          onClick={handleCancelClick}
+          onClick={onClickReject}
+        />
+        <PrimaryBtn
+          text={isMobile ? "승인" : "승인하기"}
+          width={"100%"}
+          height={isMobile ? "40px" : "60px"}
+          onClick={onClickApprove}
         />
       </div>
     </div>
   );
 };
 
-export default ImgCardExchangeMy;
+export default ImgCardExchange;
