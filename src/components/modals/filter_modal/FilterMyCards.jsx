@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setGradeFilter,
   setGenreFilter,
+  setFilteredCount,
 } from "../../../feature/photo_exchange/PhotoExchangeSlice";
 
 import icRefresh from "./assets/ic_refresh.png";
@@ -59,12 +60,19 @@ export default function Filter(props) {
     } else if (activeMenu === "장르") {
       dispatch(setGenreFilter(item.label));
     }
+    updateFilteredCount(item.label, activeMenu === "등급");
+  };
+
+  const updateFilteredCount = (filterValue, isGrade) => {
+    const count = isGrade ? gradeCounts[filterValue] : genreCounts[filterValue];
+    dispatch(setFilteredCount(count || 0));
   };
 
   // 필터 초기화 핸들러
   const handleResetFilters = () => {
     dispatch(setGradeFilter(""));
     dispatch(setGenreFilter(""));
+    dispatch(setFilteredCount(totalCount));
   };
 
   // 필터 적용 핸들러
