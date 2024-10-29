@@ -3,12 +3,12 @@ import style from "@styles/CardPageStyle.module.css";
 // import style from "./index.module.css"
 
 import MySaleCardHeader from "@feature/header_action/MySaleCardHeader";
-import MySaleCardRender from "@feature/card_render/my_sale_card/MySaleCardRender";
-import MySaleCardTotalState from "@feature/my_card_total_state/my_sale_card/MySaleCardTotalState";
+import MySaleCardRender from "@feature/card_render/my_shop/MySaleCardRender";
+import MySaleCardTotalState from "@feature/my_card_total_state/my_shop/MySaleCardTotalState";
 
-import MyGallerySearch from "@feature/card_filter/my_gallery/search/MyGallerySearch";
-import GradeButton from "@feature/card_filter/my_gallery/option/GradeButton";
-import GenreButton from "@feature/card_filter/my_gallery/option/GenreButton";
+import MyShopSearch from "@feature/card_filter/my_shop/search/MyShopSearch";
+import GradeButton from "@feature/card_filter/my_shop/option/GradeButton";
+import GenreButton from "@feature/card_filter/my_shop/option/GenreButton";
 
 export default function MyShop() {
 
@@ -20,7 +20,7 @@ export default function MyShop() {
 
       <section className={style.sectionFilter}>
         <div className={style.searchBarSize}>
-          <MyGallerySearch />
+          <MyShopSearch />
         </div>
 
         <div className={style.FilterBox}>

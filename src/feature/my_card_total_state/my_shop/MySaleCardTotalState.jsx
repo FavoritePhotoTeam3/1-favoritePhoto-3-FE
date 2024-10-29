@@ -10,14 +10,9 @@ export const  MyCardTotalState = () => {
   const { user } = useSelector((state) => state.auth);
   const { data } = useGetMySaleCardTotalSateQuery();
 
-  console.log("data: ", data);
   const nickname = user?.nickname;
-  const totalCount = data?.totalCount;
-  const gradeData = data?.formattedGradeCounts;
-
-  if (gradeData) {
-    console.log("gradeData: ", gradeData);
-  }
+  const totalCount = data?.totalCount || 0;
+  const gradeData = data?.gradeCount;
 
   return (
     <>

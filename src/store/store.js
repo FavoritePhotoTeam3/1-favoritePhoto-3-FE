@@ -11,7 +11,7 @@ import sellerModalSlice from "../feature/seller_detail/sellerModalSlice";
 import photoModifySlice from "../feature/photo_modify/photoModifySlice";
 import { shopSlice } from "../feature/card_render/shop/shopCardSlice";
 import { myGallerySlice } from "../feature/card_render/my_gallery/myGallerySlice";
-import { mySaleCardSlice } from "../feature/card_render/my_sale_card/mySaleCardSlice";
+import { myShopSlice } from "../feature/card_render/my_shop/myShopSlice";
 import { randomPointSlice } from "../feature/randomPoint/randomPointSlice";
 import { MarketModalStateSlice } from "../feature/card_state_control/regist_on_modal/MarketModalStateSlice";
 import { registShopDataSlice } from "../feature/card_state_control/regist/modals/registShopDataSlice";
@@ -26,7 +26,7 @@ export const store = configureStore({
     signup: signupSlice.reducer,
     shop: shopSlice.reducer,
     myGallery: myGallerySlice.reducer,
-    mySaleCard: mySaleCardSlice.reducer,
+    myShop: myShopSlice.reducer,
     photoCardForm: photoCardFormSlice.reducer,
     buyerModal: buyerModalSlice.reducer,
     photoExchange: photoExchangeSlice.reducer,

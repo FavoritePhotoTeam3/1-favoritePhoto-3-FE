@@ -4,7 +4,7 @@ import { USERS } from "@api/users";
 // API
 export const getMyCardTotalState = async () => {
   try {
-    const response = await USERS.get("/my-cards-count"); // api 주소 필요
+    const response = await USERS.get("/my-sales-count"); // api 주소 필요
     console.log("◆ API Log: response.data:", response.data);
     return response.data; // 서버로부터 받은 데이터 반환
   } catch (error) {

@@ -4,7 +4,7 @@ import style from "@styles/CardListRenderStyle.module.css";
 import MySaleCard from "./components/MySaleCard";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setMyCards } from "./mySaleCardSlice";
+import { setMyCards } from "./myShopSlice";
 
 import { useGetMySaleShopQuery } from "@hooks/query/useGetMySaleShopQuery";
 import { useImageLoadCheck } from "@hooks/card_render/useImageLoadCheck"; // 커스텀 훅
@@ -15,9 +15,9 @@ const MyCardGalleryRender = () => {
   const limit = 5; // 요청 페이지 사이즈
   const triggerCardIndex = 1; // Ref를 연동할 index -> 마지막에서 몇번째
 
-  const myCards = useSelector((state) => state.mySaleCard.myCards);
-  const keyword = useSelector((state) => state.mySaleCard.searchTerm);
-  const filterOptions = useSelector((state) => state.mySaleCard.filterOptions);
+  const myCards = useSelector((state) => state.myShop.myCards);
+  const keyword = useSelector((state) => state.myShop.keyword);
+  const filterOptions = useSelector((state) => state.myShop.filterOptions);
 
   const [imagesLoadedOnce, setImagesLoadedOnce] = useState(false); // 이미지 로드가 한 번 완료되었는지 상태 추적
 

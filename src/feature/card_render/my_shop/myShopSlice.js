@@ -11,8 +11,8 @@ const initialState = {
   }
 };
 
-export const mySaleCardSlice = createSlice({
-  name: "mySaleCard",
+export const myShopSlice = createSlice({
+  name: "myShop",
   initialState,
   reducers: {
     setMyCards: (state, action) => {
@@ -33,4 +33,4 @@ export const mySaleCardSlice = createSlice({
 });
 
 export const { setMyCards, setKeyword, setFilterOptions, clearState } =
-mySaleCardSlice.actions;
+myShopSlice.actions;
