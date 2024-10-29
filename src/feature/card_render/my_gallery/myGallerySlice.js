@@ -27,14 +27,7 @@ export const myGallerySlice = createSlice({
     },
 
     clearState(state) {
-      state.cards = [];
-      state.keyword = undefined;
-      state.filterOptions = {
-        grade: undefined,
-        soldOut: undefined,
-        genre: undefined,
-        sortOrder: undefined
-      }
+      state = initialState;
     }
   },
 });

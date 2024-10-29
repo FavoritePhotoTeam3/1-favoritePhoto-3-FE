@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  width: 100%;
+  text-align: left;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.outBox {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid #dddddd;
+  background-color: #0f0f0f;
+  overflow: auto;
+}
+
+.outBoxFocus {
+  width: 100%;
+  height: 100%;
+  padding: 18px 20px;
+  border: 1px solid #dddddd;
+  background-color: #161616;
+  overflow: auto;
+}
+
+.textArea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: left;
+  background-color: inherit;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  resize: none;
+  line-height: 23px;
+}
+
+.textArea::-webkit-scrollbar {
+  width: 12px;
+}
+
+.textArea::-webkit-scrollbar-track {
+  background: #212121;
+  border-radius: 10px;
+}
+
+.textArea::-webkit-scrollbar-thumb {
+  background-color: #131313;
+  border-radius: 8px;
+  border: 2px solid #212121;
+}
+
+.textArea::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

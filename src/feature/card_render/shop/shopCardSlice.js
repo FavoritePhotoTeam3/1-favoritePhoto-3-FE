@@ -26,14 +26,7 @@ export const shopSlice = createSlice({
       state.filterOptions[key] = value;
     },
     clearState(state) {
-      state.cards = [];
-      state.searchTerm = undefined;
-      state.filterOptions = {
-        grade: undefined,
-        soldOut: undefined,
-        genre: undefined,
-        sortOrder: undefined
-      }
+      state = initialState;
     }
   },
 });

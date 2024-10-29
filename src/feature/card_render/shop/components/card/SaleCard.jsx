@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import style from "./SaleCard.module.css";
+import style from "@styles/CardStyle.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 

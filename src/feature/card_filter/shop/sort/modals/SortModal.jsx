@@ -8,7 +8,6 @@ import { setFilterOptions } from "@feature/card_render/shop/shopCardSlice";
 export const SortModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();
   const option = [
-    { showOption: "ALL", param: undefined },
     { showOption: "낮은 가격순", param: "price_ASC " },
     { showOption: "높은 가격순", param: "price_DESC" },
   ];
