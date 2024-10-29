@@ -13,7 +13,7 @@ const CancelExchangeFailPage = () => {
   };
 
   const handleMarket = () => {
-    navigate("/market");
+    navigate("/");
   };
 
   return (

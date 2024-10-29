@@ -13,7 +13,7 @@ const CancelExchangeSuccessPage = () => {
   };
 
   const handleMySales = () => {
-    navigate("/mysales"); // 나의 판매 포토카드 경로 넣어야함
+    navigate("/myshop");
   };
 
   return (
