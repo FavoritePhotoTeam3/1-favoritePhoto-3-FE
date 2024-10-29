@@ -5,14 +5,14 @@ const initialState = {
   keyword: undefined,
   filterOptions: {
     grade: undefined,
-    isSoldOut: undefined,
     genre: undefined,
-    sortOrder: undefined,
+    isSoldOut: undefined,
+    salesType: undefined,
   }
 };
 
-export const myGallerySlice = createSlice({
-  name: "myGallery",
+export const myShopSlice = createSlice({
+  name: "myShop",
   initialState,
   reducers: {
     setMyCards: (state, action) => {
@@ -25,15 +25,12 @@ export const myGallerySlice = createSlice({
       const { key, value } = action.payload;
       state.filterOptions[key] = value;
     },
-    clearFilter: (state) => {
-      state.keyword = initialState.keyword;
-      state.filterOptions = initialState.filterOptions;
-    },
+
     clearState(state) {
       state = initialState;
     }
   },
 });
 
-export const { setMyCards, setKeyword, setFilterOptions, clearState, clearFilter } =
-myGallerySlice.actions;
+export const { setMyCards, setKeyword, setFilterOptions, clearState } =
+myShopSlice.actions;

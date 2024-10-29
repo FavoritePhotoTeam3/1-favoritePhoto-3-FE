@@ -7,7 +7,6 @@ import GenreModal from "./modals/GenreModal";
 //initOption
 //options
 export const GenreButton = () => {
-  const log = false
   const [currentOption, setCurrentOption] = useState("장르"); // 초기값 설정
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
@@ -33,7 +32,7 @@ export const GenreButton = () => {
   
         // 버튼과 모달 외부를 클릭한 경우에만 모달 닫기
         if (!isButtonClick && !isModalClick) {
-          log && console.log("버튼과 모달 외부를 클릭함");
+          console.log("버튼과 모달 외부를 클릭함");
           setIsOpen(false);
         }
       };
@@ -46,26 +45,26 @@ export const GenreButton = () => {
       document.addEventListener("mousedown", handleClickOutside);
       window.addEventListener("resize", handleResize);
   
-      log && console.log("이벤트 등록");
+      console.log("이벤트 등록");
   
       // 클린업 함수: isOpen이 false가 되면 리스너 제거
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
         window.removeEventListener("resize", handleResize);
-        log && console.log("이벤트 제거됨");
+        console.log("이벤트 제거됨");
       };
     }
-  }, [isOpen, log]);
+  }, [isOpen]);
 
   // currentOption 상태가 변경될 때 로그 확인
   useEffect(() => {
-    log && console.log("Current Option updated to:", currentOption);
-  }, [currentOption, log]);
+    console.log("Current Option updated to:", currentOption);
+  }, [currentOption]);
 
   const handleOptionSelect = (option) => {
     setCurrentOption(option);
     setIsOpen(false);
-    log && console.log(`Option selected: ${option}`);
+    console.log(`Option selected: ${option}`);
   };
 
   return (

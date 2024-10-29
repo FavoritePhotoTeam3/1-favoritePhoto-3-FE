@@ -29,7 +29,6 @@ import Market from "./page/market";
 import MyGallery from "./page/my_gallery";
 import MyGalleryDetail from "./page/my_card_detail";
 import MyShop from "./page/my_shop";
-import MySaleDetail from "./page/my_sale_card_detail";
 import CheckNoticeEvent from "./route/notice/checkNoticeEvent";
 import CheckPointEvent from "./route/randomPoint/checkPointEvent";
 
@@ -77,10 +76,6 @@ const router = createBrowserRouter([
               {
                 path: "/myshop",
                 element: <MyShop />,
-              },
-              {
-                path: "/myshop/:id",
-                element: <MySaleDetail />,
               },
               {
                 path: "/seller-detail/:shopId",

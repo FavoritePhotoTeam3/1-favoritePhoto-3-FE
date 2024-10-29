@@ -23,6 +23,19 @@
   overflow-y: auto;
 }
 
+.insideScrollSection::-webkit-scrollbar {
+  width: 8px;
+}
+
+.insideScrollSection::-webkit-scrollbar-thumb {
+  background-color: #5A5A5A;
+  border-radius: 2px;
+}
+
+.insideScrollSection::-webkit-scrollbar-thumb:hover {
+  background-color: #A4A4A4;
+}
+
 .modalHeaderText {
   font-family: "BR B";
   font-size: 1.5rem;
@@ -134,4 +147,36 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 0px 40px;
+}
+
+.sectionFilter {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 0px 60px 0px;
+  gap: 0px 60px;
+}
+
+.searchBarSize {
+  max-width: 320px;
+  min-width: 200px;
+  width: 100%;
+}
+
+.FilterBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 25px;
+}
+
+.dropDownBox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 45px;
 }

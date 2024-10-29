@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 
 import CardGradeByUser from "../components/CardGradeByUser";
 
-import { useGetMyGalleryTotalSateQuery } from "./useGetMyGalleryTotalSateQuery";
+import { useGetMySaleCardTotalSateQuery } from "./useGetMySaleCardTotalSateQuery";
 
-export const  MySaleCardTotalState = () => {
+export const  MyCardTotalState = () => {
   const { user } = useSelector((state) => state.auth);
-  const { data } = useGetMyGalleryTotalSateQuery();
+  const { data } = useGetMySaleCardTotalSateQuery();
 
   const nickname = user?.nickname;
   const totalCount = data?.totalCount || 0;
@@ -18,7 +18,7 @@ export const  MySaleCardTotalState = () => {
     <>
       <section className={style.sectionUserState}>
         <header className={style.SaleState}>
-          <p>{`${nickname}님이 보유한 포토카드`}</p>
+          <p>{`${nickname}님이 판매 중인 포토카드`}</p>
           <p
             className={style.totalPhotoCount}
           >{`(${totalCount}장)`}</p>
@@ -34,4 +34,4 @@ export const  MySaleCardTotalState = () => {
   );
 }
 
-export default MySaleCardTotalState;
+export default MyCardTotalState;
