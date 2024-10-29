@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import { TitleDetail } from "../../components/common/title/Title";
 import DescCardBuyer from "@components/desc_card/desc_card_buyer/DescCardBuyer";
-import ImgCardExchangeMy from "../../components/imgcard_exchange_my/ImgCardExchangeMy";
+import ImgCardExchangeMy from "../../components/img_card/imgcard_exchange_my/ImgCardExchangeMy";
 import { PrimaryBtn } from "../../components/common/btn/primaryBtn";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";

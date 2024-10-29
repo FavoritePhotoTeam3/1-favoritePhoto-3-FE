@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./PhotoExchangeDetail.module.css";
 import { TitleDetail } from "../../common/title/Title";
-import ImgCardMy from "../../imgcard_my/ImgCardMy";
+import ImgCardMy from "../../img_card/imgcard_my/ImgCardMy";
 import TextArea from "../../common/text_area/TextArea";
 import { SecondaryBtn } from "../../common/btn/secondary";
 import { PrimaryBtn } from "../../common/btn/primaryBtn";
