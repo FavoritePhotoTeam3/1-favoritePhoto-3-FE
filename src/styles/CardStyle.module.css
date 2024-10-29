@@ -39,13 +39,22 @@
   z-index: 100;
 }
 
-.sales {
-  padding: 4px 10px;
+.boxPosition {
   position : absolute;
   top : 10px;
   left : 10px;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.setFlexBox {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px 8px;
+}
+
+.sales {
+  padding: 4px 10px;
   color: #FFFFFF;
   background : rgba(0, 0, 0, 0.5);
   z-index : 100;
@@ -53,11 +62,6 @@
 
 .exchange {
   padding: 4px 10px;
-  position : absolute;
-  top : 10px;
-  left : 10px;
-  font-size: 1rem;
-  font-weight: 400;
   color: #EFFF04;
   background : rgba(0, 0, 0, 0.5);
   z-index : 100;

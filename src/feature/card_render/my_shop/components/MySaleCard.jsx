@@ -30,9 +30,16 @@ export const MySaleCard = ({ data }, ref) => {
       );
     }
     if (salesType === "sales") {
-      return <div className={style.sales}>판매 중</div>;
+      return <p className={`${style.sales} ${style.boxPosition}`}>판매 중</p>;
     } else if (salesType === "exchange") {
-      return <div className={style.exchange}>교환 제시 대기 중</div>;
+      return <p className={`${style.exchange} ${style.boxPosition}`}>교환 제시 대기 중</p>;
+    } else if (salesType === "sales/exchange") {
+      return (
+        <div className={`${style.setFlexBox} ${style.boxPosition}`}>
+          <p className={style.sales}>판매 중</p>;
+          <p className={style.exchange}>교환 제시 대기 중</p>;
+        </div>
+      );
     } else {
       return;
     }
