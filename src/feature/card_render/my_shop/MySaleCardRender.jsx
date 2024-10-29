@@ -82,11 +82,9 @@ const MyCardGalleryRender = () => {
   }, [isError, dispatch]);
 
   const renderCards = useMemo(() => {
-    return myCards.map((data) => (
-      <Link key={data.id} to={`/myshop/${data.id}` }>
-        <MySaleCard data={data} />
-      </Link>
-    ));
+    return myCards.map((data) => {
+      return <MySaleCard key={data.id} data={data} />;
+    });
   }, [myCards]);
 
   return (
