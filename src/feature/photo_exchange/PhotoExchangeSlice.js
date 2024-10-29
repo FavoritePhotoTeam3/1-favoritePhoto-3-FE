@@ -6,6 +6,10 @@ const initialState = {
   search: "",
   gradeFilter: "",
   genreFilter: "",
+  gradeCounts: {},
+  genreCounts: {},
+  filteredCount: 0,
+  totalCount: 0,
 };
 
 const photoExchangeSlice = createSlice({
@@ -30,6 +34,14 @@ const photoExchangeSlice = createSlice({
     setGenreFilter: (state, action) => {
       state.genreFilter = action.payload;
     },
+    setCounts: (state, action) => {
+      state.gradeCounts = action.payload.gradeCount;
+      state.genreCounts = action.payload.genreCount;
+      state.totalCount = action.payload.totalCount;
+    },
+    setFilteredCount: (state, action) => {
+      state.filteredCount = action.payload;
+    },
   },
 });
 
@@ -40,5 +52,7 @@ export const {
   setSearch,
   setGradeFilter,
   setGenreFilter,
+  setCounts,
+  setFilteredCount,
 } = photoExchangeSlice.actions;
 export default photoExchangeSlice;

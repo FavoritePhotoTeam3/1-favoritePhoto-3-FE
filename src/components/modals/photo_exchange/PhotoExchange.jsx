@@ -6,6 +6,8 @@ import {
   setSearch,
   setGradeFilter,
   setGenreFilter,
+  setCounts,
+  setFilteredCount,
 } from "../../../feature/photo_exchange/PhotoExchangeSlice";
 
 import { Title } from "../../common/title/Title";
@@ -14,9 +16,10 @@ import { DropdownNoneBorder } from "../../common/dropdown_normal/DropdownNormal"
 import styles from "./PhotoExchange.module.css";
 import ImgCardMy from "../../img_card/imgcard_my/ImgCardMy";
 import PhotoExchangeDetail from "./PhotoExchangeDetail";
-import Filter from "../filter_modal/FilterModal";
-import { useRef } from "react";
+import Filter from "../filter_modal/FilterMyCards";
+import { useEffect, useRef } from "react";
 import { useMyCards } from "../../../feature/photo_exchange/usePhotoExchange";
+import { useMyCardsCount } from "../../../feature/photo_exchange/useMyCardsCount";
 
 import dragThumb from "./assets/drag_thumb.svg";
 import backIcon from "./assets/back_icon.svg";
@@ -29,9 +32,17 @@ const PhotoExchange = ({ onClose, shopId, onSuccess }) => {
   const modalContentRef = useRef(null);
 
   const { data: imageCards, isLoading } = useMyCards(search);
+  const { data: myCardsCountData } = useMyCardsCount();
 
   const gradeOptions = ["COMMON", "RARE", "SUPER RARE", "LEGENDARY"];
   const genreOptions = ["풍경", "여행", "자연", "도시", "동물", "기타"];
+
+  useEffect(() => {
+    if (myCardsCountData) {
+      dispatch(setCounts(myCardsCountData));
+      dispatch(setFilteredCount(myCardsCountData.totalCount));
+    }
+  }, [myCardsCountData, dispatch]);
 
   // 이미지카드 클릭시 상세 페이지 보기
   const handleCardClick = (card) => {
