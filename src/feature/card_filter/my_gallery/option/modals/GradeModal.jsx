@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import ReactDOM from "react-dom";
-import style from "./ModalStyle.module.css"; // 모달 스타일
+import style from "@styles/PageFilterDropdownMenuStyle.module.css";
 
 import { useDispatch } from "react-redux";
 import { setFilterOptions } from "@feature/card_render/my_gallery/myGallerySlice";

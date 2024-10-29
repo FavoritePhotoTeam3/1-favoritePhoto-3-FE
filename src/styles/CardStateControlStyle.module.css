@@ -14,7 +14,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   max-width: 440px;
   min-width: 350px;
   width: 100%;
@@ -97,7 +96,7 @@
 }
 
 .btnBox {
-    margin-top: 50px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -111,3 +110,14 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 1000px) {
+  .whiteValue {
+    font-size: 1.25rem;
+  }
+  
+  .grayCount {
+    font-size: 1.25rem;
+  }
+}
+

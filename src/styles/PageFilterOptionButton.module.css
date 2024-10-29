@@ -2,6 +2,13 @@
   display: flex;
   position: relative;
 }
+
+.filterButton {
+  background-color: inherit;
+  padding: 12.5px;
+  border: 1px solid #DDDDDD;
+}
+
 .normalButton {
   display: flex;
   align-items: center;
@@ -16,6 +23,24 @@
   &:hover {
     cursor: pointer;
     border-radius: 10px;
+    background-color: #4b4b4b;
+  }
+}
+
+.borderButton {
+  width: 180px;
+  height: var(--desktop-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  background-color: inherit;
+  color: #ffffff;
+  padding: 10px 10px 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  &:hover {
+    cursor: pointer;
     background-color: #4b4b4b;
   }
 }
@@ -40,14 +65,20 @@
   background-color: #111111;
 }
 
-@media (max-width: 1199px) {
-  .dropdownMenu {
-    font-size: 14px;
+@media (max-width: 1200px) {
+  .normalButton {
+    font-size: 0.875rem;
+  }
+  .borderButton {
+    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 743px) {
-  .dropdownMenu {
-    font-size: 12px;
+  .normalButton {
+    font-size: 0.75rem;
+  }
+  .borderButton {
+    font-size: 0.75rem;
   }
 }

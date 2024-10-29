@@ -1,7 +1,8 @@
-main {
+.mainContainer {
   padding: 0px 20px;
-  width: 1480px;
+  max-width: 1480px;
   height: 100vh;
+  width: 100%;
 }
 
 .sectionFilter {
@@ -10,7 +11,19 @@ main {
   flex-direction: row;
   align-items: center;
   padding: 20px 0px 60px 0px;
-  gap: 0px 60px;
+  gap: 0px 50px;
+}
+
+.mobileSectionFilter {
+  width: 100%;
+  flex-direction: row;
+  padding: 15px 0px 20px 0px;
+  gap: 0px 10px;
+  display: none;
+}
+
+.searchBarMobileSize {
+  width: 100%;
 }
 
 .searchBarSize {
@@ -33,5 +46,41 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0px 45px;
+  gap: 0px 25px;
+}
+
+
+@media (max-width: 1200px) {
+  .sectionFilter {
+    gap: 0px 20px;
+    padding: 20px 0px 40px 0px;
+  }
+  .FilterBox {
+    gap: 0px 15px;
+  }
+  .dropDownBox {
+    gap: 0px 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .dropDownBox {
+    gap: 0px 5px;
+  }
+}
+
+@media (max-width: 744px) {
+  .sectionFilter {
+    display: none;
+  }
+
+  .mobileSectionFilter {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .mainContainer {
+    padding: 0px 15px;
+  }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import style from "@styles/CardPageStyle.module.css";
-// import style from "./index.module.css"
 
 import MySaleCardHeader from "@feature/header_action/MySaleCardHeader";
 import MySaleCardRender from "@feature/card_render/my_shop/MySaleCardRender";
@@ -10,11 +9,11 @@ import MyShopSearch from "@feature/card_filter/my_shop/search/MyShopSearch";
 import GradeButton from "@feature/card_filter/my_shop/option/GradeButton";
 import GenreButton from "@feature/card_filter/my_shop/option/GenreButton";
 
-export default function MyShop() {
+import FilterButton from "@feature/card_filter/mobile_filter/my_shop/Filterbutton";
 
-  console.log("my_gallery page rendered");
+export default function MyShop() {
   return (
-    <main className={style.main}>
+    <main className={style.mainContainer}>
       <MySaleCardHeader />
       <MySaleCardTotalState />
 
@@ -28,6 +27,13 @@ export default function MyShop() {
             <GradeButton />
             <GenreButton />
           </div>
+        </div>
+      </section>
+
+      <section className={style.mobileSectionFilter}>
+        <FilterButton />
+        <div className={style.searchBarMobileSize}>
+          <MyShopSearch />
         </div>
       </section>
 

@@ -167,3 +167,33 @@
 .legendary {
   color: #FF2A6A;
 }
+
+
+@media (max-width: 1200px) {
+  .contaier {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 743px) {
+  .contaier {
+    padding: 10px;
+  }
+  .cardInfo {
+    font-size: 0.875rem;
+  }
+  .infoLeftBox,
+  .nickname,
+  .price,
+  .remain,
+  .whiteCount,
+  .grayCount {
+    font-size: 0.625rem;
+  }
+  .quntitySection {
+    padding: 10px 0px 15px 0px;
+  }
+  .logoImage {
+    display: none;
+  }
+}

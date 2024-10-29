@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import style from "./buttonStyle.module.css";
+import style from "@styles/PageFilterOptionButton.module.css";
 
 import downArrow from "./assets/icon_arrowdown.svg";
 import IsSaleModal from "./modals/IsSaleModal";
@@ -7,7 +7,7 @@ import IsSaleModal from "./modals/IsSaleModal";
 //initOption
 //options
 export const IsSaleButton = () => {
-  const [currentOption, setCurrentOption] = useState("판매여부"); // 초기값 설정
+  const [currentOption, setCurrentOption] = useState("매진여부"); // 초기값 설정
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
   const modalRef = useRef(null);
