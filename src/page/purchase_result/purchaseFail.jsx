@@ -15,7 +15,7 @@ const PurchaseFailPage = () => {
   };
 
   const handleMarket = () => {
-    navigate("/market");
+    navigate("/");
   };
 
   return (

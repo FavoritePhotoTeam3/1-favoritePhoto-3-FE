@@ -1,5 +1,4 @@
 import React, { useMemo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import style from "@styles/CardListRenderStyle.module.css";
 import MySaleCard from "./components/MySaleCard";
 
