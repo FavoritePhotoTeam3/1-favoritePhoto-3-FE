@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import style from "./navLayout.module.css";
-import { Nav } from "../../feature/nav/nav";
+import { Nav } from "../../feature/nav/main/nav";
 import { useSelector } from "react-redux";
 import LoadingModal from "../../components/modals/loading/loadingModal";
 import RandomPoint from "../../feature/randomPoint/randomPoint";

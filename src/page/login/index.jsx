@@ -34,7 +34,14 @@ const LoginPage = () => {
   };
   return (
     <div className={style.login_Container}>
-      <img className={style.login_mainLogo} src={mainLogo} alt="" />
+      <img
+        onClick={() => {
+          window.location.href = "/";
+        }}
+        className={style.login_mainLogo}
+        src={mainLogo}
+        alt=""
+      />
       <form className={style.loginForm} onSubmit={onSubmit}>
         <LoginEmailInput />
         <LoginPasswordInput />

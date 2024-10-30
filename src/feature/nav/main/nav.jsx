@@ -8,15 +8,16 @@ import myLogo from "./assets/myLogo.png";
 import pointBox from "./assets/box2.png";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogoutQuery } from "./logoutQuery";
-import { randomModalController } from "../randomPoint/randomPointSlice";
+import { randomModalController } from "../../randomPoint/randomPointSlice";
 import NavNotice from "./nav_notice";
-import { noticeModalController } from "../../route/notice/noticeSlice";
+import { noticeModalController } from "../../../route/notice/noticeSlice";
 import NavProfile from "./nav_profile";
 
 export const Nav = () => {
+  const nav = useNavigate();
   const [profileOpen, setProfileOpen] = useState(false);
   return (
     <div className={style.nav_Wrapper}>
@@ -31,13 +32,15 @@ export const Nav = () => {
         />
         <img
           onClick={() => {
-            window.location.href = "/";
+            nav("/");
           }}
           className={style.nav_logo}
           src={logo}
           alt=""
         />
         <NavItem profileOpen={profileOpen} setProfileOpen={setProfileOpen} />
+        <div className={style.nav_itme_dummy}></div>
+        {/**정렬을 위한 더미 태그 입니다. */}
       </div>
     </div>
   );
@@ -119,14 +122,21 @@ const NavItem = ({ profileOpen, setProfileOpen }) => {
     );
   } else {
     return (
-      <div className={`${style.nav_item_container} ${style.notLogin}`}>
-        <Link to="/login" className={style.nav_item_text}>
-          로그인
-        </Link>
-        <Link to="/signup" className={style.nav_item_text}>
-          회원가입
-        </Link>
-      </div>
+      <>
+        <div className={`${style.nav_item_container} ${style.notLogin}`}>
+          <Link to="/login" className={style.nav_item_text}>
+            로그인
+          </Link>
+          <Link to="/signup" className={style.nav_item_text}>
+            회원가입
+          </Link>
+        </div>
+        <NavProfile
+          user={user}
+          isOpen={profileOpen}
+          openProfile={setProfileOpen}
+        />
+      </>
     );
   }
 };

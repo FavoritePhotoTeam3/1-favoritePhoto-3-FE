@@ -13,7 +13,6 @@ const Notice = () => {
   const isOpen = useSelector((state) => state.notice?.isOpen);
   const close = isOpen ? "" : "close";
 
-  console.log(notices);
   return (
     <div className={`${style.notice_Wrapper} ${style[close]}`}>
       <NoticeHeader />
@@ -35,21 +34,24 @@ export default Notice;
 
 const CardItem = ({ notice, index, id }) => {
   const dispatch = useDispatch();
-  const { content, timeAgo } = notice;
+  const { content, timeAgo, read } = notice;
   const noticeDelete = async () => {
     dispatch(popNotice(index));
     await NOTICE.delete(`/${id}`);
   };
-
+  const isComplete = read ? "readComplete" : "";
+  console.log(isComplete);
   return (
-    <div className={style.notice_item_Container}>
+    <div className={`${style.notice_item_Container} ${style[isComplete]}`}>
       <img
         onClick={noticeDelete}
         className={style.notice_item_deleteNotice}
         src={deleteNotice}
         alt=""
       />
-      <p className={style.notice_item_textArea}>{content}</p>
+      <p className={`${style.notice_item_textArea} ${style[isComplete]}`}>
+        {content}
+      </p>
       <span className={style.notice_item_time}>{timeAgo}</span>
     </div>
   );
