@@ -17,7 +17,6 @@ export const GradeSelectModal = ({ anchorRef, closeModal }, ref) => {
   const getModalPosition = () => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
     return {
-      top: buttonRect.bottom - 90,
       width: buttonRect.width,
     };
   };

@@ -115,4 +115,8 @@
   .outSide {
     align-items: flex-end;
   } 
+
+  .container {
+    max-width: 100%;
+  }
 }

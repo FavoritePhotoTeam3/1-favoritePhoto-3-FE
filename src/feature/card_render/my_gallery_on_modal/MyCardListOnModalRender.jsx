@@ -16,7 +16,7 @@ const MyCardListOnModalRender = () => {
   const triggerCardIndex = 1; // Ref를 연동할 index -> 마지막에서 몇번째
 
   const myCards = useSelector((state) => state.myGallery.myCards);
-  const keyword = useSelector((state) => state.myGallery.searchTerm);
+  const keyword = useSelector((state) => state.myGallery.keyword);
   const filterOptions = useSelector((state) => state.myGallery.filterOptions);
 
   const [imagesLoadedOnce, setImagesLoadedOnce] = useState(false); // 이미지 로드가 한 번 완료되었는지 상태 추적

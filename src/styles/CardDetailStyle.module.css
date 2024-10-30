@@ -56,3 +56,11 @@
   max-width: 440px;
   width: 100%;
 }
+
+
+@media (max-width: 1000px) {
+  .cardDetail {
+    flex-direction: column;
+    gap: 20px 0px;
+  }
+}
