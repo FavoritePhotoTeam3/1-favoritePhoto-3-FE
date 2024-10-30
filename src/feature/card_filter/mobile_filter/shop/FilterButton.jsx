@@ -38,7 +38,7 @@ export const FilterButton = () => {
   return (
     <>
       {isModalOpen && <OpenFilterModal />}
-      <button className={style.filterButton} onClick={toggleModal}>
+      <button className={style.maketFilterButton} onClick={toggleModal}>
         <img src={icFillter} alt="" />
       </button>
     </>

@@ -16,7 +16,8 @@
   position: relative;
 }
 
-.filterButton {
+.filterButton,
+.maketFilterButton {
   background-color: inherit;
   padding: 12.5px;
   border: 1px solid #DDDDDD;
@@ -42,7 +43,7 @@
 
 .borderButton {
   width: 180px;
-  height: var(--desktop-height);
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,11 +88,32 @@
   }
 }
 
-@media (max-width: 743px) {
+@media (max-width: 800px) {
+  .normalButton {
+    padding: 10px 5px 10px 10px;
+  } 
+
+  .borderButton {
+    width: 140px;
+    padding: 11.5px 15px;
+  }
+}
+
+@media (max-width: 744px) {
   .normalButton {
     font-size: 0.75rem;
   }
   .borderButton {
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .borderButton {
+    padding: 7.5px 15px;
+  }
+
+  .maketFilterButton {
+    padding: 7.5px;
   }
 }

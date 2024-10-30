@@ -8,7 +8,7 @@
 
 .listRenderOnMoalContainer {
   display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 440px)); /* 3개의 카드 */
+  grid-template-columns: repeat(2, minmax(170px, 440px)); /* 3개의 카드 */
   justify-content: space-between;
   width: 100%; /* 부모 컨테이너의 너비 */
   gap: 80px 20px;
@@ -32,7 +32,8 @@
 }
 
 @media (max-width: 1400px) {
-  .listRenderContainer {
+  .listRenderContainer,
+  .listRenderOnMoalContainer {
     gap: 50px 30px;
   }
 }
@@ -44,13 +45,15 @@
 }
 
 @media (max-width: 800px) {
-  .listRenderContainer {
+  .listRenderContainer,
+  .listRenderOnMoalContainer {
     gap: 20px 20px;
   }
 }
 
 @media (max-width: 500px) {
-  .listRenderContainer {
+  .listRenderContainer,
+  .listRenderOnMoalContainer {
     gap: 5px 5px;
   }
 }
