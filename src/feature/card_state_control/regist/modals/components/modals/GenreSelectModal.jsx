@@ -1,10 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { useEffect, forwardRef } from "react";
 import style from "./ModalStyle.module.css"; // 모달 스타일
 
 import { useDispatch } from "react-redux";
 import { setExchangeGenre } from "../../registShopDataSlice";
 
 export const GenreSelectModal = ({ anchorRef, closeModal }, ref) => {
+
   const dispatch = useDispatch();
   const option = [
     { showOption: "풍경", setOption: "풍경" },
@@ -15,16 +16,35 @@ export const GenreSelectModal = ({ anchorRef, closeModal }, ref) => {
     { showOption: "기타", setOption: "기타" },
   ];
 
+  
   // 모달이 버튼 아래에 위치하도록
   const getModalPosition = () => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
     return {
-      top: buttonRect.bottom - 90,
       width: buttonRect.width,
     };
   };
 
   const modalStyle = getModalPosition();
+
+  useEffect(() => {
+    const handleWheel = (event) => {
+      closeModal();
+    };
+
+    // 모달 요소에 스크롤 이벤트 추가
+    const modalElement = ref.current;
+    if (modalElement) {
+      modalElement.addEventListener("wheel", handleWheel);
+    }
+
+    // 컴포넌트가 언마운트되거나 리스너를 해제할 때
+    return () => {
+      if (modalElement) {
+        modalElement.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, [closeModal, ref]);
 
   const onOptionClick = (option) => {
     dispatch(setExchangeGenre(option.setOption));

@@ -20,30 +20,30 @@ export const GenreSelectButton = () => {
         if (!(event.target instanceof Node)) {
           return; // event.target이 Node가 아니면 더 이상 처리하지 않음
         }
-  
+
         // buttonRef와 modalRef가 null일 경우를 모두 방어
         const isButtonClick =
           buttonRef.current && buttonRef.current.contains(event.target);
         const isModalClick =
           modalRef.current && modalRef.current.contains(event.target);
-  
+
         // 버튼과 모달 외부를 클릭한 경우에만 모달 닫기
         if (!isButtonClick && !isModalClick) {
           console.log("버튼과 모달 외부를 클릭함");
           setIsOpen(false);
         }
       };
-  
+
       const handleResize = () => {
         // 브라우저 크기 변경 시 모달 닫기
         setIsOpen(false);
       };
-  
+
       document.addEventListener("mousedown", handleClickOutside);
       window.addEventListener("resize", handleResize);
-  
+
       console.log("이벤트 등록");
-  
+
       // 클린업 함수: isOpen이 false가 되면 리스너 제거
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
@@ -53,6 +53,7 @@ export const GenreSelectButton = () => {
     }
   }, [isOpen]);
 
+
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
@@ -61,8 +62,9 @@ export const GenreSelectButton = () => {
     setIsOpen(false);
   };
 
+
   return (
-    <>
+    <div className={style.dropdownContainer}>
       <button
         className={style.borderButton}
         onClick={toggleOpen}
@@ -82,7 +84,7 @@ export const GenreSelectButton = () => {
           closeModal={closeModal}
         />
       )}
-    </>
+    </div>
   );
 };
 
