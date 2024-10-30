@@ -29,11 +29,14 @@ export const myGallerySlice = createSlice({
       state.keyword = initialState.keyword;
       state.filterOptions = initialState.filterOptions;
     },
+    clearFilterOptionOnly: (state) => {
+      state.filterOptions = initialState.filterOptions;
+    },
     clearState(state) {
       state = initialState;
     }
   },
 });
 
-export const { setMyCards, setKeyword, setFilterOptions, clearState, clearFilter } =
+export const { setMyCards, setKeyword, setFilterOptions, clearState, clearFilter, clearFilterOptionOnly } =
 myGallerySlice.actions;

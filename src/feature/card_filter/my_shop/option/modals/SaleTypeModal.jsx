@@ -5,16 +5,12 @@ import style from "@styles/PageFilterDropdownMenuStyle.module.css";
 import { useDispatch } from "react-redux";
 import { setFilterOptions } from "@feature/card_render/my_shop/myShopSlice";
 
-export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
+export const SaleTypeModal = ({ anchorRef, onOptionSelect }, ref) => {
   const dispatch = useDispatch();
   const option = [
     { showOption: "ALL", param: undefined },
-    { showOption: "풍경", param: "풍경" },
-    { showOption: "여행", param: "여행" },
-    { showOption: "자연", param: "자연" },
-    { showOption: "도시", param: "도시" },
-    { showOption: "동물", param: "동물" },
-    { showOption: "기타", param: "기타" },
+    { showOption: "판매", param: "sales" },
+    { showOption: "교환", param: "exchange" },
   ];
 
   // 모달이 버튼 아래에 위치하도록
@@ -31,7 +27,7 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
   const modalStyle = getModalPosition();
 
   const onOptionClick = (option) => {
-    const dispatchOption = { key: "genre", value: option.param };
+    const dispatchOption = { key: "salesType", value: option.param };
     dispatch(setFilterOptions(dispatchOption));
     onOptionSelect(option.showOption);
   };
@@ -55,4 +51,4 @@ export const GenreModal = ({ anchorRef, onOptionSelect }, ref) => {
   );
 };
 
-export default forwardRef(GenreModal);
+export default forwardRef(SaleTypeModal);

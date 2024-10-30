@@ -42,3 +42,11 @@ USERS.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+
+USERS.interceptors.request.use((config) => {
+  console.log(`Final API URL: ${config.baseURL}${config.url}`);
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});

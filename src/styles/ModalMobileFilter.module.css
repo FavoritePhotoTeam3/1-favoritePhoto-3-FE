@@ -50,6 +50,18 @@
   width: 100%;
   height: 100%;
   color: #a4a4a4;
+  overflow-y: auto;
+}
+
+.selectorBox::-webkit-scrollbar {
+  width: 8px;
+  margin-left: 5px;
+}
+
+.selectorBox::-webkit-scrollbar-thumb {
+  background-color: #5a5a5a;
+  border-radius: 8px;
+
 }
 
 .list {

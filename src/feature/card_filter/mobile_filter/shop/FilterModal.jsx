@@ -7,17 +7,20 @@ import icClose from "../assets/ic_close.png";
 import PrimaryBtnAnother from "@components/common/btn/PrimaryBtnAnother";
 
 import { useDispatch } from "react-redux";
-import { setFilterOptions, clearFilterOptionOnly } from "@feature/card_render/my_gallery/myGallerySlice";
+import { setFilterOptions, clearFilterOptionOnly } from "@feature/card_render/shop/shopCardSlice";
 
 
 
 export default function Filter({ onClickClose, data}) {
   const dispatch = useDispatch();
   const totalCount = data?.totalCount || 0;
+  const soldOutCount = data?.soldOutCount || 0;
+  const notSoldOutCount = totalCount - soldOutCount;
   
   const menuList = [
     { label: "등급", key: "등급" },
     { label: "장르", key: "장르" },
+    { label: "매진여부", key: "매진여부" },
   ];
   
   const genreOptions = [
@@ -36,6 +39,10 @@ export default function Filter({ onClickClose, data}) {
     { key: "grade", showOption: "LEGENDARY", param: "LEGENDARY", colorStyle: "legendary", count: data?.gradeCount["LEGENDARY"] || 0  },
   ];
 
+  const soldOutOptions = [
+    { key: "isSoldOut", showOption: "판매 중", param: "false", count: notSoldOutCount },
+    { key: "isSoldOut", showOption: "매진", param: "true", count: soldOutCount },
+  ];
 
   const [activeMenu, setActiveMenu] = useState("등급");
   const [activeOptionList, setActiveOptionList] = useState(genreOptions);
@@ -49,6 +56,8 @@ export default function Filter({ onClickClose, data}) {
       setActiveOptionList(genreOptions);
     } else if (menu === "장르") {
       setActiveOptionList(gradeOptions);
+    } else if (menu === "매진여부") {
+      setActiveOptionList(soldOutOptions);
     }
   };
 

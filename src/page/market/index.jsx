@@ -4,12 +4,14 @@ import style from "@styles/CardPageStyle.module.css";
 import ShopCardRender from "@feature/card_render/shop/ShopCardRender";
 import MyPlaceHeader from "@feature/header_action/MarketHeader";
 
-import FilterButton from "@feature/card_filter/mobile_filter/shop/Filterbutton";
+
 import ShopSearch from "@feature/card_filter/shop/search/ShopSearch";
 import GradeButton from "@feature/card_filter/shop/option/GradeButton";
 import GenreButton from "@feature/card_filter/shop/option/GenreButton";
 import IsSaleButton from "@feature/card_filter/shop/option/IsSaleButton";
 import SortButton from "@feature/card_filter/shop/sort/SortButton";
+
+import FilterButton from "@feature/card_filter/mobile_filter/shop/FilterButton";
 
 export default function Market() {
   return (

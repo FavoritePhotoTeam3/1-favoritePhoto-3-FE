@@ -9,7 +9,7 @@ import MyGallerySearch from "@feature/card_filter/my_gallery/search/MyGallerySea
 import GradeButton from "@feature/card_filter/my_gallery/option/GradeButton";
 import GenreButton from "@feature/card_filter/my_gallery/option/GenreButton";
 
-import FilterButton from "@feature/card_filter/mobile_filter/my_gallery/Filterbutton";
+import FilterButton from "@feature/card_filter/mobile_filter/my_gallery/FilterButton";
 
 export default function MyGallery() {
 

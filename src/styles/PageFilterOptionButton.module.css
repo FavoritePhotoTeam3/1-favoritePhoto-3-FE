@@ -1,3 +1,16 @@
+.outSideMobileFilter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.8); /* 배경을 반투명 처리 */
+  z-index: 1000; /* 다른 요소들보다 위에 표시되도록 설정 */
+}
+
 .dropdownNormal {
   display: flex;
   position: relative;

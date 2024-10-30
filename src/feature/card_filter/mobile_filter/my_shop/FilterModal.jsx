@@ -7,17 +7,23 @@ import icClose from "../assets/ic_close.png";
 import PrimaryBtnAnother from "@components/common/btn/PrimaryBtnAnother";
 
 import { useDispatch } from "react-redux";
-import { setFilterOptions, clearFilterOptionOnly } from "@feature/card_render/my_gallery/myGallerySlice";
+import {
+  setFilterOptions,
+  clearFilterOptionOnly,
+} from "@feature/card_render/my_gallery/myGallerySlice";
 
-
-
-export default function Filter({ onClickClose, data}) {
+export default function Filter({ onClickClose, data }) {
   const dispatch = useDispatch();
   const totalCount = data?.totalCount || 0;
-  
+  const sellingCount = data?.typeCount.shop.count || 0;
+  const exchangeCount = data?.typeCount.exchange || 0; 
+  const soldOutCount = data?.typeCount.shop.isSoldOut || 0;
+
   const menuList = [
     { label: "등급", key: "등급" },
     { label: "장르", key: "장르" },
+    { label: "판매방법", key: "판매방법" },
+    { label: "매진여부", key: "매진여부" },
   ];
   
   const genreOptions = [
@@ -36,12 +42,19 @@ export default function Filter({ onClickClose, data}) {
     { key: "grade", showOption: "LEGENDARY", param: "LEGENDARY", colorStyle: "legendary", count: data?.gradeCount["LEGENDARY"] || 0  },
   ];
 
+  const saleTypeOptions = [
+    { key: "saleType", showOption: "판매", param: "sales", count: sellingCount + soldOutCount },
+    { key: "saleType", showOption: "교환", param: "exchange", count: exchangeCount },]
+
+
+  const soldOutOptions = [
+    { key: "isSoldOut", showOption: "판매 중", param: false, count: totalCount - soldOutCount},
+    { key: "isSoldOut", showOption: "매진", param: true, count: soldOutCount},
+  ];
 
   const [activeMenu, setActiveMenu] = useState("등급");
   const [activeOptionList, setActiveOptionList] = useState(genreOptions);
   const [curruntSelectOption, setCurrentSelectOption] = useState(null);
-
-
 
   const onMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -49,6 +62,10 @@ export default function Filter({ onClickClose, data}) {
       setActiveOptionList(genreOptions);
     } else if (menu === "장르") {
       setActiveOptionList(gradeOptions);
+    } else if (menu === "판매방법") {
+      setActiveOptionList(saleTypeOptions);
+    } else if (menu === "매진여부") {
+      setActiveOptionList(soldOutOptions);
     }
   };
 
@@ -57,7 +74,7 @@ export default function Filter({ onClickClose, data}) {
   };
 
   const handleResetFilters = () => {
-    setActiveMenu("등급")
+    setActiveMenu("등급");
     setActiveOptionList(genreOptions);
   };
 
@@ -66,8 +83,18 @@ export default function Filter({ onClickClose, data}) {
     if (!curruntSelectOption) {
       onClickClose();
     } else {
-      const dispatchOption = { key: curruntSelectOption.key, value: curruntSelectOption.param };
+      const dispatchOption = {
+        key: curruntSelectOption.key,
+        value: curruntSelectOption.param,
+      };
       dispatch(setFilterOptions(dispatchOption));
+      if(curruntSelectOption.key === "isSoldOut"){
+        const dispatchOptionWith = {
+          key: "salesType",
+          value: "sales",
+        };
+        dispatch(setFilterOptions(dispatchOptionWith));
+      }
       onClickClose();
     }
   };
@@ -99,24 +126,32 @@ export default function Filter({ onClickClose, data}) {
       </ul>
 
       <ul className={style.selectorBox}>
-        {activeOptionList.map((option) => (
-          <li
-            key={option.showOption}
-            className={style.list}
-            onClick={() => onOptionClick(option)}
-          >
-            <p
-              className={`${style.listText} ${option.key === "grade" ? font[option.colorStyle] : ""}`}
+        {activeOptionList.map((option) => {
+          return (
+            <li
+              key={option.showOption}
+              className={style.list}
+              onClick={() => onOptionClick(option)}
             >
-              {option.showOption}
-            </p>
-            <p className={style.listText}>{`${option.count}개`}</p>
-          </li>
-        ))}
+              <p
+                className={`${style.listText} ${
+                  option.key === "grade" ? font[option.colorStyle] : ""
+                }`}
+              >
+                {option.showOption}
+              </p>
+              <p className={style.listText}>{`${option.count}개`}</p>
+            </li>
+          );
+        })}
       </ul>
 
       <section className={style.btnBox}>
-        <img src={icRefresh} alt="새로고침" onClick={() => handleResetFilters()} />
+        <img
+          src={icRefresh}
+          alt="새로고침"
+          onClick={() => handleResetFilters()}
+        />
         <div className={style.btnSize}>
           <PrimaryBtnAnother
             text={

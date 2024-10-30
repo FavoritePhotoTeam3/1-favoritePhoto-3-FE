@@ -8,8 +8,10 @@ import MySaleCardTotalState from "@feature/my_card_total_state/my_shop/MySaleCar
 import MyShopSearch from "@feature/card_filter/my_shop/search/MyShopSearch";
 import GradeButton from "@feature/card_filter/my_shop/option/GradeButton";
 import GenreButton from "@feature/card_filter/my_shop/option/GenreButton";
+import SaleTypeButton from "@feature/card_filter/my_shop/option/SaleTypeButton";
+import IsSaleButton from "@feature/card_filter/my_shop/option/IsSaleButton";
 
-import FilterButton from "@feature/card_filter/mobile_filter/my_shop/Filterbutton";
+import FilterButton from "@feature/card_filter/mobile_filter/my_shop/FilterButton";
 
 export default function MyShop() {
   return (
@@ -26,6 +28,8 @@ export default function MyShop() {
           <div className={style.dropDownBox}>
             <GradeButton />
             <GenreButton />
+            <SaleTypeButton />
+            <IsSaleButton />
           </div>
         </div>
       </section>
