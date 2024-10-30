@@ -37,7 +37,6 @@ export const useLoginQuery = () => {
         dispatch(APIrequestPending({ isPending: false }));
       }
       if (status === 401) {
-        console.log(message);
         dispatch(setErrorMessage({ message, column: "password" }));
         dispatch(APIrequestPending({ isPending: false }));
       }

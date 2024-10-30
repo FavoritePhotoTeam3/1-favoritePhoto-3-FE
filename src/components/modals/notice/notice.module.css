@@ -41,7 +41,7 @@
     background-color: #222222;
     position: relative;
   }
-  .notice_item_Container.complete {
+  .notice_item_Container.readComplete {
     background-color: #161616;
   }
   .notice_item_Container:hover > .notice_item_deleteNotice {
@@ -74,7 +74,7 @@
     margin: 0px 0px;
   }
 
-  .notice_item_textArea.complete {
+  .notice_item_textArea.read {
     font-weight: 300;
     color: #a4a4a4;
   }
@@ -123,6 +123,7 @@
     background-color: #5a5a5a;
     border-radius: 10px;
   }
+
   .notice_item_Container {
     display: flex;
     flex-direction: column;
@@ -138,8 +139,7 @@
     background-color: #222222;
     position: relative;
   }
-
-  .notice_item_Container.complete {
+  .notice_item_Container.readComplete {
     background-color: #161616;
   }
 
@@ -171,7 +171,7 @@
     margin: 0px 0px;
   }
 
-  .notice_item_textArea.complete {
+  .notice_item_textArea.readComplete {
     font-weight: 300;
     color: #a4a4a4;
   }
@@ -234,7 +234,7 @@
     background-color: #222222;
     position: relative;
   }
-  .notice_item_Container.complete {
+  .notice_item_Container.readComplete {
     background-color: #161616;
   }
 
@@ -267,7 +267,7 @@
     margin: 0px 0px;
   }
 
-  .notice_item_textArea.complete {
+  .notice_item_textArea.readComplete {
     font-weight: 300;
     color: #a4a4a4;
   }
