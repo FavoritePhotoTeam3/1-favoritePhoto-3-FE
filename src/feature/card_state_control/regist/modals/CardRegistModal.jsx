@@ -19,7 +19,6 @@ export const CardRegistModal = ({ dataId, onClickClose }) => {
     return <p>데이터를 찾을 수 없습니다.</p>;
   }
 
-  const cardId = myCards.id;
   const name = myCards.name;
   const imageURL = myCards.imageURL;
 
@@ -72,7 +71,7 @@ export const CardRegistModal = ({ dataId, onClickClose }) => {
               </div>
               <div className={style.btnContainer}>
                 <CancleButton closeModal={onClickClose} />
-                <RegistButton cardId={cardId} closeModal={onClickClose} />
+                <RegistButton dataId={dataId} />
               </div>
             </section>
           </section>

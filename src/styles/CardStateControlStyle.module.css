@@ -110,14 +110,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-@media (max-width: 1000px) {
-  .whiteValue {
-    font-size: 1.25rem;
-  }
-  
-  .grayCount {
-    font-size: 1.25rem;
-  }
-}
-

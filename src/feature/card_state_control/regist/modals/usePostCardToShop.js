@@ -21,11 +21,11 @@ export const usePostCardToShop = () => {
     mutationFn: postCardToShop,
     onSuccess: (data) => {
       console.log("요청 성공:", data);
-      alert("임시 메세지 : 판매 등록 성공했습니다");
+      // alert("임시 메세지 : 판매 등록 성공했습니다");
     },
     onError: (error) => {
       console.error("요청 실패:", error.message);
-      alert(`임시 메세지 : 판매 등록 실패 : ${error.message}`);
+      // alert(`임시 메세지 : 판매 등록 실패 : ${error.message}`);
     },
   });
 };

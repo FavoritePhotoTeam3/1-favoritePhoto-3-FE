@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  Id: undefined,
-  cardId: undefined,
+  Id: null,
+  cardId: null,
   price: 0,
   totalCount: 0,
   exchangeGrade: "", // 선택적

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import style from "./RegistButton.module.css";
+import { useNavigate } from "react-router-dom";
 import PrimaryBtnAnother from "@components/common/btn/PrimaryBtnAnother";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -7,11 +7,19 @@ import { setId, setCardId, clearState } from "../registShopDataSlice";
 
 import { usePostCardToShop } from "../usePostCardToShop";
 
-export const RegistButton = ({ cardId, closeModal }) => {
+export const RegistButton = ({ dataId }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const mutation = usePostCardToShop();
+  const { mutate, isSuccess, isError } = usePostCardToShop();
 
   const userId = useSelector((state) => state.auth.user.id);
+  const myCards = useSelector((state) =>
+    state.myGallery.myCards.find((item) => item.id === parseInt(dataId))
+  );
+
+  const cardId = myCards.id;
+  const cardName = myCards.name;
+  const cardGrade = myCards.grade;
 
   useEffect(() => {
     dispatch(setId(userId));
@@ -27,10 +35,35 @@ export const RegistButton = ({ cardId, closeModal }) => {
     if (!registShopData.price && !registShopData.totalCount) {
       alert("판매 수량과 가격을 입력해야 합니다.");
     } else {
-      mutation.mutate(registShopData);
-      closeModal();
+      mutate(registShopData);
+      // closeModal();
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/regist-result", {
+        state: {
+          result: true,
+          grade: cardGrade,
+          name: cardName,
+          count: registShopData.totalCount,
+        },
+      });
+    } else if (isError) {
+      navigate("/regist-result", {
+
+
+
+        state: {
+          result: false,
+          grade: cardGrade,
+          name: cardName,
+          count: registShopData.totalCount,
+        },
+      });
+    }
+  }, [isSuccess, isError, navigate, registShopData, cardGrade, cardName]);
 
   return (
     <PrimaryBtnAnother text="판매하기" font="medium" onClick={handleOnClick} />
