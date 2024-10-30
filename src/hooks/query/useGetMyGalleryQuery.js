@@ -3,13 +3,13 @@ import { USERS } from "../../api/users";
 
 // API
 export const getMyGalleryCards = async ({
-  cursor,
+  pageParam,
   limit,
   keyword,
   filterOptions,
 }) => {
   const params = {
-    cursor: cursor,
+    cursor: pageParam,
     limit: limit,
     keyword: keyword,
     ...filterOptions,
@@ -21,7 +21,7 @@ export const getMyGalleryCards = async ({
       params,
     });
 
-    console.log("◆◆◆ API Full Request URL:", requestUrl);
+    console.log("◆◆◆ API Full Request URL mycards:", requestUrl);
 
     const response = await USERS.get("/my-cards", { params });
     console.log("◆ API Log: response.data:", response.data, "Params:", params);
@@ -53,10 +53,9 @@ export const useGetMyGalleryQuery = (
 ) => {
   const query = useInfiniteQuery({
     queryKey: ["myCards", limit, keyword, filterOptions],
-    queryFn: ({ cursor = null }) => {
-      return getMyGalleryCards({ cursor, limit, keyword, filterOptions });
+    queryFn: ({ pageParam = null }) => {
+      return getMyGalleryCards({ pageParam, limit, keyword, filterOptions });
     },
-    initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
       console.log(
         "◆ Query Log : 페이지 크기:",

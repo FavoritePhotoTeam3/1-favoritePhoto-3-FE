@@ -11,8 +11,8 @@ import { useIntersectionObserver } from "@hooks/card_render/useIntersectionObser
 
 const MyCardGalleryRender = () => {
   const dispatch = useDispatch();
-  const limit = 5; // 요청 페이지 사이즈
-  const triggerCardIndex = 1; // Ref를 연동할 index -> 마지막에서 몇번째
+  const limit = 9; // 요청 페이지 사이즈
+  const triggerCardIndex = 4; // Ref를 연동할 index -> 마지막에서 몇번째
 
   const myCards = useSelector((state) => state.myShop.myCards);
   const keyword = useSelector((state) => state.myShop.keyword);
