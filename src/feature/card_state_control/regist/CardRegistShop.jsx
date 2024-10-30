@@ -9,7 +9,7 @@ import CardRegistModal from "./modals/CardRegistModal";
 export const CardRegistShop = ({ data }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const id = data.id;
-  const price = data.card?.purchasePrice || 0;
+  const price = data.purchasePrice || 0;
   // const totalCount = data.totalCount;
   const remainingCount = data.remainingCount;
 
