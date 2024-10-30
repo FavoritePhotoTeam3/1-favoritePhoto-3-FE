@@ -1,6 +1,6 @@
 .listRenderContainer {
   display: grid;
-  grid-template-columns: repeat(3, minmax(260px, 440px)); /* 3개의 카드 */
+  grid-template-columns: repeat(3, minmax(100px, 440px)); /* 3개의 카드 */
   justify-content: space-between;
   width: 100%; /* 부모 컨테이너의 너비 */
   gap: 80px 30px;
@@ -8,7 +8,7 @@
 
 .listRenderOnMoalContainer {
   display: grid;
-  grid-template-columns: repeat(2, minmax(170px, 440px)); /* 3개의 카드 */
+  grid-template-columns: repeat(2, minmax(100px, 440px)); /* 3개의 카드 */
   justify-content: space-between;
   width: 100%; /* 부모 컨테이너의 너비 */
   gap: 80px 20px;
@@ -40,7 +40,7 @@
 
 @media (max-width: 1000px) {
   .listRenderContainer {
-    grid-template-columns: repeat(2, minmax(170px, 440px));
+    grid-template-columns: repeat(2, minmax(100px, 440px));
   }
 }
 
