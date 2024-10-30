@@ -15,10 +15,17 @@ export const getMyGalleryCards = async ({
     ...filterOptions,
   };
   try {
+    // URL과 파라미터를 포함한 전체 요청 URI 생성
+    const requestUrl = USERS.getUri({
+      url: "/my-cards",
+      params,
+    });
+
+    console.log("◆◆◆ API Full Request URL:", requestUrl);
+
     const response = await USERS.get("/my-cards", { params });
     console.log("◆ API Log: response.data:", response.data, "Params:", params);
     return response.data; // 서버로부터 받은 데이터 반환
-
   } catch (error) {
     // 에러 세부 정보 로깅
     console.error(
@@ -32,7 +39,9 @@ export const getMyGalleryCards = async ({
 
     // 에러 던지기
     throw new Error(
-      `Error fetching shop cards: ${error.response?.data?.message || error.message}`
+      `Error fetching shop cards: ${
+        error.response?.data?.message || error.message
+      }`
     );
   }
 };
