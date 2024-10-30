@@ -71,7 +71,7 @@ const CreatePhotoCardPage = () => {
     formData.append("name", name);
     formData.append("grade", grade);
     formData.append("genre", genre);
-    formData.append("purchasePrice", price);
+    formData.append("price", price);
     formData.append("totalCount", totalCount);
     formData.append("imageURL", image);
     formData.append("description", description);
