@@ -8,7 +8,7 @@ const initialState = {
     isSoldOut: undefined,
     genre: undefined,
     sortOrder: undefined,
-  }
+  },
 };
 
 export const shopSlice = createSlice({
@@ -25,11 +25,19 @@ export const shopSlice = createSlice({
       const { key, value } = action.payload;
       state.filterOptions[key] = value;
     },
+    clearFilterOptionOnly: (state) => {
+      state.filterOptions = initialState.filterOptions;
+    },
     clearState(state) {
       state = initialState;
-    }
+    },
   },
 });
 
-export const { setCards, setSearchTerm, setFilterOptions, clearState } =
-  shopSlice.actions;
+export const {
+  setCards,
+  setSearchTerm,
+  setFilterOptions,
+  clearState,
+  clearFilterOptionOnly,
+} = shopSlice.actions;

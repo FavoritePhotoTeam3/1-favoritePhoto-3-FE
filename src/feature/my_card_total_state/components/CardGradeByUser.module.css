@@ -26,3 +26,17 @@
   color: #FF2A6A;
   border: 1px solid #FF2A6A;
 }
+
+
+@media (max-width: 1000px) {
+  .gradeBox {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .gradeBox {
+    font-size: 0.75rem;
+  }
+}

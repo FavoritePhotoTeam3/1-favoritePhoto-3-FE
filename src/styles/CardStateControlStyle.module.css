@@ -1,20 +1,19 @@
 .outSide {
   position: fixed;
-  top: 0;
   left: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8); /* 배경을 반투명 처리 */
-  z-index: 1000; /* 다른 요소들보다 위에 표시되도록 설정 */
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000; 
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   max-width: 440px;
   min-width: 350px;
   width: 100%;
@@ -97,7 +96,7 @@
 }
 
 .btnBox {
-    margin-top: 50px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -110,4 +109,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .outSide {
+    align-items: flex-end;
+  } 
 }

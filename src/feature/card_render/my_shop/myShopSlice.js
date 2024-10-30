@@ -25,12 +25,14 @@ export const myShopSlice = createSlice({
       const { key, value } = action.payload;
       state.filterOptions[key] = value;
     },
-
+    clearFilterOptionOnly: (state) => {
+      state.filterOptions = initialState.filterOptions;
+    },
     clearState(state) {
       state = initialState;
     }
   },
 });
 
-export const { setMyCards, setKeyword, setFilterOptions, clearState } =
+export const { setMyCards, setKeyword, setFilterOptions, clearState, clearFilterOptionOnly } =
 myShopSlice.actions;

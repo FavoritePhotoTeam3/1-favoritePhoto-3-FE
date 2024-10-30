@@ -36,7 +36,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
 }
 
 .boxPosition {
@@ -117,7 +116,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px 0px;
-
 }
 
 .price,
@@ -166,4 +164,49 @@
 
 .legendary {
   color: #FF2A6A;
+}
+
+
+@media (max-width: 1200px) {
+  .contaier {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 743px) {
+  .contaier {
+    padding: 10px;
+  }
+  .cardInfo {
+    font-size: 0.875rem;
+    gap: 5px 0px;
+    padding: 10px 0px;
+  }
+  .infoLeftBox,
+  .nickname,
+  .price,
+  .remain,
+  .whiteCount,
+  .grayCount {
+    font-size: 0.625rem;
+  }
+  .quntitySection {
+    padding: 10px 0px 15px 0px;
+  }
+  .logoImage {
+    display: none;
+  }
+
+  .common,
+  .rare,
+  .superrare,
+  .legendary {
+    font-size: 0.625rem;
+    font-weight: 300;
+  }
+
+  .quntitySection {
+    padding: 10px 0px 0px 0px;
+    gap: 5px 0px;
+  }
 }

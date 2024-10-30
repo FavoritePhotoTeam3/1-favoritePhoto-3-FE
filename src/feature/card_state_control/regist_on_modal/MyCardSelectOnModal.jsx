@@ -6,6 +6,7 @@ import MyGallerySearch from "@feature/card_filter/my_gallery/search/MyGallerySea
 import GradeButton from "@feature/card_filter/my_gallery/option/GradeButton";
 import GenreButton from "@feature/card_filter/my_gallery/option/GenreButton";
 import MyCardListOnModalRender from "@feature/card_render/my_gallery_on_modal/MyCardListOnModalRender";
+import FilterButton from "@feature/card_filter/mobile_filter/my_gallery/FilterButton";
 
 import { useDispatch, useSelector } from "react-redux";
 import { clearState } from "@feature/card_state_control/regist_on_modal/MarketModalStateSlice";
@@ -41,12 +42,18 @@ export const MyCardSelectOnModal = ({ onClickClose }) => {
               <div className={style.searchBarSize}>
                 <MyGallerySearch />
               </div>
-
               <div className={style.FilterBox}>
                 <div className={style.dropDownBox}>
                   <GradeButton />
                   <GenreButton />
                 </div>
+              </div>
+            </section>
+
+            <section className={style.mobileSectionFilter}>
+              <FilterButton />
+              <div className={style.searchBarMobileSize}>
+                <MyGallerySearch />
               </div>
             </section>
 
@@ -57,10 +64,10 @@ export const MyCardSelectOnModal = ({ onClickClose }) => {
     );
   };
 
-  return (
-  giveId 
-  ? <CardRegistModal dataId={giveId} onClickClose={handleOnClickClose} />
-  : <SelectMyCard />
+  return giveId ? (
+    <CardRegistModal dataId={giveId} onClickClose={handleOnClickClose} />
+  ) : (
+    <SelectMyCard />
   );
 };
 

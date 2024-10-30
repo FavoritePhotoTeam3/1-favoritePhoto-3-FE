@@ -26,6 +26,7 @@ import StateHandler from "./route/redux/stateHandler";
 
 import LoginPage from "./page/login";
 import Market from "./page/market";
+import RegistResult from "./page/regist_result";
 import MyGallery from "./page/my_gallery";
 import MyGalleryDetail from "./page/my_card_detail";
 import MyShop from "./page/my_shop";
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             element: <AuthValidation />,
             children: [
               // 로그인 상태에서만 들어갈 수 있는 라우터 입니다.
+              {
+                path: "/regist-result",
+                element: <RegistResult />,
+              },
               {
                 path: "/mygallery",
                 element: <MyGallery />,

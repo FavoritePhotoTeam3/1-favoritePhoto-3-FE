@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import ReactDOM from "react-dom";
-import style from "./ModalStyle.module.css"; // 모달 스타일
+import style from "@styles/PageFilterDropdownMenuStyle.module.css";
 
 import { useDispatch } from "react-redux";
 import { setFilterOptions } from "@feature/card_render/shop/shopCardSlice";
@@ -17,7 +17,7 @@ export const SortModal = ({ anchorRef, onOptionSelect }, ref) => {
     const buttonRect = anchorRef.current.getBoundingClientRect();
     const modalwidth = buttonRect.width
     return {
-      top: buttonRect.bottom + window.scrollY + 5,
+      top: buttonRect.bottom + window.scrollY,
       left: buttonRect.right + window.scrollX - modalwidth,
       width: modalwidth
     };

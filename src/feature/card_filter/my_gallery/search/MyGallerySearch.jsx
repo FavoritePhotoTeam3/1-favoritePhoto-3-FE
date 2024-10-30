@@ -10,20 +10,10 @@ export const ShopSearch = () => {
   const [inputValue, setInputValue] = useState("");
 
   const handleOnKeyDown = (e) => {
-    if (e.key === "Enter") {
-      console.log(
-        "♣ 컴포넌트 로그 : onKeyDown 이벤트 실행 > inputValue:",
-        inputValue
-      );
       dispatch(setKeyword(inputValue));
-    }
   };
 
   const handleOnClick = () => {
-    console.log(
-      "♣ 컴포넌트 로그 : onClick 이벤트 실행 > inputValue:",
-      inputValue
-    );
     dispatch(setKeyword(inputValue));
   };
 

@@ -48,7 +48,6 @@
   padding-right: 40px;
   width: 100%;
   height: 100%;
-  /* height: 1300px; */
   display: flex;
   flex-direction: column;
 }
@@ -179,4 +178,58 @@
   justify-content: flex-start;
   align-items: center;
   gap: 0px 45px;
+}
+
+.mobileSectionFilter {
+  width: 100%;
+  flex-direction: row;
+  padding: 15px 0px 20px 0px;
+  gap: 0px 10px;
+  display: none;
+}
+
+.searchBarMobileSize {
+  width: 100%;
+}
+
+
+@media (max-width: 1000px) {
+  .modalContainer {
+    max-height: 95%;
+    padding: 50px 10px 0px 20px;
+  }
+  .modalHeaderText {
+    font-size: 1rem;
+  }
+  .cardHeader {
+    font-size: 2.5rem;
+  }
+  .cardContainer {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cardHeader {
+    padding-top: 20px;
+  }
+  .sectionFilter {
+    display: none;
+  }
+  .mobileSectionFilter {
+    display: flex;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .cardHeader {
+    padding-top: 15px;
+  }
+  .modalHeaderText {
+    font-size: 0.875rem;
+  }
+  .cardHeader {
+    font-size: 1.625rem;
+  }
 }

@@ -1,6 +1,6 @@
 .sectionUserState {
   width: 100%;
-  padding: 40px 0px 20px 0px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px 0px;
@@ -27,26 +27,39 @@
   display: flex;
   justify-content: flex-start;
   gap: 0px 20px;
-  padding-bottom: 20px;
   overflow-y: auto;
+  padding-bottom: 40px;
 }
 
-.gradeContainer::-webkit-scrollbar {
-  height: 8px;
+
+@media (max-width: 1000px) {
+  .SaleState {
+    font-size: 1.25rem;
+  }
+  .totalPhotoCount {
+    font-size: 1.125rem;
+  }
+  .gradeContainer {
+    gap: 0px 10px;
+  }
 }
 
-.gradeContainer::-webkit-scrollbar-track {
-  background: #212121;
-  border-radius: 10px;
+@media (max-width: 500px) {
+  .sectionUserState {
+    width: 100%;
+    padding-top: 20px;
+  }
+  .SaleState {
+    font-size: 0.875rem;
+  }
+  .totalPhotoCount {
+    font-size: 0.75rem;
+  }
+  .sectionUserState {
+    gap: 15px 0px;
+  }
+  .gradeContainer {
+    padding-bottom: 15px;
+  }
 }
 
-.gradeContainer::-webkit-scrollbar-thumb {
-  min-width: 101px;
-  background-color: #131313;
-  border-radius: 10px;
-  border: 2px solid #212121;
-}
-
-.gradeContainer::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import style from "./buttonStyle.module.css";
+import style from "@styles/PageFilterOptionButton.module.css";
 
 import downArrow from "./assets/icon_arrowdown.svg";
 import SortModal from "./modals/SortModal";

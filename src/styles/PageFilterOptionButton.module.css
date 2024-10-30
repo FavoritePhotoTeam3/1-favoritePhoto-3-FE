@@ -1,0 +1,119 @@
+.outSideMobileFilter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.8); /* 배경을 반투명 처리 */
+  z-index: 1000; /* 다른 요소들보다 위에 표시되도록 설정 */
+}
+
+.dropdownNormal {
+  display: flex;
+  position: relative;
+}
+
+.filterButton,
+.maketFilterButton {
+  background-color: inherit;
+  padding: 12.5px;
+  border: 1px solid #DDDDDD;
+}
+
+.normalButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  width: var(--desktop-width);
+  height: var(--desktop-height);
+  background-color: inherit;
+  color: #ffffff;
+  padding: 10px 10px 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  &:hover {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #4b4b4b;
+  }
+}
+
+.borderButton {
+  width: 180px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #DDDDDD;
+  background-color: inherit;
+  color: #ffffff;
+  padding: 10px 10px 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  &:hover {
+    cursor: pointer;
+    background-color: #4b4b4b;
+  }
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.normalButton .arrowIcon {
+  margin-left: 10px;
+}
+
+.menuOpen {
+  transform: rotate(180deg);
+}
+
+
+.option:hover {
+  cursor: pointer;
+  background-color: #111111;
+}
+
+@media (max-width: 1200px) {
+  .normalButton {
+    font-size: 0.875rem;
+  }
+  .borderButton {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .normalButton {
+    padding: 10px 5px 10px 10px;
+  } 
+
+  .borderButton {
+    width: 140px;
+    padding: 11.5px 15px;
+  }
+}
+
+@media (max-width: 744px) {
+  .normalButton {
+    font-size: 0.75rem;
+  }
+  .borderButton {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .borderButton {
+    padding: 7.5px 15px;
+  }
+
+  .maketFilterButton {
+    padding: 7.5px;
+  }
+}

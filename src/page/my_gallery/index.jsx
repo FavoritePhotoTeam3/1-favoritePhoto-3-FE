@@ -9,11 +9,13 @@ import MyGallerySearch from "@feature/card_filter/my_gallery/search/MyGallerySea
 import GradeButton from "@feature/card_filter/my_gallery/option/GradeButton";
 import GenreButton from "@feature/card_filter/my_gallery/option/GenreButton";
 
+import FilterButton from "@feature/card_filter/mobile_filter/my_gallery/FilterButton";
+
 export default function MyGallery() {
 
   console.log("my_gallery page rendered");
   return (
-    <main className={style.main}>
+    <main className={style.mainContainer}>
       <MyGalleryHeader />
       <MyGalleryTotalState />
 
@@ -27,6 +29,13 @@ export default function MyGallery() {
             <GradeButton />
             <GenreButton />
           </div>
+        </div>
+      </section>
+
+      <section className={style.mobileSectionFilter}>
+        <FilterButton />
+        <div className={style.searchBarMobileSize}>
+          <MyGallerySearch />
         </div>
       </section>
 

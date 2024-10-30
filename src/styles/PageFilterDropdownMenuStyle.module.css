@@ -25,14 +25,14 @@
   background-color: #A4A4A4;
 }
 
-@media (max-width: 1199px) {
-  .dropdownMenu {
-    font-size: 14px;
+@media (max-width: 1200px) {
+  .option {
+    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 743px) {
-  .dropdownMenu {
-    font-size: 12px;
+  .option {
+    font-size: 0.75rem;
   }
 }
