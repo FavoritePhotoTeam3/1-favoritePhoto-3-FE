@@ -3,13 +3,13 @@ import { USERS } from "../../api/users";
 
 // API
 export const getMySaleCards = async ({
-  cursor,
+  pageParam,
   limit,
   keyword,
   filterOptions,
 }) => {
   const params = {
-    cursor: cursor,
+    cursor: pageParam,
     limit: limit,
     keyword: keyword,
     ...filterOptions,
@@ -54,10 +54,9 @@ export const useGetMySaleShopQuery = (
 ) => {
   const query = useInfiniteQuery({
     queryKey: ["mySaleCards", limit, keyword, filterOptions],
-    queryFn: ({ cursor = null }) => {
-      return getMySaleCards({ cursor, limit, keyword, filterOptions });
+    queryFn: ({ pageParam = null }) => {
+      return getMySaleCards({ pageParam, limit, keyword, filterOptions });
     },
-    initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
       console.log(
         "◆ Query Log : 페이지 크기:",
