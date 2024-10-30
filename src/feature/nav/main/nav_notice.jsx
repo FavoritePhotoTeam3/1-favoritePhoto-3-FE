@@ -1,4 +1,4 @@
-import Notice from "../../components/modals/notice/notice";
+import Notice from "../../../components/modals/notice/notice";
 
 const NavNotice = () => {
   return <Notice />;

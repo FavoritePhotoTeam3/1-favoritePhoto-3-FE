@@ -23,12 +23,14 @@
     align-items: center;
 
     width: 100%;
-    max-width: 1479.94px;
     height: 25.2px;
 
     background-color: #0f0f0f;
   }
   .nav_item_menu {
+    display: none;
+  }
+  .nav_itme_dummy {
     display: none;
   }
 
@@ -158,13 +160,15 @@
     align-items: center;
 
     width: 100%;
-    max-width: 664px;
     height: 24px;
 
     background-color: #0f0f0f;
   }
 
   .nav_item_menu {
+    display: none;
+  }
+  .nav_itme_dummy {
     display: none;
   }
 
@@ -176,9 +180,10 @@
 
   .nav_item_container {
     display: flex;
-    width: 241px; /* 코드잇 피그마 스케일 281px*/
+    justify-content: center;
+    align-items: center;
     height: 24px;
-    gap: 20px; /* 코드잇 피그마 스케일 30px*/
+    gap: 15px; /* 코드잇 피그마 스케일 30px*/
 
     box-sizing: border-box;
     padding-top: 2px;
@@ -271,7 +276,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 424px) {
   .nav_Wrapper {
     display: flex;
     justify-content: center;
@@ -313,6 +318,9 @@
     width: 83.37px;
     height: 15.12px;
     cursor: pointer;
+  }
+  .nav_itme_dummy {
+    display: none;
   }
 
   .nav_item_point {
@@ -369,6 +377,15 @@
 
   .nav_item_text {
     display: none;
+  }
+  .nav_item_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+
+    gap: 5px;
   }
   .nav_item_container.notLogin {
     display: none;

@@ -101,7 +101,7 @@
 
     position: absolute;
     top: 0;
-    z-index: 2;
+    z-index: 200;
     background-color: rgba(0, 0, 0, 0.8);
   }
   .random_Container {
@@ -202,7 +202,7 @@
 
     position: absolute;
     top: 0;
-    z-index: 2;
+    z-index: 200;
     background-color: rgba(0, 0, 0, 0.8);
   }
   .random_Container {

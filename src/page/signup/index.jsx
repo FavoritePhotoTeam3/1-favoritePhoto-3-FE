@@ -43,7 +43,14 @@ const SignupPage = () => {
   return (
     <div className={style.join_Wrapper}>
       <div className={style.join_Container}>
-        <img className={style.join_mainLogo} src={mainLogo} alt="" />
+        <img
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className={style.join_mainLogo}
+          src={mainLogo}
+          alt=""
+        />
         <form className={style.joinForm} onSubmit={onSubmit}>
           <SignupEmailInput />
           <SignpuNicknameInput />

@@ -1,4 +1,4 @@
-import Profile from "../../components/modals/profile/profile";
+import Profile from "../../../components/modals/profile/profile";
 
 const NavProfile = ({ user, isOpen, openProfile }) => {
   return <Profile user={user} isOpen={isOpen} openProfile={openProfile} />;

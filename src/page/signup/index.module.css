@@ -31,6 +31,8 @@
 
     box-sizing: border-box;
     margin-bottom: 40px;
+
+    cursor: pointer;
   }
   .joinForm {
     display: flex;
@@ -86,6 +88,8 @@
 
     box-sizing: border-box;
     margin-bottom: 40px;
+
+    cursor: pointer;
   }
   .joinForm {
     display: flex;
@@ -144,6 +148,8 @@
 
     box-sizing: border-box;
     margin-bottom: 40px;
+
+    cursor: pointer;
   }
   .joinForm {
     display: flex;
