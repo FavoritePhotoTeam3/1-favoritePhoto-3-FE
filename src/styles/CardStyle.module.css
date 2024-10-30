@@ -90,7 +90,8 @@
 .subtitle {
   width: 100%;
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  gap: 0px 10px;
 }
 
 .infoLeftBox {
@@ -208,5 +209,19 @@
   .quntitySection {
     padding: 10px 0px 0px 0px;
     gap: 5px 0px;
+  }
+
+  .infoLeftBox {
+    gap: 0px 5px;
+  }
+
+  .cardInfo {
+    overflow-x: hidden;
+    
+  }
+
+  .nickname {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
