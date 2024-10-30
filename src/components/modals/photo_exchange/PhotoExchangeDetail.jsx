@@ -47,7 +47,15 @@ const PhotoExchangeDetail = ({
       </div>
       <div className={styles.cardDetail}>
         <div className={styles.cardWrapper}>
-          <ImgCardMy {...card} />
+          <ImgCardMy
+            title={card.name}
+            grade={card.grade}
+            genre={card.genre}
+            nickname={card.user.nickname}
+            price={card.purchasePrice || 0}
+            remainingCount={card.remainingCount}
+            imageURL={card.imageURL}
+          />
         </div>
         <div>
           <div className={styles.textareaWrapper}>

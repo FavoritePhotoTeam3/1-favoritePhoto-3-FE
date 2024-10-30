@@ -13,7 +13,7 @@ export default function CancelExchangeAsking() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { exchangeId, name, grade } = useSelector(
-    (state) => state.modal.selectedExchangeInfo
+    (state) => state.buyerModal.selectedExchangeInfo
   );
 
   const handleCancelConfirm = async () => {
