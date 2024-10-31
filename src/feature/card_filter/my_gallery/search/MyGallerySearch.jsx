@@ -10,7 +10,9 @@ export const ShopSearch = () => {
   const [inputValue, setInputValue] = useState("");
 
   const handleOnKeyDown = (e) => {
+    if (e.key === "Enter") {
       dispatch(setKeyword(inputValue));
+    }
   };
 
   const handleOnClick = () => {

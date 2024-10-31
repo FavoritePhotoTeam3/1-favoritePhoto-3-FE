@@ -27,24 +27,6 @@ export const GenreSelectModal = ({ anchorRef, closeModal }, ref) => {
 
   const modalStyle = getModalPosition();
 
-  useEffect(() => {
-    const handleWheel = (event) => {
-      closeModal();
-    };
-
-    // 모달 요소에 스크롤 이벤트 추가
-    const modalElement = ref.current;
-    if (modalElement) {
-      modalElement.addEventListener("wheel", handleWheel);
-    }
-
-    // 컴포넌트가 언마운트되거나 리스너를 해제할 때
-    return () => {
-      if (modalElement) {
-        modalElement.removeEventListener("wheel", handleWheel);
-      }
-    };
-  }, [closeModal, ref]);
 
   const onOptionClick = (option) => {
     dispatch(setExchangeGenre(option.setOption));
