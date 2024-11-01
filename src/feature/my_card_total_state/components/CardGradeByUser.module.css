@@ -1,0 +1,42 @@
+.gradeBox {
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.common {
+  color: #EFFF04;
+  border: 1px solid #EFFF04;
+}
+
+.rare {
+  color: #29C9F9;
+  border: 1px solid #29C9F9;
+}
+
+.superrare {
+  color: #A77EFF;
+  border: 1px solid #A77EFF;
+}
+
+.legendary {
+  color: #FF2A6A;
+  border: 1px solid #FF2A6A;
+}
+
+
+@media (max-width: 1000px) {
+  .gradeBox {
+    padding: 6px 10px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .gradeBox {
+    font-size: 0.75rem;
+  }
+}

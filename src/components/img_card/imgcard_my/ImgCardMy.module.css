@@ -1,0 +1,145 @@
+.imgCard {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background-color: #161616;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+.imgCardWrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  height: 100%;
+  max-height: 270px;
+  overflow: hidden;
+  background-color: #161616;
+}
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cardContent {
+  margin-top: 25px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.cardSubtitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #5a5a5a;
+  font-size: 16px;
+}
+.cardGrade {
+  font-weight: 300;
+  padding-right: 10px;
+}
+.cardGenre {
+  font-weight: 400;
+  color: #a4a4a4;
+  padding-left: 10px;
+  border-left: 1px solid #5a5a5a;
+}
+.cardNickname {
+  font-weight: 400;
+  color: #a4a4a4;
+  text-decoration: underline;
+  margin-left: auto;
+}
+.common {
+  color: #efff04;
+}
+.rare {
+  color: #29c9f9;
+}
+.superRare {
+  color: #a77eff;
+}
+.legendary {
+  color: #ff2a6a;
+}
+.cardPrice {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+.priceName {
+  font-size: 16px;
+  font-weight: 300;
+  color: #a4a4a4;
+}
+.price {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+.cardCounts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.countsName {
+  font-size: 16px;
+  font-weight: 300;
+  color: #a4a4a4;
+}
+.counts {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+.logoImage {
+  width: 100px;
+  height: 18px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
+@media (max-width: 1199px) {
+  .imgCard {
+    padding: 20px;
+  }
+  .cardContent {
+    margin-bottom: 30px;
+  }
+}
+/* @media (max-width: 743px) {
+  .imgCard {
+    padding: 10px;
+  }
+  .cardContent {
+    margin-bottom: 0;
+  }
+  .cardTitle {
+    font-size: 14px;
+  }
+  .cardSubtitle {
+    font-size: 13px;
+  }
+  .priceName,
+  .price,
+  .countsName,
+  .counts {
+    font-size: 10px;
+  }
+  .logoImage {
+    display: none;
+  }
+} */

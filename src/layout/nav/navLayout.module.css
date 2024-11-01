@@ -1,0 +1,30 @@
+@media screen and (min-width: 745px) {
+  .layout_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #0f0f0f;
+
+    box-sizing: border-box;
+    margin-top: 80px;
+  }
+}
+@media screen and (max-width: 744px) {
+  .layout_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #0f0f0f;
+
+    box-sizing: border-box;
+    margin-top: 70px;
+  }
+}

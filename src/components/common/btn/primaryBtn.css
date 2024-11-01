@@ -1,0 +1,43 @@
+.primary_btn_wrapper {
+  display: flex;
+  width: 440px;
+  height: 80px;
+}
+
+.primary_btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #efff04;
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary_btn_container.alt {
+  background-color: #5a5a5a;
+}
+
+.primary_btn_text {
+  font-size: 1.25rem; /* 16 : 20 = 1 : 1.25*/
+  font-weight: 700;
+  align-content: center;
+  color: #0f0f0f;
+}
+
+.primary_btn_text.alt {
+  color: #a4a4a4;
+}
+
+.primary_btn_text.approve {
+  font-size: 0.75rem; /* 16 : 12 = 1 : 0.75*/
+  font-weight: 700;
+  align-content: center;
+  color: #0f0f0f;
+}

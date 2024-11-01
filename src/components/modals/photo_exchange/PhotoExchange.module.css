@@ -1,0 +1,213 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+.modalContainer {
+  width: 1160px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 120px;
+  padding-right: 80px;
+
+  position: relative;
+  background-color: #161616;
+  display: flex;
+  justify-content: center;
+}
+.modalContent {
+  width: 100%;
+  padding-right: 40px;
+  position: relative;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modalContent::-webkit-scrollbar {
+  width: 8px;
+}
+.modalContent::-webkit-scrollbar-thumb {
+  background-color: #5a5a5a;
+  border-radius: 2px;
+}
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
+.backIcon {
+  display: none;
+}
+.closeButton {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  text-align: center;
+  line-height: 32px;
+
+  background-color: inherit;
+  color: #a4a4a4;
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+}
+.dragZone {
+  display: none;
+}
+.mainWrapper {
+  width: 100%;
+}
+.logo {
+  color: #a4a4a4;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "BR B";
+  text-align: start;
+
+  margin-bottom: 40px;
+}
+.title {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.filter {
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+.filterWrapper {
+  display: flex;
+  gap: 45px;
+}
+.filterMobile {
+  display: none;
+}
+.imageCardContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+@media (max-width: 1199px) {
+  .modalContainer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 0;
+  }
+  .modalContent {
+    width: 100%;
+    padding: 15px 20px;
+  }
+  .modalContent::-webkit-scrollbar {
+    display: none;
+  }
+  .closeButton {
+    display: none;
+  }
+  .dragZone {
+    display: block;
+    position: absolute;
+    top: 15px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .filter {
+    gap: 30px;
+  }
+  .filterWrapper {
+    gap: 25px;
+  }
+  .imageCardContainer {
+    gap: 20px;
+  }
+}
+@media (max-width: 743px) {
+  .modalContainer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .filter {
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .filterWrapper {
+    display: none;
+  }
+  .filterMobile {
+    order: -1;
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .searchBarWrapper {
+    width: 100%;
+  }
+  .imageCardContainer {
+    grid-template-columns: 1fr;
+  }
+  /*상세보기 모바일사이즈*/
+  .mobileDetailContainer {
+    padding-top: 0;
+    background-color: #0f0f0f;
+    height: 100vh;
+  }
+  .mobileDetailBack {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .mobileDetailThumb {
+    display: none;
+  }
+  /*필터 모바일 사이즈*/
+  .filterModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    z-index: 300;
+  }
+  .filterModal {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1b1b1b;
+    border-radius: 16px 16px 0 0;
+  }
+}

@@ -1,0 +1,65 @@
+.inputNickname_Container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  width: 100%;
+
+  gap: 10px;
+}
+
+.input_nickname_title {
+  font-size: 1.125rem; /* 16 : 18 = 1 : 1.125*/
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 26.06px;
+}
+
+.input_nickname {
+  width: 100%;
+  height: 60px;
+  padding-left: 20px;
+
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+
+  background-color: #0f0f0f;
+  color: #ffffff;
+
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  text-align: start;
+}
+
+.input_nickname.invalid {
+  border: 1px solid #ff483d;
+}
+.input_nickname::placeholder {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+  color: #dddddd;
+  text-align: start;
+}
+
+.input_nickname:focus {
+  outline: 1px solid #dddddd;
+  border: 1px solid #dddddd;
+  background-color: #161616;
+}
+.input_nickname.invalid:focus {
+  outline: 1px solid #ff483d;
+  border: 1px solid #ff483d;
+  background-color: #161616;
+}
+.input_nickname_valid.invalid {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 23.17px;
+  color: #ff483d;
+}
+.input_nickname_valid {
+  display: none;
+}

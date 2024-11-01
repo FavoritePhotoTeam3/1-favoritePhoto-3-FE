@@ -1,0 +1,227 @@
+.contaier {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 440px;
+  width: 100%;
+  padding: 40px;
+  background-color: #161616;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.imgWrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  height: 100%;
+  overflow: hidden;
+  background-color: #161616;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.soldOut {
+  opacity: 0.4;
+}
+
+.soldOutImage {
+  width: 70%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.boxPosition {
+  position : absolute;
+  top : 10px;
+  left : 10px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.setFlexBox {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px 8px;
+}
+
+.sales {
+  padding: 4px 10px;
+  color: #FFFFFF;
+  background : rgba(0, 0, 0, 0.5);
+  z-index : 100;
+}
+
+.exchange {
+  padding: 4px 10px;
+  color: #EFFF04;
+  background : rgba(0, 0, 0, 0.5);
+  z-index : 100;
+}
+
+.contentSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 0px;
+  border-bottom: 1px solid #5A5A5A;
+  color: #FFFFFF;
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.subtitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+}
+
+.infoLeftBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #a4a4a4;
+}
+
+.nickname {
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+.quntitySection {
+  padding: 20px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 0px;
+}
+
+.price,
+.remain {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #a4a4a4;
+}
+
+.whiteCount {
+  font-size: 1.125rem;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.grayCount {
+  font-size: 1.125rem;
+  color: #a4a4a4;
+  font-weight: 300;
+}
+
+.common,
+.rare,
+.superrare,
+.legendary {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.common {
+  color: #EFFF04;
+}
+
+.rare {
+  color: #29C9F9;
+}
+
+.superrare {
+  color: #A77EFF;
+}
+
+.legendary {
+  color: #FF2A6A;
+}
+
+
+@media (max-width: 1200px) {
+  .contaier {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 743px) {
+  .contaier {
+    padding: 10px;
+  }
+  .cardInfo {
+    font-size: 0.875rem;
+    gap: 5px 0px;
+    padding: 10px 0px;
+  }
+  .infoLeftBox,
+  .nickname,
+  .price,
+  .remain,
+  .whiteCount,
+  .grayCount {
+    font-size: 0.625rem;
+  }
+  .quntitySection {
+    padding: 10px 0px 15px 0px;
+  }
+  .logoImage {
+    display: none;
+  }
+
+  .common,
+  .rare,
+  .superrare,
+  .legendary {
+    font-size: 0.625rem;
+    font-weight: 300;
+  }
+
+  .quntitySection {
+    padding: 10px 0px 0px 0px;
+    gap: 5px 0px;
+  }
+
+  .infoLeftBox {
+    gap: 0px 5px;
+  }
+
+  .cardInfo {
+    overflow-x: hidden;
+    
+  }
+
+  .nickname {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

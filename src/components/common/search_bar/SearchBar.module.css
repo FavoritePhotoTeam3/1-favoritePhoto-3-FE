@@ -1,0 +1,35 @@
+.container {
+  padding: 13px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #dddddd;
+  background-color: #0f0f0f;
+}
+
+.input {
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  text-align: left;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 11.5px 20px;
+  }
+  .input {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 743px) {
+  .input {
+    font-size: 0.75rem;
+  }
+}

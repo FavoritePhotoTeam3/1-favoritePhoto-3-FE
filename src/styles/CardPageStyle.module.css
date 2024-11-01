@@ -1,0 +1,145 @@
+.mainContainer {
+  padding: 0px 20px;
+  max-width: 1480px;
+  height: 100vh;
+  width: 100%;
+}
+
+.sectionFilter,
+.sectionMarketFilter {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 0px 60px 0px;
+  gap: 0px 50px;
+}
+
+.mobileMarketSectionFilter {
+  display: none;
+  width: 100%;
+  min-height: 110px;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 20px 0px;
+}
+
+.mobileSearchBarSection {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #5a5a5a;
+}
+
+.mobileFilterSection {
+  width: 100%;
+  height: 100%;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobileSectionFilter {
+  width: 100%;
+  flex-direction: row;
+  padding: 15px 0px 20px 0px;
+  gap: 0px 10px;
+  display: none;
+}
+
+.searchBarMobileSize {
+  width: 100%;
+}
+
+.searchBarSize {
+  max-width: 320px;
+  min-width: 200px;
+  width: 100%;
+}
+
+.FilterBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 25px;
+}
+
+.dropDownBox,
+.marketDropDownBox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px 25px;
+}
+
+.marketFilterButton {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .sectionFilter,
+  .sectionMarketFilter {
+    gap: 0px 20px;
+    padding: 20px 0px 40px 0px;
+  }
+  .FilterBox {
+    gap: 0px 15px;
+  }
+  .dropDownBox {
+    gap: 0px 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .dropDownBox {
+    gap: 0px 5px;
+  }
+  .FilterBox {
+    gap: 0px 5px;
+  }
+  .sectionMarketFilter {
+    justify-content: space-between;
+    gap: 10px
+  }
+  .marketDropDownBox {
+    display: none;
+  }
+
+  .marketFilterButton {
+    display: flex;
+  }
+}
+
+@media (max-width: 744px) {
+  .sectionFilter {
+    display: none;
+  }
+
+  .dropDownBox {
+    display: none;
+  }
+
+  .filterButton {
+    display: flex;
+  }
+
+  .mobileSectionFilter {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .sectionMarketFilter {
+    display: none;
+  }
+  .mobileMarketSectionFilter {
+    display: flex;
+  }
+  .mainContainer {
+    padding: 0px 15px;
+  }
+}
